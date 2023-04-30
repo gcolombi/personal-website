@@ -10,9 +10,7 @@ export interface Mail {
     subject: string;
     attachments?: Attachment[];
     send: () => Promise<void>;
-    generateTemplate: () => {
-        html: string;
-    };
+    generateTemplate: () => MailTemplate;
 }
 
 export type Labels = {
