@@ -1,5 +1,12 @@
-import React, { useState, createContext, useContext, ReactNode, Dispatch, SetStateAction } from 'react';
 import gsap from 'gsap';
+import {
+    useState,
+    createContext,
+    useContext,
+    ReactNode,
+    Dispatch,
+    SetStateAction
+} from 'react';
 
 interface TransitionContextType {
     timeline: GSAPTimeline | null;

@@ -1,4 +1,6 @@
 import '@/styles/style.scss';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -10,6 +12,8 @@ const inter = Inter({
     subsets: ['latin'],
     display: 'swap'
 });
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function App({ Component, pageProps }: AppProps) {
     const router = useRouter();
