@@ -18,13 +18,12 @@
     --card-padding-lr: 2.5rem;
     --center-padding-t: 8rem;
     --center-padding-b: 6rem;
+    --center-width: 200px;
 
     --callout-rgb: 20, 20, 20;
     --callout-border-rgb: 108, 108, 108;
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
-
-    padding: var(--navigation-height) 0 0;
 
     &__main {
         display: flex;
@@ -128,6 +127,7 @@
         justify-content: center;
         align-items: center;
         padding: var(--center-padding-t) 0 var(--center-padding-b);
+        width: var(--center-width);
     }
 
     // **---------------------------------------------------**
@@ -140,6 +140,7 @@
         --card-padding-lr: 1.2rem;
         --center-padding-t: 4rem;
         --center-padding-b: 4rem;
+        --center-width: 300px;
 
         &__description {
             flex-direction: row;
