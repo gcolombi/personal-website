@@ -2,7 +2,7 @@ import styles from '@/styles/modules/Navigation.module.scss';
 import Link from 'next/link';
 import useNavigationContext from '@/context/navigationContext';
 import useElementSize from '@/hooks/useElementSize';
-import Logo from '../svg/Logo';
+import Logo from './shared/svg/Logo';
 import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
 import classNames from 'classnames';
