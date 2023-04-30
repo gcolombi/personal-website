@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import Footer from './Footer';
+import Navigation from './shared/Navigation';
+import Footer from './shared/Footer';
 
 export default function Layout({
     children
@@ -8,6 +9,7 @@ export default function Layout({
 }) {
     return (
         <>
+            <Navigation />
             <main>
                 {children}
                 <Footer />

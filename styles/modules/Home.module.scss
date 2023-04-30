@@ -24,6 +24,8 @@
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
 
+    padding: var(--navigation-height) 0 0;
+
     &__main {
         display: flex;
         flex-direction: column;
