@@ -5,6 +5,7 @@ const nextConfig = {
         additionalData: `
             @import
             'styles/settings/_config.scss',
+            'styles/settings/_config.eases.scss',
             'styles/objects/_mediaq.scss';
         `
     }
@@ -13,7 +14,6 @@ const nextConfig = {
 module.exports = nextConfig;
 
 // 'styles/settings/_config.colors.scss',
-// 'styles/settings/_config.eases.scss',
 // 'styles/settings/_config.typography.scss',
 // 'styles/tools/mixins/_button.scss',
 // 'styles/tools/mixins/_container.scss',
