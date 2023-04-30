@@ -48,6 +48,7 @@ export type Rotate = {
     y?: string;
     xTo?: number;
     yTo?: number;
+    transformOrigin?: string;
 } & AnimationProperties;
 
 export type Scale = {
@@ -59,6 +60,7 @@ export type Scale = {
     y?: string;
     xTo?: number;
     yTo?: number;
+    transformOrigin?: string;
 } & AnimationProperties;
 
 export type Translate = {
@@ -68,4 +70,5 @@ export type Translate = {
     y?: string;
     xTo?: number;
     yTo?: number;
+    transformOrigin?: string;
 } & AnimationProperties;

@@ -15,6 +15,7 @@ export default function ScaleInOut({
     y = '0px',
     xTo = 0,
     yTo = 0,
+    transformOrigin,
     skipOutro,
     watch,
     start = 'top bottom',
@@ -37,7 +38,8 @@ export default function ScaleInOut({
                 opacity: 1,
                 scale: scaleTo,
                 x: xTo,
-                y: yTo
+                y: yTo,
+                transformOrigin
             }}
             skipOutro={skipOutro}
             watch={watch}

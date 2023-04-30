@@ -13,6 +13,7 @@ export default function TranslateInOut({
     y = '0px',
     xTo = 0,
     yTo = 0,
+    transformOrigin,
     skipOutro,
     watch,
     start = 'top bottom',
@@ -34,7 +35,8 @@ export default function TranslateInOut({
                 ease,
                 opacity: 1,
                 x: xTo,
-                y: yTo
+                y: yTo,
+                transformOrigin
             }}
             skipOutro={skipOutro}
             watch={watch}

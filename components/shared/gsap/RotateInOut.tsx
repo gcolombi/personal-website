@@ -19,6 +19,7 @@ export default function RotateInOut({
     y = '0px',
     xTo = 0,
     yTo = 0,
+    transformOrigin,
     skipOutro,
     watch,
     start = 'top bottom',
@@ -43,7 +44,8 @@ export default function RotateInOut({
                 rotateX: rotateXTo,
                 rotateY: rotateYTo,
                 x: xTo,
-                y: yTo
+                y: yTo,
+                transformOrigin
             }}
             skipOutro={skipOutro}
             watch={watch}
