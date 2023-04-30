@@ -70,7 +70,7 @@ export function NavigationContextProvider({
         sticky: scrollY > 0,
         hidden: directionY > 0 && typeof windowSize.height === 'number' && scrollY > windowSize.height,
         toggle
-    }
+    };
 
     return (
         <NavigationContext.Provider
