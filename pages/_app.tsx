@@ -21,12 +21,14 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <style jsx global>
-                {`
-                    :root {
-                        --font-primary: ${inter.style.fontFamily};
-                        --font-secondary: ${inter.style.fontFamily};
-                    }
-                `}
+                {
+                    `
+                        :root {
+                            --font-primary: ${inter.style.fontFamily};
+                            --font-secondary: ${inter.style.fontFamily};
+                        }
+                    `
+                }
             </style>
             <Layout>
                 <Component {...pageProps} />

@@ -2,201 +2,158 @@
     Home
 ========================================================================== */
 
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6rem;
-    min-height: 100vh;
-    overflow: hidden;
-}
+.c-home {
+    --max-width: 1100px;
+    --border-radius: 12px;
+    --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+        'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+        'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-.description {
-    display: inherit;
-    justify-content: inherit;
-    align-items: inherit;
-    font-size: 0.85rem;
-    max-width: var(--max-width);
-    width: 100%;
-    z-index: 2;
-    font-family: var(--font-mono);
+    --main-padding-tb: 6rem;
+    --main-padding-lr: 1rem;
+    --logo-padding-tb: 1rem;
+    --logo-padding-lr: 1rem;
+    --grid-max-width: 320px;
+    --card-padding-tb: 1rem;
+    --card-padding-lr: 2.5rem;
+    --center-padding-t: 8rem;
+    --center-padding-b: 6rem;
 
-    a {
+    --callout-rgb: 20, 20, 20;
+    --callout-border-rgb: 108, 108, 108;
+    --card-rgb: 100, 100, 100;
+    --card-border-rgb: 200, 200, 200;
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--main-padding-tb) var(--main-padding-lr);
+        min-height: 100vh;
+        overflow: hidden;
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.85rem;
+        max-width: var(--max-width);
+        width: 100%;
+        font-family: var(--font-mono);
+
+        p {
+            margin: 0;
+            padding: 1rem;
+            font-size: 0.85rem;
+            background-color: rgba(var(--callout-rgb), 0.5);
+            border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+            border-radius: var(--border-radius);
+
+            code {
+                font-weight: 700;
+                font-family: var(--font-mono);
+                color: var(--white);
+            }
+        }
+
+        &--logo {
+            max-width: 180px;
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                padding: var(--logo-padding-tb) var(--logo-padding-lr);
+                color: var(--white);
+            }
+
+            svg {
+                width: 100px;
+            }
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: var(--grid-max-width);
+        text-align: center;
+
+        &--card {
+            padding: var(--card-padding-tb) var(--card-padding-lr);
+            border-radius: var(--border-radius);
+            background: rgba(var(--card-rgb), 0);
+            border: 1px solid rgba(var(--card-border-rgb), 0);
+            transition: background 200ms, border 200ms;
+            font-weight: inherit;
+
+            span {
+                display: inline-block;
+                transition: transform 200ms;
+            }
+
+            h2 {
+                font-weight: 600;
+                margin-bottom: 0.7rem;
+            }
+
+            p {
+                margin: 0;
+                opacity: 0.6;
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            /* Enable hover only on non-touch devices */
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                    background: rgba(var(--card-rgb), 0.1);
+                    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+
+                    span {
+                        transform: translateX(4px);
+                    }
+                }
+            }
+        }
+    }
+
+    &__center {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 0.5rem;
-        color: var(--white);
+        padding: var(--center-padding-t) 0 var(--center-padding-b);
     }
 
-    p {
-        position: relative;
-        margin: 0;
-        padding: 1rem;
-        font-size: 0.85rem;
-        background-color: rgba(var(--callout-rgb), 0.5);
-        border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-        border-radius: var(--border-radius);
-    }
-}
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
 
-.vercelLogo {
-    max-width: 100px;
-}
+    @include mediaq('>SM') {
+        --main-padding-lr: 6rem;
+        --logo-padding-tb: 0;
+        --grid-max-width: 100%;
+        --card-padding-lr: 1.2rem;
+        --center-padding-t: 4rem;
+        --center-padding-b: 4rem;
 
-.code {
-    font-weight: 700;
-    font-family: var(--font-mono);
-    color: var(--white);
-}
+        &__description {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(25%, auto));
-    width: var(--max-width);
-    max-width: 100%;
-}
-
-.card {
-    padding: 1rem 1.2rem;
-    border-radius: var(--border-radius);
-    background: rgba(var(--card-rgb), 0);
-    border: 1px solid rgba(var(--card-border-rgb), 0);
-    transition: background 200ms, border 200ms;
-    font-weight: inherit;
-
-    span {
-        display: inline-block;
-        transition: transform 200ms;
-    }
-
-    h2 {
-        font-weight: 600;
-        margin-bottom: 0.7rem;
-    }
-
-    p {
-        margin: 0;
-        opacity: 0.6;
-        font-size: 0.9rem;
-        line-height: 1.5;
-        max-width: 30ch;
-    }
-
-    /* Enable hover only on non-touch devices */
-    @media (hover: hover) and (pointer: fine) {
-        &:hover {
-            background: rgba(var(--card-rgb), 0.1);
-            border: 1px solid rgba(var(--card-border-rgb), 0.15);
-
-            span {
-                transform: translateX(4px);
-            }
+        &__grid {
+            grid-template-columns: repeat(2, 50%);
         }
     }
 
-    @media (prefers-reduced-motion) {
-        &:hover {
-            span {
-                transform: none;
-            }
+    @include mediaq('>LG') {
+        &__grid {
+            grid-template-columns: repeat(4, minmax(25%, auto));
+            width: var(--max-width);
         }
-    }
-}
-
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 4rem 0;
-
-    &:before,
-    &:after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        filter: blur(45px);
-        transform: translateZ(0);
-    }
-
-    &:before {
-        background: var(--secondary-glow);
-        border-radius: 50%;
-        width: 480px;
-        height: 360px;
-        margin-left: -400px;
-    }
-
-    &:after {
-        background: var(--primary-glow);
-        width: 240px;
-        height: 180px;
-        z-index: -1;
-    }
-}
-
-.logo {
-    position: relative;
-    max-width: 180px;
-}
-
-/* Mobile */
-@media (max-width: 700px) {
-    .content {
-        padding: 4rem;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-        max-width: 320px;
-        text-align: center;
-    }
-
-    .card {
-        padding: 1rem 2.5rem;
-
-        h2 {
-            margin-bottom: 0.5rem;
-        }
-    }
-
-
-    .center {
-        padding: 8rem 0 6rem;
-
-        &:before {
-            transform: none;
-            height: 300px;
-        }
-    }
-
-    .description {
-        display: flex;
-        flex-direction: column;
-        font-size: 0.8rem;
-
-        a {
-            padding: 1rem;
-        }
-    }
-}
-
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
-    .grid {
-        grid-template-columns: repeat(2, 50%);
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .vercelLogo {
-        filter: invert(1);
-    }
-
-    .logo {
-        filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
     }
 }
