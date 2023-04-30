@@ -1,0 +1,56 @@
+/* ==========================================================================
+    Button
+========================================================================== */
+
+.c-btn {
+    @include make-button();
+
+	&--bordered {
+        @include make-button();
+
+        --btn-bg-color: transparent;
+        --btn-color: var(--primary);
+        --btn-hover-bg-color: var(--primary);
+        --btn-hover-border-color: var(--primary);
+	}
+
+	&--secondary {
+        @include make-button();
+
+		--btn-bg-color: var(--secondary);
+        --btn-border-color: var(--secondary);
+        --btn-hover-bg-color: var(--secondary-light);
+        --btn-hover-border-color: var(--secondary-light);
+
+		&--bordered {
+            @include make-button();
+
+			--btn-bg-color: transparent;
+            --btn-border-color: var(--secondary);
+            --btn-color: var(--secondary);
+            --btn-hover-bg-color: var(--secondary);
+            --btn-hover-border-color: var(--secondary);
+		}
+	}
+
+	&--icon {
+        @include make-button();
+
+        display: inline-flex;
+        align-items: center;
+
+        svg {
+			width: 16px;
+            height: 16px;
+            margin-left: 0.8em;
+            transition: transform .35s $ease-in;
+            backface-visibility: hidden;
+		}
+
+        &:hover, &:focus {
+            svg {
+                transform: translate3d(5px, 0, 0);
+            }
+        }
+	}
+}

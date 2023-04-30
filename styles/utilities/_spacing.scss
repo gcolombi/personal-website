@@ -1,0 +1,62 @@
+/* ==========================================================================
+    Utilities / Spacing
+========================================================================== */
+
+:root {
+	--spacing: #{$spacing-initial};
+	--spacing-ratio: #{$spacing-ratio};
+	--margin: #{$margin-initial};
+	--margin-ratio: #{$margin-ratio};
+	--padding: #{$padding-initial};
+	--padding-ratio: #{$padding-ratio};
+	--spacing-responsive: #{$spacing-responsive-initial};
+	--spacing-responsive-initial: #{$spacing-responsive-initial};
+	--spacing-responsive-increment: #{$spacing-responsive-increment};
+
+	$i: 1;
+	@each $size in $list-size {
+		--spacing-#{$size}: calc( var(--spacing) * (var(--spacing-ratio) * #{$i}) );
+		--margin-#{$size}: calc( var(--margin) * (var(--margin-ratio) * #{$i}) );
+		--padding-#{$size}: calc( var(--padding) * (var(--padding-ratio) * #{$i}) );
+		$i: $i + 1;
+	}
+
+	$i: 1;
+	@each $breakpoint, $value in $breakpoints {
+        @if $value > 767 {
+			@include mediaq('>#{$breakpoint}') {
+				--spacing-responsive: calc( var(--spacing-responsive-initial) + (var(--spacing-responsive-increment) * #{$i}) );
+			}
+			$i: $i + 1;
+		}
+	}
+}
+
+/* Spacing
+========================================================================== */
+
+.u-spacing--responsive {
+	padding: var(--spacing-responsive) 0;
+
+	&--top {
+		padding: var(--spacing-responsive) 0 0;
+	}
+	
+	&--bottom {
+		padding: 0 0 var(--spacing-responsive);
+	}
+}
+
+/* Margin
+========================================================================== */
+
+.u-margin--none {
+	margin: 0;
+}
+
+/* Padding
+========================================================================== */
+
+.u-padding--none {
+	padding: 0;
+}

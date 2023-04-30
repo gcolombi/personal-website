@@ -1,0 +1,60 @@
+/* ==========================================================================
+    Utilities / Helpers
+========================================================================== */
+
+/* Utilities
+========================================================================== */
+
+.u-sr-only {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+}
+
+/* Layout
+========================================================================== */
+
+.u-overflow--hidden {
+    overflow: hidden;
+}
+
+/* Images
+========================================================================== */
+
+.o-lazy {
+	height: auto;
+	opacity: 0;
+	transition: opacity 0.3s $decel-curve;
+	width: 100%;
+
+	&.is-loaded {
+		opacity: 1;
+	}
+}
+
+/* Decorative
+========================================================================== */
+
+.u-box {
+	border-radius: 25px;
+	background: var(--gray-100);
+	box-shadow:  20px 20px 60px var(--gray-400),
+				-20px -20px 60px var(--white);
+}
+
+.u-box--thin {
+	border-radius: 22px;
+	background: var(--gray-100);
+	box-shadow:  15px 15px 45px var(--gray-400),
+				-15px -15px 45px var(--white);
+}
+
+.u-box--thinner {
+	border-radius: 20px;
+	background: var(--gray-100);
+	box-shadow:  12px 12px 35px var(--gray-400),
+				-12px -12px 35px var(--white);
+}

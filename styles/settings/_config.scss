@@ -1,0 +1,74 @@
+/* ==========================================================================
+    Settings / Config
+========================================================================== */
+
+/* Breakpoints
+========================================================================== */
+
+$scr-xxs: 320px;
+$scr-xs: 480px;
+$scr-sm: 768px;
+$scr-md: 991px;
+$scr-lg: 1200px;
+$scr-xlg: 1450px;
+$scr-xxlg: 1650px;
+$scr-max: 1920px;
+
+$breakpoints: (
+	XXS: $scr-xxs,
+	XS: $scr-xs,
+	SM: $scr-sm,
+	MD: $scr-md,
+	LG: $scr-lg,
+	XLG: $scr-xlg,
+	XXLG: $scr-xxlg,
+	// MAX: $scr-max
+) !default;
+
+/* Sizes
+========================================================================== */
+
+$list-size: (
+	'thinner',
+	'thin',
+	'normal',
+	'large',
+	'larger',
+) !default;
+
+/* Text align
+========================================================================== */
+
+$list-text-align: (
+	center,
+	left,
+	right
+) !default;
+
+/* Grid
+========================================================================== */
+
+$grid-columns: 12;
+$grid-gutter-width: 16px;
+$bp-class-generation: $scr-xs - 1;
+
+/* Spacing
+========================================================================== */
+
+$spacing-responsive-initial: 65px;
+$spacing-responsive-increment: 15px;
+
+$spacing-initial: 17px;
+$spacing-ratio: 1.3;
+
+$margin-initial: 12px;
+$margin-ratio: 1.1;
+
+$padding-initial: 12px;
+$padding-ratio: 1.1;
+
+/* Activate features
+========================================================================== */
+
+$activate-grid-classes: false;
+$activate-align-classes: true;

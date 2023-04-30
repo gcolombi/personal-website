@@ -1,0 +1,170 @@
+/* ==========================================================================
+    Tools / Mixins / Form
+========================================================================== */
+
+@mixin default-styles() {
+    --form-element-padding: 15px;
+	--form-element-margin: 35px;
+
+    position: relative;
+	margin: 0 0 var(--form-element-margin) 0;
+
+    &--marginNone {
+        margin: 0;
+    }
+
+    &--focusLine {
+		display: inline-block;
+		position: absolute;
+		top: -1px;
+		right: -1px;
+		bottom: -1px;
+		left: -1px;
+		z-index: 100;
+		pointer-events: none;
+		border: 1px solid;
+		border-color: transparent;
+		transition: border-color .35s $ease-in;
+	}
+
+    /* states */
+    &.has-error {
+        margin: 0;
+
+        & + label {
+            --label-margin: 35px;
+
+            background: var(--error);
+            color: var(--white);
+            padding: 3px 5px;
+        	margin-bottom: var(--label-margin);
+		}
+	}
+
+    &--bordered {
+        &.has-error {
+            & + label {
+                border: 1px solid var(--error);
+            }
+        }
+    }
+}
+
+@mixin input-placeholder($font-size, $line-height, $color) {
+	::-webkit-input-placeholder {
+		color: $color;
+		font-size: $font-size;
+		line-height: $line-height;
+	}
+
+	:-moz-placeholder {
+		color: $color;
+		font-size: $font-size;
+		line-height: $line-height;
+	}
+
+	::-moz-placeholder {
+		color: $color;
+		font-size: $font-size;
+		line-height: $line-height;
+	}
+
+	:-ms-input-placeholder {
+		color: $color;
+		font-size: $font-size;
+		line-height: $line-height;
+	}
+
+	::-ms-input-placeholder {
+		color: $color;
+		font-size: $font-size;
+		line-height: $line-height;
+	}
+
+	:placeholder-shown {
+		color: $color;
+		font-size: $font-size;
+		line-height: $line-height;
+	}
+}
+
+@mixin input-reset() {
+	display: block;
+	padding: var(--form-element-padding);
+	outline: none;
+	width: 100%;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background: none;
+	border: none;
+}
+
+@mixin visually-hidden() {
+	position: absolute;
+	margin: -1px;
+	padding: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+}
+
+@mixin bordered-styles() {
+    background: transparent;
+    border: 1px solid var(--gray-700);
+}
+
+@mixin input-checkbox-reset() {
+	display: inline-block;
+
+	input{
+		display: none!important;
+	}
+
+	label{
+		position: relative;
+		padding-left: 1.8em;
+		margin-bottom: 0;
+		cursor: pointer;
+
+		&:before{
+			content: '';
+			position: absolute;
+			top: 0.08em;
+			left: 0;
+			background: var(--white);
+			border: 1px solid lighten($primary, 25%);
+			border-radius: 2px;
+			height: 1.1em;
+			width: 1.1em;
+		}
+	}
+
+    &:first-child ~ & {
+        margin-left: 0.8em;
+    }
+
+    :checked + label {
+        &::before {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+    }
+}
+
+@mixin floating-label() {
+	&.c-floatingLabel {
+		position: relative;
+
+		label {
+			position: absolute;
+			top: var(--form-element-padding);
+			left: var(--form-element-padding);
+			transition: all 0.2s $decel-curve;
+			pointer-events: none;
+			margin: 0;
+		}
+	}
+}

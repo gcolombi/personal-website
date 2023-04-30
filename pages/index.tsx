@@ -1,15 +1,12 @@
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/modules/Home.module.scss';
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
 import MetaData from '@/components/MetaData';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
     return (
         <>
             <MetaData />
-            <div className={`${styles.main} ${inter.className}`}>
+            <div className={styles.main}>
                 <div className={styles.description}>
                     <p>
                         Get started by editing&nbsp;

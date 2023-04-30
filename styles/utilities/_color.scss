@@ -1,0 +1,65 @@
+/* ==========================================================================
+    Utilities / Colors
+========================================================================== */
+
+/* Block
+========================================================================== */
+
+  @each $name, $value in $theme-colors {
+	.u-blockColor--#{$name} {
+		background: var(--#{$name});
+	}
+
+	.u-blockBodyColor--#{$name} {
+		--body-bg-color: var(--#{$name});
+	}
+}
+
+@each $name, $value in $theme-monochromes {
+	.u-blockColor--#{$name} {
+		background: var(--#{$name});
+	}
+
+	.u-blockBodyColor--#{$name} {
+		--body-bg-color: var(--#{$name});
+	}
+}
+
+/* Text
+========================================================================== */
+
+@each $name, $value, $code in $theme-colors {
+	.u-color--#{$name} {
+		color: var(--#{$name});
+	}
+
+	.u-bodyColor--#{$name} {
+		--body-text-color: var(--#{$name});
+	}
+
+	.u-headingColor--#{$name} {
+		--body-heading-color: var(--#{$name});
+	}
+
+	.u-linkColor--#{$name} {
+		--body-link-color: var(--#{$name});
+	}
+}
+
+@each $name, $value in $theme-monochromes {
+	.u-color--#{$name} {
+		color: var(--#{$name});
+	}
+
+	.u-bodyColor--#{$name} {
+		--body-text-color: var(--#{$name});
+	}
+
+	.u-headingColor--#{$name} {
+		--body-heading-color: var(--#{$name});
+	}
+
+	.u-linkColor--#{$name} {
+		--body-link-color: var(--#{$name});
+	}
+}

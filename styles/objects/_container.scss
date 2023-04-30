@@ -1,0 +1,44 @@
+/* ==========================================================================
+    Objects / Container
+========================================================================== */
+
+:root {
+	--grid-gutter-width: #{$grid-gutter-width};
+	--breakpoint: 100%;
+	--breakpoint-max: #{$scr-max};
+
+	@each $breakpoint, $value in $breakpoints {
+		@if $value > $bp-class-generation {
+			@include mediaq('>#{$value}') {
+				--breakpoint: #{$value};
+				--container: calc(var(--breakpoint) - (var(--grid-gutter-width) / 2));
+			}
+
+            @if $value <= 1200 {
+                @include mediaq('>#{$value}') {
+                    --breakpoint-small: #{$value};
+                    --container-small: calc(var(--breakpoint-small) - (var(--grid-gutter-width) / 2));
+                }
+            }
+		}
+	}
+
+	--half-container: var(--grid-gutter-width);
+
+	@include mediaq('>XS') {
+		--half-container: calc(((100% - var(--container)) / 2) + (var(--grid-gutter-width)));
+	}
+}
+
+/* Container
+========================================================================== */
+
+.o-container {
+	@include make-container();
+	max-width: var(--container);
+}
+
+.o-container--small {
+	@include make-container();
+	max-width: var(--container-small);
+}

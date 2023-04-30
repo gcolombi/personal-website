@@ -1,0 +1,75 @@
+/* ==========================================================================
+    Settings / Config / Colors
+========================================================================== */
+
+$purple: #291d89 !default;
+$green: #42BEA6 !default;
+
+/* Primary Color
+========================================================================== */
+
+$primary: $purple;
+$primary-lighter: lighten($primary, 16%);
+$primary-light: lighten($primary, 8%);
+$primary-dark: darken($primary, 8%);
+$primary-darker: darken($primary, 16%);
+
+/* Secondary Color
+========================================================================== */
+
+$secondary: $green;
+$secondary-lighter: lighten($secondary, 16%);
+$secondary-light: lighten($secondary, 8%);
+$secondary-dark: darken($secondary, 8%);
+$secondary-darker: darken($secondary, 16%);
+
+
+$theme-colors: (
+	'primary': $primary,
+	'primary-lighter': $primary-lighter,
+	'primary-light': $primary-light,
+	'primary-dark': $primary-dark,
+	'primary-darker': $primary-darker,
+	'secondary': $secondary,
+	'secondary-lighter': $secondary-lighter,
+	'secondary-light': $secondary-light,
+	'secondary-dark': $secondary-dark,
+	'secondary-darker': $secondary-darker,
+) !default;
+
+/* Monochrome
+========================================================================== */
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$theme-monochromes: (
+	'white': $white,
+	'black': $black,
+	'gray-100': $gray-100,
+	'gray-200': $gray-200,
+	'gray-300': $gray-300,
+	'gray-400': $gray-400,
+	'gray-500': $gray-500,
+	'gray-600': $gray-600,
+	'gray-700': $gray-700,
+	'gray-800': $gray-800,
+	'gray-900': $gray-900,
+) !default;
+
+/* Alert
+========================================================================== */
+
+$success: #48C774 !default;
+$info: #3298DC !default;
+$warning: #FFDD57 !default;
+$error: #F14668 !default;

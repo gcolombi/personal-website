@@ -1,0 +1,24 @@
+.c-form {
+
+    &__inner {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    &__btn {
+        display: inline-flex;
+        margin-top: 40px;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>SM') {
+
+        &__row {
+            display: grid;
+            gap: 0 35px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}

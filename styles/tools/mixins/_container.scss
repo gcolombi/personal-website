@@ -1,0 +1,14 @@
+/* ==========================================================================
+    Tools / Mixins / Container
+========================================================================== */
+
+/* Container
+========================================================================== */
+
+@mixin make-container() {
+	width: 100%;
+	padding-left: var(--grid-gutter-width);
+	padding-right: var(--grid-gutter-width);
+	margin-right: auto;
+	margin-left: auto;
+}

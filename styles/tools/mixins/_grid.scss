@@ -1,0 +1,38 @@
+/* ==========================================================================
+    Tools / Mixins / Grid
+========================================================================== */
+
+@use 'sass:math';
+
+/* Grid
+========================================================================== */
+
+@mixin make-row() {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: calc(-1 * var(--grid-gutter-width));
+	margin-left: calc(-1 * var(--grid-gutter-width));
+}
+
+/*
+ * Prevent columns from becoming too narrow when at smaller grid tiers by
+ * always setting `width: 100%;`. This works because we use `flex` values
+ * later on to override this initial width.
+ * 1. Prevent collapsing
+ */
+@mixin make-col-ready() {
+	width: 100%;
+	min-height: 1px; // 1
+	padding-right: var(--grid-gutter-width);
+	padding-left: var(--grid-gutter-width);
+}
+
+/*
+ * Add a `max-width` to ensure content within each column does not blow out
+ * the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+ * do not appear to require this.
+ */
+@mixin make-col($size, $columns: $grid-columns) {
+	flex: 0 0 percentage(math.div($size, $columns));
+	max-width: percentage(math.div($size, $columns));
+}

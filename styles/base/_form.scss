@@ -1,0 +1,77 @@
+/* ==========================================================================
+    Base / Form
+========================================================================== */
+
+.c-formElement {
+    @include default-styles();
+
+	/* Submit Button
+    ========================================================================== */
+
+    @keyframes spin {
+        100% {
+            rotate: 360deg;
+        }
+    }
+
+    @keyframes dash {
+        0% {
+            stroke-dasharray: 1, 150;
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dasharray: 90, 150;
+            stroke-dashoffset: -35;
+        }
+        100% {
+            stroke-dasharray: 90, 150;
+            stroke-dashoffset: -124;
+        }
+    }
+
+	&--submit {
+		[type="submit"] {
+            display: inline-flex;
+            align-items: center;
+            opacity: .5;
+            pointer-events: none;
+
+            svg {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+                animation: spin 1s linear infinite;
+
+                circle {
+                    fill: none;
+                    stroke: var(--btn-color);
+                    stroke-width: 3px;
+                    stroke-linecap: round;
+                    animation: dash 2.5s ease-in-out infinite;
+                }
+            }
+		}
+	}
+}
+
+/* Label
+========================================================================== */
+
+label, .c-label {
+	display: block;
+	margin-bottom: var(--margin-thinner);
+}
+
+/* Toastify
+========================================================================== */
+
+.c-toastify {
+    .Toastify__toast {
+        background: var(--body-bg-color);
+        color: var(--body-text-color);
+
+        .Toastify__close-button {
+            color: var(--body-text-color);
+        }
+    }
+}

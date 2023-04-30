@@ -1,0 +1,13 @@
+/* ==========================================================================
+    Tools / Mixins / Typography
+========================================================================== */
+
+@use 'sass:math';
+
+/**
+ * Generates a converted font-size into REM
+ * @param font-size in pixel
+ */
+@mixin font-size($font-size) {
+	font-size: rem($font-size);
+}

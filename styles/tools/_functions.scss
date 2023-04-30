@@ -1,0 +1,20 @@
+/* ==========================================================================
+    Tools / Functions
+========================================================================== */
+
+@use 'sass:math';
+
+/**
+ * Converts pixel value into REM
+ */
+@function rem($size, $base: $font-base) {
+    @return math.div($size, $base) * 1rem;
+}
+
+/**
+ * Returns opaque color
+ * e.g : opaque(#fff, rgba(0, 0, 0, .5)) => #808080
+ */
+@function opaque($background, $foreground) {
+    @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100);
+}

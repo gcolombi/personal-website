@@ -1,0 +1,61 @@
+/* ==========================================================================
+    Objects / Grid
+========================================================================== */
+
+:root {
+	--grid-columns: #{$grid-columns};
+}
+
+/* Grid
+========================================================================== */
+
+.o-row {
+	@include make-row();
+
+	&--noGutters {
+		margin-left: 0;
+		margin-right: 0;
+	
+		> .o-col,
+		> [class*="col-"] {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+@if $activate-grid-classes {
+	@for $i from 1 through $grid-columns {
+		.o-col-#{$i} {
+			@include make-col-ready();
+			@include make-col($i, $columns: $grid-columns);
+		}
+	}
+	
+	@each $breakpoint, $value in $breakpoints {
+		.o-col-#{$breakpoint} {
+			@include make-col-ready();
+		}
+	
+		@for $i from 1 through $grid-columns {
+			.o-col-#{$breakpoint}-#{$i} {
+				@include make-col-ready();
+			}
+		}
+	
+		@include mediaq('>#{$value}') {
+			.o-col-#{$breakpoint} {
+				@include make-col-ready();
+				flex-basis: 0;
+				flex-grow: 1;
+				max-width: 100%;
+			}
+	
+			@for $i from 1 through $grid-columns {
+				.o-col-#{$breakpoint}-#{$i} {
+					@include make-col($i, $columns: $grid-columns);
+				}
+			}
+		}
+	}
+}
