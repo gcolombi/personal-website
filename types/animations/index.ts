@@ -35,6 +35,21 @@ export type Fade = {
     children: ReactNode;
 } & AnimationProperties;
 
+export type Rotate = {
+    children: ReactNode;
+    fade?: boolean;
+    rotate?: number;
+    rotateTo?: number;
+    rotateY?: number;
+    rotateYTo?: number;
+    rotateX?: number;
+    rotateXTo?: number;
+    x?: string;
+    y?: string;
+    xTo?: number;
+    yTo?: number;
+} & AnimationProperties;
+
 export type Translate = {
     children: ReactNode;
     fade?: boolean;
