@@ -1,7 +1,7 @@
 import { CSSProperties, ReactNode } from 'react';
 
 /* Animations */
-export interface AnimationProperties {
+export type AnimationProperties = {
     durationIn?: number;
     durationOut?: number;
     delay?: number;
