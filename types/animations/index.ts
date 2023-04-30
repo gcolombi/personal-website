@@ -50,6 +50,17 @@ export type Rotate = {
     yTo?: number;
 } & AnimationProperties;
 
+export type Scale = {
+    children: ReactNode;
+    fade?: boolean;
+    scale?: number;
+    scaleTo?: number;
+    x?: string;
+    y?: string;
+    xTo?: number;
+    yTo?: number;
+} & AnimationProperties;
+
 export type Translate = {
     children: ReactNode;
     fade?: boolean;
