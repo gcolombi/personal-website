@@ -9,12 +9,8 @@ export default function ScaleInOut({
     delay = 0,
     delayOut = 0,
     ease = 'power4.out',
-    scale = 0,
-    scaleTo = 0,
-    scaleX = 0,
-    scaleXTo = 0,
-    scaleY = 0,
-    scaleYTo = 0,
+    scale = '0, 0',
+    scaleTo = '1, 1',
     x = '0px',
     y = '0px',
     xTo = 0,
@@ -35,14 +31,12 @@ export default function ScaleInOut({
             delayOut={delayOut}
             from={{
                 opacity: fade ? 0 : 1,
-                transform: `translate(${x}, ${y}) scale(${scale}) scaleX(${scaleX}) scaleY(${scaleY})`
+                transform: `translate(${x}, ${y}) scale(${scale})`
             }}
             to={{
                 ease,
                 opacity: 1,
                 scale: scaleTo,
-                scaleX: scaleXTo,
-                scaleY: scaleYTo,
                 x: xTo,
                 y: yTo,
                 transformOrigin

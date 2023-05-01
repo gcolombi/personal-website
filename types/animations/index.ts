@@ -67,12 +67,8 @@ export type Rotate3D = {
 export type Scale = {
     children: ReactNode;
     fade?: boolean;
-    scale?: number;
-    scaleTo?: number;
-    scaleY?: number;
-    scaleYTo?: number;
-    scaleX?: number;
-    scaleXTo?: number;
+    scale?: string;
+    scaleTo?: string;
     x?: string;
     y?: string;
     xTo?: number;
