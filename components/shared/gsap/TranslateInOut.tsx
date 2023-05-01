@@ -9,6 +9,7 @@ export default function TranslateInOut({
     delay = 0,
     delayOut = 0,
     ease = 'power4.out',
+    easeOut = 'power4.out',
     x = '0px',
     y = '0px',
     xTo = 0,
@@ -27,6 +28,7 @@ export default function TranslateInOut({
             durationOut={durationOut}
             delay={delay}
             delayOut={delayOut}
+            easeOut={easeOut}
             from={{
                 opacity: fade ? 0 : 1,
                 transform: `translate(${x}, ${y})`

@@ -9,6 +9,7 @@ export default function RotateInOut({
     delay = 0,
     delayOut = 0,
     ease = 'power1.out',
+    easeOut = 'power1.out',
     rotate = 0,
     rotateTo = 0,
     rotateX = 0,
@@ -33,6 +34,7 @@ export default function RotateInOut({
             durationOut={durationOut}
             delay={delay}
             delayOut={delayOut}
+            easeOut={easeOut}
             from={{
                 opacity: fade ? 0 : 1,
                 transform: `translate(${x}, ${y}) rotate(${rotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`

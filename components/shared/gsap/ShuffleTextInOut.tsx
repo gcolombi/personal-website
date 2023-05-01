@@ -22,6 +22,7 @@ export default function ShuffleTextInOut({
     revealDelayIn = 0.5,
     revealDelayOut = 0.35,
     ease = 'none',
+    easeOut = 'none',
     target,
     skipOutro,
     watch = false,
@@ -87,7 +88,7 @@ export default function ShuffleTextInOut({
                     timeline?.add(
                         gsap.to(word, {
                             opacity: fade ? 0 : 1,
-                            ease,
+                            ease: easeOut,
                             delay: delayOut,
                             duration: durationOut,
                             scrambleText:{

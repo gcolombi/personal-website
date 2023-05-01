@@ -7,6 +7,7 @@ export type AnimationProperties = {
     delay?: number;
     delayOut?: number;
     ease?: string;
+    easeOut?: string;
     skipOutro?: boolean;
     watch?: boolean;
     start?: string;
@@ -21,6 +22,7 @@ export type Animation = {
     durationOut: number;
     delay: number;
     delayOut: number;
+    easeOut: string;
     from: CSSProperties;
     to: GSAPTweenVars;
     skipOutro: boolean | undefined;
@@ -37,7 +39,6 @@ export type Fade = {
 
 export type ImplodeExplode = {
     children: ReactNode;
-    easeOut?: string;
     target: string;
 } & AnimationProperties;
 
@@ -59,7 +60,6 @@ export type Rotate = {
 
 export type Rotate3D = {
     children: ReactNode;
-    easeOut?: string;
     x?: string;
     y?: string;
 } & AnimationProperties;

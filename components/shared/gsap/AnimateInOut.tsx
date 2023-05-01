@@ -10,6 +10,7 @@ function AnimateInOut({
     durationOut,
     delay,
     delayOut,
+    easeOut,
     from,
     to,
     skipOutro,
@@ -47,6 +48,7 @@ function AnimateInOut({
             if (!skipOutro) {
                 timeline?.add(
                     gsap.to(element.current, {
+                        ease: easeOut,
                         ...from,
                         delay: delayOut,
                         duration: durationOut

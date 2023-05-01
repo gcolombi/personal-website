@@ -8,6 +8,7 @@ export default function FadeInOut({
     delay = 0,
     delayOut = 0,
     ease = 'power4.out',
+    easeOut = 'power4.out',
     skipOutro,
     watch,
     start = 'top bottom',
@@ -21,6 +22,7 @@ export default function FadeInOut({
             durationOut={durationOut}
             delay={delay}
             delayOut={delayOut}
+            easeOut={easeOut}
             from={{
                 opacity: 0
             }}
