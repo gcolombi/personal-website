@@ -67,6 +67,14 @@ export type Scale = {
     transformOrigin?: string;
 } & AnimationProperties;
 
+export type ShuffleText = {
+    children: ReactNode;
+    fade?: boolean;
+    revealDelayIn?: number;
+    revealDelayOut?: number;
+    target: string;
+} & AnimationProperties;
+
 export type Translate = {
     children: ReactNode;
     fade?: boolean;
