@@ -57,6 +57,13 @@ export type Rotate = {
     transformOrigin?: string;
 } & AnimationProperties;
 
+export type Rotate3D = {
+    children: ReactNode;
+    easeOut?: string;
+    x?: string;
+    y?: string;
+} & AnimationProperties;
+
 export type Scale = {
     children: ReactNode;
     fade?: boolean;
