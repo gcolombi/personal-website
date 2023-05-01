@@ -56,6 +56,10 @@ export type Scale = {
     fade?: boolean;
     scale?: number;
     scaleTo?: number;
+    scaleY?: number;
+    scaleYTo?: number;
+    scaleX?: number;
+    scaleXTo?: number;
     x?: string;
     y?: string;
     xTo?: number;
