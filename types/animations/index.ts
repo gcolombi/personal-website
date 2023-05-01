@@ -35,6 +35,12 @@ export type Fade = {
     children: ReactNode;
 } & AnimationProperties;
 
+export type ImplodeExplode = {
+    children: ReactNode;
+    easeOut?: string;
+    target: string;
+} & AnimationProperties;
+
 export type Rotate = {
     children: ReactNode;
     fade?: boolean;
