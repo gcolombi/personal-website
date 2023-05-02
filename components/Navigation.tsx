@@ -46,7 +46,7 @@ export default function Navigation() {
                                     <ul>
                                         <li>
                                             <NavItem
-                                                href="#"
+                                                href="/"
                                                 title="Link"
                                                 className={styles['is-current-page']}
                                             />

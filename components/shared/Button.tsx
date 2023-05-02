@@ -20,7 +20,7 @@ export default function Button({
     isExternal?: string;
     externalHref?: string;
     anchor?: string;
-    type: ButtonHTMLAttributes<HTMLButtonElement>['type'];
+    type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
     onClick?: () => void;
     disabled?: boolean;
     className: string;
@@ -56,19 +56,17 @@ export default function Button({
         );
     }
 
-    if (label) {
-        return (
-            <div className={wrapperClassName}>
-                <button
-                    type={type}
-                    className={styles[className]}
-                    onClick={onClick}
-                    disabled={disabled}
-                >
-                    {disabled && <Circle />}
-                    {disabled ? 'Sending...' : label}
-                </button>
-            </div>
-        );
-    }
+    return (
+        <div className={wrapperClassName}>
+            <button
+                type={type}
+                className={styles[className]}
+                onClick={onClick}
+                disabled={disabled}
+            >
+                {disabled && <Circle />}
+                {disabled ? 'Sending...' : label}
+            </button>
+        </div>
+    );
 }
