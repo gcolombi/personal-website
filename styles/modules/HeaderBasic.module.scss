@@ -1,20 +1,24 @@
 /* ==========================================================================
-    404
+    Header Basic
 ========================================================================== */
 
-.c-404 {
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
+.c-headerBasic {
+    position: relative;
     padding: var(--spacing-responsive) 0;
 
     &__row {
-        text-align: center;
         max-width: 800px;
         margin: 0 auto;
     }
 
     &__btn {
         margin-top: 35px;
+    }
+
+    /* modifiers */
+    &--fullHeight {
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
     }
 }

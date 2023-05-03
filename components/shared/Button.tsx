@@ -1,5 +1,5 @@
+import { ButtonType } from '@/types/components';
 import styles from '@/styles/modules/Button.module.scss';
-import { ButtonHTMLAttributes } from 'react';
 import Link from 'next/link';
 import Circle from './svg/Circle';
 
@@ -14,19 +14,7 @@ export default function Button({
     disabled,
     className,
     wrapperClassName
-}: {
-    label: string;
-    href?: string;
-    isExternal?: string;
-    externalHref?: string;
-    anchor?: string;
-    type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
-    onClick?: () => void;
-    disabled?: boolean;
-    className: string;
-    wrapperClassName?: string;
-}) {
-
+}: ButtonType) {
     if (label && href) {
         return (
             <div className={wrapperClassName}>
