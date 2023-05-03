@@ -1,22 +1,20 @@
-import { Input } from '@/types/form';
-import styles from '../../styles/modules/FormInput.module.scss';
+import { Textarea } from '@/types/form';
+import styles from '../../styles/modules/FormTextarea.module.scss';
 import { ReactNode } from 'react';
 import classNames from 'classnames';
 
-export default function FormInput({
+export default function FormTextarea({
     htmlFor,
     label,
-    type = 'text',
     id,
     name,
     placeholder=" ",
-    value,
     required,
     className,
     wrapperClassName,
     register,
-    errors,
-}: Input) {
+    errors
+}: Textarea) {
     return(
         <div className={wrapperClassName}>
             <div
@@ -29,12 +27,10 @@ export default function FormInput({
                     }
                 )}
             >
-                <input
-                    type={type}
+                <textarea
                     id={id}
                     name={name}
                     placeholder={placeholder}
-                    value={value}
                     required={required}
                     {...register}
                 />

@@ -1,8 +1,18 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
 import { Field, FieldErrors } from 'react-hook-form';
 
 /* Form */
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface Input extends InputHTMLAttributes<HTMLInputElement> {
+    htmlFor: string;
+    label: string;
+    id: string;
+    className: string;
+    wrapperClassName?: string;
+    register: Field;
+    errors: FieldErrors;
+}
+
+export interface Textarea extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     htmlFor: string;
     label: string;
     id: string;
