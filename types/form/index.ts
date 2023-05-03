@@ -1,3 +1,17 @@
+import { InputHTMLAttributes } from 'react';
+import { Field, FieldErrors } from 'react-hook-form';
+
+/* Form */
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+    htmlFor: string;
+    label: string;
+    id: string;
+    className: string;
+    wrapperClassName?: string;
+    register: Field;
+    errors: FieldErrors;
+}
+
 /* Email */
 export interface Mail {
     siteName: string;
