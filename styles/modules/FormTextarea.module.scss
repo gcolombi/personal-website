@@ -1,10 +1,11 @@
+/* ==========================================================================
+    Form Textarea
+========================================================================== */
+
 .c-formElement {
     @include default-styles();
 	@include input-placeholder(inherit, inherit, var(--gray-500));
     @include floating-label();
-
-    /* Textarea
-    ========================================================================== */
 
     &--boxed, &--bordered, &--line {
 		textarea {
