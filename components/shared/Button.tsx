@@ -1,4 +1,4 @@
-import { ButtonType } from '@/types/components';
+import { ButtonProps } from '@/types/components';
 import styles from '@/styles/modules/Button.module.scss';
 import Link from 'next/link';
 import Circle from './svg/Circle';
@@ -14,7 +14,7 @@ export default function Button({
     disabled,
     className,
     wrapperClassName
-}: ButtonType) {
+}: ButtonProps) {
     if (label && href) {
         return (
             <div className={wrapperClassName}>

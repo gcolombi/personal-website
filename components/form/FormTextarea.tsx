@@ -7,7 +7,6 @@ export default function FormTextarea({
     htmlFor,
     label,
     id,
-    name,
     placeholder=" ",
     required,
     className,
@@ -29,7 +28,6 @@ export default function FormTextarea({
             >
                 <textarea
                     id={id}
-                    name={name}
                     placeholder={placeholder}
                     required={required}
                     {...register}
@@ -40,7 +38,7 @@ export default function FormTextarea({
                 <span className={styles['c-formElement--focusLine']} />
             </div>
             {errors?.message &&
-                <label htmlFor={htmlFor}>{errors?.message as ReactNode}</label>
+                <label htmlFor={htmlFor}>{errors?.message}</label>
             }
         </div>
     );

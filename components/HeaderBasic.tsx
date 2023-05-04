@@ -1,4 +1,4 @@
-import { ButtonType } from '@/types/components';
+import { ButtonProps } from '@/types/components';
 import styles from '@/styles/modules/HeaderBasic.module.scss';
 import Button from './shared/Button';
 import classNames from 'classnames';
@@ -11,7 +11,7 @@ export default function HeaderBasic({
 }: {
     title: string;
     wysiwyg?: string;
-    button?: ButtonType;
+    button?: ButtonProps;
     className?: string;
 }) {
     return (

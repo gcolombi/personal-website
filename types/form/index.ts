@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
-import { Field, FieldErrors } from 'react-hook-form';
+import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
 /* Form */
 export interface Input extends InputHTMLAttributes<HTMLInputElement> {
@@ -8,8 +8,8 @@ export interface Input extends InputHTMLAttributes<HTMLInputElement> {
     id: string;
     className: string;
     wrapperClassName?: string;
-    register: Field;
-    errors: FieldErrors;
+    register: UseFormRegisterReturn;
+    errors: FieldError | undefined;
 }
 
 export interface Textarea extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -18,8 +18,23 @@ export interface Textarea extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     id: string;
     className: string;
     wrapperClassName?: string;
-    register: Field;
-    errors: FieldErrors;
+    register: UseFormRegisterReturn;
+    errors: FieldError | undefined;
+}
+
+export type FormData = {
+    firstname: string;
+    lastname: string;
+    email: string;
+    message: string;
+}
+
+export type Labels = {
+    [key: string]: string;
+}
+
+export type Fields = {
+    [key: string]: string;
 }
 
 /* Email */
@@ -35,14 +50,6 @@ export interface Mail {
     attachments?: Attachment[];
     send: () => Promise<void>;
     generateTemplate: () => MailTemplate;
-}
-
-export type Labels = {
-    [key: string]: string;
-}
-
-export type Fields = {
-    [key: string]: string;
 }
 
 export type MailFrom = {
