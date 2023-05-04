@@ -1,6 +1,5 @@
 import { Textarea } from '@/types/form';
 import styles from '../../styles/modules/FormTextarea.module.scss';
-import { ReactNode } from 'react';
 import classNames from 'classnames';
 
 export default function FormTextarea({

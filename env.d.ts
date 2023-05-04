@@ -7,5 +7,9 @@ namespace NodeJS {
         /* Sendgrid */
         EMAIL_FROM: string;
         SENDGRID_API_KEY: string;
+
+        /* Google reCAPTCHA */
+        NEXT_PUBLIC_RECAPTCHA_SITE_KEY: string;
+        RECAPTCHA_SECRET_KEY: string;
     }
 }

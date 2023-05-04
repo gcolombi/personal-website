@@ -91,6 +91,7 @@
 @mixin input-reset() {
 	display: block;
 	padding: var(--form-element-padding);
+    color: var(--body-text-color);
 	outline: none;
 	width: 100%;
 	-moz-appearance: none;

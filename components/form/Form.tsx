@@ -3,13 +3,13 @@ import styles from '../../styles/modules/Form.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
 import useIsMounted from '@/hooks/useIsMounted';
-// import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { formSchema } from '@/schemas/form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames';
 import FormInput from './FormInput';
 import FormTextarea from './FormTextarea';
-// import FormRecaptchaNote from './FormRecaptchaNote';
+import FormRecaptchaNote from './FormRecaptchaNote';
 import Button from '../shared/Button';
 import { toast, ToastContainer, Zoom } from 'react-toastify';
 
@@ -49,7 +49,7 @@ export default function Form() {
         resolver: yupResolver(formSchema)
     });
     const isMounted = useIsMounted();
-    // const { executeRecaptcha } = useGoogleReCaptcha();
+    const { executeRecaptcha } = useGoogleReCaptcha();
 
     const submitForm = async (data: FormData, recaptchaToken: string) => {
         const toastConfig = {
@@ -101,18 +101,16 @@ export default function Form() {
     };
 
     const handleSubmitForm = async (data: FormData) => {
-        // if (!executeRecaptcha) {
-        //     console.log('Execute recaptcha not yet available');
-        //     return;
-        // }
+        if (!executeRecaptcha) {
+            console.log('Execute recaptcha not yet available');
+            return;
+        }
 
-        // await executeRecaptcha('submit')
-        // .then((recaptchaToken) => {
-        //     submitForm(data, recaptchaToken);
-        // })
-        // .catch(error => console.error(`Form - Recaptcha Error : ${error}`));
-
-        submitForm(data, '');
+        await executeRecaptcha('submit')
+        .then((recaptchaToken) => {
+            submitForm(data, recaptchaToken);
+        })
+        .catch(error => console.error(`Form - Recaptcha Error : ${error}`));
     }
 
     return(
@@ -159,7 +157,7 @@ export default function Form() {
                             register={register('message')}
                             errors={errors['message']}
                         />
-                        {/* <FormRecaptchaNote /> */}
+                        <FormRecaptchaNote />
                         <div className={styles['c-form__btn']}>
                             <Button
                                 label="Send"

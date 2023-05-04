@@ -1,6 +1,5 @@
 import { Input } from '@/types/form';
 import styles from '../../styles/modules/FormInput.module.scss';
-import { ReactNode } from 'react';
 import classNames from 'classnames';
 
 export default function FormInput({
