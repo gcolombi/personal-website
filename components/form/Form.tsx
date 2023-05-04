@@ -1,4 +1,4 @@
-import { FormData } from '@/types/form';
+import { FormData, Labels } from '@/types/form';
 import styles from '../../styles/modules/Form.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
@@ -13,7 +13,7 @@ import FormTextarea from './FormTextarea';
 import Button from '../shared/Button';
 import { toast, ToastContainer, Zoom } from 'react-toastify';
 
-const labels = {
+const labels: Labels = {
     firstname: 'Firstname',
     lastname: 'Lastname',
     email: 'Email',
