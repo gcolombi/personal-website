@@ -4,8 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
 import useIsMounted from '@/hooks/useIsMounted';
 // import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-// import { formSchema } from '@/schemas/form';
-// import { yupResolver } from '@hookform/resolvers/yup';
+import { formSchema } from '@/schemas/form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import classNames from 'classnames';
 import FormInput from './FormInput';
 import FormTextarea from './FormTextarea';
@@ -46,7 +46,7 @@ export default function Form() {
             email: '',
             message: ''
         },
-        // resolver: yupResolver(formSchema)
+        resolver: yupResolver(formSchema)
     });
     const isMounted = useIsMounted();
     // const { executeRecaptcha } = useGoogleReCaptcha();
