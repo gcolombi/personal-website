@@ -8,8 +8,7 @@ sendGrid.setApiKey(process.env.SENDGRID_API_KEY);
  *
  * https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication
  */
-
-module.exports = class Email implements Mail {
+export default class Email implements Mail {
     siteName: string;
     host: string;
     template: string;
