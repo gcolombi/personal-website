@@ -1,3 +1,4 @@
+import { FieldsValidationErrors } from '@/types/form';
 import Email from '@/utils/email';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getEmailTemplateFile } from '@/utils/template';
@@ -48,12 +49,7 @@ export default async function handler(
     } catch (err) {
         /* Yup validation */
         if (err instanceof ValidationError) {
-
-            type Test = {
-                [key: string ]: string;
-            }
-
-            const validationErrors: Test = {}
+            const validationErrors: FieldsValidationErrors = {};
 
             err.inner.forEach((error) => {
                 if (error.path && !validationErrors[error.path])

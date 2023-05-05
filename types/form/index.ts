@@ -37,6 +37,10 @@ export type Fields = {
     [key: string]: string;
 }
 
+export type FieldsValidationErrors = {
+    [key: string ]: string;
+}
+
 /* Email */
 export interface Mail {
     siteName: string;
