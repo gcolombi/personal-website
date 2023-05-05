@@ -1,4 +1,4 @@
-import { ButtonProps } from '@/types/components';
+import { ButtonProps } from '@/types/components/button';
 import styles from '@/styles/modules/Button.module.scss';
 import Link from 'next/link';
 import Circle from './svg/Circle';

@@ -1,4 +1,4 @@
-import { Input } from '@/types/form';
+import { Input } from '@/types/form/elements';
 import styles from '../../styles/modules/FormInput.module.scss';
 import classNames from 'classnames';
 

@@ -1,4 +1,4 @@
-import { Textarea } from '@/types/form';
+import { Textarea } from '@/types/form/elements';
 import styles from '../../styles/modules/FormTextarea.module.scss';
 import classNames from 'classnames';
 

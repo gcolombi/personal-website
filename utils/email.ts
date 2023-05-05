@@ -1,4 +1,5 @@
-import { Attachment, MailFrom, Fields, Labels, Mail, MailTemplate } from '@/types/form';
+import { Attachment, Mail, MailFrom, MailTemplate } from '@/types/form/email';
+import { Fields, Labels } from '@/types/form';
 import sendGrid from '@sendgrid/mail';
 
 sendGrid.setApiKey(process.env.SENDGRID_API_KEY);

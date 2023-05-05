@@ -1,4 +1,4 @@
-import { ButtonProps } from '@/types/components';
+import { ButtonProps } from '@/types/components/button';
 import styles from '@/styles/modules/HeaderBasic.module.scss';
 import Button from './shared/Button';
 import classNames from 'classnames';

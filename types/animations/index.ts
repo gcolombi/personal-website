@@ -1,21 +1,7 @@
+import { AnimationProperties } from './properties';
 import { CSSProperties, ReactNode } from 'react';
 
-/* Animations */
-export type AnimationProperties = {
-    durationIn?: number;
-    durationOut?: number;
-    delay?: number;
-    delayOut?: number;
-    ease?: string;
-    easeOut?: string;
-    skipOutro?: boolean;
-    watch?: boolean;
-    start?: string;
-    end?: string;
-    scrub?: boolean;
-    markers?: boolean;
-}
-
+/* Animation */
 export type Animation = {
     children: ReactNode;
     durationIn: number;
@@ -33,6 +19,7 @@ export type Animation = {
     markers: boolean | undefined;
 }
 
+/* Animations */
 export type Fade = {
     children: ReactNode;
 } & AnimationProperties;
