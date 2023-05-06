@@ -44,6 +44,10 @@ export default class Email implements Mail {
             from: {
                 ...this.from
             },
+            replyTo: {
+                email: this.fields?.email,
+                name: `${this.fields?.firstname} ${this.fields?.lastname}`
+            },
             subject: this.subject,
             ...this.generateTemplate(),
             attachments: this.attachments
