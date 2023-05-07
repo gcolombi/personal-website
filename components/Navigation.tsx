@@ -84,6 +84,11 @@ function LanguageSwitcher() {
         return locales.filter(l => l !== router.locale);
     }
     const locales = getLocales();
+    const switchToLocale = () => {
+        router.events.on('routeChangeComplete', () => {
+            router.reload();
+        });
+    }
 
     return (
         <>
@@ -93,6 +98,7 @@ function LanguageSwitcher() {
                         <Link
                             href={translateUrl(router.asPath, router.locale ?? '')}
                             locale={locale}
+                            onClick={switchToLocale}
                         >
                             {locale}
                         </Link>

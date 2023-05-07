@@ -2,8 +2,13 @@ import styles from '@/styles/modules/Home.module.scss';
 import MetaData from '@/components/MetaData';
 import Next from '@/components/shared/svg/Next';
 import Vercel from '@/components/shared/svg/Vercel';
+import { GetServerSideProps, GetStaticProps } from 'next';
 
-export default function Home() {
+export default function Home({
+    title
+}: {
+    title: string;
+}) {
     return (
         <>
             <MetaData />
@@ -29,6 +34,8 @@ export default function Home() {
                     <div className={styles['c-home__center']}>
                         <Next />
                     </div>
+
+                    <h1 className="u-margin--none">{title}</h1>
 
                     <div className={styles['c-home__grid']}>
                         <a
@@ -93,3 +100,13 @@ export default function Home() {
         </>
     )
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    const title = locale === 'en' ? 'English title' : 'Titre français';
+
+    return {
+        props: {
+            title
+        }
+    }
+};
