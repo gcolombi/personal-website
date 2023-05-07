@@ -1,6 +1,7 @@
 import '@/styles/style.scss';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import localFont from 'next/font/local';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -8,10 +9,31 @@ import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { TransitionContextProvider } from '@/context/transitionContext';
 import { NavigationContextProvider } from '@/context/navigationContext';
 import Layout from '@/components/Layout';
-import { Inter } from 'next/font/google';
 
-const inter = Inter({
-    subsets: ['latin'],
+const neueMontreal = localFont({
+    fallback: ['-apple-systen', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'],
+    src: [
+        {
+            path: '../public/fonts/NeueMontreal-Regular.woff',
+            weight: '400',
+            style: 'normal',
+        },
+        {
+            path: '../public/fonts/NeueMontreal-Regular.woff2',
+            weight: '400',
+            style: 'normal'
+        },
+        {
+            path: '../public/fonts/NeueMontreal-Medium.woff',
+            weight: '500',
+            style: 'normal',
+        },
+        {
+            path: '../public/fonts/NeueMontreal-Medium.woff2',
+            weight: '500',
+            style: 'normal'
+        }
+    ],
     display: 'swap'
 });
 
@@ -41,8 +63,8 @@ export default function App({ Component, pageProps }: AppProps) {
                             {
                                 `
                                     :root {
-                                        --font-primary: ${inter.style.fontFamily};
-                                        --font-secondary: ${inter.style.fontFamily};
+                                        --font-primary: ${neueMontreal.style.fontFamily};
+                                        --font-secondary: ${neueMontreal.style.fontFamily};
                                     }
                                 `
                             }
