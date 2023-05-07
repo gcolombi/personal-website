@@ -1,6 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const withTranslateRoutes = require('next-translate-routes/plugin');
+
+const nextConfig = withTranslateRoutes({
     reactStrictMode: true,
+    i18n: {
+        locales: ['en', 'fr'],
+        defaultLocale: 'en'
+    },
+    translateRoutes: {
+        debug: true
+    },
     sassOptions: {
         additionalData: `
             @import
@@ -17,6 +27,6 @@ const nextConfig = {
             'styles/objects/_mediaq.scss';
         `
     }
-}
+});
 
 module.exports = nextConfig;

@@ -3,7 +3,13 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import localFont from 'next/font/local';
 import type { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
+
+import { withTranslateRoutes, translateUrl, urlToFileUrl, fileUrlToUrl } from 'next-translate-routes';
+import singletonRouter from 'next-translate-routes/router';
+import { useRouter } from 'next-translate-routes/router';
+
+// import { useRouter } from 'next/router';
+
 import { useEffect } from 'react';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { TransitionContextProvider } from '@/context/transitionContext';
@@ -16,7 +22,7 @@ const neueMontreal = localFont({
         {
             path: '../public/fonts/NeueMontreal-Regular.woff',
             weight: '400',
-            style: 'normal',
+            style: 'normal'
         },
         {
             path: '../public/fonts/NeueMontreal-Regular.woff2',
@@ -26,7 +32,7 @@ const neueMontreal = localFont({
         {
             path: '../public/fonts/NeueMontreal-Medium.woff',
             weight: '500',
-            style: 'normal',
+            style: 'normal'
         },
         {
             path: '../public/fonts/NeueMontreal-Medium.woff2',
@@ -39,13 +45,22 @@ const neueMontreal = localFont({
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function App({ Component, pageProps }: AppProps) {
+// export default function App({ Component, pageProps }: AppProps) {
+
+const App: React.FC<AppProps> = ({ Component, pageProps, router: baseRouter }) => {
     const router = useRouter();
 
     /* Removes focus from next/link element after page change */
     useEffect(() => {
         document.activeElement instanceof HTMLElement && document.activeElement.blur();
     }, [router]);
+
+    // useEffect(
+    //     () => console.log('From _app.', { translateUrl, urlToFileUrl, fileUrlToUrl, baseRouter, singletonRouter }),
+    //     [baseRouter],
+    // )
+
+    // useEffect(() => console.log('From _app. useRouter router:', router), [router]);
 
     return (
         <>
@@ -78,3 +93,5 @@ export default function App({ Component, pageProps }: AppProps) {
         </>
     );
 }
+
+export default withTranslateRoutes(App);

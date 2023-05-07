@@ -19,6 +19,7 @@
         "eslint-config-next": "13.3.1",
         "gsap": "npm:@gsap/business",
         "next": "13.3.1",
+        "next-translate-routes": "^1.10.2",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-google-recaptcha-v3": "^1.10.1",

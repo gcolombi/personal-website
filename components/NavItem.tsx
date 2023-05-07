@@ -1,5 +1,10 @@
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+// import { useRouter } from 'next/router';
+// import Link from 'next/link';
+
+import { useRouter } from 'next-translate-routes/router';
+import { translateUrl } from 'next-translate-routes';
+import Link from 'next-translate-routes/link';
+
 import classNames from 'classnames';
 
 export default function NavItem({
@@ -14,7 +19,10 @@ export default function NavItem({
     className: string
 }) {
     const router = useRouter();
-    const isActive = router.asPath === href;
+
+    const isActive = translateUrl(router.asPath, router.locale ?? '') === href;
+
+    // const isActive = router.asPath === href;
 
     return (
         <span>
