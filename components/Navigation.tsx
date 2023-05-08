@@ -79,24 +79,29 @@ export default function Navigation() {
 
 function LanguageSwitcher() {
     const router = useRouter();
+
     const getLocales = () => {
         const locales = router.locales ?? [];
         return locales.filter(l => l !== router.locale);
     }
+
     const locales = getLocales();
+
     const switchToLocale = () => {
         router.events.on('routeChangeComplete', () => {
             router.reload();
         });
     }
 
+    const href = router.route !== '/404' ? translateUrl(router.pathname, router.locale ?? '') : '/';
+
     return (
         <>
-            {locales.map((locale: string, i) => (
+            {locales.map((locale: string) => (
                 <li key={locale}>
                     <span>
                         <Link
-                            href={translateUrl(router.asPath, router.locale ?? '')}
+                            href={href}
                             locale={locale}
                             onClick={switchToLocale}
                         >
