@@ -30,11 +30,11 @@
 
     /* Heading */
 	--h1: 45px;
-	--h2: 30px;
-	--h3: 28px;
-	--h4: 25px;
-	--h5: 22px;
-	--h6: 18px;
+	--h2: 35px;
+	--h3: 25px;
+	--h4: 20px;
+	--h5: 18px;
+	--h6: 16px;
 	--font-heading: var(--font-primary);
 	--font-heading-weight: var(--font-medium);
 	--font-heading-line-height: 0.875;
@@ -49,20 +49,27 @@
     // MEDIA QUERIES
 
     @include mediaq('>SM') {
-        --h1: 56px
+        --h1: 56px;
+        --h2: 45px;
+    	--h3: 30px;
     }
 
     @include mediaq('>MD') {
-        --h1: 94px
+        --h1: 94px;
+        --h2: 56px;
+    	--h3: 35px;
     }
 
     @include mediaq('>LG') {
-        --h1: 122px
+        --h1: 122px;
+        --h4: 22px;
+        --h5: 20px;
+        --h6: 18px;
         --paragraph-size: 22px;
     }
 
     @include mediaq('>XLG') {
-        --h1: 144px
+        --h1: 144px;
     }
 }
 
