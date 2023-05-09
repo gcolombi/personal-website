@@ -64,7 +64,6 @@ export default function App({ Component, pageProps }: AppProps) {
                                 `
                                     :root {
                                         --font-primary: ${neueMontreal.style.fontFamily};
-                                        --font-secondary: ${neueMontreal.style.fontFamily};
                                     }
                                 `
                             }
