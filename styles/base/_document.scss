@@ -28,7 +28,7 @@
 	--font-line-height: 1.32;
 
     /* Heading */
-	--h1: 35px;
+	--h1: 45px;
 	--h2: 30px;
 	--h3: 28px;
 	--h4: 25px;
@@ -36,13 +36,32 @@
 	--h6: 18px;
 	--font-heading: var(--font-primary);
 	--font-heading-weight: var(--font-medium);
-	--font-heading-line-height: 1.15;
+	--font-heading-line-height: 0.875;
 
 	/* Alert */
 	--success: #{$success};
 	--info: #{$info};
 	--warning: #{$warning};
 	--error: #{$error};
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>SM') {
+        --h1: 56px
+    }
+
+    @include mediaq('>MD') {
+        --h1: 94px
+    }
+
+    @include mediaq('>LG') {
+        --h1: 122px
+    }
+
+    @include mediaq('>XLG') {
+        --h1: 144px
+    }
 }
 
 /* Document
@@ -101,6 +120,7 @@ h1, h2, h3, h4, h5, h6,
 	font-weight: var(--font-heading-weight);
 	line-height: var(--font-heading-line-height);
 	color: var(--body-heading-color);
+    text-transform: uppercase;
 }
 
 h1, .h1 {
