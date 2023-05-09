@@ -14,6 +14,37 @@
 	height: 1px;
 }
 
+.u-uppercase {
+    text-transform: uppercase;
+}
+
+.u-large-text {
+    --paragraph-size: 30px;
+
+    @extend .u-uppercase;
+    line-height: 1.25;
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>LG') {
+        --paragraph-size: 40px;
+    }
+}
+
+.u-larger-text {
+    --paragraph-size: 32px;
+
+    line-height: 1.11;
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --paragraph-size: 44px;
+    }
+}
+
 /* Layout
 ========================================================================== */
 
@@ -33,28 +64,4 @@
 	&.is-loaded {
 		opacity: 1;
 	}
-}
-
-/* Decorative
-========================================================================== */
-
-.u-box {
-	border-radius: 25px;
-	background: var(--gray-100);
-	box-shadow:  20px 20px 60px var(--gray-400),
-				-20px -20px 60px var(--white);
-}
-
-.u-box--thin {
-	border-radius: 22px;
-	background: var(--gray-100);
-	box-shadow:  15px 15px 45px var(--gray-400),
-				-15px -15px 45px var(--white);
-}
-
-.u-box--thinner {
-	border-radius: 20px;
-	background: var(--gray-100);
-	box-shadow:  12px 12px 35px var(--gray-400),
-				-12px -12px 35px var(--white);
 }

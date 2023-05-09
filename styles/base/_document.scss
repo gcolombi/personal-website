@@ -16,6 +16,7 @@
 	--body-heading-color: var(--black);
 	--body-link-color: var(--body-text-color);
     --body-bg-color: var(--gray-200);
+    --paragraph-size: 20px;
 
 	/* Font Families - css variables are defined in _app */
 
@@ -57,6 +58,7 @@
 
     @include mediaq('>LG') {
         --h1: 122px
+        --paragraph-size: 22px;
     }
 
     @include mediaq('>XLG') {
@@ -120,7 +122,7 @@ h1, h2, h3, h4, h5, h6,
 	font-weight: var(--font-heading-weight);
 	line-height: var(--font-heading-line-height);
 	color: var(--body-heading-color);
-    text-transform: uppercase;
+    @extend .u-uppercase;
 }
 
 h1, .h1 {
@@ -152,7 +154,8 @@ h6, .h6 {
 
 p {
 	color: var(--body-text-color);
-	font-size: var(--font-base);
+	font-size: var(--paragraph-size);
+    font-weight: var(--font-medium);
 	margin-bottom: 1.3em;
 }
 
