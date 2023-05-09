@@ -162,7 +162,7 @@ ul ol {
 }
 
 dt {
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
 }
 
 dd {
@@ -183,7 +183,7 @@ blockquote {
  */
 b,
 strong {
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
 }
 
 /**
@@ -297,7 +297,7 @@ kbd {
   kbd {
     padding: 0;
     font-size: 1em;
-    font-weight: var(--font-light);
+    font-weight: var(--font-regular);
   }
 }
 
@@ -497,7 +497,7 @@ legend {
   padding: 0;
   margin-bottom: 25px;
   font-size: .65rem;
-  font-weight: var(--font-light);
+  font-weight: var(--font-regular);
   line-height: inherit;
   white-space: normal; // 2
 

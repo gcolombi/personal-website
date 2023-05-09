@@ -20,14 +20,14 @@
 	/* Font Families - css variables are defined in _app */
 
 	/* Font Weight */
-	--font-extra-light: 200;
-	--font-extra-light: 200;
-	--font-light: 300;
+	// --font-extra-light: 200;
+	// --font-extra-light: 200;
+	// --font-light: 300;
 	--font-regular: 400;
 	--font-medium: 500;
-	--font-semi-bold: 600;
-	--font-bold: 700;
-	--font-black: 900;
+	// --font-semi-bold: 600;
+	// --font-bold: 700;
+	// --font-black: 900;
 
 	/* Typography */
 	--font-base: #{$font-base};
@@ -41,7 +41,7 @@
 	--h5: 22px;
 	--h6: 18px;
 	--font-heading: var(--font-secondary);
-	--font-heading-weight: var(--font-regular);
+	--font-heading-weight: var(--font-medium);
 	--font-heading-line-height: 1.05;
 
 	/* Alert */
@@ -144,7 +144,7 @@ p {
 
 a {
 	color: var(--body-link-color);
-	font-weight: var(--font-semi-bold);
+	font-weight: var(--font-medium);
 	text-decoration: none;
 	transition: all .35s $ease-in;
 
