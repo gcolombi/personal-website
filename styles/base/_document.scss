@@ -12,10 +12,10 @@
 	}
 
     /* Theme */
-	--body-text-color: var(--white);
-	--body-heading-color: var(--white);
+	--body-text-color: var(--black);
+	--body-heading-color: var(--black);
 	--body-link-color: var(--body-text-color);
-    --body-bg-color: var(--black);
+    --body-bg-color: var(--gray-200);
 
 	/* Font Families - css variables are defined in _app */
 
@@ -31,7 +31,7 @@
 
 	/* Typography */
 	--font-base: #{$font-base};
-	--font-line-height: 1.3;
+	--font-line-height: 1.32;
 
     /* Heading */
 	--h1: 35px;
@@ -59,7 +59,7 @@ html {
 	-ms-overflow-style: scrollbar;
 	-ms-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
-	-webkit-tap-highlight-color: rgba(var(--primary), 0.15);
+	-webkit-tap-highlight-color: transparent;
 	-webkit-text-size-adjust: 100%;
 	background-color: var(--body-bg-color);
 	color: var(--body-text-color);
@@ -89,12 +89,12 @@ main {
 }
 
 ::-moz-selection {
-	background-color: var(--primary);
+	background-color: var(--black);
 	color: var(--white);
 }
 
 ::selection {
-	background-color: var(--primary);
+	background-color: var(--black);
 	color: var(--white);
 }
 
@@ -149,8 +149,7 @@ a {
 	transition: all .35s $ease-in;
 
 	&:hover, &:active, &:focus {
-		color: var(--secondary);
-		text-decoration: none;
+		text-decoration: underline;
 	}
 }
 
@@ -189,7 +188,7 @@ picture {
 }
 
 table {
-	font-weight: var(--font-semi-bold);
+	font-weight: var(--font-medium);
 	margin-bottom: 30px;
 	width: 100%;
 
@@ -272,7 +271,7 @@ hr {
 		&:not([class]) {
 			li {
 				&:before {
-					background: var(--secondary);
+					background: var(--black);
 					border-radius: 50%;
 					height: 6px;
 					top: 0.6em;
@@ -289,10 +288,10 @@ hr {
 		&:not([class]) {
 			li {
 				&:before {
-					color: var(--secondary);
+					color: var(--black);
 					content: counter(section) '- ';
 					counter-increment: section;
-					font-weight: var(--font-bold);
+					font-weight: var(--font-medium);
 				}
 			}
 		}
