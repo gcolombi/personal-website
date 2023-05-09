@@ -6,9 +6,9 @@
     --navigation-bg: transparent;
     --navigation-sticky-bg: rgba(0, 0, 0, 0.5);
     --navigation-box-shadow: inset 0 -1px 0 0 hsla(0,0%,100%,.1);
-    --navigation-mobile-bg-color: var(--primary);
+    --navigation-mobile-bg-color: var(--black);
     --navigation-link-color: var(--white);
-    --navigation-link-current-color: var(--secondary);
+    --navigation-link-current-color: var(--white);
     --navigation-padding: 15px;
 
     position: fixed;
@@ -128,7 +128,7 @@
                                     text-transform: uppercase;
 
                                     &:hover, &:active, &:focus {
-                                        --navigation-link-color: var(--secondary);
+                                        --navigation-link-color: var(--white);
                                     }
 
                                     &.is-current-page {
