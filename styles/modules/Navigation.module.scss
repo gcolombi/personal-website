@@ -70,7 +70,6 @@
                         margin: 0;
                         padding: 0;
                         list-style: none;
-                        font-family: var(--font-primary);
 
                         li {
                             padding: 0;
@@ -84,10 +83,7 @@
                                 display: block;
                                 a {
                                     display: inline-block;
-                                    @include font-size(18px);
-                                    font-weight: var(--font-medium);
                                     color: var(--navigation-link-color);
-                                    text-transform: uppercase;
 
                                     // &:hover, &:active, &:focus {
                                     //     --navigation-link-color: var(--white);

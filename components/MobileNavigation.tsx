@@ -11,8 +11,8 @@ export default function MobileNavigation() {
             {/* {open && */}
                 <div
                     className={classNames(
-                            styles['c-mobileNav'],
-                            {[styles['is-open']]: open}
+                        styles['c-mobileNav'],
+                        {[styles['is-open']]: open}
                     )}
                 >
                     <nav>

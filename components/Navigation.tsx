@@ -47,7 +47,7 @@ export default function Navigation() {
                             <div className={styles['c-navigation__nav__primary']}>
                                 <div className={styles['c-navigation__nav__primary--list']}>
                                     <ul>
-                                        <li>
+                                        <li className="h4">
                                             <NavItem
                                                 href="/form"
                                                 title="Form"
