@@ -21,7 +21,7 @@ export default function MobileNavigation() {
                                 <div className={styles['c-mobileNav__primary']}>
                                     <div className={styles['c-mobileNav__primary--list']}>
                                         <ul>
-                                            <li>
+                                            <li className="h1">
                                                 <NavItem
                                                     href="/form"
                                                     title="Form"

@@ -3,7 +3,6 @@
 ========================================================================== */
 
 .c-navigation {
-    --navigation-link-color: var(--white);
     --navigation-padding: 15px;
 
     position: fixed;
@@ -55,16 +54,12 @@
         &__nav {
             display: none;
         }
-
-        /* states */
-        &.is-open {
-        }
     }
 
     /* desktop */
     @include mediaq('>LG') {
         --navigation-padding: 25px;
-        --navigation-link-color: var(--body-text-color);
+        --navigation-link-color: var(--white);
 
         &__nav {
             &__primary {

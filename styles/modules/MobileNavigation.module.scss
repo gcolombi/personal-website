@@ -17,7 +17,6 @@
     opacity: 0;
     transform: scaleY(0);
     z-index: 999;
-    transition-delay: 1s;
     transform-origin: bottom;
     transition: all .35s $ease-in;
 
@@ -58,10 +57,7 @@
 
                         a {
                             display: inline-block;
-                            @include font-size(25px);
-                            font-weight: var(--font-regular);
                             color: var(--navigation-link-color);
-                            text-transform: uppercase;
 
                             &.is-current-page {
                             }
