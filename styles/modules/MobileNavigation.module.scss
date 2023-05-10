@@ -34,7 +34,6 @@
     }
 
     &__primary {
-        position: relative;
         padding: var(--navigation-primary-padding) 0 0 0;
         opacity: 0;
         transition: opacity .2s $ease-in;
@@ -42,12 +41,11 @@
         &--list {
 
             ul {
-                margin: 0;
                 padding: 0;
+                margin: 0;
                 list-style: none;
 
                 li {
-                    position: relative;
                     padding: 0;
                     margin: 0;
 
