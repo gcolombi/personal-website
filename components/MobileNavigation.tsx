@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import useNavigationContext from '@/context/navigationContext';
 
 export default function MobileNavigation() {
-    const { open, toggle } = useNavigationContext();
+    const { open } = useNavigationContext();
 
     return (
         <>

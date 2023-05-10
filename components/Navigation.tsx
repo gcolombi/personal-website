@@ -39,17 +39,10 @@ export default function Navigation() {
                                 <Logo />
                             </Link>
                         </div>
-                        <button
-                            className={classNames(
-                                'h4',
-                                styles['m-toggler'],
-                            )}
-                            type="button"
-                            aria-label="Menu toggler"
-                            onClick={toggle}
-                        >
-                            {open ? 'Close' : 'Menu'}
-                        </button>
+                        <Toggler
+                            open={open}
+                            toggle={toggle}
+                        />
                         <nav className={styles['c-navigation__nav']}>
                             <div className={styles['c-navigation__nav__primary']}>
                                 <div className={styles['c-navigation__nav__primary--list']}>
@@ -70,5 +63,27 @@ export default function Navigation() {
             </header>
             <MobileNavigation />
         </>
+    );
+}
+
+function Toggler({
+    open,
+    toggle
+}: {
+    open: boolean;
+    toggle: () => void;
+}) {
+    return (
+        <button
+            className={classNames(
+                'h4',
+                styles['m-toggler'],
+            )}
+            type="button"
+            aria-label="Menu toggler"
+            onClick={toggle}
+        >
+            {open ? 'Close' : 'Menu'}
+        </button>
     );
 }
