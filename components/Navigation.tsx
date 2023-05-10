@@ -8,7 +8,7 @@ import NavItem from './NavItem';
 import classNames from 'classnames';
 
 export default function Navigation() {
-    const { setRef, open, sticky, hidden } = useNavigationContext();
+    const { setRef, open, sticky, hidden, toggle } = useNavigationContext();
     const [navigationRef, { height }] = useElementSize();
 
     return (
@@ -39,7 +39,17 @@ export default function Navigation() {
                                 <Logo />
                             </Link>
                         </div>
-                        <MobileNavigation />
+                        <button
+                            className={classNames(
+                                'h4',
+                                styles['m-toggler'],
+                            )}
+                            type="button"
+                            aria-label="Menu toggler"
+                            onClick={toggle}
+                        >
+                            {open ? 'Close' : 'Menu'}
+                        </button>
                         <nav className={styles['c-navigation__nav']}>
                             <div className={styles['c-navigation__nav__primary']}>
                                 <div className={styles['c-navigation__nav__primary--list']}>
@@ -58,6 +68,7 @@ export default function Navigation() {
                     </div>
                 </div>
             </header>
+            <MobileNavigation />
         </>
     );
 }

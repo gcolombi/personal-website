@@ -3,12 +3,7 @@
 ========================================================================== */
 
 .c-navigation {
-    --navigation-bg: transparent;
-    --navigation-sticky-bg: rgba(0, 0, 0, 0.5);
-    --navigation-box-shadow: inset 0 -1px 0 0 hsla(0,0%,100%,.1);
-    --navigation-mobile-bg-color: var(--black);
     --navigation-link-color: var(--white);
-    --navigation-link-current-color: var(--white);
     --navigation-padding: 15px;
 
     position: fixed;
@@ -17,22 +12,8 @@
     right: 0;
     z-index: 1000;
     padding: var(--navigation-padding) 0;
-    background: var(--navigation-bg);
-    box-shadow: none;
-    transition: all .35s, right 0s $ease-in 0s;
-
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--navigation-mobile-bg-color);
-        clip-path: circle(0px at top right);
-        transition: all .35s $ease-in;
-        pointer-events: none;
-    }
+    mix-blend-mode: difference;
+    transition: transform .35s, right 0s $ease-in;
 
     &__row {
         display: flex;
@@ -47,12 +28,14 @@
 
         a {
             display: block;
-            width: 35px;
+            width: 48px;
 
             svg {
-                fill: var(--body-text-color);
+                max-width: 40px;
+
+                fill: var(--gray-200);
                 path {
-                    fill: var(--body-bg-color);
+                    fill: var(--black);
                 }
             }
         }
@@ -60,14 +43,7 @@
 
     /* states */
     &.is-hidden {
-        transform: translate3d(0, -100%, 0) translateZ(0);
-    }
-
-    &.is-sticky {
-        --navigation-bg: var(--navigation-sticky-bg);
-        box-shadow: var(--navigation-box-shadow);
-        backdrop-filter: saturate(180%) blur(5px);
-        backface-visibility: hidden;
+        transform: translate3d(0, -100%, 0);
     }
 
     // **---------------------------------------------------**
@@ -76,21 +52,12 @@
     /* mobile */
     @include mediaq('<LG') {
 
-        &__logo {
-            order: 1;
-        }
-
         &__nav {
             display: none;
         }
 
         /* states */
         &.is-open {
-
-            &:before {
-                height: 100vh;
-                clip-path: circle(150% at top right);
-            }
         }
     }
 
@@ -131,9 +98,8 @@
                                     //     --navigation-link-color: var(--white);
                                     // }
 
-                                    // &.is-current-page {
-                                    //     --navigation-link-color: var(--navigation-link-current-color);
-                                    // }
+                                    &.is-current-page {
+                                    }
                                 }
                             }
                         }
@@ -141,5 +107,23 @@
                 }
             }
         }
+    }
+}
+
+/* Toggler
+========================================================================== */
+
+.m-toggler {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    order: 3;
+    color: var(--gray-200);
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>LG') {
+        display: none;
     }
 }

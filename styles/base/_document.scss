@@ -129,11 +129,11 @@ h1, h2, h3, h4, h5, h6,
 	font-weight: var(--font-heading-weight);
 	line-height: var(--font-heading-line-height);
 	color: var(--body-heading-color);
-    @extend .u-uppercase;
 }
 
 h1, .h1 {
 	font-size: var(--h1);
+    @extend .u-uppercase;
 }
 
 h2, .h2 {
