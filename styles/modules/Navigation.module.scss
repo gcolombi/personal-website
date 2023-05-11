@@ -4,6 +4,8 @@
 
 .c-navigation {
     --navigation-padding: 15px;
+    --navigation-link-size: 20px;
+    --navigation-link-color: var(--white);
 
     position: fixed;
     top: 0;
@@ -21,21 +23,14 @@
     }
 
     &__logo {
-        line-height: 0;
         padding-right: 15px;
 
         a {
-            display: block;
-            width: 48px;
-
-            svg {
-                max-width: 40px;
-
-                fill: var(--gray-200);
-                path {
-                    fill: var(--black);
-                }
-            }
+            display: inline-block;
+            font-size: var(--navigation-link-size);
+            font-weight: var(--font-medium);
+            line-height: 1.15;
+            color: var(--navigation-link-color);
         }
     }
 
@@ -57,7 +52,6 @@
     /* desktop */
     @include mediaq('>MD') {
         --navigation-padding: 25px;
-        --navigation-link-color: var(--white);
 
         &__nav {
             &__primary {
@@ -81,6 +75,9 @@
                                 display: block;
                                 a {
                                     display: inline-block;
+                                    font-size: var(--navigation-link-size);
+                                    font-weight: var(--font-medium);
+                                    line-height: 1.15;
                                     color: var(--navigation-link-color);
 
                                     // &:hover, &:active, &:focus {
@@ -97,6 +94,10 @@
             }
         }
     }
+
+    @include mediaq('>LG') {
+        --navigation-link-size: 22px;
+    }
 }
 
 /* Toggler
@@ -110,7 +111,7 @@
     // **---------------------------------------------------**
     // MEDIA QUERIES
 
-    @include mediaq('>LG') {
+    @include mediaq('>MD') {
         display: none;
     }
 }

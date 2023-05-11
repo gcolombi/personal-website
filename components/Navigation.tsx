@@ -35,8 +35,8 @@ export default function Navigation() {
                 <div className="o-container">
                     <div className={styles['c-navigation__row']}>
                         <div className={styles['c-navigation__logo']}>
-                            <Link href="/" title="Next.js starter">
-                                <Logo />
+                            <Link href="/" title="Gerard Colombi">
+                                Gerard Colombi
                             </Link>
                         </div>
                         <Toggler
@@ -47,17 +47,17 @@ export default function Navigation() {
                             <div className={styles['c-navigation__nav__primary']}>
                                 <div className={styles['c-navigation__nav__primary--list']}>
                                     <ul>
-                                        <li className="h4">
+                                        <li>
                                             <span>
                                                 <a href="#">Projects</a>
                                             </span>
                                         </li>
-                                        <li className="h4">
+                                        <li>
                                             <span>
                                                 <a href="#">About</a>
                                             </span>
                                         </li>
-                                        <li className="h4">
+                                        <li>
                                             <NavItem
                                                 href="/Contact"
                                                 title="Contact"
