@@ -48,14 +48,14 @@
     // MEDIA QUERIES
 
     /* mobile */
-    @include mediaq('<LG') {
+    @include mediaq('<MD') {
         &__nav {
             display: none;
         }
     }
 
     /* desktop */
-    @include mediaq('>LG') {
+    @include mediaq('>MD') {
         --navigation-padding: 25px;
         --navigation-link-color: var(--white);
 

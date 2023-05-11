@@ -9,32 +9,49 @@ export default function MobileNavigation() {
     return (
         <>
             {/* {open && */}
-                <div
+                <nav
                     className={classNames(
                         styles['c-mobileNav'],
                         {[styles['is-open']]: open}
                     )}
                 >
-                    <nav>
-                        <div className={styles['c-mobileNav__scroll']}>
-                            <div className={styles['c-mobileNav__container']}>
-                                <div className={styles['c-mobileNav__primary']}>
-                                    <div className={styles['c-mobileNav__primary--list']}>
-                                        <ul>
-                                            <li className="h1">
-                                                <NavItem
-                                                    href="/form"
-                                                    title="Form"
-                                                    className={styles['is-current-page']}
-                                                />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                    <div className={styles['c-mobileNav__inner']}>
+                        <div className={styles['c-mobileNav__nav']}>
+                                <ul>
+                                    <li>
+                                        <span>
+                                            <a href="#">Projects</a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <a href="#">About</a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <NavItem
+                                            href="/Contact"
+                                            title="Contact"
+                                            className={styles['is-current-page']}
+                                        />
+                                    </li>
+                                </ul>
                         </div>
-                    </nav>
-                </div>
+                        <div className={styles['c-mobileNav__footer']}>
+                            <ul>
+                                <li>
+                                    <a href="https://www.instagram.com/">Instagram</a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/">Twitter</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/">Github</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             {/* } */}
         </>
     )

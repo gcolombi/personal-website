@@ -48,9 +48,19 @@ export default function Navigation() {
                                 <div className={styles['c-navigation__nav__primary--list']}>
                                     <ul>
                                         <li className="h4">
+                                            <span>
+                                                <a href="#">Projects</a>
+                                            </span>
+                                        </li>
+                                        <li className="h4">
+                                            <span>
+                                                <a href="#">About</a>
+                                            </span>
+                                        </li>
+                                        <li className="h4">
                                             <NavItem
-                                                href="/form"
-                                                title="Form"
+                                                href="/Contact"
+                                                title="Contact"
                                                 className={styles['is-current-page']}
                                             />
                                         </li>

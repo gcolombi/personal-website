@@ -4,8 +4,8 @@
 
 .c-mobileNav {
     --navigation-link-color: var(--white);
-    --navigation-primary-padding: calc(var(--navigation-height) + 100px);
-    --navigation-scroll-padding: 100px;
+    --navigation-primary-padding: 100px;
+    // --navigation-scroll-padding: 100px;
 
     position: fixed;
     top: 0;
@@ -14,57 +14,74 @@
     height: 100%;
     background: var(--black);
     pointer-events: none;
-    opacity: 0;
     transform: scaleY(0);
     z-index: 999;
     transform-origin: bottom;
+    overflow: hidden auto;
     transition: all .35s $ease-in;
 
-    &__scroll {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden auto;
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        padding: var(--navigation-height) var(--container-padding) 38px;
+        min-height: 100%;
     }
 
-    &__container {
-        padding: 0 var(--container-padding);
-    }
-
-    &__primary {
+    &__nav {
         padding: var(--navigation-primary-padding) 0 0 0;
+        margin-top: auto;
+        width: 100%;
         opacity: 0;
         transition: opacity .2s $ease-in;
 
-        &--list {
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
 
-            ul {
+            li {
                 padding: 0;
                 margin: 0;
-                list-style: none;
 
-                li {
-                    padding: 0;
-                    margin: 0;
+                span {
+                    display: inline-block;
 
-                    &:not(:last-child) {
-                        margin-bottom: 15px;
-                    }
-
-                    span {
+                    a {
                         display: inline-block;
+                        font-size: 56px;
+                        line-height: 1.2;
+                        color: var(--navigation-link-color);
+                        text-transform: uppercase;
 
-                        a {
-                            display: inline-block;
-                            color: var(--navigation-link-color);
-
-                            &.is-current-page {
-                            }
+                        &.is-current-page {
                         }
                     }
+                }
 
+            }
+        }
+    }
+
+    &__footer {
+        margin-top: 30px;
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            li {
+                padding: 0;
+                margin: 0;
+
+                &:not(:last-child) {
+                    margin-bottom: 5px;
+                }
+
+                a {
+                    display: inline-block;
+                    font-size: 20px;
+                    color: var(--navigation-link-color);
                 }
             }
         }
@@ -72,16 +89,11 @@
 
     &.is-open {
         pointer-events: all;
-        opacity: 1;
         transform: scaleY(1);
     }
 
     &.is-open & {
-        &__scroll {
-            padding-bottom: var(--navigation-scroll-padding);
-        }
-
-        &__primary {
+        &__nav {
             opacity: 1;
             transition: opacity .35s $ease-in;
         }
@@ -90,7 +102,7 @@
     // **---------------------------------------------------**
     // MEDIA QUERIES
 
-    @include mediaq('>LG') {
+    @include mediaq('>MD') {
         display: none;
     }
 }
