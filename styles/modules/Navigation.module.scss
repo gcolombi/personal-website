@@ -68,17 +68,26 @@
                             margin: 0;
 
                             &:not(:last-child) {
-                                margin-right: 35px;
+                                margin-right: 5px;
+
+                                span {
+
+                                    &:after {
+                                        content: ',';
+                                    }
+                                }
                             }
 
                             span {
-                                display: block;
+                                display: inline-block;
+                                font-size: var(--navigation-link-size);
+                                font-weight: var(--font-medium);
+                                line-height: 1.15;
+                                color: var(--navigation-link-color);
+
                                 a {
                                     display: inline-block;
-                                    font-size: var(--navigation-link-size);
-                                    font-weight: var(--font-medium);
-                                    line-height: 1.15;
-                                    color: var(--navigation-link-color);
+                                    color: inherit;
 
                                     // &:hover, &:active, &:focus {
                                     //     --navigation-link-color: var(--white);
