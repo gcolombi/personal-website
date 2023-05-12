@@ -59,7 +59,7 @@ export default function Navigation() {
                                         </li>
                                         <li>
                                             <NavItem
-                                                href="/Contact"
+                                                href="/contact"
                                                 title="Contact"
                                                 className={styles['is-current-page']}
                                             />

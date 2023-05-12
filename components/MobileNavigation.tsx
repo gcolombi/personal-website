@@ -30,7 +30,7 @@ export default function MobileNavigation() {
                                     </li>
                                     <li>
                                         <NavItem
-                                            href="/Contact"
+                                            href="/contact"
                                             title="Contact"
                                             className={styles['is-current-page']}
                                         />

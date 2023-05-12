@@ -1,4 +1,5 @@
 import MetaData from '@/components/MetaData';
+import CharsInOut from '@/components/shared/gsap/CharsInOut';
 
 export default function Home() {
     return (
@@ -8,10 +9,23 @@ export default function Home() {
                 <div className="o-container">
                     <div className="o-wysiwyg">
                         <h1>
-                            Gérard
-                            <br/>
-                            Colombi
-                            <br/>
+                            <CharsInOut
+                                delay={0.46}
+                                target="#chars-1"
+                            >
+                                <span id="chars-1">
+                                    Gerard
+                                </span>
+                            </CharsInOut>
+                            <CharsInOut
+                                delay={0.46}
+                                target="#chars-1"
+                            >
+                                <span id="chars-1">
+                                    Colombi
+                                </span>
+                            </CharsInOut>
+                            {/* <br/> */}
                             Front-end
                             <br/>
                             Developer

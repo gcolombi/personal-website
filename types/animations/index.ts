@@ -29,6 +29,13 @@ export type ImplodeExplode = {
     target: string;
 } & AnimationProperties;
 
+export type Chars = {
+    children: ReactNode;
+    overflowHidden?: boolean;
+    increment?: number;
+    target: string;
+} & AnimationProperties;
+
 export type Rotate = {
     children: ReactNode;
     fade?: boolean;
