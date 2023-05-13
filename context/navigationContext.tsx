@@ -56,7 +56,7 @@ export function NavigationContextProvider({
                 // willChange: 'transform',
                 opacity: 0,
                 ease: 'expo.inOut',
-                // duration: 0.35,
+                // delay: 0.35,
                 duration: 0.7,
                 onComplete: () => {
                 }

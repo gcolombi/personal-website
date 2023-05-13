@@ -7,8 +7,6 @@ import { useRef } from 'react';
 import NavItem from './NavItem';
 import classNames from 'classnames';
 
-
-
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(SplitText);
 }
@@ -58,29 +56,19 @@ export default function MobileNavigation() {
 
             navSocialsRef.current.forEach(social => {
                 if (open) {
-                    // gsap.to(social, {
-                    //     opacity: 1,
-                    //     ease: 'sine.out',
-                    //     // delay: 0.35,
-                    //     duration: 0.5
-                    // });
                     gsap.fromTo(social, {
                         opacity: 0,
                     },
                     {
                         opacity: 1,
-                        // ease: 'sine.in',
-                        // ease: 'power4.out',
-                        // ease: 'expo.inOut',
+                        ease: 'power4.out',
                         delay: 0.35,
-                        // duration: 0.35
-                        duration: 0.5
+                        duration: 0.35
                     });
                 } else {
                     // gsap.to(social, {
                     //     opacity: 0,
-                    //     ease: 'sine.in',
-                    //     // delay: 0,
+                    //     ease: 'power4.in',
                     //     duration: 0.25
                     // });
                 }
