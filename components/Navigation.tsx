@@ -7,42 +7,8 @@ import NavItem from './NavItem';
 import classNames from 'classnames';
 
 export default function Navigation() {
-    const { setRef, setMobileNavRef, open, sticky, hidden, toggle } = useNavigationContext();
+    const { setRef, setMobileNavRef, isOpen, open, sticky, hidden, toggle } = useNavigationContext();
     const [navigationRef, { height }] = useElementSize();
-    // const mobileNavRef = useRef<HTMLElement>(null);
-
-    const toggleNav = () => {
-        toggle();
-
-        // if (open) {
-        //     gsap.to(mobileNavRef.current, {
-        //         // scaleY: 0,
-        //         y: '100%',
-        //         // transformOrigin: 'top',
-        //         willChange: 'transform',
-        //         // ease: 'power3.out',
-        //         ease: 'expo.inOut',
-        //         delay: 0.5,
-        //         duration: 0.5,
-        //         onComplete: () => {
-        //             console.log('done - end');
-        //         }
-        //     });
-        // } else {
-        //     gsap.to(mobileNavRef.current, {
-        //         // scaleY: 1,
-        //         y: 0,
-        //         // transformOrigin: 'bottom',
-        //         willChange: 'transform',
-        //         // ease: 'power3.out',
-        //         ease: 'expo.inOut',
-        //         duration: 0.7,
-        //         onComplete: () => {
-        //             console.log('start - end');
-        //         }
-        //     });
-        // }
-    }
 
     return (
         <>
@@ -56,8 +22,7 @@ export default function Navigation() {
                     styles['c-navigation'],
                     {
                         [styles['is-sticky']]: sticky,
-                        [styles['is-hidden']]: hidden,
-                        [styles['is-open']]: open
+                        [styles['is-hidden']]: hidden
                     }
                 )}
                 ref={(el: HTMLDivElement) => {
@@ -73,8 +38,9 @@ export default function Navigation() {
                             </Link>
                         </div>
                         <Toggler
-                            open={open}
-                            toggle={toggleNav}
+                            open={isOpen}
+                            // open={open}
+                            toggle={toggle}
                         />
                         <nav className={styles['c-navigation__nav']}>
                             <div className={styles['c-navigation__nav__primary']}>

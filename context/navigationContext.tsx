@@ -19,6 +19,7 @@ interface NavigationContextType {
     mobileNavRef: HTMLElement | null;
     setMobileNavRef: Dispatch<SetStateAction<HTMLElement | null>>;
     open: boolean;
+    isOpen: boolean;
     sticky: boolean;
     hidden: boolean;
     toggle: () => void;
@@ -30,6 +31,7 @@ const NavigationContext = createContext<NavigationContextType>({
     mobileNavRef: null,
     setMobileNavRef: () => null,
     open: false,
+    isOpen: false,
     sticky: false,
     hidden: false,
     toggle: () => {}
@@ -43,6 +45,7 @@ export function NavigationContextProvider({
     const [ref, setRef] = useState<HTMLElement | null>(null);
     const [mobileNavRef, setMobileNavRef] = useState<HTMLElement | null>(null);
     const [open, setOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const { scrollY, directionY } = useScrollbar();
     const { windowSize, isDesktop } = useWindowSize();
     const [locked, setLocked] = useLockedScroll(false);
@@ -60,8 +63,7 @@ export function NavigationContextProvider({
                 delay: 0.7,
                 duration: 0.5,
                 onComplete: () => {
-                    console.log('done - end');
-                    // setOpen(!state);
+                    setIsOpen(!state);
                 }
             });
         } else {
@@ -74,8 +76,7 @@ export function NavigationContextProvider({
                 ease: 'expo.inOut',
                 duration: 0.7,
                 onComplete: () => {
-                    console.log('start - end');
-                    // setOpen(!state);
+                    setIsOpen(!state);
                 }
             });
         }
@@ -101,7 +102,7 @@ export function NavigationContextProvider({
         if (open) {
             setOpen(false);
             setLocked(false);
-            animate(false);
+            animate(true);
         }
     }, [router.asPath]);
 
@@ -111,6 +112,7 @@ export function NavigationContextProvider({
         mobileNavRef,
         setMobileNavRef,
         open,
+        isOpen,
         sticky: scrollY > 0,
         hidden: directionY > 0 && typeof windowSize.height === 'number' && scrollY > windowSize.height,
         toggle
