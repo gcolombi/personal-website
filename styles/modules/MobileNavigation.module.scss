@@ -17,6 +17,7 @@
     transform: scaleY(0);
     // transform: translateY(100%);
 
+    pointer-events: none;
     z-index: 999;
     overflow: hidden auto;
 
@@ -87,10 +88,14 @@
                     display: inline-block;
                     font-size: 20px;
                     color: var(--navigation-link-color);
-                    // opacity: 0;
                 }
             }
         }
+    }
+
+    /* States */
+    &.is-open {
+        pointer-events: all;
     }
 
     // **---------------------------------------------------**

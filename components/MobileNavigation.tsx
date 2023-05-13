@@ -69,9 +69,12 @@ export default function MobileNavigation() {
                     },
                     {
                         opacity: 1,
-                        ease: 'sine.in',
+                        // ease: 'sine.in',
+                        // ease: 'power4.out',
+                        // ease: 'expo.inOut',
                         delay: 0.35,
-                        duration: 0.35
+                        // duration: 0.35
+                        duration: 0.5
                     });
                 } else {
                     // gsap.to(social, {
@@ -91,7 +94,12 @@ export default function MobileNavigation() {
         <>
             {/* {open && */}
                 <nav
-                    className={styles['c-mobileNav']}
+                    className={classNames(
+                        styles['c-mobileNav'],
+                        {
+                            [styles['is-open']]: open
+                        }
+                    )}
                     ref={(el: HTMLElement) => setMobileNavRef(el)}
                 >
                     <div className={styles['c-mobileNav__inner']}>

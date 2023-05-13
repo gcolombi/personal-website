@@ -116,7 +116,7 @@ export default function Form() {
     return(
         <>
             <form className={classNames('u-spacing--responsive--bottom', styles['c-form'])} onSubmit={handleSubmit(handleSubmitForm)} noValidate>
-                <div className="o-container--small">
+                <div className="o-container">
                     <div className={styles['c-form__inner']}>
                         <div className={styles['c-form__row']}>
                             <FormInput

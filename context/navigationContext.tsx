@@ -52,14 +52,10 @@ export function NavigationContextProvider({
         if (state) {
             gsap.to(mobileNavRef, {
                 // scaleY: 0,
-                // y: '100%',
                 // transformOrigin: 'top',
                 // willChange: 'transform',
-                // ease: 'power3.out',
                 opacity: 0,
                 ease: 'expo.inOut',
-                // delay: 0.5,
-                // delay: 0.4,
                 // duration: 0.35,
                 duration: 0.7,
                 onComplete: () => {
@@ -73,10 +69,8 @@ export function NavigationContextProvider({
                 },
                 {
                 scaleY: 1,
-                // y: 0,
                 transformOrigin: 'bottom',
                 willChange: 'transform',
-                // ease: 'power3.out',
                 ease: 'expo.inOut',
                 duration: 0.7,
                 onComplete: () => {
