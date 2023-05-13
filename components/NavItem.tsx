@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { ForwardedRef, forwardRef } from 'react';
 import classNames from 'classnames';
 
-export default function NavItem({
+function NavItem({
     href,
     title,
     onClick,
@@ -12,7 +13,7 @@ export default function NavItem({
     title: string;
     onClick?: () => void;
     className: string
-}) {
+}, ref: ForwardedRef<HTMLAnchorElement>) {
     const router = useRouter();
     const isActive = router.asPath === href;
 
@@ -24,9 +25,12 @@ export default function NavItem({
                     [className]: isActive
                 })}
                 onClick={onClick}
+                ref={ref}
             >
                 {title}
             </Link>
         </span>
     );
 }
+
+export default forwardRef(NavItem);

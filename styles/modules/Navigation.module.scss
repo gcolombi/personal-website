@@ -5,7 +5,8 @@
 .c-navigation {
     --navigation-padding: 15px;
     --navigation-link-size: 20px;
-    --navigation-link-color: var(--white);
+    --navigation-link-color: var(--gray-200);
+    // --navigation-link-color: var(--black);
 
     position: fixed;
     top: 0;

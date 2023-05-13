@@ -2,14 +2,47 @@ import styles from '@/styles/modules/Navigation.module.scss';
 import Link from 'next/link';
 import useNavigationContext from '@/context/navigationContext';
 import useElementSize from '@/hooks/useElementSize';
-import Logo from './shared/svg/Logo';
 import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
 import classNames from 'classnames';
 
 export default function Navigation() {
-    const { setRef, open, sticky, hidden, toggle } = useNavigationContext();
+    const { setRef, setMobileNavRef, open, sticky, hidden, toggle } = useNavigationContext();
     const [navigationRef, { height }] = useElementSize();
+    // const mobileNavRef = useRef<HTMLElement>(null);
+
+    const toggleNav = () => {
+        toggle();
+
+        // if (open) {
+        //     gsap.to(mobileNavRef.current, {
+        //         // scaleY: 0,
+        //         y: '100%',
+        //         // transformOrigin: 'top',
+        //         willChange: 'transform',
+        //         // ease: 'power3.out',
+        //         ease: 'expo.inOut',
+        //         delay: 0.5,
+        //         duration: 0.5,
+        //         onComplete: () => {
+        //             console.log('done - end');
+        //         }
+        //     });
+        // } else {
+        //     gsap.to(mobileNavRef.current, {
+        //         // scaleY: 1,
+        //         y: 0,
+        //         // transformOrigin: 'bottom',
+        //         willChange: 'transform',
+        //         // ease: 'power3.out',
+        //         ease: 'expo.inOut',
+        //         duration: 0.7,
+        //         onComplete: () => {
+        //             console.log('start - end');
+        //         }
+        //     });
+        // }
+    }
 
     return (
         <>
@@ -41,7 +74,7 @@ export default function Navigation() {
                         </div>
                         <Toggler
                             open={open}
-                            toggle={toggle}
+                            toggle={toggleNav}
                         />
                         <nav className={styles['c-navigation__nav']}>
                             <div className={styles['c-navigation__nav__primary']}>
@@ -71,7 +104,9 @@ export default function Navigation() {
                     </div>
                 </div>
             </header>
-            <MobileNavigation />
+            <MobileNavigation
+                ref={(el: HTMLElement) => setMobileNavRef(el)}
+            />
         </>
     );
 }
