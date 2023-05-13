@@ -15,7 +15,7 @@
     z-index: 1000;
     padding: var(--navigation-padding) 0;
     mix-blend-mode: difference;
-    transition: transform .35s, right 0s $ease-in;
+    transition: transform .45s, right 0s $ease-in;
 
     &__row {
         display: flex;
@@ -94,8 +94,8 @@
                                     //     --navigation-link-color: var(--white);
                                     // }
 
-                                    &.is-current-page {
-                                    }
+                                    // &.is-current-page {
+                                    // }
                                 }
                             }
                         }

@@ -19,7 +19,6 @@ interface NavigationContextType {
     mobileNavRef: HTMLElement | null;
     setMobileNavRef: Dispatch<SetStateAction<HTMLElement | null>>;
     open: boolean;
-    isOpen: boolean;
     sticky: boolean;
     hidden: boolean;
     toggle: () => void;
@@ -31,7 +30,6 @@ const NavigationContext = createContext<NavigationContextType>({
     mobileNavRef: null,
     setMobileNavRef: () => null,
     open: false,
-    isOpen: false,
     sticky: false,
     hidden: false,
     toggle: () => {}
@@ -45,7 +43,6 @@ export function NavigationContextProvider({
     const [ref, setRef] = useState<HTMLElement | null>(null);
     const [mobileNavRef, setMobileNavRef] = useState<HTMLElement | null>(null);
     const [open, setOpen] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
     const { scrollY, directionY } = useScrollbar();
     const { windowSize, isDesktop } = useWindowSize();
     const [locked, setLocked] = useLockedScroll(false);
@@ -55,28 +52,34 @@ export function NavigationContextProvider({
         if (state) {
             gsap.to(mobileNavRef, {
                 // scaleY: 0,
-                y: '100%',
+                // y: '100%',
                 // transformOrigin: 'top',
-                willChange: 'transform',
+                // willChange: 'transform',
                 // ease: 'power3.out',
+                opacity: 0,
                 ease: 'expo.inOut',
-                delay: 0.7,
-                duration: 0.5,
+                // delay: 0.5,
+                // delay: 0.4,
+                // duration: 0.35,
+                duration: 0.7,
                 onComplete: () => {
-                    setIsOpen(!state);
                 }
             });
         } else {
-            gsap.to(mobileNavRef, {
-                // scaleY: 1,
-                y: 0,
-                // transformOrigin: 'bottom',
+            gsap.fromTo(mobileNavRef,
+                {
+                    opacity: 1,
+                    scaleY: 0
+                },
+                {
+                scaleY: 1,
+                // y: 0,
+                transformOrigin: 'bottom',
                 willChange: 'transform',
                 // ease: 'power3.out',
                 ease: 'expo.inOut',
                 duration: 0.7,
                 onComplete: () => {
-                    setIsOpen(!state);
                 }
             });
         }
@@ -112,7 +115,6 @@ export function NavigationContextProvider({
         mobileNavRef,
         setMobileNavRef,
         open,
-        isOpen,
         sticky: scrollY > 0,
         hidden: directionY > 0 && typeof windowSize.height === 'number' && scrollY > windowSize.height,
         toggle

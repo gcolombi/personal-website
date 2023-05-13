@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import SplitText from 'gsap/dist/SplitText';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useNavigationContext from '@/context/navigationContext';
-import { ForwardedRef, forwardRef, useRef } from 'react';
+import { useRef } from 'react';
 import NavItem from './NavItem';
 import classNames from 'classnames';
 
@@ -13,11 +13,8 @@ if (typeof window !== 'undefined') {
     gsap.registerPlugin(SplitText);
 }
 
-// export default function MobileNavigation() {
-function MobileNavigation({
-}, ref: ForwardedRef<HTMLElement>) {
-
-    const { open } = useNavigationContext();
+export default function MobileNavigation() {
+    const { setMobileNavRef, open } = useNavigationContext();
     const navItemsRef = useRef<HTMLAnchorElement[]>([]);
     const navSocialsRef = useRef<HTMLAnchorElement[]>([]);
 
@@ -30,39 +27,60 @@ function MobileNavigation({
                 const increment = 0.07;
                 let initialDelay = 0.35;
                 let initialDelayOut = 0 + increment * chars.length;
+
                 chars.forEach(char => {
                     if (open) {
-                        gsap.fromTo(
-                            char,
-                            {
-                                y: '100%',
-                                ease: 'power4.out'
-                            },
-                            {
-                                y: 0,
-                                willChange: 'transform',
-                                ease: 'power4.out',
-                                delay: initialDelay,
-                                duration: 1.25,
-                            }
-                        );
+                        gsap.fromTo(char, {
+                            y: '100%'
+                        },
+                        {
+                            y: 0,
+                            willChange: 'transform',
+                            ease: 'power4.out',
+                            delay: initialDelay,
+                            duration: 1.25
+                        });
 
                         initialDelay += increment;
-
                     } else {
-                        gsap.to(
-                            char,
-                            {
-                                y: '100%',
-                                ease: 'power4.in',
-                                delay: initialDelayOut,
-                                duration: 0.25
-                            }
-                        );
-                    }
+                        // gsap.to(char, {
+                        //     y: '100%',
+                        //     ease: 'power4.in',
+                        //     // delay: initialDelayOut,
+                        //     delay: 0.25,
+                        //     duration: 0.25
+                        // });
 
-                    initialDelayOut -= increment;
+                        // initialDelayOut -= increment;
+                    }
                 });
+            });
+
+            navSocialsRef.current.forEach(social => {
+                if (open) {
+                    // gsap.to(social, {
+                    //     opacity: 1,
+                    //     ease: 'sine.out',
+                    //     // delay: 0.35,
+                    //     duration: 0.5
+                    // });
+                    gsap.fromTo(social, {
+                        opacity: 0,
+                    },
+                    {
+                        opacity: 1,
+                        ease: 'sine.in',
+                        delay: 0.35,
+                        duration: 0.35
+                    });
+                } else {
+                    // gsap.to(social, {
+                    //     opacity: 0,
+                    //     ease: 'sine.in',
+                    //     // delay: 0,
+                    //     duration: 0.25
+                    // });
+                }
             });
 
         });
@@ -74,7 +92,7 @@ function MobileNavigation({
             {/* {open && */}
                 <nav
                     className={styles['c-mobileNav']}
-                    ref={ref}
+                    ref={(el: HTMLElement) => setMobileNavRef(el)}
                 >
                     <div className={styles['c-mobileNav__inner']}>
                         <div className={styles['c-mobileNav__nav']}>
@@ -143,5 +161,3 @@ function MobileNavigation({
         </>
     )
 }
-
-export default forwardRef(MobileNavigation);

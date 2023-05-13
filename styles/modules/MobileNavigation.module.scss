@@ -14,9 +14,9 @@
     height: 100%;
     background: var(--black);
 
-    // transform: scaleY(0);
+    transform: scaleY(0);
+    // transform: translateY(100%);
 
-    transform: translateY(100%);
     z-index: 999;
     overflow: hidden auto;
 
@@ -58,8 +58,8 @@
                         color: var(--navigation-link-color);
                         text-transform: uppercase;
 
-                        &.is-current-page {
-                        }
+                        // &.is-current-page {
+                        // }
                     }
                 }
 
@@ -87,6 +87,7 @@
                     display: inline-block;
                     font-size: 20px;
                     color: var(--navigation-link-color);
+                    // opacity: 0;
                 }
             }
         }

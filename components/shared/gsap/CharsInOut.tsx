@@ -53,8 +53,7 @@ export default function CharsInOut({
                 gsap.fromTo(
                     char,
                     {
-                        y: '100%',
-                        ease
+                        y: '100%'
                     },
                     {
                         y: 0,

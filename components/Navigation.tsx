@@ -7,7 +7,7 @@ import NavItem from './NavItem';
 import classNames from 'classnames';
 
 export default function Navigation() {
-    const { setRef, setMobileNavRef, isOpen, open, sticky, hidden, toggle } = useNavigationContext();
+    const { setRef, open, sticky, hidden, toggle } = useNavigationContext();
     const [navigationRef, { height }] = useElementSize();
 
     return (
@@ -38,8 +38,7 @@ export default function Navigation() {
                             </Link>
                         </div>
                         <Toggler
-                            open={isOpen}
-                            // open={open}
+                            open={open}
                             toggle={toggle}
                         />
                         <nav className={styles['c-navigation__nav']}>
@@ -70,9 +69,7 @@ export default function Navigation() {
                     </div>
                 </div>
             </header>
-            <MobileNavigation
-                ref={(el: HTMLElement) => setMobileNavRef(el)}
-            />
+            <MobileNavigation />
         </>
     );
 }
