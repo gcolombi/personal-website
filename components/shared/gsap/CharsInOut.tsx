@@ -1,12 +1,13 @@
 import { Chars } from '@/types/animations';
 import gsap from 'gsap';
 import SplitText from 'gsap/dist/SplitText';
+import CustomEase from "gsap/dist/CustomEase";
 import { useRef } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useTransitionContext from '@/context/transitionContext';
 
 if (typeof window !== 'undefined') {
-    gsap.registerPlugin(SplitText);
+    gsap.registerPlugin(SplitText, CustomEase);
 }
 
 export default function CharsInOut({
@@ -17,8 +18,8 @@ export default function CharsInOut({
     delay = 0,
     delayOut = 0,
     increment = 0.07,
-    ease = 'power4.out',
-    easeOut = 'power4.in',
+    ease,
+    easeOut,
     target,
     skipOutro,
     watch = false,
@@ -58,7 +59,7 @@ export default function CharsInOut({
                     {
                         y: 0,
                         willChange: 'transform',
-                        ease,
+                        ease: ease ?? CustomEase.create('custom', 'M0,0 C0.62,0.05 0.01,0.99 1,1'),
                         delay: initialDelay,
                         duration: durationIn,
                         ...scrollTrigger
@@ -74,7 +75,7 @@ export default function CharsInOut({
                             char,
                             {
                                 y: '100%',
-                                ease: easeOut,
+                                ease: easeOut ?? CustomEase.create('custom', 'M0,0 C0.62,0.05 0.01,0.99 1,1'),
                                 delay: initialDelayOut,
                                 duration: durationOut
                             }
