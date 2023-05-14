@@ -90,7 +90,7 @@ export function NavigationContextProvider({
         if (isDesktop) {
             setOpen(false);
             setLocked(false);
-            open && animate(false);
+            animate(true);
         }
     }, [isDesktop]);
 

@@ -68,9 +68,6 @@ export default function Navigation() {
                         willChange: 'transform',
                         ease: 'expo.InOut',
                         duration: 0.45,
-                        onComplete: () => {
-                            console.log('hidden');
-                        }
                     }
                 );
                 return;
@@ -82,9 +79,6 @@ export default function Navigation() {
                     willChange: 'transform',
                     ease: 'expo.InOut',
                     duration: 0.45,
-                    onComplete: () => {
-                        console.log('not hidden');
-                    }
                 }
             );
         }
