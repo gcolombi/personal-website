@@ -1,16 +1,16 @@
 import styles from '@/styles/modules/Navigation.module.scss';
+import { gsap } from 'gsap';
 import Link from 'next/link';
+import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useElementSize from '@/hooks/useElementSize';
+import useScrollbar from '@/hooks/useScrollbar';
+import { useRef } from 'react';
 import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
 import classNames from 'classnames';
 
-import { gsap } from 'gsap';
-import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
-import useTransitionContext from '@/context/transitionContext';
-import { useRef } from 'react';
-import useScrollbar from '@/hooks/useScrollbar';
 
 export default function Navigation() {
     const { timeline } = useTransitionContext();
@@ -22,6 +22,7 @@ export default function Navigation() {
     /* Animates navigation on first render */
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
+            /* Intro animation */
             gsap.fromTo(headerRef.current, {
                 y: '-100%'
             },
@@ -37,6 +38,7 @@ export default function Navigation() {
                 }
             });
 
+            /* Outro animation */
             timeline?.add(
                 gsap.to(headerRef.current,
                     {

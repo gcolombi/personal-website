@@ -1,11 +1,10 @@
+import { gsap } from 'gsap';
 import useTransitionContext from '@/context/transitionContext';
+import useNavigationContext from '@/context/navigationContext';
 import { ReactNode, useState } from 'react';
 import { useRouter } from 'next/router';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-
-import useNavigationContext from '@/context/navigationContext';
-import { gsap } from 'gsap';
 
 export default function TransitionLayout({
     children
@@ -18,11 +17,23 @@ export default function TransitionLayout({
         children
     });
     const { timeline, resetTimeline } = useTransitionContext();
-
-
     const { ref } = useNavigationContext();
 
     const animateNavigation = () => {
+        /* Intro animation */
+        gsap.to(ref, {
+            opacity: 1,
+            y: 0,
+            willChange: 'transform',
+            ease: 'expo.InOut',
+            delay: 1,
+            duration: 0.45,
+            onComplete: () => {
+                console.log('transition layout to');
+            }
+        });
+
+        /* Outro animation */
         timeline?.add(
             gsap.to(ref,
                 {
@@ -37,19 +48,7 @@ export default function TransitionLayout({
             ),
             0
         );
-
-        gsap.to(ref, {
-            opacity: 1,
-            y: 0,
-            willChange: 'transform',
-            ease: 'expo.InOut',
-            delay: 1,
-            duration: 0.45,
-            onComplete: () => {
-                console.log('transition layout to');
-            }
-        });
-    }
+    };
 
     useIsomorphicLayoutEffect(() => {
         if (currentPage.route !== router.asPath) {
