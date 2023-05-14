@@ -6,9 +6,87 @@ import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
 import classNames from 'classnames';
 
+import { gsap } from 'gsap';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import useTransitionContext from '@/context/transitionContext';
+import { useRef } from 'react';
+import useScrollbar from '@/hooks/useScrollbar';
+
 export default function Navigation() {
+    const { timeline } = useTransitionContext();
     const { setRef, open, sticky, hidden, toggle } = useNavigationContext();
     const [navigationRef, { height }] = useElementSize();
+    const headerRef = useRef<HTMLElement | null>(null);
+    const { scrollY } = useScrollbar();
+
+    /* Animates navigation on first render */
+    useIsomorphicLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.fromTo(headerRef.current, {
+                y: '-100%'
+            },
+            {
+                opacity: 1,
+                y: 0,
+                willChange: 'transform',
+                ease: 'expo.InOut',
+                delay: 1,
+                duration: 0.45,
+                onComplete: () => {
+                    console.log('navigation to');
+                }
+            });
+
+            timeline?.add(
+                gsap.to(headerRef.current,
+                    {
+                        y: '-100%',
+                        willChange: 'transform',
+                        ease: 'expo.InOut',
+                        duration: 0.45,
+                        onComplete: () => {
+                            console.log('timeline from navigation');
+                        }
+                    }
+                ),
+                0
+            );
+        });
+
+        return () => ctx.revert();
+    }, []);
+
+    /* Watches scrollY to hide navigation */
+    useIsomorphicLayoutEffect(() => {
+        if (scrollY > 0) {
+            if (hidden) {
+                gsap.to(headerRef.current,
+                    {
+                        y: '-100%',
+                        willChange: 'transform',
+                        ease: 'expo.InOut',
+                        duration: 0.45,
+                        onComplete: () => {
+                            console.log('hidden');
+                        }
+                    }
+                );
+                return;
+            }
+
+            gsap.to(headerRef.current,
+                {
+                    y: 0,
+                    willChange: 'transform',
+                    ease: 'expo.InOut',
+                    duration: 0.45,
+                    onComplete: () => {
+                        console.log('not hidden');
+                    }
+                }
+            );
+        }
+    }, [scrollY, hidden]);
 
     return (
         <>
@@ -28,7 +106,9 @@ export default function Navigation() {
                 ref={(el: HTMLDivElement) => {
                     navigationRef(el);
                     setRef(el);
+                    headerRef.current = el;
                 }}
+                style={{ opacity: 0 }}
             >
                 <div className="o-container">
                     <div className={styles['c-navigation__row']}>

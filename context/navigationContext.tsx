@@ -63,11 +63,11 @@ export function NavigationContextProvider({
             });
         } else {
             gsap.fromTo(mobileNavRef,
-                {
-                    opacity: 1,
-                    scaleY: 0
-                },
-                {
+            {
+                opacity: 1,
+                scaleY: 0
+            },
+            {
                 scaleY: 1,
                 transformOrigin: 'bottom',
                 willChange: 'transform',
@@ -90,7 +90,7 @@ export function NavigationContextProvider({
         if (isDesktop) {
             setOpen(false);
             setLocked(false);
-            animate(false);
+            open && animate(false);
         }
     }, [isDesktop]);
 

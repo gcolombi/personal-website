@@ -35,7 +35,6 @@ export default function MobileNavigation() {
                         {
                             y: 0,
                             willChange: 'transform',
-                            // ease: 'power4.out',
                             ease: CustomEase.create('custom', 'M0,0 C0.62,0.05 0.01,0.99 1,1'),
                             delay: initialDelay,
                             duration: 1.25

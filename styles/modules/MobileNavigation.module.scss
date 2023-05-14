@@ -16,6 +16,7 @@
 
     transform: scaleY(0);
     // transform: translateY(100%);
+    transform-origin: bottom;
 
     pointer-events: none;
     z-index: 999;
