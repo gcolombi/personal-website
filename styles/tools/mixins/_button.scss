@@ -7,13 +7,14 @@
 
 @mixin make-button() {
     --btn-color: var(--body-text-color);
+    --btn-font-size: var(--font-base);
     --btn-padding-tb: 0;
     --btn-padding-lr: 0;
     --btn-hover-color: initial;
 
 	display: inline-block;
 	color: var(--btn-color);
-    font-size: var(--paragraph-size);
+    font-size: var(--btn-font-size);
 	font-weight: var(--font-medium);
 	padding: var(--btn-padding-tb) var(--btn-padding-lr);
 	transition: all .35s $ease-in;

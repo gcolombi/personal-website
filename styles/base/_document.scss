@@ -16,7 +16,7 @@
 	--body-heading-color: var(--black);
 	--body-link-color: var(--body-text-color);
     --body-bg-color: var(--gray-200);
-    --paragraph-size: 20px;
+    --paragraph-size: var(--font-base);
 
 	/* Font Families - css variables are defined in _app */
 
@@ -65,7 +65,7 @@
         --h4: 22px;
         --h5: 20px;
         --h6: 18px;
-        --paragraph-size: 22px;
+        --font-base: 22px;
     }
 
     @include mediaq('>XLG') {
