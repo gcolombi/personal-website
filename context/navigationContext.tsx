@@ -85,7 +85,7 @@ export function NavigationContextProvider({
         animate(open);
     };
 
-    /* Closes navigation if viewport is larger than 1200px */
+    /* Closes navigation if viewport is larger than 991px */
     useEffect(() => {
         if (isDesktop) {
             setOpen(false);

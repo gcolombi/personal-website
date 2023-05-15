@@ -1,4 +1,5 @@
 import MetaData from '@/components/MetaData';
+import Button from '@/components/shared/Button';
 import CharsInOut from '@/components/shared/gsap/CharsInOut';
 
 export default function Home() {
@@ -55,6 +56,15 @@ export default function Home() {
                         <div className="u-larger-text">
                             <p>u-larger-text - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi?</p>
                         </div>
+                    </div>
+                    <div className="u-spacing--responsive--top"></div>
+                    <div>
+                        <p>Button</p>
+                        <Button
+                            label="More about me"
+                            href="/about"
+                            className="c-btn"
+                        />
                     </div>
                 </div>
             </section>

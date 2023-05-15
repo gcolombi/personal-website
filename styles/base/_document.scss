@@ -172,9 +172,11 @@ a {
 	text-decoration: none;
 	transition: all .35s $ease-in;
 
-	&:hover, &:active, &:focus {
-		text-decoration: underline;
-	}
+    @media (hover: hover) and (pointer: fine) {
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+        }
+    }
 }
 
 ul, ol {

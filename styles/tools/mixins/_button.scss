@@ -6,26 +6,19 @@
 ========================================================================== */
 
 @mixin make-button() {
-	--btn-bg-color: var(--black);
-    --btn-border-color: var(--black);
     --btn-color: var(--white);
     --btn-padding-tb: 8px;
     --btn-padding-lr: 20px;
 	--btn-hover-color: var(--white);
-    --btn-hover-bg-color: var(--black);
-    --btn-hover-border-color: var(--black);
 
 	display: inline-block;
-	background: var(--btn-bg-color);
-	border: 1px solid var(--btn-border-color);
 	color: var(--btn-color);
+    font-size: var(--paragraph-size);
 	font-weight: var(--font-medium);
 	padding: var(--btn-padding-tb) var(--btn-padding-lr);
 	transition: all .35s $ease-in;
 
 	&:hover, &:focus {
-		background: var(--btn-hover-bg-color);
-		border: 1px solid var(--btn-hover-border-color);
 		color: var(--btn-hover-color);
 	}
 }
