@@ -64,7 +64,7 @@ export default function MobileNavigation() {
                         opacity: 1,
                         ease: CustomEase.create('custom', 'M0,0 C0.62,0.05 0.01,0.99 1,1'),
                         delay: 0.35,
-                        duration: 0.5
+                        duration: 1
                     });
                 } else {
                     // gsap.to(social, {
