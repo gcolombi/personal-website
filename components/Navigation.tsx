@@ -6,6 +6,7 @@ import useNavigationContext from '@/context/navigationContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useElementSize from '@/hooks/useElementSize';
 import useScrollbar from '@/hooks/useScrollbar';
+import useWindowSize from '@/hooks/useWindowSize';
 import { useRef } from 'react';
 import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
@@ -18,6 +19,7 @@ export default function Navigation() {
     const [navigationRef, { height }] = useElementSize();
     const headerRef = useRef<HTMLElement | null>(null);
     const { scrollY } = useScrollbar();
+    const { windowSize } = useWindowSize();
 
     /* Animates navigation on first render */
     useIsomorphicLayoutEffect(() => {
@@ -60,14 +62,14 @@ export default function Navigation() {
 
     /* Watches scrollY to hide navigation */
     useIsomorphicLayoutEffect(() => {
-        if (scrollY > 0) {
+        if (typeof windowSize.height === 'number' && scrollY > windowSize.height) {
             if (hidden) {
                 gsap.to(headerRef.current,
                     {
                         y: '-100%',
                         willChange: 'transform',
                         ease: 'expo.InOut',
-                        duration: 0.45,
+                        duration: 0.45
                     }
                 );
                 return;
@@ -78,7 +80,7 @@ export default function Navigation() {
                     y: 0,
                     willChange: 'transform',
                     ease: 'expo.InOut',
-                    duration: 0.45,
+                    duration: 0.45
                 }
             );
         }
