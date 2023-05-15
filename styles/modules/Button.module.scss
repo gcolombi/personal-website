@@ -2,62 +2,11 @@
     Button
 ========================================================================== */
 
-// @keyframes coverUp {
-//     0% {
-//         transform-origin: 50% 100%;
-//         transform: scale3d(1, 0.045, 1);
-//     }
-
-//     50% {
-//         transform-origin: 50% 100%;
-//         transform: scale3d(1, 1, 1);
-//     }
-
-//     51% {
-//         transform-origin: 50% 0%;
-//         transform: scale3d(1, 1, 1);
-//     }
-
-//     100% {
-//         transform-origin: 50% 0%;
-//         transform: scale3d(1, 0.045, 1);
-//     }
-// }
-
 .c-btn {
     @include make-button();
 
-    --btn-color: var(--body-text-color);
-    --btn-padding-tb: 0;
-    --btn-padding-lr: 0;
-	--btn-hover-color: initial;
-
     @media (hover: hover) and (pointer: fine) {
         position: relative;
-
-        // &:before {
-        //     content: '';
-        //     display: block;
-        //     position: absolute;
-        //     width: 100%;
-        //     height: 100%;
-        //     background: currentColor;
-        //     top: 0;
-        //     left: 0;
-        //     opacity: 0;
-        //     pointer-events: none;
-        // }
-
-        // &:after {
-        //     content: '';
-        //     display: block;
-        //     position: absolute;
-        //     width: 100%;
-        //     height: 1px;
-        //     background: currentColor;
-        //     pointer-events: none;
-        //     transition: opacity 0.3s $ease-in;
-        // }
 
         &:before {
             content: '';
@@ -70,44 +19,15 @@
             transform: scaleX(1);
             background: currentColor;
             pointer-events: none;
-            transition: transform 0.3s $ease-in;
+            transition: transform 0.35s $ease-in;
             transform-origin: left;
         }
 
-        // &:after {
-        //     content: '';
-        //     display: block;
-        //     position: absolute;
-        //     top: 100%;
-        //     left: 0;
-        //     width: 100%;
-        //     height: 1px;
-        //     transform: scaleX(0);
-        //     background: currentColor;
-        //     pointer-events: none;
-        //     transition: transform 0.3s $ease-in;
-        //     transform-origin: left;
-        // }
-
         &:hover, &:active, &:focus {
-            // &:before {
-            //     opacity: 1;
-            //     animation: coverUp 0.3s ease forwards;
-            // }
-
-            // &:after {
-            //     opacity: 0;
-            // }
-
             &:before {
                 transform: scaleX(0);
                 transform-origin: right;
             }
-
-            // &:after {
-            //     transition-delay: 0.3s;
-            //     transform: scaleX(1);
-            // }
         }
     }
 }

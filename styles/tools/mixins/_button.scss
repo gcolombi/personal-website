@@ -6,10 +6,10 @@
 ========================================================================== */
 
 @mixin make-button() {
-    --btn-color: var(--white);
-    --btn-padding-tb: 8px;
-    --btn-padding-lr: 20px;
-	--btn-hover-color: var(--white);
+    --btn-color: var(--body-text-color);
+    --btn-padding-tb: 0;
+    --btn-padding-lr: 0;
+    --btn-hover-color: initial;
 
 	display: inline-block;
 	color: var(--btn-color);
