@@ -25,7 +25,7 @@ export default function TransitionLayout({
             opacity: 1,
             y: 0,
             willChange: 'transform',
-            ease: 'expo.InOut',
+            ease: 'ease.in',
             delay: 1,
             duration: 0.45,
             onComplete: () => {
@@ -39,7 +39,7 @@ export default function TransitionLayout({
                 {
                     y: '-100%',
                     willChange: 'transform',
-                    ease: 'expo.InOut',
+                    ease: 'ease.in',
                     duration: 0.45,
                     onComplete: () => {
                         console.log('transition layout complete');

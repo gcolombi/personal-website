@@ -1,5 +1,6 @@
 import styles from '@/styles/modules/Navigation.module.scss';
 import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Link from 'next/link';
 import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
@@ -25,20 +26,22 @@ export default function Navigation() {
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
             /* Intro animation */
-            gsap.fromTo(headerRef.current, {
-                y: '-100%'
-            },
-            {
-                opacity: 1,
-                y: 0,
-                willChange: 'transform',
-                ease: 'expo.InOut',
-                delay: 1,
-                duration: 0.45,
-                onComplete: () => {
-                    console.log('navigation to');
+            gsap.fromTo(
+                headerRef.current, {
+                    y: '-100%'
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    willChange: 'transform',
+                    ease: 'ease.in',
+                    delay: 1,
+                    duration: 0.45,
+                    onComplete: () => {
+                        console.log('navigation to');
+                    }
                 }
-            });
+            );
 
             /* Outro animation */
             timeline?.add(
@@ -46,7 +49,7 @@ export default function Navigation() {
                     {
                         y: '-100%',
                         willChange: 'transform',
-                        ease: 'expo.InOut',
+                        ease: 'ease.in',
                         duration: 0.45,
                         onComplete: () => {
                             console.log('timeline from navigation');
@@ -55,6 +58,29 @@ export default function Navigation() {
                 ),
                 0
             );
+
+            const showNav = gsap.fromTo(
+                headerRef.current, {
+                    y: '-100%'
+                }, {
+                    y: 0,
+                    ease: 'ease.in',
+                    duration: 0.45,
+                    onComplete: () => {
+                        console.log('show nav');
+                    }
+                }
+            ).progress(1);
+
+            ScrollTrigger.create({
+                start: 'top top',
+                end: 'max',
+                onUpdate: (self) => {
+                    self.direction === -1
+                    ?   showNav.play()
+                    : showNav.reverse()
+                }
+            });
         });
 
         return () => ctx.revert();
@@ -62,29 +88,8 @@ export default function Navigation() {
 
     /* Watches scrollY to hide navigation */
     useIsomorphicLayoutEffect(() => {
-        if (typeof windowSize.height === 'number' && scrollY > windowSize.height) {
-            if (hidden) {
-                gsap.to(headerRef.current,
-                    {
-                        y: '-100%',
-                        willChange: 'transform',
-                        ease: 'expo.InOut',
-                        duration: 0.45
-                    }
-                );
-                return;
-            }
 
-            gsap.to(headerRef.current,
-                {
-                    y: 0,
-                    willChange: 'transform',
-                    ease: 'expo.InOut',
-                    duration: 0.45
-                }
-            );
-        }
-    }, [scrollY, hidden]);
+    }, []);
 
     return (
         <>
