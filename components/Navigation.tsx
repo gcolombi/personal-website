@@ -9,8 +9,6 @@ import useElementSize from '@/hooks/useElementSize';
 import { useRef } from 'react';
 import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
-import classNames from 'classnames';
-
 
 export default function Navigation() {
     const { timeline } = useTransitionContext();
@@ -82,13 +80,7 @@ export default function Navigation() {
                 }
             `}</style>
             <header
-                className={classNames(
-                    styles['c-navigation'],
-                    {
-                        [styles['is-sticky']]: sticky,
-                        [styles['is-hidden']]: hidden
-                    }
-                )}
+                className={styles['c-navigation']}
                 ref={(el: HTMLDivElement) => {
                     navigationRef(el);
                     setRef(el);
@@ -149,10 +141,7 @@ function Toggler({
 }) {
     return (
         <button
-            className={classNames(
-                'h4',
-                styles['m-toggler'],
-            )}
+            className={styles['m-toggler']}
             type="button"
             aria-label="Menu toggler"
             onClick={toggle}
