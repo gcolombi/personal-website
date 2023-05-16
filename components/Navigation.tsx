@@ -6,8 +6,6 @@ import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useElementSize from '@/hooks/useElementSize';
-import useScrollbar from '@/hooks/useScrollbar';
-import useWindowSize from '@/hooks/useWindowSize';
 import { useRef } from 'react';
 import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
@@ -19,8 +17,6 @@ export default function Navigation() {
     const { setRef, open, sticky, hidden, toggle } = useNavigationContext();
     const [navigationRef, { height }] = useElementSize();
     const headerRef = useRef<HTMLElement | null>(null);
-    const { scrollY } = useScrollbar();
-    const { windowSize } = useWindowSize();
 
     /* Animates navigation on first render */
     useIsomorphicLayoutEffect(() => {
@@ -36,10 +32,7 @@ export default function Navigation() {
                     willChange: 'transform',
                     ease: 'ease.in',
                     delay: 1,
-                    duration: 0.45,
-                    onComplete: () => {
-                        console.log('navigation to');
-                    }
+                    duration: 0.45
                 }
             );
 
@@ -50,10 +43,7 @@ export default function Navigation() {
                         y: '-100%',
                         willChange: 'transform',
                         ease: 'ease.in',
-                        duration: 0.45,
-                        onComplete: () => {
-                            console.log('timeline from navigation');
-                        }
+                        duration: 0.45
                     }
                 ),
                 0
@@ -66,10 +56,7 @@ export default function Navigation() {
                 }, {
                     y: 0,
                     ease: 'ease.in',
-                    duration: 0.45,
-                    onComplete: () => {
-                        console.log('show nav');
-                    }
+                    duration: 0.45
                 }
             ).progress(1);
 

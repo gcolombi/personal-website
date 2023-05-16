@@ -27,10 +27,7 @@ export default function TransitionLayout({
             willChange: 'transform',
             ease: 'ease.in',
             delay: 1,
-            duration: 0.45,
-            onComplete: () => {
-                console.log('transition layout to');
-            }
+            duration: 0.45
         });
 
         /* Outro animation */
@@ -40,10 +37,7 @@ export default function TransitionLayout({
                     y: '-100%',
                     willChange: 'transform',
                     ease: 'ease.in',
-                    duration: 0.45,
-                    onComplete: () => {
-                        console.log('transition layout complete');
-                    }
+                    duration: 0.45
                 }
             ),
             0
