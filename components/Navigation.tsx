@@ -59,6 +59,7 @@ export default function Navigation() {
                 0
             );
 
+            /* Use ScrollTrigger to show/hide navigation */
             const showNav = gsap.fromTo(
                 headerRef.current, {
                     y: '-100%'
@@ -73,22 +74,17 @@ export default function Navigation() {
             ).progress(1);
 
             ScrollTrigger.create({
-                start: 'top top',
+                start: `top -${window.innerHeight}`,
                 end: 'max',
                 onUpdate: (self) => {
                     self.direction === -1
                     ?   showNav.play()
-                    : showNav.reverse()
+                    : showNav.reverse();
                 }
             });
         });
 
         return () => ctx.revert();
-    }, []);
-
-    /* Watches scrollY to hide navigation */
-    useIsomorphicLayoutEffect(() => {
-
     }, []);
 
     return (
