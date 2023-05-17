@@ -1,4 +1,3 @@
-import useNavigationContext from '@/context/navigationContext';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { ForwardedRef, forwardRef } from 'react';

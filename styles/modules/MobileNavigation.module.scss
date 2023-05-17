@@ -80,7 +80,14 @@
                     transition: transform .7s $ease-in;
                 }
 
-                &:has(.is-current-page) {
+                &.is-current-page {
+                    &:after {
+                        transition-delay: 1.5s;
+                        transform: scale3d(1, 1, 1);
+                    }
+                }
+
+                // &:has(.is-current-page) {
                 // &.is-current-page {
                     // position: relative;
 
@@ -98,11 +105,11 @@
                     //     transition: transform .7s $ease-in;
                     // }
                 // }
-                    &:after {
-                        transition-delay: 1.5s;
-                        transform: scale3d(1, 1, 1);
-                    }
-                }
+                    // &:after {
+                    //     transition-delay: 1.5s;
+                    //     transform: scale3d(1, 1, 1);
+                    // }
+                // }
             }
         }
     }

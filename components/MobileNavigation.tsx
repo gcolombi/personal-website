@@ -4,7 +4,7 @@ import SplitText from 'gsap/dist/SplitText';
 import CustomEase from 'gsap/dist/CustomEase';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useNavigationContext from '@/context/navigationContext';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import NavItem from './NavItem';
 import classNames from 'classnames';
 
