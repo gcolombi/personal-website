@@ -1,3 +1,4 @@
+import useNavigationContext from '@/context/navigationContext';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { ForwardedRef, forwardRef } from 'react';
@@ -12,7 +13,7 @@ function NavItem({
     href: string;
     title: string;
     onClick?: () => void;
-    className: string
+    className: string;
 }, ref: ForwardedRef<HTMLAnchorElement>) {
     const router = useRouter();
     const isActive = router.asPath === href;

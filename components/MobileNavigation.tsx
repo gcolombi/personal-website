@@ -4,7 +4,7 @@ import SplitText from 'gsap/dist/SplitText';
 import CustomEase from 'gsap/dist/CustomEase';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useNavigationContext from '@/context/navigationContext';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import NavItem from './NavItem';
 import classNames from 'classnames';
 
@@ -97,7 +97,7 @@ export default function MobileNavigation() {
                                     <li>
                                         <span>
                                             <a
-                                                href="#"
+                                                href="/"
                                                 ref={(el) => navItemsRef.current[0] = el!}
                                             >
                                                 Projects
@@ -107,7 +107,7 @@ export default function MobileNavigation() {
                                     <li>
                                         <span>
                                             <a
-                                                href="#"
+                                                href="/"
                                                 ref={(el) => navItemsRef.current[1] = el!}
                                             >
                                                 About
