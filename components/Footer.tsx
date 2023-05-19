@@ -7,13 +7,21 @@ export default function Footer() {
         <footer className={styles['c-footer']}>
             <div className="o-container">
                 <div className={styles['c-footer__row']}>
-                    <div className={classNames
-                        (
-                            'o-wysiwyg',
-                            styles['c-footer__copyright']
-                        )}
-                    >
-                        <p>&copy; {new Date().getFullYear()}</p>
+                    <div className={styles['c-footer__copyright']}>
+                        <div className={classNames(
+                                'o-wysiwyg',
+                                styles['c-footer__copyright--year']
+                            )}
+                        >
+                            <p>&copy; {new Date().getFullYear()}</p>
+                        </div>
+                        <div className={classNames(
+                                'o-wysiwyg',
+                                styles['c-footer__copyright--text']
+                            )}
+                        >
+                            <p>All rights reserved</p>
+                        </div>
                     </div>
                     <div className={styles['c-footer__socialLinks']}>
                         <ul>
