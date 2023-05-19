@@ -129,6 +129,8 @@ export default function MobileNavigation() {
                                 <li>
                                     <a
                                         href="https://www.instagram.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         ref={(el) => navSocialsRef.current[0] = el!}
                                     >
                                         Instagram
@@ -137,6 +139,8 @@ export default function MobileNavigation() {
                                 <li>
                                     <a
                                         href="https://twitter.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         ref={(el) => navSocialsRef.current[1] = el!}
                                     >
                                         Twitter
@@ -145,6 +149,8 @@ export default function MobileNavigation() {
                                 <li>
                                     <a
                                         href="https://github.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         ref={(el) => navSocialsRef.current[2] = el!}
                                     >
                                         Github

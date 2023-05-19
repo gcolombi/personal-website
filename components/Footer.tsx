@@ -28,6 +28,8 @@ export default function Footer() {
                             <li>
                                 <a
                                     href="https://www.instagram.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     Instagram
                                 </a>
@@ -35,6 +37,8 @@ export default function Footer() {
                             <li>
                                 <a
                                     href="https://twitter.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     Twitter
                                 </a>
@@ -42,22 +46,28 @@ export default function Footer() {
                             <li>
                                 <a
                                     href="https://github.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     Github
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div className={classNames
-                        (
-                            'o-wysiwyg',
-                            styles['c-footer__title']
-                        )}
-                    >
-                        <Link href="/" title="Gerard Colombi">
-                            Gerard Colombi
-                        </Link>
-                        <p>Front-end developer</p>
+                    <div className={styles['c-footer__title']}>
+                        <div className={styles['c-footer__title--name']}>
+                            <Link href="/" aria-label="Gerard Colombi">
+                                Gerard Colombi
+                            </Link>
+                        </div>
+                        <div className={classNames
+                            (
+                                'o-wysiwyg',
+                                styles['c-footer__title--jobTitle']
+                            )}
+                        >
+                            <p>Front-end developer</p>
+                        </div>
                     </div>
                 </div>
 
