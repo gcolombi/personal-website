@@ -3,13 +3,19 @@
 ========================================================================== */
 
 .c-footer {
+    --grid-gap-row: 0;
+    --socialLinks-margin-t: 20px;
+    --title-margin-t: 45px;
+
     padding: 0 0 var(--spacing-thin) 0;
 
     &__row {
-
     }
 
     &__copyright {
+        grid-column-start: 1;
+        grid-column-end: 7;
+
         &--year {
 
         }
@@ -20,6 +26,10 @@
     }
 
     &__socialLinks {
+        grid-column-start: 1;
+        grid-column-end: 7;
+        margin: var(--socialLinks-margin-t) 0 0;
+
         ul {
             padding: 0;
             margin: 0;
@@ -37,6 +47,10 @@
     }
 
     &__title {
+        grid-column-start: 1;
+        grid-column-end: 7;
+        margin: var(--title-margin-t) 0 0;
+
         &--name {
 
         }

@@ -6,7 +6,10 @@ export default function Footer() {
     return (
         <footer className={styles['c-footer']}>
             <div className="o-container">
-                <div className={styles['c-footer__row']}>
+                <div className={classNames(
+                    'o-grid',
+                    styles['c-footer__row']
+                )}>
                     <div className={styles['c-footer__copyright']}>
                         <div className={classNames(
                                 'o-wysiwyg',
@@ -70,8 +73,6 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </footer>
     );

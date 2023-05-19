@@ -76,6 +76,5 @@
 .o-grid {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
-    grid-column-gap: var(--grid-gap-columns);
-    grid-row-gap: var(--grid-gap-row);
+    gap: var(--grid-gap-row) var(--grid-gap-columns);
 }
