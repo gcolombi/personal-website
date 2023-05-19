@@ -91,7 +91,7 @@ export default function Navigation() {
                 <div className="o-container">
                     <div className={styles['c-navigation__row']}>
                         <div className={styles['c-navigation__logo']}>
-                            <Link href="/" title="Gerard Colombi">
+                            <Link href="/" aria-label="Gerard Colombi">
                                 Gerard Colombi
                             </Link>
                         </div>
