@@ -10,8 +10,8 @@
 @mixin make-row() {
 	display: flex;
 	flex-wrap: wrap;
-	margin-right: calc(-1 * var(--grid-gutter-width));
-	margin-left: calc(-1 * var(--grid-gutter-width));
+	margin-right: calc(-1 * var(--flex-gutter-width));
+	margin-left: calc(-1 * var(--flex-gutter-width));
 }
 
 /*
@@ -23,8 +23,8 @@
 @mixin make-col-ready() {
 	width: 100%;
 	min-height: 1px; // 1
-	padding-right: var(--grid-gutter-width);
-	padding-left: var(--grid-gutter-width);
+	padding-right: var(--flex-gutter-width);
+	padding-left: var(--flex-gutter-width);
 }
 
 /*
@@ -32,7 +32,7 @@
  * the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
  * do not appear to require this.
  */
-@mixin make-col($size, $columns: $grid-columns) {
+@mixin make-col($size, $columns: $flex-columns) {
 	flex: 0 0 percentage(math.div($size, $columns));
 	max-width: percentage(math.div($size, $columns));
 }
