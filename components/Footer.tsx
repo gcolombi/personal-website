@@ -10,6 +10,55 @@ export default function Footer() {
                     'o-grid',
                     styles['c-footer__row']
                 )}>
+
+                    <div className={styles['c-footer__title']}>
+                        <div className={styles['c-footer__title--name']}>
+                            <Link href="/" aria-label="Gerard Colombi">
+                                Gerard Colombi
+                            </Link>
+                        </div>
+                        <div className={classNames
+                            (
+                                'o-wysiwyg',
+                                styles['c-footer__title--jobTitle']
+                            )}
+                        >
+                            <p>Front-end developer</p>
+                        </div>
+                    </div>
+                    <div className={styles['c-footer__socialLinks']}>
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://www.instagram.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Instagram
+                                </a>
+                                ,&nbsp;
+                            </li>
+                            <li>
+                                <a
+                                    href="https://twitter.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Twitter
+                                </a>
+                                ,&nbsp;
+                            </li>
+                            <li>
+                                <a
+                                    href="https://github.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Github
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     <div className={styles['c-footer__copyright']}>
                         <div className={classNames(
                                 'o-wysiwyg',
@@ -24,52 +73,6 @@ export default function Footer() {
                             )}
                         >
                             <p>All rights reserved</p>
-                        </div>
-                    </div>
-                    <div className={styles['c-footer__socialLinks']}>
-                        <ul>
-                            <li>
-                                <a
-                                    href="https://www.instagram.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Instagram
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="https://twitter.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Twitter
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="https://github.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Github
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className={styles['c-footer__title']}>
-                        <div className={styles['c-footer__title--name']}>
-                            <Link href="/" aria-label="Gerard Colombi">
-                                Gerard Colombi
-                            </Link>
-                        </div>
-                        <div className={classNames
-                            (
-                                'o-wysiwyg',
-                                styles['c-footer__title--jobTitle']
-                            )}
-                        >
-                            <p>Front-end developer</p>
                         </div>
                     </div>
                 </div>
