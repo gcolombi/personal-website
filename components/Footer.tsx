@@ -1,15 +1,50 @@
 import styles from '@/styles/modules/Footer.module.scss';
+import { gsap } from 'gsap';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import { useRef } from 'react';
+import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import Link from 'next/link';
 
 export default function Footer() {
+    const router = useRouter();
+    const footerRef = useRef<HTMLElement | null>(null);
+
+    useIsomorphicLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            /* Intro animation */
+            gsap.to('[data-footer-row]',
+                {
+                    opacity: 1,
+                    ease: 'ease.in',
+                    duration: 3,
+                    scrollTrigger: {
+                        trigger: '[data-footer-row]',
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        markers: true
+                    }
+                }
+            );
+        }, footerRef);
+
+        return () => ctx.revert();
+    }, [router.asPath]);
+
     return (
-        <footer className={styles['c-footer']}>
+        <footer
+            className={styles['c-footer']}
+            ref={footerRef}
+        >
             <div className="o-container">
-                <div className={classNames(
-                    'o-grid',
-                    styles['c-footer__row']
-                )}>
+                <div className={classNames
+                    (
+                        'o-grid',
+                        styles['c-footer__row']
+                    )}
+                    data-footer-row
+                    style={{ opacity: 0 }}
+                >
 
                     <div className={styles['c-footer__title']}>
                         <div className={styles['c-footer__title--name']}>

@@ -12,7 +12,7 @@ import NavItem from './NavItem';
 
 export default function Navigation() {
     const { timeline } = useTransitionContext();
-    const { setRef, open, sticky, hidden, toggle } = useNavigationContext();
+    const { setRef, open, toggle } = useNavigationContext();
     const [navigationRef, { height }] = useElementSize();
     const headerRef = useRef<HTMLElement | null>(null);
 
