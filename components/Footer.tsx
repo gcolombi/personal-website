@@ -1,13 +1,13 @@
 import styles from '@/styles/modules/Footer.module.scss';
 import { gsap } from 'gsap';
+import useTransitionContext from '@/context/transitionContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { useRef } from 'react';
-import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import Link from 'next/link';
 
 export default function Footer() {
-    const router = useRouter();
+    const { timeline } = useTransitionContext();
     const footerRef = useRef<HTMLElement | null>(null);
 
     useIsomorphicLayoutEffect(() => {
@@ -21,15 +21,26 @@ export default function Footer() {
                     scrollTrigger: {
                         trigger: '[data-footer-row]',
                         start: 'top bottom',
-                        end: 'bottom top',
-                        markers: true
+                        end: 'bottom top'
                     }
                 }
+            );
+
+            /* Outro animation */
+            timeline?.add(
+                gsap.to('[data-footer-row]',
+                    {
+                        opacity: 0,
+                        ease: 'ease.in',
+                        duration: 0.45
+                    }
+                ),
+                0
             );
         }, footerRef);
 
         return () => ctx.revert();
-    }, [router.asPath]);
+    }, []);
 
     return (
         <footer
