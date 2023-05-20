@@ -7,8 +7,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 
 export default function Footer() {
-    const { timeline } = useTransitionContext();
-    const footerRef = useRef<HTMLElement | null>(null);
+    const { timeline, footerRef } = useTransitionContext();
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {

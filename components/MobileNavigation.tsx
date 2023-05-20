@@ -95,24 +95,20 @@ export default function MobileNavigation() {
                         <div className={styles['c-mobileNav__nav']}>
                                 <ul>
                                     <li>
-                                        <span>
-                                            <a
-                                                href="/"
-                                                ref={(el) => navItemsRef.current[0] = el!}
-                                            >
-                                                Projects
-                                            </a>
-                                        </span>
+                                        <NavItem
+                                            href="/"
+                                            title="Projects"
+                                            className={styles['is-current-page']}
+                                            ref={(el) => navItemsRef.current[0] = el!}
+                                        />
                                     </li>
                                     <li>
-                                        <span>
-                                            <a
-                                                href="/"
-                                                ref={(el) => navItemsRef.current[1] = el!}
-                                            >
-                                                About
-                                            </a>
-                                        </span>
+                                        <NavItem
+                                            href="/"
+                                            title="About"
+                                            className={styles['is-current-page']}
+                                            ref={(el) => navItemsRef.current[1] = el!}
+                                        />
                                     </li>
                                     <li>
                                         <NavItem

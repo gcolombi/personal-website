@@ -5,19 +5,23 @@ import {
     useContext,
     ReactNode,
     Dispatch,
-    SetStateAction
+    SetStateAction,
+    useRef,
+    RefObject
 } from 'react';
 
 interface TransitionContextType {
     timeline: GSAPTimeline | null;
     setTimeline: Dispatch<SetStateAction<GSAPTimeline>>;
     resetTimeline: () => void;
+    footerRef: RefObject<HTMLElement> | undefined
 }
 
 const TransitionContext = createContext<TransitionContextType>({
     timeline: null,
     setTimeline: () => {},
-    resetTimeline: () => {}
+    resetTimeline: () => {},
+    footerRef: {current: null}
 });
 
 export function TransitionContextProvider({
@@ -28,6 +32,7 @@ export function TransitionContextProvider({
     const [timeline, setTimeline] = useState(
         gsap.timeline({ paused: true })
     );
+    const footerRef = useRef(null);
 
     const resetTimeline = () => {
         timeline.pause().clear();
@@ -36,7 +41,8 @@ export function TransitionContextProvider({
     const contextValue: TransitionContextType = {
         timeline,
         setTimeline,
-        resetTimeline
+        resetTimeline,
+        footerRef
     };
 
     return (
