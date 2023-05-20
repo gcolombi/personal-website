@@ -17,14 +17,6 @@
     &__title {
         grid-column-start: 1;
         grid-column-end: 7;
-
-        &--name {
-
-        }
-
-        &--jobTitle {
-
-        }
     }
 
     &__socialLinks {
@@ -42,10 +34,6 @@
             li {
                 padding: 0;
                 margin: 0;
-
-                a {
-
-                }
             }
         }
     }
@@ -54,14 +42,6 @@
         grid-column-start: 1;
         grid-column-end: 7;
         margin: var(--copyright-margin-t) 0 0;
-
-        &--year {
-
-        }
-
-        &--text {
-
-        }
     }
 
     // **---------------------------------------------------**
@@ -76,29 +56,12 @@
 
         &__title {
             grid-column-end: 4;
-
-            &--name {
-
-            }
-
-            &--jobTitle {
-
-            }
         }
 
         &__socialLinks {
             grid-column-start: 5;
             grid-column-end: 9;
             margin: 0;
-
-            ul {
-                li {
-
-                    a {
-
-                    }
-                }
-            }
         }
 
         &__copyright {
@@ -106,14 +69,6 @@
             grid-column-end: 13;
             text-align: right;
             margin: 0;
-
-            &--year {
-
-            }
-
-            &--text {
-
-            }
         }
     }
 }
