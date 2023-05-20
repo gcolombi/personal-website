@@ -16,7 +16,7 @@ export default function TransitionLayout({
         route: router.asPath,
         children
     });
-    const { timeline, resetTimeline } = useTransitionContext();
+    const { timeline, resetTimeline, footerRef } = useTransitionContext();
     const { ref } = useNavigationContext();
 
     const animateNavigation = () => {
@@ -44,6 +44,34 @@ export default function TransitionLayout({
         );
     };
 
+    const animateFooter = () => {
+        /* Intro animation */
+        gsap.to(footerRef.current,
+            {
+                opacity: 1,
+                ease: 'ease.in',
+                duration: 3,
+                scrollTrigger: {
+                    trigger: footerRef.current,
+                    start: 'top bottom',
+                    end: 'bottom top'
+                }
+            }
+        );
+
+        /* Outro animation */
+        timeline?.add(
+            gsap.to(footerRef.current,
+                {
+                    opacity: 0,
+                    ease: 'ease.in',
+                    duration: 0.45
+                }
+            ),
+            0
+        );
+    };
+
     useIsomorphicLayoutEffect(() => {
         if (currentPage.route !== router.asPath) {
             if (timeline?.duration() === 0) {
@@ -54,6 +82,7 @@ export default function TransitionLayout({
                 });
                 ScrollTrigger.refresh(true);
                 animateNavigation();
+                animateFooter();
                 return;
             }
 
@@ -66,6 +95,7 @@ export default function TransitionLayout({
                 });
                 ScrollTrigger.refresh(true);
                 animateNavigation();
+                animateFooter();
             });
 
         } else {

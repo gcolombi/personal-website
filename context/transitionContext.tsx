@@ -14,7 +14,7 @@ interface TransitionContextType {
     timeline: GSAPTimeline | null;
     setTimeline: Dispatch<SetStateAction<GSAPTimeline>>;
     resetTimeline: () => void;
-    footerRef: RefObject<HTMLElement> | undefined
+    footerRef: RefObject<HTMLDivElement>
 }
 
 const TransitionContext = createContext<TransitionContextType>({
@@ -32,7 +32,7 @@ export function TransitionContextProvider({
     const [timeline, setTimeline] = useState(
         gsap.timeline({ paused: true })
     );
-    const footerRef = useRef(null);
+    const footerRef = useRef<HTMLDivElement | null>(null);
 
     const resetTimeline = () => {
         timeline.pause().clear();

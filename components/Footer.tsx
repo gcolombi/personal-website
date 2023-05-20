@@ -2,9 +2,8 @@ import styles from '@/styles/modules/Footer.module.scss';
 import { gsap } from 'gsap';
 import useTransitionContext from '@/context/transitionContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
-import { useRef } from 'react';
-import classNames from 'classnames';
 import Link from 'next/link';
+import classNames from 'classnames';
 
 export default function Footer() {
     const { timeline, footerRef } = useTransitionContext();
@@ -12,13 +11,13 @@ export default function Footer() {
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
             /* Intro animation */
-            gsap.to('[data-footer-row]',
+            gsap.to(footerRef.current,
                 {
                     opacity: 1,
                     ease: 'ease.in',
                     duration: 3,
                     scrollTrigger: {
-                        trigger: '[data-footer-row]',
+                        trigger: footerRef.current,
                         start: 'top bottom',
                         end: 'bottom top'
                     }
@@ -27,7 +26,7 @@ export default function Footer() {
 
             /* Outro animation */
             timeline?.add(
-                gsap.to('[data-footer-row]',
+                gsap.to(footerRef.current,
                     {
                         opacity: 0,
                         ease: 'ease.in',
@@ -36,23 +35,20 @@ export default function Footer() {
                 ),
                 0
             );
-        }, footerRef);
+        });
 
         return () => ctx.revert();
     }, []);
 
     return (
-        <footer
-            className={styles['c-footer']}
-            ref={footerRef}
-        >
+        <footer className={styles['c-footer']}>
             <div className="o-container">
                 <div className={classNames
                     (
                         'o-grid',
                         styles['c-footer__row']
                     )}
-                    data-footer-row
+                    ref={footerRef}
                     style={{ opacity: 0 }}
                 >
 
