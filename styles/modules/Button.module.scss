@@ -5,21 +5,24 @@
 .c-btn {
     @include make-button();
 
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: currentColor;
+        pointer-events: none;
+    }
+
     @media (hover: hover) and (pointer: fine) {
-        position: relative;
 
         &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            transform: scaleX(1);
             transform-origin: left;
-            background: currentColor;
-            pointer-events: none;
             transition: transform 0.35s $ease-in;
         }
 

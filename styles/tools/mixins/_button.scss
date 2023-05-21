@@ -19,7 +19,9 @@
 	padding: var(--btn-padding-tb) var(--btn-padding-lr);
 	transition: all .35s $ease-in;
 
-	&:hover, &:focus {
-		color: var(--btn-hover-color);
-	}
+    @media (hover: hover) and (pointer: fine) {
+        &:hover, &:focus {
+            color: var(--btn-hover-color);
+        }
+    }
 }
