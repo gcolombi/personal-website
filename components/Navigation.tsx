@@ -100,14 +100,18 @@ export default function Navigation() {
                                 <div className={styles['c-navigation__nav__primary--list']}>
                                     <ul>
                                         <li>
-                                            <span>
-                                                <a href="#">Projects</a>
-                                            </span>
+                                            <NavItem
+                                                href="/projects"
+                                                title="Projects"
+                                                className={styles['is-current-page']}
+                                            />
                                         </li>
                                         <li>
-                                            <span>
-                                                <a href="#">About</a>
-                                            </span>
+                                            <NavItem
+                                                href="/about"
+                                                title="About"
+                                                className={styles['is-current-page']}
+                                            />
                                         </li>
                                         <li>
                                             <NavItem

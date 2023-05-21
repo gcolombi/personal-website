@@ -97,7 +97,7 @@ export default function MobileNavigation() {
                                 <ul>
                                     <li>
                                         <NavItem
-                                            href="/"
+                                            href="/projects"
                                             title="Projects"
                                             className={styles['is-current-page']}
                                             ref={(el) => navItemsRef.current[0] = el!}
@@ -105,7 +105,7 @@ export default function MobileNavigation() {
                                     </li>
                                     <li>
                                         <NavItem
-                                            href="/"
+                                            href="/about"
                                             title="About"
                                             className={styles['is-current-page']}
                                             ref={(el) => navItemsRef.current[1] = el!}
