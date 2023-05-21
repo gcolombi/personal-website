@@ -5,6 +5,10 @@ import { useRef } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useTransitionContext from '@/context/transitionContext';
 
+if (typeof window !== 'undefined') {
+    gsap.registerPlugin(SplitText);
+}
+
 export default function CharsInOut({
     overflowHidden = true,
     children,

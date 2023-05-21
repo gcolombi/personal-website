@@ -1,18 +1,19 @@
 import styles from '@/styles/modules/MobileNavigation.module.scss';
 import { gsap } from 'gsap';
 import SplitText from 'gsap/dist/SplitText';
-import CustomEase from 'gsap/dist/CustomEase';
-import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { useRef } from 'react';
 import NavItem from './NavItem';
 import classNames from 'classnames';
 
 if (typeof window !== 'undefined') {
-    gsap.registerPlugin(SplitText, CustomEase);
+    gsap.registerPlugin(SplitText);
 }
 
 export default function MobileNavigation() {
+    const { primaryEase } = useTransitionContext();
     const { setMobileNavRef, open } = useNavigationContext();
     const navItemsRef = useRef<HTMLAnchorElement[]>([]);
     const navSocialsRef = useRef<HTMLAnchorElement[]>([]);
@@ -35,7 +36,7 @@ export default function MobileNavigation() {
                         {
                             y: 0,
                             willChange: 'transform',
-                            ease: CustomEase.create('custom', 'M0,0 C0.62,0.05 0.01,0.99 1,1'),
+                            ease: primaryEase,
                             delay: initialDelay,
                             duration: 1.25
                         });
@@ -62,7 +63,7 @@ export default function MobileNavigation() {
                     },
                     {
                         opacity: 1,
-                        ease: CustomEase.create('custom', 'M0,0 C0.62,0.05 0.01,0.99 1,1'),
+                        ease: primaryEase,
                         delay: 0.35,
                         duration: 1
                     });
