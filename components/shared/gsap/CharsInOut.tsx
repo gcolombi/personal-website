@@ -1,14 +1,9 @@
 import { Chars } from '@/types/animations';
 import gsap from 'gsap';
 import SplitText from 'gsap/dist/SplitText';
-import CustomEase from 'gsap/dist/CustomEase';
 import { useRef } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useTransitionContext from '@/context/transitionContext';
-
-if (typeof window !== 'undefined') {
-    gsap.registerPlugin(SplitText, CustomEase);
-}
 
 export default function CharsInOut({
     overflowHidden = true,
@@ -28,7 +23,7 @@ export default function CharsInOut({
     scrub = false,
     markers
 }: Chars) {
-    const { timeline } = useTransitionContext();
+    const { timeline, primaryEase } = useTransitionContext();
     const element = useRef<HTMLDivElement>(null);
 
     useIsomorphicLayoutEffect(() => {
@@ -59,7 +54,7 @@ export default function CharsInOut({
                     {
                         y: 0,
                         willChange: 'transform',
-                        ease: ease ?? CustomEase.create('custom', 'M0,0 C0.62,0.05 0.01,0.99 1,1'),
+                        ease: ease ?? primaryEase,
                         delay: initialDelay,
                         duration: durationIn,
                         ...scrollTrigger
@@ -75,7 +70,7 @@ export default function CharsInOut({
                             char,
                             {
                                 y: '100%',
-                                ease: easeOut ?? CustomEase.create('custom', 'M0,0 C0.62,0.05 0.01,0.99 1,1'),
+                                ease: easeOut ?? primaryEase,
                                 delay: initialDelayOut,
                                 duration: durationOut
                             }
