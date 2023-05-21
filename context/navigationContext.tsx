@@ -57,7 +57,6 @@ export function NavigationContextProvider({
                 // transformOrigin: 'top',
                 // willChange: 'transform',
                 opacity: 0,
-                // ease: 'expo.inOut',
                 ease: primaryEase,
                 // delay: 0.35,
                 duration: 0.7,
@@ -74,7 +73,6 @@ export function NavigationContextProvider({
                 scaleY: 1,
                 transformOrigin: 'bottom',
                 willChange: 'transform',
-                // ease: 'expo.inOut',
                 ease: primaryEase,
                 duration: 0.7,
                 onComplete: () => {
