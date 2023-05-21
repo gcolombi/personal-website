@@ -16,10 +16,11 @@ export default function MobileNavigation() {
     const { primaryEase } = useTransitionContext();
     const { mobileNavRef, open } = useNavigationContext();
     const navItemsRef = useRef<HTMLAnchorElement[]>([]);
-    const navSocialsRef = useRef<HTMLAnchorElement[]>([]);
+    const navSocialsRef = useRef<HTMLUListElement>(null);
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
+            /* Animates navigation items */
             navItemsRef.current.forEach(item => {
                 const splitText = new SplitText(item);
                 const chars = splitText.chars;
@@ -56,26 +57,24 @@ export default function MobileNavigation() {
                 });
             });
 
-            navSocialsRef.current.forEach(social => {
-                if (open) {
-                    gsap.fromTo(social, {
-                        opacity: 0,
-                    },
-                    {
-                        opacity: 1,
-                        ease: primaryEase,
-                        delay: 0.35,
-                        duration: 1
-                    });
-                } else {
-                    // gsap.to(social, {
-                    //     opacity: 0,
-                    //     ease: 'power4.in',
-                    //     duration: 0.25
-                    // });
-                }
-            });
-
+            /* Animates navigation socials list */
+            if (open) {
+                gsap.fromTo(navSocialsRef.current, {
+                    opacity: 0,
+                },
+                {
+                    opacity: 1,
+                    ease: primaryEase,
+                    delay: 0.35,
+                    duration: 1
+                });
+            } else {
+                // gsap.to(navSocialsRef.current, {
+                //     opacity: 0,
+                //     ease: 'power4.in',
+                //     duration: 0.25
+                // });
+            }
         });
         return () => ctx.revert();
     }, [open]);
@@ -122,13 +121,12 @@ export default function MobileNavigation() {
                                 </ul>
                         </div>
                         <div className={styles['c-mobileNav__footer']}>
-                            <ul>
+                            <ul ref={navSocialsRef}>
                                 <li>
                                     <a
                                         href="https://www.instagram.com/"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        ref={(el) => navSocialsRef.current[0] = el!}
                                     >
                                         Instagram
                                     </a>
@@ -138,7 +136,6 @@ export default function MobileNavigation() {
                                         href="https://twitter.com/"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        ref={(el) => navSocialsRef.current[1] = el!}
                                     >
                                         Twitter
                                     </a>
@@ -148,7 +145,6 @@ export default function MobileNavigation() {
                                         href="https://github.com/"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        ref={(el) => navSocialsRef.current[2] = el!}
                                     >
                                         Github
                                     </a>
