@@ -11,7 +11,7 @@ import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
 
 export default function Navigation() {
-    const { timeline } = useTransitionContext();
+    const { timeline, primaryEase } = useTransitionContext();
     const { setRef, open, toggle } = useNavigationContext();
     const [navigationRef, { height }] = useElementSize();
     const headerRef = useRef<HTMLElement | null>(null);
@@ -28,9 +28,9 @@ export default function Navigation() {
                     opacity: 1,
                     y: 0,
                     willChange: 'transform',
-                    ease: 'ease.in',
+                    ease: primaryEase,
                     delay: 1,
-                    duration: 0.45
+                    duration: 1.25
                 }
             );
 
@@ -40,8 +40,8 @@ export default function Navigation() {
                     {
                         y: '-100%',
                         willChange: 'transform',
-                        ease: 'ease.in',
-                        duration: 0.45
+                        ease: primaryEase,
+                        duration: 0.6
                     }
                 ),
                 0
@@ -53,7 +53,7 @@ export default function Navigation() {
                     y: '-100%'
                 }, {
                     y: 0,
-                    ease: 'ease.in',
+                    ease: primaryEase,
                     duration: 0.45
                 }
             ).progress(1);

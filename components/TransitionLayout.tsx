@@ -25,9 +25,9 @@ export default function TransitionLayout({
             opacity: 1,
             y: 0,
             willChange: 'transform',
-            ease: 'ease.in',
+            ease: primaryEase,
             delay: 1,
-            duration: 0.45
+            duration: 1.25
         });
 
         /* Outro animation */
@@ -36,8 +36,8 @@ export default function TransitionLayout({
                 {
                     y: '-100%',
                     willChange: 'transform',
-                    ease: 'ease.in',
-                    duration: 0.45
+                    ease: primaryEase,
+                    duration: 0.6
                 }
             ),
             0
