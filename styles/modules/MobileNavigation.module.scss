@@ -152,8 +152,8 @@
                 li {
                     &:has(.is-current-page) {
                         &:after {
-                            transform: scale3d(0, 0, 0);
-                            animation: scale3d 0.7s $primary-curve forwards 1.25s;
+                            transform: scaleX(0);
+                            animation: scale3d 0.7s $primary-ease forwards 1.25s;
                         }
                     }
                 }
