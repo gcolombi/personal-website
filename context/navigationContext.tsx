@@ -19,8 +19,7 @@ import useTransitionContext from './transitionContext';
 
 interface NavigationContextType {
     navigationRef: MutableRefObject<HTMLElement | null>;
-    mobileNavRef: HTMLElement | null;
-    setMobileNavRef: Dispatch<SetStateAction<HTMLElement | null>>;
+    mobileNavRef: RefObject<HTMLElement>;
     open: boolean;
     sticky: boolean;
     hidden: boolean;
@@ -33,8 +32,9 @@ const NavigationContext = createContext<NavigationContextType>({
     navigationRef: {
         current: null
     },
-    mobileNavRef: null,
-    setMobileNavRef: () => null,
+    mobileNavRef: {
+        current: null
+    },
     open: false,
     sticky: false,
     hidden: false,
@@ -50,7 +50,7 @@ export function NavigationContextProvider({
 }) {
     const router = useRouter();
     const navigationRef = useRef<HTMLElement | null>(null);
-    const [mobileNavRef, setMobileNavRef] = useState<HTMLElement | null>(null);
+    const mobileNavRef = useRef<HTMLElement | null>(null);
     const [open, setOpen] = useState(false);
     const [currentRoute, setCurrentRoute] = useState(router.asPath);
     const { scrollY, directionY } = useScrollbar();
@@ -60,7 +60,7 @@ export function NavigationContextProvider({
 
     const animate = (state: boolean) => {
         if (state) {
-            gsap.to(mobileNavRef, {
+            gsap.to(mobileNavRef.current, {
                 // scaleY: 0,
                 // transformOrigin: 'top',
                 // willChange: 'transform',
@@ -72,7 +72,7 @@ export function NavigationContextProvider({
                 }
             });
         } else {
-            gsap.fromTo(mobileNavRef,
+            gsap.fromTo(mobileNavRef.current,
             {
                 opacity: 1,
                 scaleY: 0
@@ -116,7 +116,6 @@ export function NavigationContextProvider({
     const contextValue: NavigationContextType = {
         navigationRef,
         mobileNavRef,
-        setMobileNavRef,
         open,
         sticky: scrollY > 0,
         hidden: directionY > 0 && typeof windowSize.height === 'number' && scrollY > windowSize.height,

@@ -21,7 +21,7 @@ export default function TransitionLayout({
 
     const animateNavigation = () => {
         /* Intro animation */
-        gsap.to(navigationRef, {
+        gsap.to(navigationRef.current, {
             opacity: 1,
             y: 0,
             willChange: 'transform',
@@ -32,7 +32,7 @@ export default function TransitionLayout({
 
         /* Outro animation */
         timeline?.add(
-            gsap.to(navigationRef,
+            gsap.to(navigationRef.current,
                 {
                     y: '-100%',
                     willChange: 'transform',

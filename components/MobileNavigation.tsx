@@ -14,7 +14,7 @@ if (typeof window !== 'undefined') {
 
 export default function MobileNavigation() {
     const { primaryEase } = useTransitionContext();
-    const { setMobileNavRef, open } = useNavigationContext();
+    const { mobileNavRef, open } = useNavigationContext();
     const navItemsRef = useRef<HTMLAnchorElement[]>([]);
     const navSocialsRef = useRef<HTMLAnchorElement[]>([]);
 
@@ -90,7 +90,7 @@ export default function MobileNavigation() {
                             [styles['is-open']]: open
                         }
                     )}
-                    ref={(el: HTMLElement) => setMobileNavRef(el)}
+                    ref={mobileNavRef}
                 >
                     <div className={styles['c-mobileNav__inner']}>
                         <div className={styles['c-mobileNav__nav']}>
