@@ -15,8 +15,8 @@ if (typeof window !== 'undefined') {
 export default function MobileNavigation() {
     const { primaryEase } = useTransitionContext();
     const { mobileNavRef, open } = useNavigationContext();
-    const navItemsRef = useRef<HTMLAnchorElement[]>([]);
-    const navSocialsRef = useRef<HTMLUListElement>(null);
+    const navItemsRef = useRef<HTMLAnchorElement[] | null[]>([]);
+    const navSocialsRef = useRef<HTMLUListElement | null>(null);
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -99,7 +99,7 @@ export default function MobileNavigation() {
                                             href="/projects"
                                             title="Projects"
                                             className={styles['is-current-page']}
-                                            ref={(el) => navItemsRef.current[0] = el!}
+                                            ref={(el) => navItemsRef.current[0] = el}
                                         />
                                     </li>
                                     <li>
@@ -107,7 +107,7 @@ export default function MobileNavigation() {
                                             href="/about"
                                             title="About"
                                             className={styles['is-current-page']}
-                                            ref={(el) => navItemsRef.current[1] = el!}
+                                            ref={(el) => navItemsRef.current[1] = el}
                                         />
                                     </li>
                                     <li>
@@ -115,7 +115,7 @@ export default function MobileNavigation() {
                                             href="/contact"
                                             title="Contact"
                                             className={styles['is-current-page']}
-                                            ref={(el) => navItemsRef.current[2] = el!}
+                                            ref={(el) => navItemsRef.current[2] = el}
                                         />
                                     </li>
                                 </ul>
