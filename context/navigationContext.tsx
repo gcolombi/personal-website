@@ -1,11 +1,14 @@
 import { gsap } from 'gsap';
 import {
     Dispatch,
+    MutableRefObject,
     ReactNode,
+    RefObject,
     SetStateAction,
     createContext,
     useContext,
     useEffect,
+    useRef,
     useState
 } from 'react';
 import { useRouter } from 'next/router';
@@ -15,8 +18,7 @@ import useLockedScroll from '@/hooks/useLockedScroll';
 import useTransitionContext from './transitionContext';
 
 interface NavigationContextType {
-    ref: HTMLElement | null;
-    setRef: Dispatch<SetStateAction<HTMLElement | null>>;
+    navigationRef: MutableRefObject<HTMLElement | null>;
     mobileNavRef: HTMLElement | null;
     setMobileNavRef: Dispatch<SetStateAction<HTMLElement | null>>;
     open: boolean;
@@ -28,8 +30,9 @@ interface NavigationContextType {
 }
 
 const NavigationContext = createContext<NavigationContextType>({
-    ref: null,
-    setRef: () => null,
+    navigationRef: {
+        current: null
+    },
     mobileNavRef: null,
     setMobileNavRef: () => null,
     open: false,
@@ -46,7 +49,7 @@ export function NavigationContextProvider({
     children: ReactNode
 }) {
     const router = useRouter();
-    const [ref, setRef] = useState<HTMLElement | null>(null);
+    const navigationRef = useRef<HTMLElement | null>(null);
     const [mobileNavRef, setMobileNavRef] = useState<HTMLElement | null>(null);
     const [open, setOpen] = useState(false);
     const [currentRoute, setCurrentRoute] = useState(router.asPath);
@@ -111,8 +114,7 @@ export function NavigationContextProvider({
     }, [router.asPath]);
 
     const contextValue: NavigationContextType = {
-        ref,
-        setRef,
+        navigationRef,
         mobileNavRef,
         setMobileNavRef,
         open,

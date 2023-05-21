@@ -6,22 +6,19 @@ import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useElementSize from '@/hooks/useElementSize';
-import { useRef } from 'react';
 import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
 
 export default function Navigation() {
     const { timeline, primaryEase } = useTransitionContext();
-    const { setRef, open, toggle } = useNavigationContext();
-    const [navigationRef, { height }] = useElementSize();
-    const headerRef = useRef<HTMLElement | null>(null);
+    const { navigationRef, open, toggle } = useNavigationContext();
+    const [headerRef, { height }] = useElementSize();
 
-    /* Animates navigation on first render */
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
             /* Intro animation */
             gsap.fromTo(
-                headerRef.current, {
+                navigationRef.current, {
                     y: '-100%'
                 },
                 {
@@ -36,7 +33,7 @@ export default function Navigation() {
 
             /* Outro animation */
             timeline?.add(
-                gsap.to(headerRef.current,
+                gsap.to(navigationRef.current,
                     {
                         y: '-100%',
                         willChange: 'transform',
@@ -49,7 +46,7 @@ export default function Navigation() {
 
             /* Use ScrollTrigger to show/hide navigation */
             const showNav = gsap.fromTo(
-                headerRef.current, {
+                navigationRef.current, {
                     y: '-100%'
                 }, {
                     y: 0,
@@ -82,9 +79,8 @@ export default function Navigation() {
             <header
                 className={styles['c-navigation']}
                 ref={(el: HTMLDivElement) => {
-                    navigationRef(el);
-                    setRef(el);
-                    headerRef.current = el;
+                    headerRef(el);
+                    navigationRef.current = el;
                 }}
                 style={{ opacity: 0 }}
             >

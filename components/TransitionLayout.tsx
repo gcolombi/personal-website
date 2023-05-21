@@ -17,11 +17,11 @@ export default function TransitionLayout({
         children
     });
     const { timeline, resetTimeline, primaryEase, footerRef } = useTransitionContext();
-    const { ref, setCurrentRoute } = useNavigationContext();
+    const { navigationRef, setCurrentRoute } = useNavigationContext();
 
     const animateNavigation = () => {
         /* Intro animation */
-        gsap.to(ref, {
+        gsap.to(navigationRef, {
             opacity: 1,
             y: 0,
             willChange: 'transform',
@@ -32,7 +32,7 @@ export default function TransitionLayout({
 
         /* Outro animation */
         timeline?.add(
-            gsap.to(ref,
+            gsap.to(navigationRef,
                 {
                     y: '-100%',
                     willChange: 'transform',
