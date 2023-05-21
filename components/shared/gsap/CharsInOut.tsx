@@ -1,7 +1,7 @@
 import { Chars } from '@/types/animations';
 import gsap from 'gsap';
 import SplitText from 'gsap/dist/SplitText';
-import CustomEase from "gsap/dist/CustomEase";
+import CustomEase from 'gsap/dist/CustomEase';
 import { useRef } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useTransitionContext from '@/context/transitionContext';

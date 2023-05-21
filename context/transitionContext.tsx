@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import CustomEase from 'gsap/dist/CustomEase';
 import {
     useState,
     createContext,
@@ -10,18 +11,26 @@ import {
     RefObject
 } from 'react';
 
+if (typeof window !== 'undefined') {
+    gsap.registerPlugin(CustomEase);
+}
+
 interface TransitionContextType {
     timeline: GSAPTimeline | null;
     setTimeline: Dispatch<SetStateAction<GSAPTimeline>>;
     resetTimeline: () => void;
-    footerRef: RefObject<HTMLDivElement>
+    primaryEase: any;
+    footerRef: RefObject<HTMLDivElement>;
 }
 
 const TransitionContext = createContext<TransitionContextType>({
     timeline: null,
     setTimeline: () => {},
     resetTimeline: () => {},
-    footerRef: {current: null}
+    primaryEase: null,
+    footerRef: {
+        current: null
+    }
 });
 
 export function TransitionContextProvider({
@@ -32,6 +41,7 @@ export function TransitionContextProvider({
     const [timeline, setTimeline] = useState(
         gsap.timeline({ paused: true })
     );
+    const primaryEase = typeof window !== 'undefined' ? CustomEase.create('primaryEase', 'M0,0 C0.62,0.05 0.01,0.99 1,1') : null;
     const footerRef = useRef<HTMLDivElement | null>(null);
 
     const resetTimeline = () => {
@@ -42,6 +52,7 @@ export function TransitionContextProvider({
         timeline,
         setTimeline,
         resetTimeline,
+        primaryEase,
         footerRef
     };
 

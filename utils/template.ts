@@ -1,4 +1,4 @@
-import { NextApiResponse } from "next";
+import { NextApiResponse } from 'next';
 
 /**
  * Gets email template file

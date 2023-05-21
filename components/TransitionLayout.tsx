@@ -16,7 +16,7 @@ export default function TransitionLayout({
         route: router.asPath,
         children
     });
-    const { timeline, resetTimeline, footerRef } = useTransitionContext();
+    const { timeline, resetTimeline, primaryEase, footerRef } = useTransitionContext();
     const { ref } = useNavigationContext();
 
     const animateNavigation = () => {
@@ -49,8 +49,8 @@ export default function TransitionLayout({
         gsap.to(footerRef.current,
             {
                 opacity: 1,
-                ease: 'ease.in',
-                duration: 3,
+                ease: primaryEase,
+                duration: 1,
                 scrollTrigger: {
                     trigger: footerRef.current,
                     start: 'top bottom',
@@ -64,7 +64,7 @@ export default function TransitionLayout({
             gsap.to(footerRef.current,
                 {
                     opacity: 0,
-                    ease: 'ease.in',
+                    ease: primaryEase,
                     duration: 0.45
                 }
             ),

@@ -1,4 +1,4 @@
-import { NextApiResponse } from "next";
+import { NextApiResponse } from 'next';
 
 /**
  * Validates recaptcha and interprets the score

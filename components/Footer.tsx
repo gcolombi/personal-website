@@ -6,7 +6,7 @@ import Link from 'next/link';
 import classNames from 'classnames';
 
 export default function Footer() {
-    const { timeline, footerRef } = useTransitionContext();
+    const { timeline, primaryEase, footerRef } = useTransitionContext();
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -14,8 +14,8 @@ export default function Footer() {
             gsap.to(footerRef.current,
                 {
                     opacity: 1,
-                    ease: 'ease.in',
-                    duration: 3,
+                    ease: primaryEase,
+                    duration: 1,
                     scrollTrigger: {
                         trigger: footerRef.current,
                         start: 'top bottom',
@@ -29,7 +29,7 @@ export default function Footer() {
                 gsap.to(footerRef.current,
                     {
                         opacity: 0,
-                        ease: 'ease.in',
+                        ease: primaryEase,
                         duration: 0.45
                     }
                 ),
