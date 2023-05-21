@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import useNavigationContext from '@/context/navigationContext';
 import { ForwardedRef, forwardRef } from 'react';
 import classNames from 'classnames';
 
@@ -14,8 +14,8 @@ function NavItem({
     onClick?: () => void;
     className: string;
 }, ref: ForwardedRef<HTMLAnchorElement>) {
-    const router = useRouter();
-    const isActive = router.asPath === href;
+    const { currentRoute } = useNavigationContext();
+    const isActive = currentRoute === href;
 
     return (
         <span>

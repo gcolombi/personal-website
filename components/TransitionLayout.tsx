@@ -17,7 +17,7 @@ export default function TransitionLayout({
         children
     });
     const { timeline, resetTimeline, primaryEase, footerRef } = useTransitionContext();
-    const { ref } = useNavigationContext();
+    const { ref, setCurrentRoute } = useNavigationContext();
 
     const animateNavigation = () => {
         /* Intro animation */
@@ -83,6 +83,7 @@ export default function TransitionLayout({
                 ScrollTrigger.refresh(true);
                 animateNavigation();
                 animateFooter();
+                setCurrentRoute(router.asPath);
                 return;
             }
 
@@ -96,10 +97,12 @@ export default function TransitionLayout({
                 ScrollTrigger.refresh(true);
                 animateNavigation();
                 animateFooter();
+                setCurrentRoute(router.asPath);
             });
 
         } else {
             ScrollTrigger.refresh(true);
+            setCurrentRoute(router.asPath);
         }
     }, [router.asPath]);
 

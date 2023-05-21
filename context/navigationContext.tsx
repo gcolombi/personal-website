@@ -23,6 +23,8 @@ interface NavigationContextType {
     sticky: boolean;
     hidden: boolean;
     toggle: () => void;
+    currentRoute: string;
+    setCurrentRoute: Dispatch<SetStateAction<string>>;
 }
 
 const NavigationContext = createContext<NavigationContextType>({
@@ -33,7 +35,9 @@ const NavigationContext = createContext<NavigationContextType>({
     open: false,
     sticky: false,
     hidden: false,
-    toggle: () => {}
+    toggle: () => {},
+    currentRoute: '',
+    setCurrentRoute: () => ''
 });
 
 export function NavigationContextProvider({
@@ -41,13 +45,14 @@ export function NavigationContextProvider({
 }: {
     children: ReactNode
 }) {
+    const router = useRouter();
     const [ref, setRef] = useState<HTMLElement | null>(null);
     const [mobileNavRef, setMobileNavRef] = useState<HTMLElement | null>(null);
     const [open, setOpen] = useState(false);
+    const [currentRoute, setCurrentRoute] = useState(router.asPath);
     const { scrollY, directionY } = useScrollbar();
     const { windowSize, isDesktop } = useWindowSize();
     const [locked, setLocked] = useLockedScroll(false);
-    const router = useRouter();
     const { primaryEase } = useTransitionContext();
 
     const animate = (state: boolean) => {
@@ -113,7 +118,9 @@ export function NavigationContextProvider({
         open,
         sticky: scrollY > 0,
         hidden: directionY > 0 && typeof windowSize.height === 'number' && scrollY > windowSize.height,
-        toggle
+        toggle,
+        currentRoute,
+        setCurrentRoute
     };
 
     return (
