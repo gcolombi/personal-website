@@ -77,7 +77,6 @@ export default function Footer() {
                                 >
                                     Instagram
                                 </a>
-                                ,&nbsp;
                             </li>
                             <li>
                                 <a
@@ -87,7 +86,6 @@ export default function Footer() {
                                 >
                                     Twitter
                                 </a>
-                                ,&nbsp;
                             </li>
                             <li>
                                 <a

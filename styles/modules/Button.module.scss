@@ -20,10 +20,9 @@
     }
 
     @media (hover: hover) and (pointer: fine) {
-
         &:before {
             transform-origin: left;
-            transition: transform 0.35s $ease-in;
+            transition: transform 0.6s $ease-in;
         }
 
         &:hover, &:active, &:focus {
