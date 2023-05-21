@@ -1,3 +1,4 @@
+import { gsap } from 'gsap';
 import {
     Dispatch,
     ReactNode,
@@ -11,7 +12,7 @@ import { useRouter } from 'next/router';
 import useScrollbar from '@/hooks/useScrollbar';
 import useWindowSize from '@/hooks/useWindowSize';
 import useLockedScroll from '@/hooks/useLockedScroll';
-import { gsap } from 'gsap';
+import useTransitionContext from './transitionContext';
 
 interface NavigationContextType {
     ref: HTMLElement | null;
@@ -47,6 +48,7 @@ export function NavigationContextProvider({
     const { windowSize, isDesktop } = useWindowSize();
     const [locked, setLocked] = useLockedScroll(false);
     const router = useRouter();
+    const { primaryEase } = useTransitionContext();
 
     const animate = (state: boolean) => {
         if (state) {
@@ -55,7 +57,8 @@ export function NavigationContextProvider({
                 // transformOrigin: 'top',
                 // willChange: 'transform',
                 opacity: 0,
-                ease: 'expo.inOut',
+                // ease: 'expo.inOut',
+                ease: primaryEase,
                 // delay: 0.35,
                 duration: 0.7,
                 onComplete: () => {
@@ -71,7 +74,8 @@ export function NavigationContextProvider({
                 scaleY: 1,
                 transformOrigin: 'bottom',
                 willChange: 'transform',
-                ease: 'expo.inOut',
+                // ease: 'expo.inOut',
+                ease: primaryEase,
                 duration: 0.7,
                 onComplete: () => {
                 }
