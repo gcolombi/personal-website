@@ -130,6 +130,7 @@ export default function Form() {
                                 <div className={styles['c-form__item']}>
                                     <TranslateInOut
                                         delay={0.1}
+                                        durationIn={0.7}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"
@@ -149,6 +150,7 @@ export default function Form() {
                                 <div className={styles['c-form__item']}>
                                     <TranslateInOut
                                         delay={0.15}
+                                        durationIn={0.7}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"
@@ -168,6 +170,7 @@ export default function Form() {
                                 <div className={styles['c-form__itemFull']}>
                                     <TranslateInOut
                                         delay={0.20}
+                                        durationIn={0.7}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"
@@ -188,6 +191,7 @@ export default function Form() {
                                 <div className={styles['c-form__itemFull']}>
                                     <TranslateInOut
                                         delay={0.25}
+                                        durationIn={0.7}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"
@@ -211,15 +215,20 @@ export default function Form() {
                             >
                                 <FormRecaptchaNote />
                             </FadeInOut>
-                            <div className={styles['c-form__btn']}>
-                                <Button
-                                    label="Send"
-                                    className="c-btn"
-                                    wrapperClassName={classNames({'c-formElement--submit': isSubmitting})}
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                />
-                            </div>
+                            <FadeInOut
+                                delay={0.35}
+                                watch
+                            >
+                                <div className={styles['c-form__btn']}>
+                                    <Button
+                                        label="Send"
+                                        className="c-btn"
+                                        wrapperClassName={classNames({'c-formElement--submit': isSubmitting})}
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                    />
+                                </div>
+                            </FadeInOut>
                         </form>
                     </div>
                     {isMounted() &&
