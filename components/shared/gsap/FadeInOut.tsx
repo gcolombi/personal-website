@@ -1,14 +1,15 @@
 import { Fade } from '@/types/animations';
+import useTransitionContext from '@/context/transitionContext';
 import AnimateInOut from './AnimateInOut';
 
 export default function FadeInOut({
     children,
-    durationIn = 0.5,
-    durationOut = 0.25,
+    durationIn = 1,
+    durationOut = 0.45,
     delay = 0,
     delayOut = 0,
-    ease = 'power4.out',
-    easeOut = 'power4.out',
+    ease,
+    easeOut,
     skipOutro,
     watch,
     start = 'top bottom',
@@ -16,18 +17,20 @@ export default function FadeInOut({
     scrub = false,
     markers
 }: Fade) {
+    const { primaryEase } = useTransitionContext();
+
     return (
         <AnimateInOut
             durationIn={durationIn}
             durationOut={durationOut}
             delay={delay}
             delayOut={delayOut}
-            easeOut={easeOut}
+            easeOut={easeOut ?? primaryEase}
             from={{
                 opacity: 0
             }}
             to={{
-                ease,
+                ease: ease ?? primaryEase,
                 opacity: 1
             }}
             skipOutro={skipOutro}

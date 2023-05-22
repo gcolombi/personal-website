@@ -12,6 +12,7 @@ import FormTextarea from './FormTextarea';
 import FormRecaptchaNote from './FormRecaptchaNote';
 import Button from '../shared/Button';
 import { toast, ToastContainer, Zoom } from 'react-toastify';
+import FadeInOut from '../shared/gsap/FadeInOut';
 
 const labels: Labels = {
     firstname: 'Firstname',
@@ -163,7 +164,11 @@ export default function Form() {
                                 register={register('message')}
                                 errors={errors['message']}
                             />
-                            <FormRecaptchaNote />
+                            <FadeInOut
+                                watch
+                            >
+                                <FormRecaptchaNote />
+                            </FadeInOut>
                             <div className={styles['c-form__btn']}>
                                 <Button
                                     label="Send"
