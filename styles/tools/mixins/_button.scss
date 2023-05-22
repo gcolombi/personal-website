@@ -17,7 +17,7 @@
     font-size: var(--btn-font-size);
 	font-weight: var(--font-medium);
 	padding: var(--btn-padding-tb) var(--btn-padding-lr);
-	transition: all .35s $ease-in;
+	transition: all .35s $primary-ease;
 
     @media (hover: hover) and (pointer: fine) {
         &:hover, &:focus {

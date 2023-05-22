@@ -14,7 +14,6 @@
     z-index: 1000;
     padding: var(--navigation-padding) 0;
     mix-blend-mode: difference;
-    transition: right 0s $ease-in;
 
     &__row {
         display: flex;

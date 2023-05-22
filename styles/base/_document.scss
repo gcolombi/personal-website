@@ -170,7 +170,7 @@ a {
 	color: var(--body-link-color);
 	font-weight: var(--font-medium);
 	text-decoration: none;
-	transition: all .35s $ease-in;
+	transition: all .35s $primary-ease;
 
     @media (hover: hover) and (pointer: fine) {
         &:hover, &:active, &:focus {

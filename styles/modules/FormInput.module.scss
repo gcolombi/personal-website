@@ -81,7 +81,7 @@
 			width: 0%;
 			height: 1px;
 			background: var(--form-element-color);
-			transition: all .35s $ease-in;
+			transition: all .35s $primary-ease;
 		}
 
 		/* Colored line on focus */
@@ -222,7 +222,7 @@
 				width: 0%;
 				height: 1px;
 				background: var(--form-element-color);
-				transition: all .35s $ease-in;
+				transition: all .35s $primary-ease;
 			}
 
 			/* Colored line on focus */

@@ -22,7 +22,7 @@
     @media (hover: hover) and (pointer: fine) {
         &:before {
             transform-origin: left;
-            transition: transform 0.6s $ease-in;
+            transition: transform 0.6s $primary-ease;
         }
 
         &:hover, &:active, &:focus {
