@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes } from 'react';
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     label: string;
     href?: string;
-    isExternal?: string;
+    isExternal?: boolean;
     externalHref?: string;
     anchor?: string;
     onClick?: () => void;

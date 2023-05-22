@@ -4,6 +4,7 @@ import useTransitionContext from '@/context/transitionContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import Link from 'next/link';
 import classNames from 'classnames';
+import Button from './shared/Button';
 
 export default function Footer() {
     const { timeline, primaryEase, footerRef } = useTransitionContext();
@@ -70,31 +71,28 @@ export default function Footer() {
                     <div className={styles['c-footer__socialLinks']}>
                         <ul>
                             <li>
-                                <a
-                                    href="https://www.instagram.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Instagram
-                                </a>
+                                <Button
+                                    label="Instagram"
+                                    className="c-externalLink"
+                                    externalHref="https://www.instagram.com/"
+                                    isExternal
+                                />
                             </li>
                             <li>
-                                <a
-                                    href="https://twitter.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Twitter
-                                </a>
+                                <Button
+                                    label="Twitter"
+                                    className="c-externalLink"
+                                    externalHref="https://twitter.com/"
+                                    isExternal
+                                />
                             </li>
                             <li>
-                                <a
-                                    href="https://github.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Github
-                                </a>
+                                <Button
+                                    label="Github"
+                                    className="c-externalLink"
+                                    externalHref="https://github.com/"
+                                    isExternal
+                                />
                             </li>
                         </ul>
                     </div>
