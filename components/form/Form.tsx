@@ -127,77 +127,86 @@ export default function Form() {
                     <div className="o-grid">
                         <form className={styles['c-form__element']} onSubmit={handleSubmit(handleSubmitForm)} noValidate>
                             <div className={styles['c-form__row']}>
-                                <TranslateInOut
-                                    delay={0.1}
-                                    y="100%"
-                                    start="-100% bottom"
-                                    end="top top"
-                                    watch
-                                >
-                                    <FormInput
-                                        htmlFor="firstname"
-                                        label="Firstname"
-                                        id="firstname"
-                                        required={true}
-                                        className="c-formElement--bordered"
-                                        register={register('firstname')}
-                                        errors={errors['firstname']}
-                                    />
-                                </TranslateInOut>
-                                <TranslateInOut
-                                    delay={0.15}
-                                    y="100%"
-                                    start="-100% bottom"
-                                    end="top top"
-                                    watch
-                                >
-                                    <FormInput
-                                        htmlFor="lastname"
-                                        label="Lastname"
-                                        id="lastname"
-                                        required={true}
-                                        className="c-formElement--bordered"
-                                        register={register('lastname')}
-                                        errors={errors['lastname']}
-                                    />
-                                </TranslateInOut>
-                                <TranslateInOut
-                                    delay={0.20}
-                                    y="100%"
-                                    start="-100% bottom"
-                                    end="top top"
-                                    watch
-                                >
-                                    <FormInput
-                                        htmlFor="email"
-                                        label="Email"
-                                        type="email"
-                                        id="email"
-                                        required={true}
-                                        className="c-formElement--bordered"
-                                        register={register('email')}
-                                        errors={errors['email']}
-                                    />
-                                </TranslateInOut>
-                                <TranslateInOut
-                                    delay={0.25}
-                                    y="100%"
-                                    start="-100% bottom"
-                                    end="top top"
-                                    watch
-                                >
-                                    <FormTextarea
-                                        htmlFor="message"
-                                        label="Message"
-                                        id="message"
-                                        required={true}
-                                        className="c-formElement--bordered"
-                                        register={register('message')}
-                                        errors={errors['message']}
-                                    />
-                                </TranslateInOut>
+                                <div className={styles['c-form__item']}>
+                                    <TranslateInOut
+                                        delay={0.1}
+                                        y="100%"
+                                        start="-100% bottom"
+                                        end="top top"
+                                        watch
+                                    >
+                                        <FormInput
+                                            htmlFor="firstname"
+                                            label="Firstname"
+                                            id="firstname"
+                                            required={true}
+                                            className="c-formElement--bordered"
+                                            register={register('firstname')}
+                                            errors={errors['firstname']}
+                                        />
+                                    </TranslateInOut>
+                                </div>
+                                <div className={styles['c-form__item']}>
+                                    <TranslateInOut
+                                        delay={0.15}
+                                        y="100%"
+                                        start="-100% bottom"
+                                        end="top top"
+                                        watch
+                                    >
+                                        <FormInput
+                                            htmlFor="lastname"
+                                            label="Lastname"
+                                            id="lastname"
+                                            required={true}
+                                            className="c-formElement--bordered"
+                                            register={register('lastname')}
+                                            errors={errors['lastname']}
+                                        />
+                                    </TranslateInOut>
+                                </div>
+                                <div className={styles['c-form__itemFull']}>
+                                    <TranslateInOut
+                                        delay={0.20}
+                                        y="100%"
+                                        start="-100% bottom"
+                                        end="top top"
+                                        watch
+                                    >
+                                        <FormInput
+                                            htmlFor="email"
+                                            label="Email"
+                                            type="email"
+                                            id="email"
+                                            required={true}
+                                            className="c-formElement--bordered"
+                                            register={register('email')}
+                                            errors={errors['email']}
+                                        />
+                                    </TranslateInOut>
+                                </div>
+                                <div className={styles['c-form__itemFull']}>
+                                    <TranslateInOut
+                                        delay={0.25}
+                                        y="100%"
+                                        start="-100% bottom"
+                                        end="top top"
+                                        watch
+                                    >
+                                        <FormTextarea
+                                            htmlFor="message"
+                                            label="Message"
+                                            id="message"
+                                            required={true}
+                                            className="c-formElement--bordered"
+                                            register={register('message')}
+                                            errors={errors['message']}
+                                        />
+                                    </TranslateInOut>
+                                </div>
                             </div>
                             <FadeInOut
+                                delay={0.30}
                                 watch
                             >
                                 <FormRecaptchaNote />

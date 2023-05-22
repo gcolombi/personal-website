@@ -23,6 +23,14 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 0 var(--grid-gap-columns);
         }
+
+        &__item {
+            grid-column: auto;
+        }
+
+        &__itemFull {
+            grid-column: 1 / -1;
+        }
     }
 
     @include mediaq('>MD') {
