@@ -34,6 +34,7 @@ export type Chars = {
     overflowHidden?: boolean;
     increment?: number;
     target: string;
+    isLink?: boolean;
 } & AnimationProperties;
 
 export type Rotate = {

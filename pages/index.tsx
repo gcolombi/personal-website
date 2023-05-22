@@ -1,5 +1,6 @@
 import MetaData from '@/components/MetaData';
 import Button from '@/components/shared/Button';
+import CallToAction from '@/components/CallToAction';
 import CharsInOut from '@/components/shared/gsap/CharsInOut';
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
             <section className="u-spacing--responsive">
                 <div className="o-container">
                     <div className="o-wysiwyg">
-                    <h1>
+                        <h1>
                             <CharsInOut
                                 delay={0.46}
                                 target="#chars-1"
@@ -76,6 +77,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <CallToAction />
         </>
     )
 }

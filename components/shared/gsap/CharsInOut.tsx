@@ -25,7 +25,8 @@ export default function CharsInOut({
     start = 'top bottom',
     end = 'bottom top',
     scrub = false,
-    markers
+    markers,
+    isLink = false
 }: Chars) {
     const { timeline, primaryEase } = useTransitionContext();
     const element = useRef<HTMLDivElement | null>(null);
@@ -48,6 +49,7 @@ export default function CharsInOut({
             let initialDelay = delay;
             let initialDelayOut = delayOut + increment * chars.length;
 
+            /* Animates each char */
             chars.forEach(char => {
                 /* Intro animation */
                 gsap.fromTo(
@@ -86,6 +88,35 @@ export default function CharsInOut({
                 initialDelayOut -= increment;
             });
 
+            /* Animates unerline */
+            if (isLink) {
+                /* Intro animation */
+                gsap.to(element.current?.parentElement!,
+                    {
+                        '--line-width': '100%',
+                        ease: ease ?? primaryEase,
+                        delay: initialDelay,
+                        duration: durationIn,
+                        ...scrollTrigger
+                    }
+                );
+
+                /* Outro animation */
+                if (!skipOutro) {
+                    timeline?.add(
+                        gsap.to(
+                            element.current?.parentElement!,
+                            {
+                                '--line-width': 0,
+                                ease: easeOut ?? primaryEase,
+                                delay: initialDelayOut,
+                                duration: durationOut
+                            }
+                        ),
+                        0
+                    );
+                }
+            }
 
             gsap.to(element.current, {
                 opacity: 1
