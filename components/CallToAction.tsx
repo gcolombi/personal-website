@@ -4,7 +4,6 @@ import CharsInOut from './shared/gsap/CharsInOut';
 import classNames from 'classnames';
 
 export default function CallToAction() {
-
     return(
         <section className={classNames(
                 'u-spacing--responsive',
@@ -14,7 +13,7 @@ export default function CallToAction() {
             <div className="o-container">
                 <div className="o-grid">
                     <div className={styles['c-callToAction__link']}>
-                        <Link href="/contact" className="h1">
+                        <Link href="/contact" className="h1 u-animatedLink">
                             <CharsInOut
                                 target="#call-to-action"
                                 watch

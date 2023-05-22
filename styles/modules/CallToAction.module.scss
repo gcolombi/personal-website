@@ -3,37 +3,7 @@
 ========================================================================== */
 
 .c-callToAction {
-    --line-width: 0;
     &__link {
         grid-column: 1 / -1;
-
-        a {
-            position: relative;
-            display: inline-block;
-
-            &:before {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: var(--line-width);
-                height: 0.07em;
-                background: currentColor;
-                pointer-events: none;
-                transform-origin: left;
-                transform: scaleX(1);
-                transition: transform .6s $primary-ease;
-            }
-
-            @media (hover: hover) and (pointer: fine) {
-                &:hover, &:active, &:focus {
-                    &:before {
-                        transform: scaleX(0);
-                        transform-origin: right;
-                    }
-                }
-            }
-        }
     }
 }

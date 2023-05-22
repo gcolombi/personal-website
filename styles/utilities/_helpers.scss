@@ -45,6 +45,40 @@
     }
 }
 
+.u-animatedLink {
+    --line-width: 0;
+
+    position: relative;
+    display: inline-block;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: var(--line-width);
+        height: 0.07em;
+        background: currentColor;
+        pointer-events: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:before {
+            transform-origin: left;
+            transform: scaleX(1);
+            transition: transform .6s $primary-ease;
+        }
+
+        &:hover, &:active, &:focus {
+            &:before {
+                transform: scaleX(0);
+                transform-origin: right;
+            }
+        }
+    }
+}
+
 /* Layout
 ========================================================================== */
 
