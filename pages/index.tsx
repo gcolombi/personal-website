@@ -9,7 +9,7 @@ export default function Home() {
             <section className="u-spacing--responsive">
                 <div className="o-container">
                     <div className="o-wysiwyg">
-                        <h1>
+                    <h1>
                             <CharsInOut
                                 delay={0.46}
                                 target="#chars-1"
@@ -26,11 +26,16 @@ export default function Home() {
                                     Colombi
                                 </span>
                             </CharsInOut>
-                            {/* <br/> */}
                             Front-end
                             <br/>
                             Developer
                         </h1>
+                    </div>
+                </div>
+            </section>
+            <section className="u-spacing--responsive">
+                <div className="o-container">
+                    <div className="o-wysiwyg">
                         <div>
                             <p>Heading</p>
                             <div className="o-wysiwyg">
@@ -53,11 +58,14 @@ export default function Home() {
                         <div className="u-large-text">
                             <p>u-large-text - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi?</p>
                         </div>
-                        <div className="u-larger-text">
+                        <div className="u-larger-text o-wysiwyg">
                             <p>u-larger-text - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi?</p>
                         </div>
                     </div>
-                    <div className="u-spacing--responsive--top"></div>
+                </div>
+            </section>
+            <div className="u-spacing--responsive">
+                <div className="o-container">
                     <div>
                         <p>Button</p>
                         <Button
@@ -67,7 +75,7 @@ export default function Home() {
                         />
                     </div>
                 </div>
-            </section>
+            </div>
         </>
     )
 }
