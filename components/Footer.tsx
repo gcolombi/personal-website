@@ -3,8 +3,8 @@ import { gsap } from 'gsap';
 import useTransitionContext from '@/context/transitionContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import Link from 'next/link';
-import classNames from 'classnames';
 import Button from './shared/Button';
+import classNames from 'classnames';
 
 export default function Footer() {
     const { timeline, primaryEase, footerRef } = useTransitionContext();

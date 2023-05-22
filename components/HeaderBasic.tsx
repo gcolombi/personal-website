@@ -17,27 +17,39 @@ export default function HeaderBasic({
     return (
         <>
             {title &&
-                <section className={classNames(styles['c-headerBasic'], styles[className!])}>
-                    <div className="o-container--small">
-                        <div className={classNames('u-text--center', styles['c-headerBasic__row'])}>
-                            <h1 id="title">{title}</h1>
-                            {wysiwyg &&
-                                <div className="o-wysiwyg">
-                                    <p>{wysiwyg}</p>
-                                </div>
-                            }
-                            {button &&
-                                <Button
-                                    label={button.label}
-                                    href={button.href}
-                                    isExternal={button.isExternal}
-                                    externalHref={button.externalHref}
-                                    anchor={button.anchor}
-                                    onClick={button.onClick}
-                                    className={button.className}
-                                    wrapperClassName={styles['c-headerBasic__btn']}
-                                />
-                            }
+                <section className={classNames
+                    (
+                        styles['c-headerBasic'],
+                        styles[className!]
+                    )}
+                >
+                    <div className="o-container">
+                        <div className="o-grid">
+                            <div className={classNames
+                                (
+                                    'u-text--center',
+                                    styles['c-headerBasic__content']
+                                )}
+                            >
+                                <h1 id="title">{title}</h1>
+                                {wysiwyg &&
+                                    <div className="o-wysiwyg">
+                                        <p>{wysiwyg}</p>
+                                    </div>
+                                }
+                                {button &&
+                                    <Button
+                                        label={button.label}
+                                        href={button.href}
+                                        isExternal={button.isExternal}
+                                        externalHref={button.externalHref}
+                                        anchor={button.anchor}
+                                        onClick={button.onClick}
+                                        className={button.className}
+                                        wrapperClassName={styles['c-headerBasic__btn']}
+                                    />
+                                }
+                            </div>
                         </div>
                     </div>
                 </section>

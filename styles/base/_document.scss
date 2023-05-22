@@ -136,6 +136,10 @@ h1, .h1 {
     @extend .u-uppercase;
 }
 
+h1 {
+    margin-bottom: 0.25em;
+}
+
 h2, .h2 {
 	font-size: var(--h2);
 }

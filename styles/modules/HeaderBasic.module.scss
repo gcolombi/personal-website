@@ -4,21 +4,36 @@
 
 .c-headerBasic {
     position: relative;
-    padding: var(--spacing-responsive) 0;
+    padding: calc(var(--navigation-height) + var(--spacing-responsive)) 0 var(--spacing-responsive) 0;
 
-    &__row {
-        max-width: 800px;
-        margin: 0 auto;
+    &__content {
+        grid-column: 1 / -1;
     }
 
     &__btn {
-        margin-top: 35px;
+        margin-top: 1em;
     }
 
     /* modifiers */
     &--fullHeight {
         display: flex;
+        justify-content: center;
         align-items: center;
         min-height: 100vh;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        &__content {
+            grid-column: 3 / 11;
+        }
+    }
+
+    @include mediaq('>XXLG') {
+        &__content {
+            grid-column: 4 / 10;
+        }
     }
 }
