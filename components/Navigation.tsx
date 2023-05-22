@@ -34,11 +34,9 @@ export default function Navigation() {
             timeline?.add(
                 gsap.to(navigationRef.current,
                     {
-                        // opacity: 0,
-                        y: '-100%',
-                        willChange: 'transform',
+                        opacity: 0,
                         ease: primaryEase,
-                        duration: 0.6
+                        duration: 0.45
                     }
                 ),
                 0

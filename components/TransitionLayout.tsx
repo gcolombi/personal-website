@@ -21,7 +21,10 @@ export default function TransitionLayout({
 
     const animateNavigation = () => {
         /* Intro animation */
-        gsap.to(navigationRef.current,
+        gsap.fromTo(
+            navigationRef.current, {
+                y: '-100%'
+            },
             {
                 opacity: 1,
                 y: 0,
@@ -36,10 +39,9 @@ export default function TransitionLayout({
         timeline?.add(
             gsap.to(navigationRef.current,
                 {
-                    y: '-100%',
-                    willChange: 'transform',
+                    opacity: 0,
                     ease: primaryEase,
-                    duration: 0.6
+                    duration: 0.45
                 }
             ),
             0
