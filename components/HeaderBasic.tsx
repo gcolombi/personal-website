@@ -2,6 +2,7 @@ import { ButtonProps } from '@/types/components/button';
 import styles from '@/styles/modules/HeaderBasic.module.scss';
 import Button from './shared/Button';
 import classNames from 'classnames';
+import CharsInOut from './shared/gsap/CharsInOut';
 
 export default function HeaderBasic({
     title,
@@ -31,7 +32,16 @@ export default function HeaderBasic({
                                     styles['c-headerBasic__content']
                                 )}
                             >
-                                <h1 id="title">{title}</h1>
+                                    <h1>
+                                        <CharsInOut
+                                            delay={0.46}
+                                            target="#title"
+                                        >
+                                            <span id="title">
+                                                {title}
+                                            </span>
+                                        </CharsInOut>
+                                    </h1>
                                 {wysiwyg &&
                                     <div className="o-wysiwyg">
                                         <p>{wysiwyg}</p>

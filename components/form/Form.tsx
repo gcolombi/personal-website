@@ -115,68 +115,75 @@ export default function Form() {
 
     return(
         <>
-            <form className={classNames('u-spacing--responsive--bottom', styles['c-form'])} onSubmit={handleSubmit(handleSubmitForm)} noValidate>
+            <section className={classNames
+                (
+                    'u-spacing--responsive',
+                    styles['c-form']
+                )}
+            >
                 <div className="o-container">
-                    <div className={styles['c-form__inner']}>
-                        <div className={styles['c-form__row']}>
-                            <FormInput
-                                htmlFor="firstname"
-                                label="Firstname"
-                                id="firstname"
+                    <div className="o-grid">
+                        <form className={styles['c-form__element']} onSubmit={handleSubmit(handleSubmitForm)} noValidate>
+                            <div className={styles['c-form__row']}>
+                                <FormInput
+                                    htmlFor="firstname"
+                                    label="Firstname"
+                                    id="firstname"
+                                    required={true}
+                                    className="c-formElement--bordered"
+                                    register={register('firstname')}
+                                    errors={errors['firstname']}
+                                />
+                                <FormInput
+                                    htmlFor="lastname"
+                                    label="Lastname"
+                                    id="lastname"
+                                    required={true}
+                                    className="c-formElement--bordered"
+                                    register={register('lastname')}
+                                    errors={errors['lastname']}
+                                />
+                                <FormInput
+                                    htmlFor="email"
+                                    label="Email"
+                                    type="email"
+                                    id="email"
+                                    required={true}
+                                    className="c-formElement--bordered"
+                                    register={register('email')}
+                                    errors={errors['email']}
+                                />
+                            </div>
+                            <FormTextarea
+                                htmlFor="message"
+                                label="Message"
+                                id="message"
                                 required={true}
                                 className="c-formElement--bordered"
-                                register={register('firstname')}
-                                errors={errors['firstname']}
+                                register={register('message')}
+                                errors={errors['message']}
                             />
-                            <FormInput
-                                htmlFor="lastname"
-                                label="Lastname"
-                                id="lastname"
-                                required={true}
-                                className="c-formElement--bordered"
-                                register={register('lastname')}
-                                errors={errors['lastname']}
-                            />
-                            <FormInput
-                                htmlFor="email"
-                                label="Email"
-                                type="email"
-                                id="email"
-                                required={true}
-                                className="c-formElement--bordered"
-                                register={register('email')}
-                                errors={errors['email']}
-                            />
-                        </div>
-                        <FormTextarea
-                            htmlFor="message"
-                            label="Message"
-                            id="message"
-                            required={true}
-                            className="c-formElement--bordered"
-                            register={register('message')}
-                            errors={errors['message']}
-                        />
-                        <FormRecaptchaNote />
-                        <div className={styles['c-form__btn']}>
-                            <Button
-                                label="Send"
-                                className="c-btn"
-                                wrapperClassName={classNames({'c-formElement--submit': isSubmitting})}
-                                type="submit"
-                                disabled={isSubmitting}
-                            />
-                        </div>
+                            <FormRecaptchaNote />
+                            <div className={styles['c-form__btn']}>
+                                <Button
+                                    label="Send"
+                                    className="c-btn"
+                                    wrapperClassName={classNames({'c-formElement--submit': isSubmitting})}
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                />
+                            </div>
+                        </form>
                     </div>
+                    {isMounted() &&
+                        <ToastContainer
+                            position={toast.POSITION.BOTTOM_CENTER}
+                            transition={Zoom}
+                            className="c-toastify"
+                        />
+                    }
                 </div>
-            </form>
-            {isMounted() &&
-                <ToastContainer
-                    position={toast.POSITION.BOTTOM_CENTER}
-                    transition={Zoom}
-                    className="c-toastify"
-                />
-            }
+            </section>
         </>
     );
 }
