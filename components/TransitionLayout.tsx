@@ -21,14 +21,16 @@ export default function TransitionLayout({
 
     const animateNavigation = () => {
         /* Intro animation */
-        gsap.to(navigationRef.current, {
-            opacity: 1,
-            y: 0,
-            willChange: 'transform',
-            ease: primaryEase,
-            delay: 1,
-            duration: 1.25
-        });
+        gsap.to(navigationRef.current,
+            {
+                opacity: 1,
+                y: 0,
+                willChange: 'transform',
+                ease: primaryEase,
+                delay: 1,
+                duration: 1.25
+            }
+        );
 
         /* Outro animation */
         timeline?.add(
@@ -80,10 +82,10 @@ export default function TransitionLayout({
                     route: router.asPath,
                     children
                 });
-                ScrollTrigger.refresh(true);
                 animateNavigation();
                 animateFooter();
                 setCurrentRoute(router.asPath);
+                ScrollTrigger.refresh(true);
                 return;
             }
 
@@ -94,10 +96,10 @@ export default function TransitionLayout({
                     route: router.asPath,
                     children
                 });
-                ScrollTrigger.refresh(true);
                 animateNavigation();
                 animateFooter();
                 setCurrentRoute(router.asPath);
+                ScrollTrigger.refresh(true);
             });
 
         } else {

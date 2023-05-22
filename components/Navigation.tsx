@@ -1,6 +1,5 @@
 import styles from '@/styles/modules/Navigation.module.scss';
 import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Link from 'next/link';
 import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
@@ -35,6 +34,7 @@ export default function Navigation() {
             timeline?.add(
                 gsap.to(navigationRef.current,
                     {
+                        // opacity: 0,
                         y: '-100%',
                         willChange: 'transform',
                         ease: primaryEase,
@@ -43,27 +43,6 @@ export default function Navigation() {
                 ),
                 0
             );
-
-            /* Use ScrollTrigger to show/hide navigation */
-            const showNav = gsap.fromTo(
-                navigationRef.current, {
-                    y: '-100%'
-                }, {
-                    y: 0,
-                    ease: primaryEase,
-                    duration: 0.45
-                }
-            ).progress(1);
-
-            ScrollTrigger.create({
-                start: `top -${window.innerHeight}`,
-                end: 'max',
-                onUpdate: (self) => {
-                    self.direction === -1
-                    ?   showNav.play()
-                    : showNav.reverse();
-                }
-            });
         });
 
         return () => ctx.revert();
