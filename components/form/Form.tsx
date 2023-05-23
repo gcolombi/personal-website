@@ -130,7 +130,7 @@ export default function Form() {
                                 <div className={styles['c-form__item']}>
                                     <TranslateInOut
                                         delay={0.1}
-                                        durationIn={0.7}
+                                        durationIn={0.6}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"
@@ -150,7 +150,7 @@ export default function Form() {
                                 <div className={styles['c-form__item']}>
                                     <TranslateInOut
                                         delay={0.15}
-                                        durationIn={0.7}
+                                        durationIn={0.6}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"
@@ -170,7 +170,7 @@ export default function Form() {
                                 <div className={styles['c-form__itemFull']}>
                                     <TranslateInOut
                                         delay={0.20}
-                                        durationIn={0.7}
+                                        durationIn={0.6}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"
@@ -191,7 +191,7 @@ export default function Form() {
                                 <div className={styles['c-form__itemFull']}>
                                     <TranslateInOut
                                         delay={0.25}
-                                        durationIn={0.7}
+                                        durationIn={0.6}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"

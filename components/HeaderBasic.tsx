@@ -47,7 +47,7 @@ export default function HeaderBasic({
                                         ))}
                                     </h1>
                                 {wysiwyg &&
-                                    <div className="o-wysiwyg">
+                                    <div className="o-wysiwyg u-uppercase">
                                         <p>{wysiwyg}</p>
                                     </div>
                                 }
