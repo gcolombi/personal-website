@@ -9,7 +9,7 @@ export default function PageNotFound() {
                 description="You are lost in Space!"
             />
             <HeaderBasic
-                title="Page not found"
+                titles={['Page not', 'found']}
                 wysiwyg="The page you are looking for could not be found."
                 button={{
                     label: 'Please get me out of here',

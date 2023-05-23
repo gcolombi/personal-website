@@ -9,8 +9,8 @@ export default function Contact() {
                 title="Form"
             />
             <HeaderBasic
-                title="Contact"
-                wysiwyg="Complete and flexible form with Google ReCaptcha V3, ready to use. Form fields are handled by React Hook Form and validated by Yup on the client/server side. The form request is managed by an API route, SendGrid and a custom HTML template are used to send the email."
+                titles={['Contact']}
+                wysiwyg="Is there something on your mind you'd like to talk about? Whether it's related to work, just a casual conversation or need help with some code. Feel free to contact me at anytime."
             />
             <Form />
         </>

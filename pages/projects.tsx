@@ -8,7 +8,7 @@ export default function Projects() {
                 title="Projects"
             />
             <HeaderBasic
-                title="Projects"
+                titles={['Projects']}
                 wysiwyg="Lorem ipsum dolor sit projects."
             />
         </>

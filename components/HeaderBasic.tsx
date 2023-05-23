@@ -5,19 +5,19 @@ import classNames from 'classnames';
 import CharsInOut from './shared/gsap/CharsInOut';
 
 export default function HeaderBasic({
-    title,
+    titles,
     wysiwyg,
     button,
     className
 }: {
-    title: string;
+    titles: string[];
     wysiwyg?: string;
     button?: ButtonProps;
     className?: string;
 }) {
     return (
         <>
-            {title &&
+            {titles.length > 0 &&
                 <section className={classNames
                     (
                         styles['c-headerBasic'],
@@ -33,14 +33,18 @@ export default function HeaderBasic({
                                 )}
                             >
                                     <h1>
-                                        <CharsInOut
-                                            delay={0.46}
-                                            target="#title"
-                                        >
-                                            <span id="title">
-                                                {title}
-                                            </span>
-                                        </CharsInOut>
+                                        {titles.map((title, i) => (
+                                            <CharsInOut
+                                                delay={0.46}
+                                                target="#title"
+                                                key={i}
+                                            >
+                                                <span id="title">
+                                                    {title}
+                                                </span>
+                                            </CharsInOut>
+
+                                        ))}
                                     </h1>
                                 {wysiwyg &&
                                     <div className="o-wysiwyg">

@@ -8,7 +8,7 @@ export default function About() {
                 title="About"
             />
             <HeaderBasic
-                title="About"
+                titles={['About']}
                 wysiwyg="Lorem ipsum dolor sit about."
             />
         </>
