@@ -50,6 +50,7 @@
 
     position: relative;
     display: inline-block;
+    pointer-events: none;
 
     &:before {
         content: '';

@@ -97,7 +97,14 @@ export default function CharsInOut({
                         ease: ease ?? primaryEase,
                         delay: initialDelay,
                         duration: durationIn,
-                        ...scrollTrigger
+                        ...scrollTrigger,
+                        onComplete: () => {
+                            gsap.to(element.current?.parentElement!,
+                                {
+                                    pointerEvents: 'all'
+                                }
+                            )
+                        }
                     }
                 );
 
