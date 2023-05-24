@@ -3,6 +3,7 @@ import styles from '@/styles/modules/HeaderBasic.module.scss';
 import Button from './shared/Button';
 import classNames from 'classnames';
 import CharsInOut from './shared/gsap/CharsInOut';
+import LinesInOut from './shared/gsap/LinesInOut';
 
 export default function HeaderBasic({
     titles,
@@ -47,9 +48,14 @@ export default function HeaderBasic({
                                         ))}
                                     </h1>
                                 {wysiwyg &&
-                                    <div className="o-wysiwyg u-uppercase">
-                                        <p>{wysiwyg}</p>
-                                    </div>
+                                    <LinesInOut
+                                        delay={1.5}
+                                        target="#intro"
+                                    >
+                                        <div className="o-wysiwyg u-uppercase">
+                                            <p id="intro">{wysiwyg}</p>
+                                        </div>
+                                    </LinesInOut>
                                 }
                                 {button &&
                                     <Button
