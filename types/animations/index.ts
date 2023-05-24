@@ -20,6 +20,14 @@ export type Animation = {
 }
 
 /* Animations */
+export type Chars = {
+    children: ReactNode;
+    overflowHidden?: boolean;
+    increment?: number;
+    target: string;
+    isLink?: boolean;
+} & AnimationProperties;
+
 export type Fade = {
     children: ReactNode;
 } & AnimationProperties;
@@ -29,12 +37,11 @@ export type ImplodeExplode = {
     target: string;
 } & AnimationProperties;
 
-export type Chars = {
+export type Lines = {
     children: ReactNode;
     overflowHidden?: boolean;
     increment?: number;
     target: string;
-    isLink?: boolean;
 } & AnimationProperties;
 
 export type Rotate = {
