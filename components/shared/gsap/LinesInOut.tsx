@@ -47,11 +47,10 @@ export default function LinesInOut({
             let initialDelay = delay;
             let initialDelayOut = delayOut + increment * lines.length;
 
-            /* Animates each char */
+            /* Animates each line */
             lines.forEach(line => {
                 const splitLineChild = new SplitText(line, {type: 'lines'});
                 const linesChildren = splitLineChild.lines;
-
 
                 linesChildren.forEach(line => {
                     /* Intro animation */
