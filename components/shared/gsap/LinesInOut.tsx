@@ -10,7 +10,6 @@ if (typeof window !== 'undefined') {
 }
 
 export default function LinesInOut({
-    overflowHidden = true,
     children,
     durationIn = 1.25,
     durationOut = 0.5,
@@ -42,49 +41,55 @@ export default function LinesInOut({
         } : {};
 
         const ctx = gsap.context(() => {
-            const splitText = new SplitText(target);
-            const chars = splitText.chars;
+            const splitLineParent = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
+            const lines = splitLineParent.lines;
 
             let initialDelay = delay;
-            let initialDelayOut = delayOut + increment * chars.length;
+            let initialDelayOut = delayOut + increment * lines.length;
 
             /* Animates each char */
-            chars.forEach(char => {
-                /* Intro animation */
-                gsap.fromTo(
-                    char,
-                    {
-                        y: '100%'
-                    },
-                    {
-                        y: 0,
-                        willChange: 'transform',
-                        ease: ease ?? primaryEase,
-                        delay: initialDelay,
-                        duration: durationIn,
-                        ...scrollTrigger
-                    }
-                );
+            lines.forEach(line => {
+                const splitLineChild = new SplitText(line, {type: 'lines'});
+                const linesChildren = splitLineChild.lines;
 
-                initialDelay += increment;
 
-                /* Outro animation */
-                if (!skipOutro) {
-                    timeline?.add(
-                        gsap.to(
-                            char,
-                            {
-                                y: '100%',
-                                ease: easeOut ?? primaryEase,
-                                delay: initialDelayOut,
-                                duration: durationOut
-                            }
-                        ),
-                        0
+                linesChildren.forEach(line => {
+                    /* Intro animation */
+                    gsap.fromTo(
+                        line,
+                        {
+                            y: '100%'
+                        },
+                        {
+                            y: 0,
+                            willChange: 'transform',
+                            ease: ease ?? primaryEase,
+                            delay: initialDelay,
+                            duration: durationIn,
+                            ...scrollTrigger
+                        }
                     );
-                }
 
-                initialDelayOut -= increment;
+                    initialDelay += increment;
+
+                    /* Outro animation */
+                    if (!skipOutro) {
+                        timeline?.add(
+                            gsap.to(
+                                line,
+                                {
+                                    y: '100%',
+                                    ease: easeOut ?? primaryEase,
+                                    delay: initialDelayOut,
+                                    duration: durationOut
+                                }
+                            ),
+                            0
+                        );
+                    }
+
+                    initialDelayOut -= increment;
+                });
             });
 
             gsap.to(element.current, {
@@ -96,7 +101,7 @@ export default function LinesInOut({
     }, []);
 
     return (
-        <div ref={element} style={{ opacity: 0, overflow: overflowHidden ? 'hidden' : 'visible' }}>
+        <div ref={element} style={{ opacity: 0 }}>
             {children}
         </div>
     );

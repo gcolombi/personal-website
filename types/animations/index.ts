@@ -39,7 +39,6 @@ export type ImplodeExplode = {
 
 export type Lines = {
     children: ReactNode;
-    overflowHidden?: boolean;
     increment?: number;
     target: string;
 } & AnimationProperties;

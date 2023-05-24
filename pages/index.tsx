@@ -2,6 +2,7 @@ import MetaData from '@/components/MetaData';
 import Button from '@/components/shared/Button';
 import CallToAction from '@/components/CallToAction';
 import CharsInOut from '@/components/shared/gsap/CharsInOut';
+import LinesInOut from '@/components/shared/gsap/LinesInOut';
 
 export default function Home() {
     return (
@@ -31,6 +32,14 @@ export default function Home() {
                             <br/>
                             Developer
                         </h1>
+                        <LinesInOut
+                            delay={1.5}
+                            target="#intro"
+                        >
+                            <div className="o-wysiwyg u-large-text">
+                                <p id="intro">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi?</p>
+                            </div>
+                        </LinesInOut>
                     </div>
                 </div>
             </section>
