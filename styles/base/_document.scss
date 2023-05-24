@@ -269,6 +269,12 @@ hr {
 
 	a {
 		text-decoration: underline;
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover, &:active, &:focus {
+                text-decoration: none;
+            }
+        }
 	}
 
 	img, svg {
