@@ -20,8 +20,7 @@ export default function CallToAction() {
                                 isLink
                             >
                                 <span id="call-to-action">
-                                    {/* Contact me */}
-                                    Contact me or get in touch
+                                    Contact me
                                 </span>
                             </CharsInOut>
                         </Link>
