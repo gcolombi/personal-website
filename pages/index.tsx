@@ -22,15 +22,28 @@ export default function Home() {
                             </CharsInOut>
                             <CharsInOut
                                 delay={0.46}
-                                target="#chars-1"
+                                target="#chars-2"
                             >
-                                <span id="chars-1">
+                                <span id="chars-2">
                                     Colombi
                                 </span>
                             </CharsInOut>
-                            Front-end
-                            <br/>
-                            Developer
+                            <CharsInOut
+                                delay={0.46}
+                                target="#chars-3"
+                            >
+                                <span id="chars-3">
+                                    Front-end
+                                </span>
+                            </CharsInOut>
+                            <CharsInOut
+                                delay={0.46}
+                                target="#chars-4"
+                            >
+                                <span id="chars-4">
+                                    Developer
+                                </span>
+                            </CharsInOut>
                         </h1>
                         <LinesInOut
                             delay={1.5}
