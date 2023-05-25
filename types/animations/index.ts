@@ -22,7 +22,6 @@ export type Animation = {
 /* Animations */
 export type Chars = {
     children: ReactNode;
-    overflowHidden?: boolean;
     increment?: number;
     target: string;
     isLink?: boolean;

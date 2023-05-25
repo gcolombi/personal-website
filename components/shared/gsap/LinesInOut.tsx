@@ -85,9 +85,8 @@ export default function LinesInOut({
                             ),
                             0
                         );
+                        initialDelayOut -= increment;
                     }
-
-                    initialDelayOut -= increment;
                 });
             });
 

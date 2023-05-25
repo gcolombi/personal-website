@@ -10,7 +10,6 @@ if (typeof window !== 'undefined') {
 }
 
 export default function CharsInOut({
-    overflowHidden = true,
     children,
     durationIn = 1.25,
     durationOut = 0.5,
@@ -43,23 +42,22 @@ export default function CharsInOut({
         } : {};
 
         const ctx = gsap.context(() => {
-            // const splitText = new SplitText(target);
-            const splitTextParent = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
-            // console.log(splitTextParent);
-
+            const splitTextParent = new SplitText(target, {type: 'lines', linesClass: 'split-line'});
             const lines = splitTextParent.lines;
             // const chars = splitText.chars;
 
-            // let initialDelay = delay;
+            let initialDelay = delay;
             // let initialDelayOut = delayOut + increment * chars.length;
 
             lines.forEach(line => {
-                // console.log(line);
-                const splitText = new SplitText(line, {type: 'chars'});
-                console.log(splitText);
+                /* overwrite the default display block */
+                gsap.set(line, {display: 'inline-block'});
+                // isLink && gsap.set(line, {display: 'inline-block'});
+
+                const splitText = new SplitText(line, {type: 'lines, chars', linesClass: 'u-overflow--hidden'});
                 const chars = splitText.chars;
 
-                let initialDelay = delay;
+                // let initialDelay = delay;
                 let initialDelayOut = delayOut + increment * chars.length;
 
                 /* Animates each char */
@@ -96,11 +94,47 @@ export default function CharsInOut({
                             ),
                             0
                         );
+
                         initialDelayOut -= increment;
                     }
                 });
 
+                /* Animates underline */
+                if (isLink) {
+                    /* Intro animation */
+                    gsap.to(line,
+                        {
+                            '--line-width': '100%',
+                            ease: ease ?? primaryEase,
+                            delay: initialDelay,
+                            duration: durationIn,
+                            ...scrollTrigger,
+                            onComplete: () => {
+                                gsap.to(element.current?.parentElement!,
+                                    {
+                                        pointerEvents: 'all'
+                                    }
+                                )
+                            }
+                        }
+                    );
 
+                    /* Outro animation */
+                    if (!skipOutro) {
+                        timeline?.add(
+                            gsap.to(
+                                line,
+                                {
+                                    '--line-width': 0,
+                                    ease: easeOut ?? primaryEase,
+                                    delay: initialDelayOut,
+                                    duration: durationOut
+                                }
+                            ),
+                            0
+                        );
+                    }
+                }
             });
 
             /* Animates each char */
@@ -188,7 +222,7 @@ export default function CharsInOut({
     }, []);
 
     return (
-        <div ref={element} style={{ opacity: 0, overflow: overflowHidden ? 'hidden' : 'visible' }}>
+        <div ref={element} style={{ opacity: 0 }}>
             {children}
         </div>
     );

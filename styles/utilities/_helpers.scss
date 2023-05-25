@@ -45,36 +45,91 @@
     }
 }
 
+// .u-animatedLink {
+//     --line-width: 0;
+
+//     position: relative;
+//     display: inline-block;
+//     pointer-events: none;
+
+//     &:before {
+//         content: '';
+//         display: block;
+//         position: absolute;
+//         top: 100%;
+//         left: 0;
+//         width: var(--line-width);
+//         height: 0.07em;
+//         background: currentColor;
+//         pointer-events: none;
+//     }
+
+//     @media (hover: hover) and (pointer: fine) {
+//         &:before {
+//             transform-origin: left;
+//             transform: scaleX(1);
+//             transition: transform .6s $primary-ease;
+//         }
+
+//         &:hover, &:active, &:focus {
+//             &:before {
+//                 transform: scaleX(0);
+//                 transform-origin: right;
+//             }
+//         }
+//     }
+// }
+
 .u-animatedLink {
     --line-width: 0;
 
-    position: relative;
     display: inline-block;
     pointer-events: none;
 
-    &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: var(--line-width);
-        height: 0.07em;
-        background: currentColor;
-        pointer-events: none;
+    span {
+        .split-line {
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: var(--line-width);
+
+                /* px value seems to work better */
+                height: 0.07em;
+                // height: 5px;
+
+
+                background: currentColor;
+                pointer-events: none;
+            }
+        }
     }
 
     @media (hover: hover) and (pointer: fine) {
-        &:before {
-            transform-origin: left;
-            transform: scaleX(1);
-            transition: transform .6s $primary-ease;
+        span {
+            .split-line {
+                &:before {
+                    transform-origin: left;
+                    transform: scaleX(1);
+                    transition: transform .6s $primary-ease;
+                }
+            }
         }
 
         &:hover, &:active, &:focus {
-            &:before {
-                transform: scaleX(0);
-                transform-origin: right;
+            span {
+                .split-line {
+                    &:before {
+                        transform: scaleX(0);
+                        transform-origin: right;
+                    }
+                }
             }
         }
     }

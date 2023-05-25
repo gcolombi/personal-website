@@ -5,5 +5,9 @@
 .c-callToAction {
     &__link {
         grid-column: 1 / -1;
+
+        span {
+            display: inline-block;
+        }
     }
 }
