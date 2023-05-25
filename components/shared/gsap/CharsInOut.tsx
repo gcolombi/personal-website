@@ -43,87 +43,141 @@ export default function CharsInOut({
         } : {};
 
         const ctx = gsap.context(() => {
-            const splitText = new SplitText(target);
-            const chars = splitText.chars;
+            // const splitText = new SplitText(target);
+            const splitTextParent = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
+            // console.log(splitTextParent);
 
-            let initialDelay = delay;
-            let initialDelayOut = delayOut + increment * chars.length;
+            const lines = splitTextParent.lines;
+            // const chars = splitText.chars;
 
-            /* Animates each char */
-            chars.forEach(char => {
-                /* Intro animation */
-                gsap.fromTo(
-                    char,
-                    {
-                        y: '100%'
-                    },
-                    {
-                        y: 0,
-                        willChange: 'transform',
-                        ease: ease ?? primaryEase,
-                        delay: initialDelay,
-                        duration: durationIn,
-                        ...scrollTrigger
-                    }
-                );
+            // let initialDelay = delay;
+            // let initialDelayOut = delayOut + increment * chars.length;
 
-                initialDelay += increment;
+            lines.forEach(line => {
+                // console.log(line);
+                const splitText = new SplitText(line, {type: 'chars'});
+                console.log(splitText);
+                const chars = splitText.chars;
 
-                /* Outro animation */
-                if (!skipOutro) {
-                    timeline?.add(
-                        gsap.to(
-                            char,
-                            {
-                                y: '100%',
-                                ease: easeOut ?? primaryEase,
-                                delay: initialDelayOut,
-                                duration: durationOut
-                            }
-                        ),
-                        0
+                let initialDelay = delay;
+                let initialDelayOut = delayOut + increment * chars.length;
+
+                /* Animates each char */
+                chars.forEach(char => {
+                    /* Intro animation */
+                    gsap.fromTo(
+                        char,
+                        {
+                            y: '100%'
+                        },
+                        {
+                            y: 0,
+                            willChange: 'transform',
+                            ease: ease ?? primaryEase,
+                            delay: initialDelay,
+                            duration: durationIn,
+                            ...scrollTrigger
+                        }
                     );
-                }
 
-                initialDelayOut -= increment;
+                    initialDelay += increment;
+
+                    /* Outro animation */
+                    if (!skipOutro) {
+                        timeline?.add(
+                            gsap.to(
+                                char,
+                                {
+                                    y: '100%',
+                                    ease: easeOut ?? primaryEase,
+                                    delay: initialDelayOut,
+                                    duration: durationOut
+                                }
+                            ),
+                            0
+                        );
+                        initialDelayOut -= increment;
+                    }
+                });
+
+
             });
 
-            /* Animates unerline */
-            if (isLink) {
-                /* Intro animation */
-                gsap.to(element.current?.parentElement!,
-                    {
-                        '--line-width': '100%',
-                        ease: ease ?? primaryEase,
-                        delay: initialDelay,
-                        duration: durationIn,
-                        ...scrollTrigger,
-                        onComplete: () => {
-                            gsap.to(element.current?.parentElement!,
-                                {
-                                    pointerEvents: 'all'
-                                }
-                            )
-                        }
-                    }
-                );
+            /* Animates each char */
+            // chars.forEach(char => {
+            //     /* Intro animation */
+            //     gsap.fromTo(
+            //         char,
+            //         {
+            //             y: '100%'
+            //         },
+            //         {
+            //             y: 0,
+            //             willChange: 'transform',
+            //             ease: ease ?? primaryEase,
+            //             delay: initialDelay,
+            //             duration: durationIn,
+            //             ...scrollTrigger
+            //         }
+            //     );
 
-                /* Outro animation */
-                if (!skipOutro) {
-                    timeline?.add(
-                        gsap.to(
-                            element.current?.parentElement!,
-                            {
-                                '--line-width': 0,
-                                ease: easeOut ?? primaryEase,
-                                delay: initialDelayOut,
-                                duration: durationOut
-                            }
-                        ),
-                        0
-                    );
-                }
-            }
+            //     initialDelay += increment;
+
+            //     /* Outro animation */
+            //     if (!skipOutro) {
+            //         timeline?.add(
+            //             gsap.to(
+            //                 char,
+            //                 {
+            //                     y: '100%',
+            //                     ease: easeOut ?? primaryEase,
+            //                     delay: initialDelayOut,
+            //                     duration: durationOut
+            //                 }
+            //             ),
+            //             0
+            //         );
+            //     }
+
+            //     initialDelayOut -= increment;
+            // });
+
+            /* Animates unerline */
+            // if (isLink) {
+            //     /* Intro animation */
+            //     gsap.to(element.current?.parentElement!,
+            //         {
+            //             '--line-width': '100%',
+            //             ease: ease ?? primaryEase,
+            //             delay: initialDelay,
+            //             duration: durationIn,
+            //             ...scrollTrigger,
+            //             onComplete: () => {
+            //                 gsap.to(element.current?.parentElement!,
+            //                     {
+            //                         pointerEvents: 'all'
+            //                     }
+            //                 )
+            //             }
+            //         }
+            //     );
+
+            //     /* Outro animation */
+            //     if (!skipOutro) {
+            //         timeline?.add(
+            //             gsap.to(
+            //                 element.current?.parentElement!,
+            //                 {
+            //                     '--line-width': 0,
+            //                     ease: easeOut ?? primaryEase,
+            //                     delay: initialDelayOut,
+            //                     duration: durationOut
+            //                 }
+            //             ),
+            //             0
+            //         );
+            //     }
+            // }
 
             gsap.to(element.current, {
                 opacity: 1

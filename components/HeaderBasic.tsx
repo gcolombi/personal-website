@@ -6,19 +6,19 @@ import CharsInOut from './shared/gsap/CharsInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
 
 export default function HeaderBasic({
-    titles,
+    title,
     wysiwyg,
     button,
     className
 }: {
-    titles: string[];
+    title: string;
     wysiwyg?: string;
     button?: ButtonProps;
     className?: string;
 }) {
     return (
         <>
-            {titles.length > 0 &&
+            {title &&
                 <section className={classNames
                     (
                         styles['c-headerBasic'],
@@ -33,20 +33,16 @@ export default function HeaderBasic({
                                     styles['c-headerBasic__content']
                                 )}
                             >
-                                    <h1>
-                                        {titles.map((title, i) => (
-                                            <CharsInOut
-                                                delay={0.46}
-                                                target="#title"
-                                                key={i}
-                                            >
-                                                <span id="title">
-                                                    {title}
-                                                </span>
-                                            </CharsInOut>
-
-                                        ))}
-                                    </h1>
+                                <h1>
+                                    <CharsInOut
+                                        delay={0.46}
+                                        target="#title"
+                                    >
+                                        <span id="title">
+                                            {title}
+                                        </span>
+                                    </CharsInOut>
+                                </h1>
                                 {wysiwyg &&
                                     <LinesInOut
                                         delay={1.5}

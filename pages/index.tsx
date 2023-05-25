@@ -8,6 +8,7 @@ export default function Home() {
     return (
         <>
             <MetaData />
+            <CallToAction />
             <section className="u-spacing--responsive">
                 <div className="o-container">
                     <div className="o-wysiwyg">
@@ -32,14 +33,14 @@ export default function Home() {
                             <br/>
                             Developer
                         </h1>
-                        <LinesInOut
+                        {/* <LinesInOut
                             delay={1.5}
                             target="#intro"
                         >
                             <div className="o-wysiwyg u-large-text">
                                 <p id="intro">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero.</p>
                             </div>
-                        </LinesInOut>
+                        </LinesInOut> */}
                     </div>
                 </div>
             </section>
@@ -86,7 +87,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <CallToAction />
+            {/* <CallToAction /> */}
         </>
     )
 }

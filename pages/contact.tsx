@@ -9,7 +9,8 @@ export default function Contact() {
                 title="Form"
             />
             <HeaderBasic
-                titles={['Contact']}
+                // titles={['Contact']}
+                title="Contact"
                 wysiwyg="Is there something on your mind you'd like to talk about? Whether it's related to work, just a casual conversation or need help with some code. Feel free to contact me at anytime."
             />
             <Form />
