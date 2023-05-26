@@ -4,7 +4,7 @@
 
 .c-formElement {
     @include default-styles();
-	@include input-placeholder(inherit, inherit, var(--black));
+	@include input-placeholder(inherit, inherit, var(--body-text-color));
     @include floating-label();
 
     &--boxed, &--bordered, &--line {

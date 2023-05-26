@@ -7,7 +7,7 @@
     @include floating-label();
 
     &:not(.c-formElement--upload--boxed, .c-formElement--upload--bordered, .c-formElement--upload--line) {
-        @include input-placeholder(inherit, inherit, var(--black));
+        @include input-placeholder(inherit, inherit, var(--body-text-color));
 
         input {
             @include input-reset();
