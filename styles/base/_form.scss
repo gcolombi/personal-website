@@ -70,12 +70,15 @@ label, .c-label {
 ========================================================================== */
 
 .c-toastify {
+    @include font-size(16px);
+
     .Toastify__toast {
         background: var(--black);
         color: var(--white);
 
         .Toastify__close-button {
             color: var(--white);
+            opacity: 1;
         }
     }
 }
