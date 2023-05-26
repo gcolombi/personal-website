@@ -10,7 +10,7 @@ export default function PageNotFound() {
             />
             <HeaderBasic
                 title="Page not found"
-                wysiwyg="The page you are looking for could not be found."
+                wysiwyg="Cannot read properties of undefined. The page you are looking for could not be found."
                 button={{
                     label: 'Please get me out of here',
                     href: '/',

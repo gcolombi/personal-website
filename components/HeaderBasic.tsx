@@ -4,6 +4,7 @@ import Button from './shared/Button';
 import classNames from 'classnames';
 import CharsInOut from './shared/gsap/CharsInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
+import FadeInOut from './shared/gsap/FadeInOut';
 
 export default function HeaderBasic({
     title,
@@ -54,16 +55,20 @@ export default function HeaderBasic({
                                     </LinesInOut>
                                 }
                                 {button &&
-                                    <Button
-                                        label={button.label}
-                                        href={button.href}
-                                        isExternal={button.isExternal}
-                                        externalHref={button.externalHref}
-                                        anchor={button.anchor}
-                                        onClick={button.onClick}
-                                        className={button.className}
-                                        wrapperClassName={styles['c-headerBasic__btn']}
-                                    />
+                                    <FadeInOut
+                                        delay={1.8}
+                                    >
+                                        <Button
+                                            label={button.label}
+                                            href={button.href}
+                                            isExternal={button.isExternal}
+                                            externalHref={button.externalHref}
+                                            anchor={button.anchor}
+                                            onClick={button.onClick}
+                                            className={button.className}
+                                            wrapperClassName={styles['c-headerBasic__btn']}
+                                        />
+                                    </FadeInOut>
                                 }
                             </div>
                         </div>
