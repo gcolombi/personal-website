@@ -119,7 +119,7 @@ export default function Form() {
         <>
             <section className={classNames
                 (
-                    'u-spacing--responsive',
+                    'u-spacing--responsive--bottom',
                     styles['c-form']
                 )}
             >
