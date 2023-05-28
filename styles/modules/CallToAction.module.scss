@@ -3,7 +3,17 @@
 ========================================================================== */
 
 .c-callToAction {
+    --link-margin-t: 70px;
+
     &__link {
+        margin-top: var(--link-margin-t);
         grid-column: 1 / -1;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --link-margin-t: 120px;
     }
 }
