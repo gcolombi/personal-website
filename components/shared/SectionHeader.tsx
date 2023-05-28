@@ -27,13 +27,11 @@ export default function SectionHeader({
                     </span>
                 </FadeInOut>
             </div>
-            <div className={
-                classNames(
-                    'u-overflow--hidden',
-                    'u-uppercase',
-                    styles['c-sectionHeader__title']
-                )}
-            >
+            <div className={classNames(
+                'u-overflow--hidden',
+                'u-uppercase',
+                styles['c-sectionHeader__title']
+            )}>
                 <TranslateInOut
                     fade={false}
                     y="100%"
@@ -41,12 +39,10 @@ export default function SectionHeader({
                     end="top top"
                     watch
                 >
-                    <h2 className={
-                        classNames(
-                            'h4',
-                            'u-margin--none',
-                        )}
-                    >
+                    <h2 className={classNames(
+                        'h4',
+                        'u-margin--none',
+                    )}>
                         {title}
                     </h2>
                 </TranslateInOut>
