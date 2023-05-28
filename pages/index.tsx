@@ -1,6 +1,7 @@
 import MetaData from '@/components/MetaData';
 import HomeHeader from '@/components/HomeHeader';
 import HomeIntroduction from '@/components/HomeIntroduction';
+import HomeFeaturedProject from '@/components/HomeFeaturedProject';
 import CallToAction from '@/components/CallToAction';
 import Button from '@/components/shared/Button';
 
@@ -10,6 +11,7 @@ export default function Home() {
             <MetaData />
             <HomeHeader />
             <HomeIntroduction />
+            <HomeFeaturedProject />
             <section className="u-spacing--responsive">
                 <div className="o-container">
                     <div className="o-wysiwyg">

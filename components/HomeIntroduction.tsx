@@ -7,7 +7,10 @@ import classNames from 'classnames';
 
 export default function HomeIntroduction() {
     return(
-        <section className={styles['c-homeIntroduction']}>
+        <section className={classNames(
+            'u-spacing--responsive',
+            styles['c-homeIntroduction']
+        )}>
             <div className="o-container">
                 <SectionHeader
                     index="01"
