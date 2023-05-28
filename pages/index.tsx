@@ -1,62 +1,24 @@
 import MetaData from '@/components/MetaData';
-import Button from '@/components/shared/Button';
-import CallToAction from '@/components/CallToAction';
 import CharsInOut from '@/components/shared/gsap/CharsInOut';
 import LinesInOut from '@/components/shared/gsap/LinesInOut';
+import HomeHeader from '@/components/HomeHeader';
 import HomeIntroduction from '@/components/HomeIntroduction';
+import CallToAction from '@/components/CallToAction';
+import Button from '@/components/shared/Button';
 
 export default function Home() {
     return (
         <>
             <MetaData />
-            <section className="u-spacing--responsive">
-                <div className="o-container">
-                    <div className="o-wysiwyg">
-                        <h1>
-                            <CharsInOut
-                                delay={0.46}
-                                target="#chars-1"
-                            >
-                                <span id="chars-1">
-                                    Gerard
-                                </span>
-                            </CharsInOut>
-                            <CharsInOut
-                                delay={0.46}
-                                target="#chars-2"
-                            >
-                                <span id="chars-2">
-                                    Colombi
-                                </span>
-                            </CharsInOut>
-                            <CharsInOut
-                                delay={0.46}
-                                target="#chars-3"
-                            >
-                                <span id="chars-3">
-                                    Front-end
-                                </span>
-                            </CharsInOut>
-                            <CharsInOut
-                                delay={0.46}
-                                target="#chars-4"
-                            >
-                                <span id="chars-4">
-                                    Developer
-                                </span>
-                            </CharsInOut>
-                        </h1>
-                        {/* <LinesInOut
-                            delay={1.5}
-                            target="#intro"
-                        >
-                            <div className="o-wysiwyg u-large-text">
-                                <p id="intro">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero.</p>
-                            </div>
-                        </LinesInOut> */}
-                    </div>
+            <HomeHeader />
+            {/* <LinesInOut
+                delay={1.5}
+                target="#intro"
+            >
+                <div className="o-wysiwyg u-large-text">
+                    <p id="intro">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero.</p>
                 </div>
-            </section>
+            </LinesInOut> */}
             <HomeIntroduction />
             <section className="u-spacing--responsive">
                 <div className="o-container">

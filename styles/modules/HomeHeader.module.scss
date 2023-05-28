@@ -4,4 +4,9 @@
 
 .c-homeHeader {
     padding: calc(var(--navigation-height) + var(--spacing-responsive)) 0 var(--spacing-responsive) 0;
+    min-height: 100svh;
+
+    &__title {
+        grid-column: 1 / -1;
+    }
 }
