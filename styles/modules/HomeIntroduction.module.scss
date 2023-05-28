@@ -3,15 +3,43 @@
 ========================================================================== */
 
 .c-homeIntroduction {
-    &__title {
+    --grid-gap-row: 0;
+    --title-margin-t: 70px;
+    --title-margin-b: 45px;
+    --content-margin-b: 45px;
 
+    &__title {
+        grid-column: 1 / -1;
+        margin: var(--title-margin-t) 0 var(--title-margin-b);
     }
 
     &__content {
-
+        grid-column: 1 / -1;
+        margin-bottom: var(--content-margin-b);
     }
 
     &__btn {
+        grid-column: 1 / -1;
+    }
 
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --title-margin-t: 120px;
+        --title-margin-b: 135px;
+        --content-margin-b: 65px;
+
+        &__title {
+            grid-column: 4 / -1;
+        }
+
+        &__content {
+            grid-column: 4 / -1;
+        }
+
+        &__btn {
+            grid-column: 4 / -1;
+        }
     }
 }
