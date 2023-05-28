@@ -11,7 +11,10 @@ export default function CallToAction() {
             styles['c-callToAction']
         )}>
             <div className="o-container">
-                <SectionHeader />
+                <SectionHeader
+                    index="01"
+                    title="Get in touch"
+                />
                 <div className="o-grid">
                     <div className={styles['c-callToAction__link']}>
                         <Link href="/contact" className="h1 u-animatedLink">

@@ -3,6 +3,7 @@ import Button from '@/components/shared/Button';
 import CallToAction from '@/components/CallToAction';
 import CharsInOut from '@/components/shared/gsap/CharsInOut';
 import LinesInOut from '@/components/shared/gsap/LinesInOut';
+import HomeIntroduction from '@/components/HomeIntroduction';
 
 export default function Home() {
     return (
@@ -56,6 +57,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <HomeIntroduction />
             <section className="u-spacing--responsive">
                 <div className="o-container">
                     <div className="o-wysiwyg">

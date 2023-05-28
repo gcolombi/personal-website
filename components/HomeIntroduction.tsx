@@ -7,7 +7,10 @@ export default function HomeIntroduction() {
     return(
         <section className={styles['c-homeIntroduction']}>
             <div className="o-container">
-                <SectionHeader />
+                <SectionHeader
+                    index="01"
+                    title="About me"
+                />
                 <div className="o-grid">
                     <div className={classNames(
                         'u-large-text',
