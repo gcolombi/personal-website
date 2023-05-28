@@ -73,7 +73,7 @@ export default function Footer() {
                             <li>
                                 <Button
                                     label="Instagram"
-                                    className="c-btn--underline"
+                                    className="c-btn--external"
                                     externalHref="https://www.instagram.com/"
                                     isExternal
                                 />
@@ -81,7 +81,7 @@ export default function Footer() {
                             <li>
                                 <Button
                                     label="Twitter"
-                                    className="c-btn--underline"
+                                    className="c-btn--external"
                                     externalHref="https://twitter.com/"
                                     isExternal
                                 />
@@ -89,7 +89,7 @@ export default function Footer() {
                             <li>
                                 <Button
                                     label="Github"
-                                    className="c-btn--underline"
+                                    className="c-btn--external"
                                     externalHref="https://github.com/"
                                     isExternal
                                 />
