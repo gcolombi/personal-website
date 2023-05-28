@@ -45,14 +45,14 @@ export default function Home() {
                                 </span>
                             </CharsInOut>
                         </h1>
-                        <LinesInOut
+                        {/* <LinesInOut
                             delay={1.5}
                             target="#intro"
                         >
                             <div className="o-wysiwyg u-large-text">
                                 <p id="intro">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero.</p>
                             </div>
-                        </LinesInOut>
+                        </LinesInOut> */}
                     </div>
                 </div>
             </section>
