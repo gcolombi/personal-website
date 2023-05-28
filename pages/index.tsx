@@ -1,6 +1,4 @@
 import MetaData from '@/components/MetaData';
-import CharsInOut from '@/components/shared/gsap/CharsInOut';
-import LinesInOut from '@/components/shared/gsap/LinesInOut';
 import HomeHeader from '@/components/HomeHeader';
 import HomeIntroduction from '@/components/HomeIntroduction';
 import CallToAction from '@/components/CallToAction';
@@ -11,14 +9,6 @@ export default function Home() {
         <>
             <MetaData />
             <HomeHeader />
-            {/* <LinesInOut
-                delay={1.5}
-                target="#intro"
-            >
-                <div className="o-wysiwyg u-large-text">
-                    <p id="intro">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero. Totam at ipsa iste ipsum sed maiores ab eos quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, perspiciatis? Placeat dolore, eveniet ipsum nesciunt dolorem quisquam incidunt facere vero.</p>
-                </div>
-            </LinesInOut> */}
             <HomeIntroduction />
             <section className="u-spacing--responsive">
                 <div className="o-container">
