@@ -4,7 +4,13 @@ import CharsInOut from './shared/gsap/CharsInOut';
 import classNames from 'classnames';
 import SectionHeader from './shared/SectionHeader';
 
-export default function CallToAction() {
+export default function CallToAction({
+    index,
+    title
+}: {
+    index: string;
+    title: string;
+}) {
     return(
         <section className={classNames(
             'u-spacing--responsive',
@@ -12,8 +18,8 @@ export default function CallToAction() {
         )}>
             <div className="o-container">
                 <SectionHeader
-                    index="01"
-                    title="Get in touch"
+                    index={index}
+                    title={title}
                 />
                 <div className="o-grid">
                     <div className={styles['c-callToAction__link']}>

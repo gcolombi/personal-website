@@ -63,7 +63,10 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <CallToAction />
+            <CallToAction
+                index="04"
+                title="Get in touch"
+            />
         </>
     )
 }
