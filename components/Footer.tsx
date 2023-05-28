@@ -98,17 +98,15 @@ export default function Footer() {
                     </div>
                     <div className={styles['c-footer__copyright']}>
                         <div className={classNames(
-                                'o-wysiwyg',
-                                styles['c-footer__copyright--year']
-                            )}
-                        >
+                            'o-wysiwyg',
+                            styles['c-footer__copyright--year']
+                        )}>
                             <p>&copy; {new Date().getFullYear()}</p>
                         </div>
                         <div className={classNames(
-                                'o-wysiwyg',
-                                styles['c-footer__copyright--text']
-                            )}
-                        >
+                            'o-wysiwyg',
+                            styles['c-footer__copyright--text']
+                        )}>
                             <p>All rights reserved</p>
                         </div>
                     </div>

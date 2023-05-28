@@ -15,16 +15,14 @@ export default function FormTextarea({
 }: Textarea) {
     return(
         <div className={wrapperClassName}>
-            <div
-                className={classNames(
-                    styles['c-formElement'],
-                    styles[className],
-                    {
-                        [styles['c-floatingLabel']]: label,
-                        [styles['has-error']]: errors?.message
-                    }
-                )}
-            >
+            <div className={classNames(
+                styles['c-formElement'],
+                styles[className],
+                {
+                    [styles['c-floatingLabel']]: label,
+                    [styles['has-error']]: errors?.message
+                }
+            )}>
                 <textarea
                     id={id}
                     placeholder={placeholder}

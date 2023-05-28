@@ -7,13 +7,12 @@ import SectionHeader from './shared/SectionHeader';
 export default function CallToAction() {
     return(
         <section className={classNames(
-                'u-spacing--responsive',
-                styles['c-callToAction']
-            )}
-        >
+            'u-spacing--responsive',
+            styles['c-callToAction']
+        )}>
             <div className="o-container">
+                <SectionHeader />
                 <div className="o-grid">
-                    <SectionHeader />
                     <div className={styles['c-callToAction__link']}>
                         <Link href="/contact" className="h1 u-animatedLink">
                             <CharsInOut
