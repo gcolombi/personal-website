@@ -5,6 +5,10 @@
 .c-sectionHeader {
     &__index {
         grid-column: 1 / 1;
+
+        span {
+            display: block;
+        }
     }
 
     &__title {

@@ -5,8 +5,8 @@ import AnimateInOut from './AnimateInOut';
 export default function TranslateInOut({
     children,
     fade = true,
-    durationIn = 1,
-    durationOut = 0.45,
+    durationIn = 1.25,
+    durationOut = 0.5,
     delay = 0,
     delayOut = 0,
     ease,
@@ -41,7 +41,8 @@ export default function TranslateInOut({
                 opacity: 1,
                 x: xTo,
                 y: yTo,
-                transformOrigin
+                transformOrigin,
+                willChange: 'transform'
             }}
             skipOutro={skipOutro}
             watch={watch}
