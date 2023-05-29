@@ -1,6 +1,6 @@
 import SectionHeader from './shared/SectionHeader';
 
-export default function HomeFeaturedProject() {
+export default function HomeFeaturedWork() {
     return(
         <section className="u-spacing--responsive">
             <div className="o-container">
