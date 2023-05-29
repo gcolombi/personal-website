@@ -2,6 +2,7 @@ import MetaData from '@/components/MetaData';
 import HomeHeader from '@/components/HomeHeader';
 import HomeIntroduction from '@/components/HomeIntroduction';
 import HomeFeaturedWork from '@/components/HomeFeaturedWork';
+import HomeLatestProject from '@/components/HomeLatestProject';
 import CallToAction from '@/components/CallToAction';
 import Button from '@/components/shared/Button';
 
@@ -12,7 +13,12 @@ export default function Home() {
             <HomeHeader />
             <HomeIntroduction />
             <HomeFeaturedWork />
-            <section className="u-spacing--responsive">
+            <HomeLatestProject />
+            <CallToAction
+                index="04"
+                title="Get in touch"
+            />
+            {/* <section className="u-spacing--responsive">
                 <div className="o-container">
                     <div className="o-wysiwyg">
                         <div>
@@ -54,11 +60,7 @@ export default function Home() {
                         />
                     </div>
                 </div>
-            </div>
-            <CallToAction
-                index="04"
-                title="Get in touch"
-            />
+            </div> */}
         </>
     )
 }
