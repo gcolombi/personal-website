@@ -1,8 +1,8 @@
-import styles from '@/styles/modules/AboutIntroduction.module.scss';
+import styles from '@/styles/modules/PersonalInterests.module.scss';
 import SectionHeader from './shared/SectionHeader';
 import classNames from 'classnames';
 
-export default function AboutIntroduction() {
+export default function PersonalInterests() {
     return (
         <section className={classNames(
             'u-spacing--responsive',
@@ -10,8 +10,8 @@ export default function AboutIntroduction() {
         )}>
             <div className="o-container">
                 <SectionHeader
-                    index="01"
-                    title="Maker of things"
+                    index="02"
+                    title="Personal Interests"
                 />
                 <div className="o-grid">
 
@@ -19,4 +19,4 @@ export default function AboutIntroduction() {
             </div>
         </section>
     );
-};
+}
