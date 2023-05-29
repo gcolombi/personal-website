@@ -1,5 +1,5 @@
 import MetaData from '@/components/MetaData';
-import HeaderBasic from '@/components/HeaderBasic';
+import AboutHeader from '@/components/AboutHeader';
 import AboutIntroduction from '@/components/AboutIntroduction';
 import PersonalInterests from '@/components/PersonalInterests';
 import CallToAction from '@/components/CallToAction';
@@ -10,10 +10,7 @@ export default function About() {
             <MetaData
                 title="About"
             />
-            <HeaderBasic
-                title="About"
-                wysiwyg="Lorem ipsum dolor sit about."
-            />
+            <AboutHeader />
             <AboutIntroduction />
             <PersonalInterests />
             <CallToAction

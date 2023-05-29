@@ -6,7 +6,7 @@ export default function PersonalInterests() {
     return (
         <section className={classNames(
             'u-spacing--responsive',
-            styles['c-aboutIntroduction']
+            styles['c-personalInterests']
         )}>
             <div className="o-container">
                 <SectionHeader
