@@ -6,7 +6,7 @@ export default function HomeFeaturedWork() {
             <div className="o-container">
                 <SectionHeader
                     index="02"
-                    title="Featured project"
+                    title="Featured work"
                 />
             </div>
         </section>

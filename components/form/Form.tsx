@@ -209,14 +209,18 @@ export default function Form() {
                                     </TranslateInOut>
                                 </div>
                             </div>
+                            <div className="u-overflow--hidden">
+                                <TranslateInOut
+                                    fade={false}
+                                    y="100%"
+                                    start="-100% bottom"
+                                    end="top top"
+                                    watch
+                                >
+                                    <FormRecaptchaNote />
+                                </TranslateInOut>
+                            </div>
                             <FadeInOut
-                                delay={0.30}
-                                watch
-                            >
-                                <FormRecaptchaNote />
-                            </FadeInOut>
-                            <FadeInOut
-                                delay={0.35}
                                 watch
                             >
                                 <div className={styles['c-form__btn']}>
