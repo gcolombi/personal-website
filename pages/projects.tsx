@@ -13,7 +13,7 @@ export default function Projects() {
                 wysiwyg="Lorem ipsum dolor sit projects."
             />
             <CallToAction
-                index="2"
+                index="02"
                 title="Get in touch"
             />
         </>
