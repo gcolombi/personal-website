@@ -4,7 +4,6 @@ import CharsInOut from './shared/gsap/CharsInOut';
 import FadeInOut from './shared/gsap/FadeInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import classNames from 'classnames';
-// import SectionHeader from './shared/SectionHeader';
 
 export default function CallToAction({
     index,
@@ -19,10 +18,6 @@ export default function CallToAction({
             styles['c-callToAction']
         )}>
             <div className="o-container">
-                {/* <SectionHeader
-                    index={index}
-                    title={title}
-                /> */}
                 <div className="o-grid">
                     <div className={classNames(
                         'h4',

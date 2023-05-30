@@ -1,5 +1,4 @@
 import styles from '@/styles/modules/HomeLatestProject.module.scss';
-import SectionHeader from './shared/SectionHeader';
 import FadeInOut from './shared/gsap/FadeInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import classNames from 'classnames';
@@ -42,10 +41,6 @@ export default function HomeLatestProject() {
                         </TranslateInOut>
                     </div>
                 </div>
-                {/* <SectionHeader
-                    index="03"
-                    title="Latest personnal project"
-                /> */}
             </div>
         </section>
     );
