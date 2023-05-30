@@ -1,5 +1,4 @@
 import styles from '@/styles/modules/HomeIntroduction.module.scss';
-import SectionHeader from './shared/SectionHeader';
 import Button from './shared/Button';
 import LinesInOut from './shared/gsap/LinesInOut';
 import FadeInOut from './shared/gsap/FadeInOut';
@@ -12,11 +11,19 @@ export default function HomeIntroduction() {
             styles['c-homeIntroduction']
         )}>
             <div className="o-container">
-                <SectionHeader
-                    index="01"
-                    title="About me"
-                />
                 <div className="o-grid">
+                    <div className={classNames(
+                        'h4',
+                        styles['c-homeIntroduction__index']
+                    )}>
+                        <FadeInOut
+                            watch
+                        >
+                            <span>
+                                01
+                            </span>
+                        </FadeInOut>
+                    </div>
                     <div className={classNames(
                         'u-large-text',
                         styles['c-homeIntroduction__title']

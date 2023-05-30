@@ -8,6 +8,14 @@
     --title-margin-b: 45px;
     --content-margin-b: 45px;
 
+    &__index {
+        grid-column: 1 / 1;
+
+        span {
+            display: block;
+        }
+    }
+
     &__title {
         grid-column: 1 / -1;
         margin: var(--title-margin-t) 0 var(--title-margin-b);
@@ -26,7 +34,7 @@
     // MEDIA QUERIES
 
     @include mediaq('>MD') {
-        --title-margin-t: 120px;
+        --title-margin-t: 0;
         --title-margin-b: 135px;
         --content-margin-b: 65px;
 
