@@ -32,6 +32,7 @@ export type ClipPath = {
     fade?: boolean;
     clipPath: string;
     clipPathTo?: string;
+    clipPathOut?: string;
 } & AnimationProperties;
 
 export type Fade = {

@@ -1,6 +1,8 @@
 import { ClipPath } from '@/types/animations';
+import { gsap } from 'gsap';
+import { useRef } from 'react';
 import useTransitionContext from '@/context/transitionContext';
-import AnimateInOut from './AnimateInOut';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 
 export default function ClipPathInOut({
     children,
@@ -13,6 +15,7 @@ export default function ClipPathInOut({
     easeOut,
     clipPath,
     clipPathTo = 'inset(0% 0% 0% 0%)',
+    clipPathOut,
     skipOutro,
     watch,
     start = 'top bottom',
@@ -20,32 +23,64 @@ export default function ClipPathInOut({
     scrub = false,
     markers
 }: ClipPath) {
-    const { primaryEase } = useTransitionContext();
+    const { timeline, primaryEase } = useTransitionContext();
+    const element = useRef<HTMLDivElement | null>(null);
+
+    useIsomorphicLayoutEffect(() => {
+        const scrollTrigger = watch ? {
+            scrollTrigger: {
+                trigger: element.current,
+                start,
+                end,
+                scrub,
+                markers: markers
+            }
+        } : {};
+
+        const ctx = gsap.context(() => {
+            /* Intro animation */
+            gsap.fromTo(element.current,
+            {
+                opacity: fade ? 0 : 1,
+                clipPath,
+                ease: ease ?? primaryEase
+            },
+            {
+                opacity: 1,
+                clipPath: clipPathTo,
+                ease: ease ?? primaryEase,
+                delay,
+                duration: durationIn,
+                ...scrollTrigger
+            });
+
+            /* Outro animation */
+            if (!skipOutro) {
+                timeline?.add(
+                    gsap.to(
+                        element.current,
+                        {
+                            clipPath: clipPathOut ?? clipPath,
+                            ease: easeOut ?? primaryEase,
+                            delay: delayOut,
+                            duration: durationOut
+                        }
+                    ),
+                    0
+                );
+            }
+
+            gsap.to(element.current, {
+                opacity: 1
+            });
+
+        }, element);
+        return () => ctx.revert();
+    }, []);
 
     return (
-        <AnimateInOut
-            durationIn={durationIn}
-            durationOut={durationOut}
-            delay={delay}
-            delayOut={delayOut}
-            easeOut={easeOut ?? primaryEase}
-            from={{
-                opacity: fade ? 0 : 1,
-                clipPath: clipPath
-            }}
-            to={{
-                ease: ease ?? primaryEase,
-                opacity: 1,
-                clipPath: clipPathTo
-            }}
-            skipOutro={skipOutro}
-            watch={watch}
-            start={start}
-            end={end}
-            scrub={scrub}
-            markers={markers}
-        >
+        <div ref={element} style={{ opacity: 0 }}>
             {children}
-        </AnimateInOut>
+        </div>
     );
 };
