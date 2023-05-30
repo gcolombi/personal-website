@@ -27,6 +27,13 @@ export type Chars = {
     isLink?: boolean;
 } & AnimationProperties;
 
+export type ClipPath = {
+    children: ReactNode;
+    fade?: boolean;
+    clipPath: string;
+    clipPathTo?: string;
+} & AnimationProperties;
+
 export type Fade = {
     children: ReactNode;
 } & AnimationProperties;
