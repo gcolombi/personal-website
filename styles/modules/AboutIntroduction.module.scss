@@ -21,6 +21,7 @@
     }
 
     &__media {
+        display: flex;
         grid-column: 1 / 7;
     }
 
@@ -33,6 +34,10 @@
 
         &__content {
             grid-column: 4 / 10;
+        }
+
+        &__media {
+            grid-column: 7 / 10;
         }
     }
 }

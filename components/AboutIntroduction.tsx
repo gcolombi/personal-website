@@ -41,6 +41,7 @@ export default function AboutIntroduction() {
                     </div>
                     <div className={styles['c-aboutIntroduction__media']}>
                         <picture>
+                            <source srcSet="https://source.unsplash.com/433x487?tech" media="(max-width: 990px)" />
                             <img src="https://source.unsplash.com/422x677?tech" alt="" />
                         </picture>
                     </div>
