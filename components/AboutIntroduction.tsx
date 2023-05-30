@@ -22,7 +22,16 @@ export default function AboutIntroduction() {
                             </span>
                         </FadeInOut>
                     </div>
-
+                    <div className={styles['c-aboutIntroduction__content']}>
+                        <FadeInOut
+                            watch
+                        >
+                            <div className="o-wysiwyg">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt alias cumque odit quod aut? Molestiae labore deleniti aperiam commodi quos, nam id, tenetur illo sit iste, vel iure. Nulla, eius. Molestiae labore deleniti aperiam modus.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quos doloribus maiores laboriosam aspernatur voluptatibus.</p>
+                            </div>
+                        </FadeInOut>
+                    </div>
 
 
                 </div>
