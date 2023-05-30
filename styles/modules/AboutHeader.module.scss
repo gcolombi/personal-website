@@ -3,5 +3,12 @@
 ========================================================================== */
 
 .c-aboutHeader {
+    display: flex;
+    align-items: center;
     padding: calc(var(--navigation-height) + var(--spacing-responsive)) 0 var(--spacing-responsive) 0;
+    min-height: 100svh;
+
+    &__title {
+        grid-column: 1 / -1;
+    }
 }
