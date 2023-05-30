@@ -1,0 +1,33 @@
+/* ==========================================================================
+    About Introduction
+========================================================================== */
+
+.c-aboutIntroduction {
+    --content-margin-t: 70px;
+    --content-margin-b: 45px;
+
+    &__index {
+        grid-column: 1 / 1;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__content {
+        grid-column: 1 / -1;
+        margin: var(--content-margin-t) 0 var(--content-margin-b);
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --content-margin-t: 0;
+        --content-margin-b: 65px;
+
+        &__content {
+            grid-column: 4 / 10;
+        }
+    }
+}
