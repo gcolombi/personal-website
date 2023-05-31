@@ -34,6 +34,13 @@ export default function AboutHeader() {
                             </CharsInOut>
                         </h1>
                     </div>
+                    <div className={styles['c-aboutHeader__media']}>
+                        <div className={styles['c-aboutHeader__media--img']}>
+                            <picture>
+                                <img src="https://source.unsplash.com/870x542?tech" alt="" />
+                            </picture>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
