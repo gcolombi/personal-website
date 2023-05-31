@@ -1,5 +1,6 @@
 import styles from '@/styles/modules/AboutHeader.module.scss';
 import CharsInOut from './shared/gsap/CharsInOut';
+import ClipPathInOut from './shared/gsap/ClipPathInOut';
 
 export default function AboutHeader() {
     return (
@@ -35,11 +36,18 @@ export default function AboutHeader() {
                         </h1>
                     </div>
                     <div className={styles['c-aboutHeader__media']}>
-                        <div className={styles['c-aboutHeader__media--img']}>
-                            <picture>
-                                <img src="https://source.unsplash.com/870x542?tech" alt="" />
-                            </picture>
-                        </div>
+                        <ClipPathInOut
+                            fade={false}
+                            delay={1}
+                            clipPath="inset(0% 0% 100% 0%)"
+                            watch
+                        >
+                            <div className={styles['c-aboutHeader__media--img']}>
+                                <picture>
+                                    <img src="https://source.unsplash.com/870x542?tech" alt="" />
+                                </picture>
+                            </div>
+                        </ClipPathInOut>
                     </div>
                 </div>
             </div>
