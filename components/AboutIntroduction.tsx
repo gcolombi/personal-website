@@ -7,7 +7,6 @@ import ClipPathInOut from './shared/gsap/ClipPathInOut';
 export default function AboutIntroduction() {
     return (
         <section className={classNames(
-            // 'u-spacing--responsive--bottom',
             'u-spacing--responsive',
             styles['c-aboutIntroduction']
         )}>

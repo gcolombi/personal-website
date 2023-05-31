@@ -14,7 +14,7 @@ export default function About() {
             <AboutIntroduction />
             <PersonalInterests />
             <CallToAction
-                index="04"
+                index="03"
                 title="Get in touch"
             />
         </>

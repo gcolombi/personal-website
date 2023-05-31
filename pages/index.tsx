@@ -48,19 +48,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </section>
-            <div className="u-spacing--responsive">
-                <div className="o-container">
-                    <div>
-                        <p>Button</p>
-                        <Button
-                            label="More about me"
-                            href="/about"
-                            className="c-btn"
-                        />
-                    </div>
-                </div>
-            </div> */}
+            </section> */}
         </>
     )
 }
