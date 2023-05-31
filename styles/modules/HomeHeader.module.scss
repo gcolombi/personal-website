@@ -5,6 +5,7 @@
 .c-homeHeader {
     --section-padding-t: 25px;
     --subfield-padding-l: 1.5em;
+    --media-padding-r: 20vw;
 
     display: flex;
     align-items: center;
@@ -38,12 +39,16 @@
         grid-column: 1 / -1;
 
         &--img {
-            padding-right: 20vw;
+            padding-right: var(--media-padding-r);
 
             img {
                 width: auto;
             }
         }
+    }
+
+    &__text {
+        grid-column: 1 / 5;
     }
 
     &__name {
@@ -55,6 +60,8 @@
 
     @include mediaq('>SM') {
         --section-padding-t: var(--spacing-responsive);
+        --media-padding-r: 0;
+        --text-pdding-r: 10vw;
 
         align-items: initial;
 
@@ -67,16 +74,22 @@
         }
 
         &__media {
+            display: flex;
             grid-column: 1 / 5;
 
             &--img {
-                padding: 0;
                 height: 100%;
 
                 img {
                     height: 100%;
                 }
             }
+        }
+
+        &__text {
+            grid-column: 1 / 4;
+            align-self: flex-end;
+            padding-right: var(--text-pdding-r);
         }
 
         &__name {
@@ -106,6 +119,11 @@
             }
         }
 
+        &__text {
+            grid-column: 1 / 5;
+            grid-row: 3 / span 1;
+        }
+
         &__name {
             grid-column: 7 / -1;
         }
@@ -113,6 +131,10 @@
 
     @include mediaq('>LG') {
         --section-padding-t: 25px;
+    }
+
+    @include mediaq('>XLG') {
+        --text-pdding-r: 12vw;
     }
 
     @include mediaq('>XXLG') {

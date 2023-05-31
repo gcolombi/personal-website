@@ -66,6 +66,11 @@ export default function HomeHeader() {
                             </div>
                         </ClipPathInOut>
                     </div>
+                    <div className={styles['c-homeHeader__text']}>
+                        <div className="o-wysiwyg u-uppercase">
+                            <p>Maker of things with passion and excellence</p>
+                        </div>
+                    </div>
                     <div className={styles['c-homeHeader__name']}>
                         <h2 className="h1 u-margin--none">
                             <CharsInOut
