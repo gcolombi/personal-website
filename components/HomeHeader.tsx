@@ -3,6 +3,7 @@ import CharsInOut from "./shared/gsap/CharsInOut";
 import ClipPathInOut from './shared/gsap/ClipPathInOut';
 import classNames from 'classnames';
 import TranslateInOut from './shared/gsap/TranslateInOut';
+import LinesInOut from './shared/gsap/LinesInOut';
 
 export default function HomeHeader() {
     return (
@@ -67,9 +68,15 @@ export default function HomeHeader() {
                         </ClipPathInOut>
                     </div>
                     <div className={styles['c-homeHeader__text']}>
-                        <div className="o-wysiwyg u-uppercase">
-                            <p>Maker of things with passion and excellence</p>
-                        </div>
+                        <LinesInOut
+                            delay={1}
+                            target="#text"
+                            watch
+                        >
+                            <div className="o-wysiwyg u-uppercase">
+                                <p id="text">Maker of things with passion and excellence</p>
+                            </div>
+                        </LinesInOut>
                     </div>
                     <div className={styles['c-homeHeader__name']}>
                         <h2 className="h1 u-margin--none">
