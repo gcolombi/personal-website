@@ -3,10 +3,99 @@
 ========================================================================== */
 
 .c-homeHeader {
-    padding: calc(var(--navigation-height) + var(--spacing-responsive)) 0 var(--spacing-responsive) 0;
+    --section-padding-t: 25px;
+
+    display: flex;
+    align-items: center;
+    padding: calc(var(--navigation-height) + var(--section-padding-t)) 0 var(--spacing-responsive) 0;
     min-height: 100svh;
 
     &__title {
         grid-column: 1 / -1;
+    }
+
+    &__media {
+        grid-column: 1 / -1;
+
+        &--img {
+            padding-right: 20vw;
+
+            img {
+                width: auto;
+            }
+        }
+    }
+
+    &__name {
+        grid-column: 1 / -1;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>SM') {
+        --section-padding-t: var(--spacing-responsive);
+
+        align-items: initial;
+
+        &__grid {
+            height: 100%;
+        }
+
+        &__title {
+            grid-column: 1 / 5;
+        }
+
+        &__media {
+            grid-column: 1 / 5;
+
+            &--img {
+                padding: 0;
+                height: 100%;
+
+                img {
+                    height: 100%;
+                }
+            }
+        }
+
+        &__name {
+            text-align: right;
+            grid-column: 4 / -1;
+            align-self: flex-end;
+        }
+    }
+
+    @include mediaq('>MD') {
+        --section-padding-t: 50px;
+
+        &__title {
+            grid-column: 1 / 10;
+        }
+
+        &__media {
+            grid-column: 10 / -1;
+            grid-row: 1 / span 2;
+            justify-self: flex-end;
+
+            &--img {
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        &__name {
+            grid-column: 7 / -1;
+        }
+    }
+
+    @include mediaq('>LG') {
+        --section-padding-t: 25px;
+    }
+
+    @include mediaq('>XXLG') {
+        --section-padding-t: 50px;
     }
 }

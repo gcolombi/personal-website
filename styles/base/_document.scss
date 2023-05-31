@@ -55,13 +55,13 @@
     }
 
     @include mediaq('>MD') {
-        --h1: 94px;
+        --h1: 92px;
         --h2: 56px;
     	--h3: 35px;
     }
 
     @include mediaq('>LG') {
-        --h1: 122px;
+        --h1: 100px;
         --h4: 22px;
         --h5: 20px;
         --h6: 18px;
@@ -69,6 +69,10 @@
     }
 
     @include mediaq('>XLG') {
+        --h1: 122px;
+    }
+
+    @include mediaq('>XXLG') {
         --h1: 144px;
     }
 }
@@ -142,6 +146,7 @@ h1 {
 
 h2, .h2 {
 	font-size: var(--h2);
+    line-height: 1.18;
 }
 
 h3, .h3 {
