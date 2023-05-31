@@ -3,5 +3,46 @@
 ========================================================================== */
 
 .c-project {
+    --description-margin-t: 30px;
+    --description-margin-b: 30px;
 
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    gap: 0 var(--grid-gap-columns);
+
+    &__details {
+        grid-column: 1 / -1;
+
+        &--description {
+            margin: var(--description-margin-t) 0 var(--description-margin-b);
+        }
+    }
+
+    &__media {
+        grid-column: 1 / -1;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --description-margin-t: 45px;
+        --description-margin-b: 0;
+
+        &__details {
+            grid-column: 1 / 7;
+        }
+
+        &__media {
+            grid-column: 7 / -1;
+        }
+    }
+
+    @include mediaq('>XLG') {
+        --description-margin-t: 60px;
+    }
+
+    @include mediaq('>XXLG') {
+        --description-margin-t: 70px;
+    }
 }

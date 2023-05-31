@@ -11,25 +11,25 @@ export default function AboutHeader() {
                         <h1 className="u-margin--none">
                             <CharsInOut
                                 delay={0.46}
-                                target="#chars-1"
+                                target="#detail"
                             >
-                                <span id="chars-1">
+                                <span id="detail">
                                     Passionate
                                 </span>
                             </CharsInOut>
                             <CharsInOut
                                 delay={0.46}
-                                target="#chars-2"
+                                target="#job-type"
                             >
-                                <span id="chars-2">
+                                <span id="job-type">
                                     Front-end
                                 </span>
                             </CharsInOut>
                             <CharsInOut
                                 delay={0.46}
-                                target="#chars-3"
+                                target="#job-title"
                             >
-                                <span id="chars-3">
+                                <span id="job-title">
                                     Developer
                                 </span>
                             </CharsInOut>
