@@ -1,11 +1,15 @@
 import styles from '@/styles/modules/HomeFeaturedWork.module.scss';
+import Project from './Project';
 import FadeInOut from './shared/gsap/FadeInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import classNames from 'classnames';
 
 export default function HomeFeaturedWork() {
     return(
-        <section className="u-spacing--responsive">
+        <section className={classNames(
+            'u-spacing--responsive',
+            styles['c-homeFeaturedWork']
+        )}>
             <div className="o-container">
                 <div className="o-grid">
                     <div className={classNames(
@@ -40,6 +44,9 @@ export default function HomeFeaturedWork() {
                             </h2>
                         </TranslateInOut>
                     </div>
+                </div>
+                <div className={styles['c-homeFeaturedWork__project']}>
+                    <Project />
                 </div>
             </div>
         </section>

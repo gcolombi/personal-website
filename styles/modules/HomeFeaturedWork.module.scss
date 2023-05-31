@@ -3,6 +3,8 @@
 ========================================================================== */
 
 .c-homeFeaturedWork {
+    --project-margin-t: 70px;
+
     &__index {
         grid-column: 1 / 1;
 
@@ -15,10 +17,16 @@
         grid-column: 3 / -1;
     }
 
+    &__project {
+        margin-top: var(--project-margin-t);
+    }
+
     // **---------------------------------------------------**
     // MEDIA QUERIES
 
     @include mediaq('>MD') {
+        --project-margin-t: 120px;
+
         &__title {
             grid-column: 4 / 7;
         }
