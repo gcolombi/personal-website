@@ -1,5 +1,6 @@
 import styles from '@/styles/modules/Project.module.scss';
 import CharsInOut from './shared/gsap/CharsInOut';
+import LinesInOut from './shared/gsap/LinesInOut';
 
 export default function Project() {
     return(
@@ -26,9 +27,14 @@ export default function Project() {
                     </h2>
                 </div>
                 <div className={styles['c-project__details--description']}>
-                    <div className="o-wysiwyg u-uppercase">
-                        <p>Online store built with shopify</p>
-                    </div>
+                    <LinesInOut
+                        target="#description"
+                        watch
+                    >
+                        <div className="o-wysiwyg u-uppercase">
+                            <p id="description">Online store built with shopify</p>
+                        </div>
+                    </LinesInOut>
                 </div>
             </div>
             <div className={styles['c-project__media']}>
