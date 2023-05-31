@@ -20,17 +20,17 @@ export default function HomeHeader() {
                         <h1 className="u-margin--none">
                             <CharsInOut
                                 delay={0.46}
-                                target="#title-1"
+                                target="#job-type"
                             >
-                                <span id="title-1">
+                                <span id="job-type">
                                     Front-end
                                 </span>
                             </CharsInOut>
                             <CharsInOut
                                 delay={0.46}
-                                target="#title-2"
+                                target="#job-title"
                             >
-                                <span id="title-2">
+                                <span id="job-title">
                                     Developer
                                 </span>
                             </CharsInOut>
@@ -55,7 +55,6 @@ export default function HomeHeader() {
                             fade={false}
                             delay={1}
                             clipPath="inset(100% 0% 0% 0%)"
-                            clipPathOut="inset(0% 0% 100% 0%)"
                             watch
                         >
                             <div className={styles['c-homeHeader__media--img']}>

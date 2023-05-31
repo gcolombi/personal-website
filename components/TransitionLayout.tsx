@@ -105,8 +105,8 @@ export default function TransitionLayout({
             });
 
         } else {
-            ScrollTrigger.refresh(true);
             setCurrentRoute(router.asPath);
+            ScrollTrigger.refresh(true);
         }
     }, [router.asPath]);
 
