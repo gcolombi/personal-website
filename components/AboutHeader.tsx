@@ -11,9 +11,9 @@ export default function AboutHeader() {
                         <h1 className="u-margin--none">
                             <CharsInOut
                                 delay={0.46}
-                                target="#detail"
+                                target="#about-detail"
                             >
-                                <span id="detail">
+                                <span id="about-detail">
                                     Passionate
                                 </span>
                             </CharsInOut>
@@ -40,7 +40,6 @@ export default function AboutHeader() {
                             fade={false}
                             delay={1}
                             clipPath="inset(0% 0% 100% 0%)"
-                            watch
                         >
                             <div className={styles['c-aboutHeader__media--img']}>
                                 <picture>

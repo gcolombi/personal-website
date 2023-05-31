@@ -55,7 +55,6 @@ export default function HomeHeader() {
                             fade={false}
                             delay={1}
                             clipPath="inset(100% 0% 0% 0%)"
-                            watch
                         >
                             <div className={styles['c-homeHeader__media--img']}>
                                 <picture>
@@ -70,7 +69,6 @@ export default function HomeHeader() {
                         <LinesInOut
                             delay={1}
                             target="#text"
-                            watch
                         >
                             <div className="o-wysiwyg u-uppercase">
                                 <p id="text">Maker of things with passion and excellence</p>
