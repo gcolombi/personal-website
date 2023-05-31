@@ -4,6 +4,7 @@
 
 .c-homeHeader {
     --section-padding-t: 25px;
+    --subfield-padding-l: 1.5em;
 
     display: flex;
     align-items: center;
@@ -12,6 +13,25 @@
 
     &__title {
         grid-column: 1 / -1;
+
+        &--subfield {
+            position: relative;
+            padding-left: var(--subfield-padding-l);
+            margin-top: 10px;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 0.8em;
+                height: 1px;
+                background: var(--body-heading-color);
+                pointer-events: none;
+                transform: translate3d(0, -50%, 0);
+            }
+        }
     }
 
     &__media {

@@ -133,6 +133,10 @@ h1, h2, h3, h4, h5, h6,
 	font-weight: var(--font-heading-weight);
 	line-height: var(--font-heading-line-height);
 	color: var(--body-heading-color);
+
+    span {
+        display: inline-flex;
+    }
 }
 
 h1, .h1 {

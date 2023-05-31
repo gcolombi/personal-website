@@ -52,6 +52,8 @@
     pointer-events: none;
 
     span {
+        display: block;
+
         .split-line {
             &:not(:last-child) {
                 margin-bottom: 12px;

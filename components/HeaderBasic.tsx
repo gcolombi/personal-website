@@ -49,7 +49,7 @@ export default function HeaderBasic({
                                         delay={0.8}
                                         target="#intro"
                                     >
-                                        <div className="o-wysiwyg u-uppercase">
+                                        <div className="o-wysiwyg">
                                             <p id="intro">{wysiwyg}</p>
                                         </div>
                                     </LinesInOut>

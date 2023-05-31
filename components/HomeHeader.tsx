@@ -2,6 +2,7 @@ import styles from '@/styles/modules/HomeHeader.module.scss';
 import CharsInOut from "./shared/gsap/CharsInOut";
 import ClipPathInOut from './shared/gsap/ClipPathInOut';
 import classNames from 'classnames';
+import TranslateInOut from './shared/gsap/TranslateInOut';
 
 export default function HomeHeader() {
     return (
@@ -18,26 +19,40 @@ export default function HomeHeader() {
                         <h1 className="u-margin--none">
                             <CharsInOut
                                 delay={0.46}
-                                target="#chars-3"
+                                target="#title-1"
                             >
-                                <span id="chars-3">
+                                <span id="title-1">
                                     Front-end
                                 </span>
                             </CharsInOut>
                             <CharsInOut
                                 delay={0.46}
-                                target="#chars-4"
+                                target="#title-2"
                             >
-                                <span id="chars-4">
+                                <span id="title-2">
                                     Developer
                                 </span>
                             </CharsInOut>
                         </h1>
+                        <div className="u-overflow--hidden">
+                            <TranslateInOut
+                                fade={false}
+                                delay={0.46}
+                                y="100%"
+                            >
+                                <div className={classNames(
+                                    'u-headingColor--gray-600',
+                                    styles['c-homeHeader__title--subfield']
+                                )}>
+                                    <h2 className="h6 u-margin--none u-uppercase">Full stack capable</h2>
+                                </div>
+                            </TranslateInOut>
+                        </div>
                     </div>
                     <div className={styles['c-homeHeader__media']}>
                         <ClipPathInOut
                             fade={false}
-                            delay={0.46}
+                            delay={1}
                             clipPath="inset(100% 0% 0% 0%)"
                             clipPathOut="inset(0% 0% 100% 0%)"
                             watch
@@ -55,17 +70,17 @@ export default function HomeHeader() {
                         <h2 className="h1 u-margin--none">
                             <CharsInOut
                                 delay={0.46}
-                                target="#chars-1"
+                                target="#firstname"
                             >
-                                <span id="chars-1">
+                                <span id="firstname">
                                     Gerard
                                 </span>
                             </CharsInOut>
                             <CharsInOut
                                 delay={0.46}
-                                target="#chars-2"
+                                target="#lastname"
                             >
-                                <span id="chars-2">
+                                <span id="lastname">
                                     Colombi
                                 </span>
                             </CharsInOut>
