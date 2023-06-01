@@ -1,5 +1,5 @@
 import MetaData from '@/components/MetaData';
-import HomeHeader from '@/components/HomeHeader';
+import HeaderHome from '@/components/HeaderHome';
 import HomeIntroduction from '@/components/HomeIntroduction';
 import HomeFeaturedWork from '@/components/HomeFeaturedWork';
 import HomeLatestProject from '@/components/HomeLatestProject';
@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <>
             <MetaData />
-            <HomeHeader />
+            <HeaderHome />
             <HomeIntroduction />
             <HomeFeaturedWork />
             <HomeLatestProject />

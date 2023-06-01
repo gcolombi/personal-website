@@ -1,11 +1,11 @@
-import styles from '@/styles/modules/HomeHeader.module.scss';
+import styles from '@/styles/modules/HeaderHome.module.scss';
 import CharsInOut from "./shared/gsap/CharsInOut";
 import ClipPathInOut from './shared/gsap/ClipPathInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
 import classNames from 'classnames';
 
-export default function HomeHeader() {
+export default function HeaderHome() {
     return (
         <section className={styles['c-homeHeader']}>
             <div className={classNames(

@@ -2,7 +2,7 @@ import styles from '@/styles/modules/HeaderAbout.module.scss';
 import CharsInOut from './shared/gsap/CharsInOut';
 import ClipPathInOut from './shared/gsap/ClipPathInOut';
 
-export default function AboutHeader() {
+export default function HeaderAbout() {
     return (
         <section className={styles['c-aboutHeader']}>
             <div className="o-container">
