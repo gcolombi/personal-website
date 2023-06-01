@@ -2,7 +2,15 @@ import styles from '@/styles/modules/Project.module.scss';
 import CharsInOut from './shared/gsap/CharsInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
 
-export default function Project() {
+export default function Project({
+    title,
+    description,
+    image
+}: {
+    title: string;
+    description?: string;
+    image: string;
+}) {
     return(
         <div className={styles['c-project']}>
             <div className={styles['c-project__details']}>
@@ -14,7 +22,7 @@ export default function Project() {
                             isLink
                         >
                             <span id="title">
-                                Sweet sixteen
+                                {title}
                             </span>
                         </CharsInOut>
                     </h2>
@@ -25,7 +33,7 @@ export default function Project() {
                         watch
                     >
                         <div className="o-wysiwyg u-uppercase">
-                            <p id="description">Online store built with shopify</p>
+                            <p id="description">{description}</p>
                         </div>
                     </LinesInOut>
                 </div>
@@ -33,7 +41,7 @@ export default function Project() {
             <div className={styles['c-project__media']}>
                 <div className={styles['c-project__media--img']}>
                     <picture>
-                        <img src="https://cdn.shopify.com/s/files/1/0603/9411/1155/files/og-image_1200x.jpg" alt="" />
+                        <img src={image} alt={title} />
                     </picture>
                 </div>
             </div>

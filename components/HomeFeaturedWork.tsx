@@ -46,7 +46,11 @@ export default function HomeFeaturedWork() {
                     </div>
                 </div>
                 <div className={styles['c-homeFeaturedWork__project']}>
-                    <Project />
+                    <Project
+                        title="Sweet sixteen"
+                        description="Online store built with shopify"
+                        image="https://source.unsplash.com/1200x630?abstract"
+                    />
                 </div>
             </div>
         </section>
