@@ -1,11 +1,15 @@
 import styles from '@/styles/modules/HomeLatestProject.module.scss';
+import Project from './Project';
 import FadeInOut from './shared/gsap/FadeInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import classNames from 'classnames';
 
 export default function HomeLatestProject() {
     return(
-        <section className="u-spacing--responsive">
+        <section className={classNames(
+            'u-spacing--responsive',
+            styles['c-homeLatestProject']
+        )}>
             <div className="o-container">
                 <div className="o-grid">
                     <div className={classNames(
@@ -40,6 +44,13 @@ export default function HomeLatestProject() {
                             </h2>
                         </TranslateInOut>
                     </div>
+                </div>
+                <div className={styles['c-homeLatestProject__project']}>
+                    <Project
+                        title="Mondoux"
+                        description="Corporate website"
+                        image="https://source.unsplash.com/1200x630?tech"
+                    />
                 </div>
             </div>
         </section>
