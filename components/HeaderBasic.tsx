@@ -46,7 +46,7 @@ export default function HeaderBasic({
                                 </h1>
                                 {wysiwyg &&
                                     <LinesInOut
-                                        delay={0.8}
+                                        delay={0.53}
                                         target="#intro"
                                     >
                                         <div className="o-wysiwyg">
@@ -56,7 +56,7 @@ export default function HeaderBasic({
                                 }
                                 {button &&
                                     <FadeInOut
-                                        delay={1}
+                                        delay={0.60}
                                     >
                                         <Button
                                             label={button.label}
