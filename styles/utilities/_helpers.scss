@@ -46,6 +46,7 @@
 }
 
 .u-animatedLink {
+    --split-child-margin-b: 10px;
     --line-width: 0;
 
     display: inline-block;
@@ -54,64 +55,81 @@
     span {
         display: block;
 
-        .split-line {
-            &:not(:last-child) {
-                margin-bottom: 12px;
-            }
+        .split-parent {
+            .split-child {
+                &:not(:last-child) {
+                    margin-bottom: var(--split-child-margin-b);
+                }
 
-            &:before {
-                content: '';
-                display: block;
-                position: absolute;
-                top: calc(100% + 2px);
-                left: 0;
-                width: var(--line-width);
-                height: 0.07em;
-                background: currentColor;
-                pointer-events: none;
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: calc(100% + 2px);
+                    left: 0;
+                    width: var(--line-width);
+                    height: 0.07em;
+                    background: currentColor;
+                    pointer-events: none;
+                }
             }
         }
     }
 
     @media (hover: hover) and (pointer: fine) {
         span {
-            .split-line {
-                &:before {
-                    transform-origin: right;
-                    transform: scaleX(1);
-                    transition: transform .75s $primary-ease;
-                }
+            .split-parent {
+                .split-child {
+                    &:before {
+                        transform-origin: right;
+                        transform: scaleX(1);
+                        transition: transform .75s $primary-ease;
+                    }
 
-                &:after {
-                    content: '';
-                    display: block;
-                    position: absolute;
-                    top: calc(100% + 2px);
-                    left: 0;
-                    width: 100%;
-                    height: 0.07em;
-                    background: currentColor;
-                    pointer-events: none;
-                    transform: scaleX(0);
-                    transform-origin: left;
-                    transition: transform 0.75s $primary-ease 0.25s;
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: calc(100% + 2px);
+                        left: 0;
+                        width: 100%;
+                        height: 0.07em;
+                        background: currentColor;
+                        pointer-events: none;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        transition: transform 0.75s $primary-ease 0.25s;
+                    }
                 }
             }
         }
 
         &:hover, &:active, &:focus {
             span {
-                .split-line {
-                    &:before {
-                        transform: scaleX(0);
-                    }
+                .split-parent {
+                    div {
+                        &:before {
+                            transform: scaleX(0);
+                        }
 
-                    &:after {
-                        transform: scaleX(1);
+                        &:after {
+                            transform: scaleX(1);
+                        }
                     }
                 }
             }
         }
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --split-child-margin-b: 15px;
+    }
+
+    @include mediaq('>XXLG') {
+        --split-child-margin-b: 18px;
     }
 }
 
