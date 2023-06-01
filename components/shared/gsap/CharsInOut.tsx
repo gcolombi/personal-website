@@ -59,7 +59,9 @@ export default function CharsInOut({
 
                 linesChildren.forEach(lineChild => {
                     /* Overwrites the default display block */
-                    gsap.set(lineChild, {display: 'inline-block'});
+                    if (isLink) {
+                        gsap.set(lineChild, {display: 'inline-block'});
+                    }
 
                     new SplitText(lineChild, {type: 'lines', linesClass: 'u-overflow--hidden'});
                 });
