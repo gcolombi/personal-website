@@ -47,7 +47,11 @@ export default function CharsInOut({
 
             lines.forEach(line => {
                 /* Overwrite the default display block */
-                gsap.set(line, {display: 'flex'});
+                if (isLink) {
+                    gsap.set(line, {display: 'flex'});
+                } else {
+                    gsap.set(line, {display: 'inline-block'});
+                }
 
                 const splitLineChild = new SplitText(line, {type: 'lines, chars', linesClass: 'split-child'});
                 const linesChildren = splitLineChild.lines;
