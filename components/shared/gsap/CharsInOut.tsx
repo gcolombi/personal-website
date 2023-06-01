@@ -47,7 +47,7 @@ export default function CharsInOut({
 
             lines.forEach(line => {
                 /* Overwrite the default display block */
-                gsap.set(line, {display: 'inline-block'});
+                gsap.set(line, {display: 'flex'});
 
                 const splitLineChild = new SplitText(line, {type: 'lines, chars', linesClass: 'split-child'});
                 const linesChildren = splitLineChild.lines;

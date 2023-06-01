@@ -7,21 +7,14 @@ export default function Project() {
         <div className={styles['c-project']}>
             <div className={styles['c-project__details']}>
                 <div className={styles['c-project__details--title']}>
-                    <h2 className="h1 u-margin--none">
+                    <h2 className="h1 u-margin--none u-animatedLink">
                         <CharsInOut
-                            target="#chars-1"
+                            target="#title"
                             watch
+                            isLink
                         >
-                            <span id="chars-1">
-                                Sweet
-                            </span>
-                        </CharsInOut>
-                        <CharsInOut
-                            target="#chars-2"
-                            watch
-                        >
-                            <span id="chars-2">
-                                Sixteen
+                            <span id="title">
+                                Sweet sixteen
                             </span>
                         </CharsInOut>
                     </h2>
