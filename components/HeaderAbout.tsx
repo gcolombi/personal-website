@@ -1,4 +1,4 @@
-import styles from '@/styles/modules/AboutHeader.module.scss';
+import styles from '@/styles/modules/HeaderAbout.module.scss';
 import CharsInOut from './shared/gsap/CharsInOut';
 import ClipPathInOut from './shared/gsap/ClipPathInOut';
 
