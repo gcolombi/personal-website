@@ -45,7 +45,7 @@ export default function LinesInOut({
             const lines = splitLineParent.lines;
 
             let initialDelay = delay;
-            let initialDelayOut = delayOut + increment * lines.length;
+            let initialDelayOut = delayOut + increment * (lines.length - 1);
 
             /* Animates each line */
             lines.forEach(line => {
@@ -85,6 +85,7 @@ export default function LinesInOut({
                             ),
                             0
                         );
+
                         initialDelayOut -= increment;
                     }
                 });

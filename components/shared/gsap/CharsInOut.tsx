@@ -65,7 +65,7 @@ export default function CharsInOut({
                 });
 
                 let initialDelay = delay;
-                let initialDelayOut = delayOut + increment * chars.length;
+                let initialDelayOut = delayOut + increment * (chars.length - 1);
 
                 /* Animates each char */
                 chars.forEach(char => {
