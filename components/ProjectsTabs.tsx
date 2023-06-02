@@ -3,22 +3,22 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { useRef, useState } from 'react';
 import useTransitionContext from '@/context/transitionContext';
+import ProjectsList from './ProjectsList';
 import FadeInOut from './shared/gsap/FadeInOut';
 import CharsInOut from './shared/gsap/CharsInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
-import Project from './Project';
 import classNames from 'classnames';
 
 export default function ProjectsTabs() {
     const { primaryEase } = useTransitionContext();
     const [activeTabIndex, setActiveTabIndex] = useState(0);
-    const [projectType, setProjectType] = useState('work');
+    const [projectsType, setProjectsType] = useState('work');
     const tabsItemsRef = useRef<HTMLDivElement[]>([]);
     const tabsWrapperRef = useRef<HTMLDivElement | null>(null);
 
     const handleClick = (index: number, type: string) => {
         setActiveTabIndex(index);
-        setProjectType(type);
+        setProjectsType(type);
         gsap.fromTo(tabsWrapperRef.current,
             {
                 height: tabsWrapperRef.current?.offsetHeight
@@ -156,20 +156,7 @@ export default function ProjectsTabs() {
                     </div>
                 </div>
             </section>
-            <section className="u-spacing--responsive--bottom">
-                <div className="o-container">
-                    <Project
-                        title="Sweet sixteen"
-                        description="Online store built with shopify"
-                        image="https://source.unsplash.com/1200x630?abstract"
-                    />
-                    <Project
-                        title="Mondoux"
-                        description="Corporate website"
-                        image="https://source.unsplash.com/1200x630?tech"
-                    />
-                </div>
-            </section>
+            <ProjectsList projectsType={projectsType} />
         </>
     );
 };
