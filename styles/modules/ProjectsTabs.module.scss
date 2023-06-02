@@ -59,7 +59,6 @@
     &__descriptions {
         position: relative;
         grid-column: 1 / -1;
-        transition: height 0.7s $primary-ease;
 
         &--element {
             position: absolute;
@@ -71,6 +70,9 @@
 
             /* States */
             &.is-selected {
+                position: relative;
+                top: auto;
+                left: auto;
                 opacity: 1;
             }
         }
