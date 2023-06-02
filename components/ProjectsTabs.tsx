@@ -20,15 +20,19 @@ export default function ProjectsTabs() {
                         </FadeInOut>
                     </div>
                     <div className={styles['c-projectsTabs__header']}>
-                        <div className={styles['c-projectsTabs__header__control']}>
-                            <button className={classNames(
-                                'h1',
-                                styles['c-projectsTabs__header__control--btn']
-                            )}>
-                                <span>Projects</span>
-                            </button>
-                            <span className={styles['c-projectsTabs__header__control--count']}>02</span>
-                        </div>
+                        <button className={classNames(
+                            styles['c-projectsTabs__header__control'],
+                            {
+                                [styles['is-active']]: true
+                            }
+                        )}>
+                            <span className="h1">Projects</span>
+                            <span className={styles['c-projectsTabs__header__control--count']}>04</span>
+                        </button>
+                        <button className={styles['c-projectsTabs__header__control']}>
+                            <span className="h1">Personal</span>
+                            <span className={styles['c-projectsTabs__header__control--count']}>03</span>
+                        </button>
                     </div>
                 </div>
             </div>
