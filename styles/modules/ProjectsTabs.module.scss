@@ -3,5 +3,61 @@
 ========================================================================== */
 
 .c-projectsTabs {
+    --grid-gap-row: 0;
+    --header-margin-t: 70px;
+    --header-margin-b: 70px;
+    --count--padding-t: 0.1em;
+    --count--padding-l: 0.4em;
+    --count-font-size: 20px;
 
+    padding: calc(var(--navigation-height) + var(--spacing-responsive)) 0 var(--spacing-responsive) 0;
+
+    &__index {
+        grid-column: 1 / 1;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__header {
+        grid-column: 1 / -1;
+        margin: var(--header-margin-t) 0 var(--header-margin-b);
+
+        &__control {
+            display: flex;
+
+            &--btn {
+
+            }
+
+            &--count {
+                display: inline-block;
+                font-family: var(--font-heading);
+                font-weight: var(--font-heading-weight);
+                line-height: var(--font-heading-line-height);
+                color: var(--body-heading-color);
+                font-size: var(--count-font-size);
+                padding: var(--count--padding-t) 0 0 var(--count--padding-l);
+            }
+        }
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --header-margin-t: 0;
+        --count--padding-t: 0.2em;
+        --count-font-size: 28px;
+
+        &__header {
+            grid-column: 4 / -1;
+        }
+    }
+
+    @include mediaq('>LG') {
+        --count-font-size: 40px;
+
+    }
 }
