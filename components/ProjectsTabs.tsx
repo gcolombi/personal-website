@@ -23,8 +23,6 @@ export default function ProjectsTabs() {
             },
             {
             duration: 0.7,
-            // delay: 0.1,
-            // height: item?.scrollHeight,
             height: 'auto',
             ease: primaryEase,
             onComplete: () => {
