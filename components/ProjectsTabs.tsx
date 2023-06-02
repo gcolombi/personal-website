@@ -12,11 +12,13 @@ import classNames from 'classnames';
 export default function ProjectsTabs() {
     const { primaryEase } = useTransitionContext();
     const [activeTabIndex, setActiveTabIndex] = useState(0);
+    const [projectType, setProjectType] = useState('work');
     const tabsItemsRef = useRef<HTMLDivElement[]>([]);
     const tabsWrapperRef = useRef<HTMLDivElement | null>(null);
 
-    const handleClick = (index: number) => {
+    const handleClick = (index: number, type: string) => {
         setActiveTabIndex(index);
+        setProjectType(type);
         gsap.fromTo(tabsWrapperRef.current,
             {
                 height: tabsWrapperRef.current?.offsetHeight
@@ -57,7 +59,7 @@ export default function ProjectsTabs() {
                                         [styles['is-active']]: activeTabIndex == 0
                                     }
                                 )}
-                                onClick={() => handleClick(0)}
+                                onClick={() => handleClick(0, 'work')}
                             >
                                 <div className="h1">
                                     <CharsInOut
@@ -90,7 +92,7 @@ export default function ProjectsTabs() {
                                         [styles['is-active']]: activeTabIndex == 1
                                     }
                                 )}
-                                onClick={() => handleClick(1)}
+                                onClick={() => handleClick(1, 'personal')}
                             >
                                 <div className="h1">
                                     <CharsInOut
@@ -160,6 +162,11 @@ export default function ProjectsTabs() {
                         title="Sweet sixteen"
                         description="Online store built with shopify"
                         image="https://source.unsplash.com/1200x630?abstract"
+                    />
+                    <Project
+                        title="Mondoux"
+                        description="Corporate website"
+                        image="https://source.unsplash.com/1200x630?tech"
                     />
                 </div>
             </section>
