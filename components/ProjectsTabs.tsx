@@ -92,6 +92,32 @@ export default function ProjectsTabs() {
                             </span>
                         </button>
                     </div>
+                    <div className={styles['c-projectsTabs__descriptions']}>
+                        <div
+                            key={0}
+                            className={classNames(
+                                'o-wysiwyg',
+                                styles['c-projectsTabs__descriptions--element'],
+                                {
+                                    [styles['is-selected']]: activeTabIndex == 0
+                                }
+                            )}
+                        >
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae voluptate inventore nisi aut ad est quo sunt cupiditate cum nemo quam.</p>
+                        </div>
+                        <div
+                            key={1}
+                            className={classNames(
+                                'o-wysiwyg',
+                                styles['c-projectsTabs__descriptions--element'],
+                                {
+                                    [styles['is-selected']]: activeTabIndex == 1
+                                }
+                            )}
+                        >
+                            <p>Cras pulvinar mattis nunc sed blandit libero. Molestie nunc non blandit massa. Ut morbi tincidunt augue interdum velit euismod in pellentesque. Vitae ultrici.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
