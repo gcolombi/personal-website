@@ -1,10 +1,13 @@
 import styles from '@/styles/modules/ProjectsTabs.module.scss';
+import { useState } from 'react';
 import FadeInOut from './shared/gsap/FadeInOut';
 import CharsInOut from './shared/gsap/CharsInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import classNames from 'classnames';
 
 export default function ProjectsTabs() {
+    const [activeTabIndex, setActiveTabIndex] = useState(0);
+
     return (
         <section className={styles['c-projectsTabs']}>
             <div className="o-container">
@@ -22,12 +25,16 @@ export default function ProjectsTabs() {
                         </FadeInOut>
                     </div>
                     <div className={styles['c-projectsTabs__header']}>
-                        <button className={classNames(
-                            styles['c-projectsTabs__header__control'],
-                            {
-                                [styles['is-active']]: true
-                            }
-                        )}>
+                        <button
+                            key={0}
+                            className={classNames(
+                                styles['c-projectsTabs__header__control'],
+                                {
+                                    [styles['is-active']]: activeTabIndex == 0
+                                }
+                            )}
+                            onClick={() => setActiveTabIndex(0)}
+                        >
                             <div className="h1">
                                 <CharsInOut
                                     delay={0.46}
@@ -51,7 +58,16 @@ export default function ProjectsTabs() {
                                 </TranslateInOut>
                             </span>
                         </button>
-                        <button className={styles['c-projectsTabs__header__control']}>
+                        <button
+                            key={1}
+                            className={classNames(
+                                styles['c-projectsTabs__header__control'],
+                                {
+                                    [styles['is-active']]: activeTabIndex == 1
+                                }
+                            )}
+                            onClick={() => setActiveTabIndex(1)}
+                        >
                             <div className="h1">
                                 <CharsInOut
                                     delay={0.46}
