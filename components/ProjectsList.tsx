@@ -1,5 +1,6 @@
 import styles from '@/styles/modules/ProjectsList.module.scss';
-import { useMemo } from 'react';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { useMemo, useState } from 'react';
 import Project from './Project';
 import classNames from 'classnames';
 import { PERSONAL_PROJECTS, PROJECTS } from '@/data/projects.data';
@@ -11,7 +12,7 @@ export enum ProjectsType {
 
 const PROJECTS_LIST = {
     [ProjectsType.PROJECTS]: PROJECTS,
-    [ProjectsType.PERSONAL_PROJECTS]: PERSONAL_PROJECTS,
+    [ProjectsType.PERSONAL_PROJECTS]: PERSONAL_PROJECTS
 };
 
 export default function ProjectsList({

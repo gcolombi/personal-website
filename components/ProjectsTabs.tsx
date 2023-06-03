@@ -102,9 +102,9 @@ export default function ProjectsTabs() {
                                 <div className="h1">
                                     <CharsInOut
                                         delay={0.46}
-                                        target="#project-type-1"
+                                        target="#project-type-2"
                                     >
-                                        <span id="project-type-1">
+                                        <span id="project-type-2">
                                             Personal
                                         </span>
                                     </CharsInOut>

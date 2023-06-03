@@ -1,6 +1,12 @@
 import styles from '@/styles/modules/Project.module.scss';
 import CharsInOut from './shared/gsap/CharsInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
+import { slugify } from '@/utils/string';
+
+export enum ProjectsType {
+    PROJECTS,
+    PERSONAL_PROJECTS,
+}
 
 export default function Project({
     title,
@@ -17,11 +23,11 @@ export default function Project({
                 <div className={styles['c-project__details--title']}>
                     <h2 className="h1 u-margin--none u-animatedLink">
                         <CharsInOut
-                            target="#title"
+                            target={`#${slugify(title)}`}
                             watch
                             isLink
                         >
-                            <span id="title">
+                            <span id={slugify(title)}>
                                 {title}
                             </span>
                         </CharsInOut>
@@ -29,11 +35,11 @@ export default function Project({
                 </div>
                 <div className={styles['c-project__details--description']}>
                     <LinesInOut
-                        target="#description"
+                        target={`#${slugify(title)}-description`}
                         watch
                     >
                         <div className="o-wysiwyg u-uppercase">
-                            <p id="description">{description}</p>
+                            <p id={`${slugify(title)}-description`}>{description}</p>
                         </div>
                     </LinesInOut>
                 </div>
