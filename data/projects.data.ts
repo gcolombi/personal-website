@@ -39,3 +39,6 @@ export const PERSONAL_PROJECTS = [
     //     url: 'https://sogetel.com/'
     // }
 ]
+
+export const TOTAL_PROJECTS = PROJECTS.length;
+export const TOTAL_PERSONAL_PROJECTS = PERSONAL_PROJECTS.length;

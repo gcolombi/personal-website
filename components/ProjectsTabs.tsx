@@ -1,3 +1,4 @@
+import { TOTAL_PERSONAL_PROJECTS, TOTAL_PROJECTS } from '@/data/projects.data';
 import styles from '@/styles/modules/ProjectsTabs.module.scss';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
@@ -7,6 +8,7 @@ import ProjectsList from './ProjectsList';
 import FadeInOut from './shared/gsap/FadeInOut';
 import CharsInOut from './shared/gsap/CharsInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
+import { toTwoDigits } from '@/utils/number';
 import classNames from 'classnames';
 
 export enum ProjectsType {
@@ -18,7 +20,6 @@ export default function ProjectsTabs() {
     const { primaryEase } = useTransitionContext();
     const [activeTabIndex, setActiveTabIndex] = useState(0);
     const [projectsType, setProjectsType] = useState<ProjectsType>(ProjectsType.PROJECTS);
-    // const tabsItemsRef = useRef<HTMLDivElement[]>([]);
     const tabsWrapperRef = useRef<HTMLDivElement | null>(null);
 
     const handleClick = (index: number, type: ProjectsType) => {
@@ -85,7 +86,7 @@ export default function ProjectsTabs() {
                                         delay={0.53}
                                         y="100%"
                                     >
-                                        04
+                                        {`(${toTwoDigits(TOTAL_PROJECTS)})`}
                                     </TranslateInOut>
                                 </span>
                             </button>
@@ -118,7 +119,7 @@ export default function ProjectsTabs() {
                                         delay={0.53}
                                         y="100%"
                                     >
-                                        03
+                                        {`(${toTwoDigits(TOTAL_PERSONAL_PROJECTS)})`}
                                     </TranslateInOut>
                                 </span>
                             </button>
@@ -137,7 +138,6 @@ export default function ProjectsTabs() {
                                             [styles['is-selected']]: activeTabIndex == 0
                                         }
                                     )}
-                                    // ref={(el: HTMLDivElement) => tabsItemsRef.current[0] = el}
                                 >
                                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae voluptate inventore nisi aut ad est quo sunt cupiditate cum nemo quam.</p>
                                 </div>
@@ -151,7 +151,6 @@ export default function ProjectsTabs() {
                                             [styles['is-selected']]: activeTabIndex == 1
                                         }
                                     )}
-                                    // ref={(el: HTMLDivElement) => tabsItemsRef.current[1] = el}
                                 >
                                     {/* <p>Cras pulvinar mattis nunc sed blandit libero. Molestie nunc non blandit massa. Ut morbi tincidunt augue interdum velit euismod in pellentesque. Vitae ultrici.</p> */}
                                     <p>Consectetur adipisicing elit. Porro aliquam eius accusamus maxime necessitatibus, itaque reiciendis architecto voluptates at quisquam adipisci nostrum tempore, minima deserunt, sequi incidunt repellendus officiis veniam.</p>
