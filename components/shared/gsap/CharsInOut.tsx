@@ -163,7 +163,7 @@ export default function CharsInOut({
         if (!isFirst) {
             animation();
         }
-    }, [target])
+    }, [target]);
 
     return (
         <div ref={element} style={{ opacity: 0 }}>
