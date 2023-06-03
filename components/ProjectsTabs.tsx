@@ -9,14 +9,19 @@ import CharsInOut from './shared/gsap/CharsInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import classNames from 'classnames';
 
+export enum ProjectsType {
+    PROJECTS,
+    PERSONAL_PROJECTS,
+}
+
 export default function ProjectsTabs() {
     const { primaryEase } = useTransitionContext();
     const [activeTabIndex, setActiveTabIndex] = useState(0);
-    const [projectsType, setProjectsType] = useState('work');
-    const tabsItemsRef = useRef<HTMLDivElement[]>([]);
+    const [projectsType, setProjectsType] = useState<ProjectsType>(ProjectsType.PROJECTS);
+    // const tabsItemsRef = useRef<HTMLDivElement[]>([]);
     const tabsWrapperRef = useRef<HTMLDivElement | null>(null);
 
-    const handleClick = (index: number, type: string) => {
+    const handleClick = (index: number, type: ProjectsType) => {
         setActiveTabIndex(index);
         setProjectsType(type);
         gsap.fromTo(tabsWrapperRef.current,
@@ -59,7 +64,7 @@ export default function ProjectsTabs() {
                                         [styles['is-active']]: activeTabIndex == 0
                                     }
                                 )}
-                                onClick={() => handleClick(0, 'work')}
+                                onClick={() => handleClick(0, ProjectsType.PROJECTS)}
                             >
                                 <div className="h1">
                                     <CharsInOut
@@ -92,7 +97,7 @@ export default function ProjectsTabs() {
                                         [styles['is-active']]: activeTabIndex == 1
                                     }
                                 )}
-                                onClick={() => handleClick(1, 'personal')}
+                                onClick={() => handleClick(1, ProjectsType.PERSONAL_PROJECTS)}
                             >
                                 <div className="h1">
                                     <CharsInOut
@@ -132,7 +137,7 @@ export default function ProjectsTabs() {
                                             [styles['is-selected']]: activeTabIndex == 0
                                         }
                                     )}
-                                    ref={(el: HTMLDivElement) => tabsItemsRef.current[0] = el}
+                                    // ref={(el: HTMLDivElement) => tabsItemsRef.current[0] = el}
                                 >
                                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae voluptate inventore nisi aut ad est quo sunt cupiditate cum nemo quam.</p>
                                 </div>
@@ -146,7 +151,7 @@ export default function ProjectsTabs() {
                                             [styles['is-selected']]: activeTabIndex == 1
                                         }
                                     )}
-                                    ref={(el: HTMLDivElement) => tabsItemsRef.current[1] = el}
+                                    // ref={(el: HTMLDivElement) => tabsItemsRef.current[1] = el}
                                 >
                                     {/* <p>Cras pulvinar mattis nunc sed blandit libero. Molestie nunc non blandit massa. Ut morbi tincidunt augue interdum velit euismod in pellentesque. Vitae ultrici.</p> */}
                                     <p>Consectetur adipisicing elit. Porro aliquam eius accusamus maxime necessitatibus, itaque reiciendis architecto voluptates at quisquam adipisci nostrum tempore, minima deserunt, sequi incidunt repellendus officiis veniam.</p>

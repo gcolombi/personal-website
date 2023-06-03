@@ -2,16 +2,27 @@ import styles from '@/styles/modules/ProjectsList.module.scss';
 import { useMemo } from 'react';
 import Project from './Project';
 import classNames from 'classnames';
+import { PERSONAL_PROJECTS, PROJECTS } from '@/data/projects.data';
+
+export enum ProjectsType {
+    PROJECTS,
+    PERSONAL_PROJECTS,
+}
+
+const PROJECTS_LIST = {
+    [ProjectsType.PROJECTS]: PROJECTS,
+    [ProjectsType.PERSONAL_PROJECTS]: PERSONAL_PROJECTS,
+};
 
 export default function ProjectsList({
     projectsType
 }: {
-    projectsType: string;
+    projectsType: ProjectsType
 }) {
     const projects = useMemo(() => {
-        //   PROJECTS_LIST[projectsType]
-        return [];
+        return PROJECTS_LIST[projectsType];
     }, [projectsType]);
+
     return (
         <section className={classNames(
             'u-spacing--responsive--bottom',
@@ -19,20 +30,13 @@ export default function ProjectsList({
         )}>
             <div className="o-container">
                 <div className={styles['c-projectsList__list']}>
-                    <div className={styles['c-projectsList__item']}>
-                        <Project
-                            title="Sweet sixteen"
-                            description="Online store built with shopify"
-                            image="https://source.unsplash.com/1200x630?abstract"
-                        />
-                    </div>
-                    <div className={styles['c-projectsList__item']}>
-                        <Project
-                            title="Mondoux"
-                            description="Corporate website"
-                            image="https://source.unsplash.com/1200x630?tech"
-                        />
-                    </div>
+                    {projects.map((project, i) => (
+                        <div key={i} className={styles['c-projectsList__item']}>
+                            <Project
+                                {...project}
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
