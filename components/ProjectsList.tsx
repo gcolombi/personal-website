@@ -1,9 +1,10 @@
+import { PERSONAL_PROJECTS, PROJECTS } from '@/data/projects.data';
 import styles from '@/styles/modules/ProjectsList.module.scss';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { useMemo, useState } from 'react';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import { useMemo } from 'react';
 import Project from './Project';
 import classNames from 'classnames';
-import { PERSONAL_PROJECTS, PROJECTS } from '@/data/projects.data';
 
 export enum ProjectsType {
     PROJECTS,
@@ -22,6 +23,10 @@ export default function ProjectsList({
 }) {
     const projects = useMemo(() => {
         return PROJECTS_LIST[projectsType];
+    }, [projectsType]);
+
+    useIsomorphicLayoutEffect(() => {
+        ScrollTrigger.refresh(true);
     }, [projectsType]);
 
     return (

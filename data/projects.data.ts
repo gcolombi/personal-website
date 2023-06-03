@@ -31,5 +31,11 @@ export const PERSONAL_PROJECTS = [
         description: 'A Next.js starter that includes a collection of reusable components, hooks, and utilities to build amazing projects with complex animations and page transitions using GSAP.',
         image: 'https://source.unsplash.com/1200x630?neon',
         url: 'https://nextjs-gsap-starter.vercel.app/'
-    }
+    },
+    // {
+    //     title: 'Sogetel',
+    //     description: 'Telecommunications and media provider website',
+    //     image: 'https://source.unsplash.com/1200x630?tv',
+    //     url: 'https://sogetel.com/'
+    // }
 ]
