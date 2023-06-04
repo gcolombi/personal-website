@@ -2,8 +2,7 @@ import { FEATURED_PROJECT, LATEST_PERSONAL_PROJECT } from '@/data/projects.data'
 import MetaData from '@/components/MetaData';
 import HeaderHome from '@/components/HeaderHome';
 import HomeIntroduction from '@/components/HomeIntroduction';
-import HomeFeaturedWork from '@/components/HomeFeaturedWork';
-import HomeLatestProject from '@/components/HomeLatestProject';
+import HomeFeaturedProject from '@/components/HomeFeaturedProject';
 import CallToAction from '@/components/CallToAction';
 import Button from '@/components/shared/Button';
 
@@ -13,12 +12,12 @@ export default function Home() {
             <MetaData />
             <HeaderHome />
             <HomeIntroduction />
-            <HomeFeaturedWork
+            <HomeFeaturedProject
                 index="02"
                 title="Featured work"
                 project={FEATURED_PROJECT}
-                />
-            <HomeLatestProject
+            />
+            <HomeFeaturedProject
                 index="03"
                 title="Latest personnal project"
                 project={LATEST_PERSONAL_PROJECT}

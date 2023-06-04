@@ -1,11 +1,11 @@
 import { ProjectProps } from '@/types/projects';
-import styles from '@/styles/modules/HomeFeaturedWork.module.scss';
+import styles from '@/styles/modules/HomeFeaturedProject.module.scss';
 import Project from './Project';
 import FadeInOut from './shared/gsap/FadeInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import classNames from 'classnames';
 
-export default function HomeFeaturedWork({
+export default function HomeFeaturedProject({
     index,
     title,
     project
@@ -17,13 +17,13 @@ export default function HomeFeaturedWork({
     return(
         <section className={classNames(
             'u-spacing--responsive',
-            styles['c-homeFeaturedWork']
+            styles['c-homeFeaturedProject']
         )}>
             <div className="o-container">
                 <div className="o-grid">
                     <div className={classNames(
                         'h4',
-                        styles['c-homeFeaturedWork__index']
+                        styles['c-homeFeaturedProject__index']
                     )}>
                         <FadeInOut
                             watch
@@ -36,7 +36,7 @@ export default function HomeFeaturedWork({
                     <div className={classNames(
                         'u-overflow--hidden',
                         'u-uppercase',
-                        styles['c-homeFeaturedWork__title']
+                        styles['c-homeFeaturedProject__title']
                     )}>
                         <TranslateInOut
                             fade={false}
@@ -54,7 +54,7 @@ export default function HomeFeaturedWork({
                         </TranslateInOut>
                     </div>
                 </div>
-                <div className={styles['c-homeFeaturedWork__project']}>
+                <div className={styles['c-homeFeaturedProject__project']}>
                     <Project
                         {...project}
                     />
