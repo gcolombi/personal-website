@@ -1,10 +1,19 @@
+import { ProjectProps } from '@/types/projects';
 import styles from '@/styles/modules/HomeFeaturedWork.module.scss';
 import Project from './Project';
 import FadeInOut from './shared/gsap/FadeInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import classNames from 'classnames';
 
-export default function HomeFeaturedWork() {
+export default function HomeFeaturedWork({
+    index,
+    title,
+    project
+}: {
+    index: string;
+    title: string;
+    project: ProjectProps
+}) {
     return(
         <section className={classNames(
             'u-spacing--responsive',
@@ -20,7 +29,7 @@ export default function HomeFeaturedWork() {
                             watch
                         >
                             <span>
-                                02
+                                {index}
                             </span>
                         </FadeInOut>
                     </div>
@@ -40,17 +49,14 @@ export default function HomeFeaturedWork() {
                                 'h4',
                                 'u-margin--none',
                             )}>
-                                Featured work
+                                {title}
                             </h2>
                         </TranslateInOut>
                     </div>
                 </div>
                 <div className={styles['c-homeFeaturedWork__project']}>
                     <Project
-                        title="Sweet sixteen"
-                        description="Online store built with shopify"
-                        image="https://source.unsplash.com/1200x630?abstract"
-                        url="#"
+                        {...project}
                     />
                 </div>
             </div>
