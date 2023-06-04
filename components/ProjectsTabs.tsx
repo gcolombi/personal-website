@@ -1,18 +1,24 @@
+import { ProjectsTabs } from '@/types/projects/tabs';
 import { ProjectsType } from '@/types/projects';
-import { TOTAL_PERSONAL_PROJECTS, TOTAL_PROJECTS } from '@/data/projects.data';
 import styles from '@/styles/modules/ProjectsTabs.module.scss';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { toTwoDigits } from '@/utils/number';
 import { useRef, useState } from 'react';
 import useTransitionContext from '@/context/transitionContext';
 import ProjectsList from './ProjectsList';
 import FadeInOut from './shared/gsap/FadeInOut';
 import CharsInOut from './shared/gsap/CharsInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
+import { slugify } from '@/utils/string';
 import classNames from 'classnames';
 
-export default function ProjectsTabs() {
+export default function ProjectsTabs({
+    index,
+    tabs,
+}: {
+    index: string;
+    tabs: ProjectsTabs
+}) {
     const { primaryEase } = useTransitionContext();
     const [activeTabIndex, setActiveTabIndex] = useState(0);
     const [projectsType, setProjectsType] = useState<ProjectsType>(ProjectsType.PROJECTS);
@@ -48,109 +54,65 @@ export default function ProjectsTabs() {
                                 delay={0.53}
                             >
                                 <span>
-                                    01
+                                    {index}
                                 </span>
                             </FadeInOut>
                         </div>
                         <div className={styles['c-projectsTabs__header']}>
-                            <button
-                                key={0}
-                                className={classNames(
-                                    styles['c-projectsTabs__header__control'],
-                                    {
-                                        [styles['is-active']]: activeTabIndex == 0
-                                    }
-                                )}
-                                onClick={() => handleClick(0, ProjectsType.PROJECTS)}
-                            >
-                                <div className="h1">
-                                    <CharsInOut
-                                        delay={0.46}
-                                        target="#project-type-1"
-                                    >
-                                        <span id="project-type-1">
-                                            Work
-                                        </span>
-                                    </CharsInOut>
-                                </div>
-                                <span className={classNames(
-                                    'u-overflow--hidden',
-                                    styles['c-projectsTabs__header__control--count']
-                                )}>
-                                    <TranslateInOut
-                                        fade={false}
-                                        delay={0.53}
-                                        y="100%"
-                                    >
-                                        {`(${toTwoDigits(TOTAL_PROJECTS)})`}
-                                    </TranslateInOut>
-                                </span>
-                            </button>
-                            <button
-                                key={1}
-                                className={classNames(
-                                    styles['c-projectsTabs__header__control'],
-                                    {
-                                        [styles['is-active']]: activeTabIndex == 1
-                                    }
-                                )}
-                                onClick={() => handleClick(1, ProjectsType.PERSONAL_PROJECTS)}
-                            >
-                                <div className="h1">
-                                    <CharsInOut
-                                        delay={0.46}
-                                        target="#project-type-2"
-                                    >
-                                        <span id="project-type-2">
-                                            Personal
-                                        </span>
-                                    </CharsInOut>
-                                </div>
-                                <span className={classNames(
-                                    'u-overflow--hidden',
-                                    styles['c-projectsTabs__header__control--count']
-                                )}>
-                                    <TranslateInOut
-                                        fade={false}
-                                        delay={0.53}
-                                        y="100%"
-                                    >
-                                        {`(${toTwoDigits(TOTAL_PERSONAL_PROJECTS)})`}
-                                    </TranslateInOut>
-                                </span>
-                            </button>
+                            {tabs.map(({ title, projectsType, total }, i) => (
+                                <button
+                                    key={i}
+                                    className={classNames(
+                                        styles['c-projectsTabs__header__control'],
+                                        {
+                                            [styles['is-active']]: activeTabIndex == i
+                                        }
+                                    )}
+                                    onClick={() => handleClick(i, projectsType)}
+                                >
+                                    <div className="h1">
+                                        <CharsInOut
+                                            delay={0.46}
+                                            target={`#${slugify(title)}`}
+                                        >
+                                            <span id={slugify(title)}>
+                                                {title}
+                                            </span>
+                                        </CharsInOut>
+                                    </div>
+                                    <span className={classNames(
+                                        'u-overflow--hidden',
+                                        styles['c-projectsTabs__header__control--count']
+                                    )}>
+                                        <TranslateInOut
+                                            fade={false}
+                                            delay={0.53}
+                                            y="100%"
+                                        >
+                                            {total}
+                                        </TranslateInOut>
+                                    </span>
+                                </button>
+                            ))}
                         </div>
                         <div className={styles['c-projectsTabs__descriptions']} ref={tabsWrapperRef}>
                             <FadeInOut
                                 delay={0.53}
                             >
-                                <div
-                                    data-id={0}
-                                    key={0}
-                                    className={classNames(
-                                        'o-wysiwyg',
-                                        styles['c-projectsTabs__descriptions--element'],
-                                        {
-                                            [styles['is-selected']]: activeTabIndex == 0
-                                        }
-                                    )}
-                                >
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae voluptate inventore nisi aut ad est quo sunt cupiditate cum nemo quam.</p>
-                                </div>
-                                <div
-                                    data-id={1}
-                                    key={1}
-                                    className={classNames(
-                                        'o-wysiwyg',
-                                        styles['c-projectsTabs__descriptions--element'],
-                                        {
-                                            [styles['is-selected']]: activeTabIndex == 1
-                                        }
-                                    )}
-                                >
-                                    {/* <p>Cras pulvinar mattis nunc sed blandit libero. Molestie nunc non blandit massa. Ut morbi tincidunt augue interdum velit euismod in pellentesque. Vitae ultrici.</p> */}
-                                    <p>Consectetur adipisicing elit. Porro aliquam eius accusamus maxime necessitatibus, itaque reiciendis architecto voluptates at quisquam adipisci nostrum tempore, minima deserunt, sequi incidunt repellendus officiis veniam.</p>
-                                </div>
+                                {tabs.map(({ description }, i) => (
+                                    <div
+                                        key={i}
+                                        className={classNames(
+                                            'o-wysiwyg',
+                                            styles['c-projectsTabs__descriptions--element'],
+                                            {
+                                                [styles['is-selected']]: activeTabIndex == i
+                                            }
+                                        )}
+                                    >
+                                        <p>{description}</p>
+                                    </div>
+                                ))}
                             </FadeInOut>
                         </div>
                     </div>

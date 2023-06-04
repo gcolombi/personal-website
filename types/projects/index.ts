@@ -1,7 +1,7 @@
 /* Projects type */
 export enum ProjectsType {
     PROJECTS,
-    PERSONAL_PROJECTS,
+    PERSONAL_PROJECTS
 }
 
 /* Project */

@@ -1,4 +1,6 @@
-import { ProjectProps } from '@/types/projects';
+import { ProjectsTabs } from '@/types/projects/tabs';
+import { ProjectProps, ProjectsType } from '@/types/projects';
+import { toTwoDigits } from '@/utils/number';
 
 export const PROJECTS = [
     {
@@ -34,21 +36,36 @@ export const PERSONAL_PROJECTS = [
         image: 'https://source.unsplash.com/1200x630?neon',
         url: 'https://nextjs-gsap-starter.vercel.app/'
     }
-]
+];
 
 export const FEATURED_PROJECT: ProjectProps = {
     title: 'Sweet sixteen',
     description: 'Online store built with shopify',
     image: 'https://source.unsplash.com/1200x630?candy',
     url: 'https://sweetsixteen.ca/en'
-}
+};
 
 export const LATEST_PERSONAL_PROJECT: ProjectProps = {
     title: 'Linklist',
     description: 'Linktree clone built with Next.js, typescript & Tailwind',
     image: 'https://source.unsplash.com/1200x630?tech',
     url: 'https://linklist-domain.vercel.app/'
-}
+};
 
 export const TOTAL_PROJECTS = PROJECTS.length;
 export const TOTAL_PERSONAL_PROJECTS = PERSONAL_PROJECTS.length;
+
+export const PROJECTS_TABS: ProjectsTabs = [
+    {
+        title: 'Work',
+        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae voluptate inventore nisi aut ad est quo sunt cupiditate cum nemo quam.',
+        projectsType: ProjectsType.PROJECTS,
+        total: toTwoDigits(TOTAL_PROJECTS)
+    },
+    {
+        title: 'Personal',
+        description: 'Consectetur adipisicing elit. Porro aliquam eius accusamus maxime necessitatibus, itaque reiciendis architecto voluptates at quisquam adipisci nostrum tempore, minima deserunt, sequi incidunt repellendus officiis veniam.',
+        projectsType: ProjectsType.PERSONAL_PROJECTS,
+        total: toTwoDigits(TOTAL_PERSONAL_PROJECTS)
+    }
+];
