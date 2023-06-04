@@ -55,13 +55,13 @@
     }
 
     @include mediaq('>MD') {
-        --h1: 92px;
+        --h1: 82px;
         --h2: 56px;
     	--h3: 35px;
     }
 
     @include mediaq('>LG') {
-        --h1: 100px;
+        --h1: 92px;
         --h4: 22px;
         --h5: 20px;
         --h6: 18px;
@@ -69,10 +69,14 @@
     }
 
     @include mediaq('>XLG') {
-        --h1: 122px;
+        --h1: 102px;
     }
 
     @include mediaq('>XXLG') {
+        --h1: 112px;
+    }
+
+    @include mediaq('>1850px') {
         --h1: 144px;
     }
 }
