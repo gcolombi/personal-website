@@ -16,11 +16,21 @@ export default function Home() {
                 index="02"
                 title="Featured work"
                 project={FEATURED_PROJECT}
+                button={{
+                    label: 'Sell all projects',
+                    href: '/projects',
+                    className: 'c-btn'
+                }}
             />
             <HomeFeaturedProject
                 index="03"
                 title="Latest personnal project"
                 project={LATEST_PERSONAL_PROJECT}
+                button={{
+                    label: 'Sell all personal projects',
+                    href: '/projects',
+                    className: 'c-btn'
+                }}
             />
             <CallToAction
                 index="04"

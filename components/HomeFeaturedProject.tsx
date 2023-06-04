@@ -1,6 +1,8 @@
 import { ProjectProps } from '@/types/projects';
+import { ButtonProps } from '@/types/components/button';
 import styles from '@/styles/modules/HomeFeaturedProject.module.scss';
 import Project from './Project';
+import Button from './shared/Button';
 import FadeInOut from './shared/gsap/FadeInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import classNames from 'classnames';
@@ -8,11 +10,13 @@ import classNames from 'classnames';
 export default function HomeFeaturedProject({
     index,
     title,
-    project
+    project,
+    button
 }: {
     index: string;
     title: string;
     project: ProjectProps;
+    button?: ButtonProps
 }) {
     return(
         <section className={classNames(
@@ -59,6 +63,15 @@ export default function HomeFeaturedProject({
                         {...project}
                     />
                 </div>
+                {button &&
+                    <div className={styles['c-homeFeaturedProject__btn']}>
+                        <FadeInOut
+                            watch
+                        >
+                            <Button {...button}/>
+                        </FadeInOut>
+                    </div>
+                }
             </div>
         </section>
     );
