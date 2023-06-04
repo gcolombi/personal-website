@@ -11,17 +11,24 @@ export enum ProjectsType {
 export default function Project({
     title,
     description,
-    image
+    image,
+    url
 }: {
     title: string;
     description?: string;
     image: string;
+    url: string;
 }) {
     return(
         <div className={styles['c-project']}>
             <div className={styles['c-project__details']}>
                 <div className={styles['c-project__details--title']}>
-                    <h2 className="h1 u-margin--none u-animatedLink">
+                    <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="h1 u-margin--none u-animatedLink"
+                    >
                         <CharsInOut
                             target={`#${slugify(title)}`}
                             watch
@@ -31,7 +38,7 @@ export default function Project({
                                 {title}
                             </span>
                         </CharsInOut>
-                    </h2>
+                    </a>
                 </div>
                 <div className={styles['c-project__details--description']}>
                     <LinesInOut
@@ -45,11 +52,21 @@ export default function Project({
                 </div>
             </div>
             <div className={styles['c-project__media']}>
-                <div className={styles['c-project__media--img']}>
+                <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles['c-project__media__img']}
+                >
                     <picture>
                         <img src={image} alt={title} />
                     </picture>
-                </div>
+                    <div className={styles['c-project__media__img--overlay']}>
+                        <span>
+                            Visit website
+                        </span>
+                    </div>
+                </a>
             </div>
         </div>
     )

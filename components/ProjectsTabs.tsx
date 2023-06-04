@@ -2,13 +2,13 @@ import { TOTAL_PERSONAL_PROJECTS, TOTAL_PROJECTS } from '@/data/projects.data';
 import styles from '@/styles/modules/ProjectsTabs.module.scss';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { toTwoDigits } from '@/utils/number';
 import { useRef, useState } from 'react';
 import useTransitionContext from '@/context/transitionContext';
 import ProjectsList from './ProjectsList';
 import FadeInOut from './shared/gsap/FadeInOut';
 import CharsInOut from './shared/gsap/CharsInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
-import { toTwoDigits } from '@/utils/number';
 import classNames from 'classnames';
 
 export enum ProjectsType {
