@@ -1,10 +1,19 @@
+import { ProjectProps } from '@/types/projects';
 import styles from '@/styles/modules/HomeLatestProject.module.scss';
 import Project from './Project';
 import FadeInOut from './shared/gsap/FadeInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import classNames from 'classnames';
 
-export default function HomeLatestProject() {
+export default function HomeLatestProject({
+    index,
+    title,
+    project
+}: {
+    index: string;
+    title: string;
+    project: ProjectProps;
+}) {
     return(
         <section className={classNames(
             'u-spacing--responsive',
@@ -20,7 +29,7 @@ export default function HomeLatestProject() {
                             watch
                         >
                             <span>
-                                03
+                                {index}
                             </span>
                         </FadeInOut>
                     </div>
@@ -40,17 +49,14 @@ export default function HomeLatestProject() {
                                 'h4',
                                 'u-margin--none',
                             )}>
-                                Latest personnal project
+                                {title}
                             </h2>
                         </TranslateInOut>
                     </div>
                 </div>
                 <div className={styles['c-homeLatestProject__project']}>
                     <Project
-                        title="Mondoux"
-                        description="Corporate website"
-                        image="https://source.unsplash.com/1200x630?tech"
-                        url="#"
+                        {...project}
                     />
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { FEATURED_PROJECT } from '@/data/projects.data';
+import { FEATURED_PROJECT, LATEST_PERSONAL_PROJECT } from '@/data/projects.data';
 import MetaData from '@/components/MetaData';
 import HeaderHome from '@/components/HeaderHome';
 import HomeIntroduction from '@/components/HomeIntroduction';
@@ -17,8 +17,12 @@ export default function Home() {
                 index="02"
                 title="Featured work"
                 project={FEATURED_PROJECT}
+                />
+            <HomeLatestProject
+                index="03"
+                title="Latest personnal project"
+                project={LATEST_PERSONAL_PROJECT}
             />
-            <HomeLatestProject />
             <CallToAction
                 index="04"
                 title="Get in touch"

@@ -12,7 +12,7 @@ export default function HomeFeaturedWork({
 }: {
     index: string;
     title: string;
-    project: ProjectProps
+    project: ProjectProps;
 }) {
     return(
         <section className={classNames(
