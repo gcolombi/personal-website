@@ -50,6 +50,7 @@ export default function HomeLatestProject() {
                         title="Mondoux"
                         description="Corporate website"
                         image="https://source.unsplash.com/1200x630?tech"
+                        url="#"
                     />
                 </div>
             </div>

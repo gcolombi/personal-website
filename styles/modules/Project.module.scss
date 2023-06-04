@@ -72,6 +72,10 @@
 
         &__details {
             grid-column: 1 / 7;
+
+            &--description {
+                padding-right: 8vw;
+            }
         }
 
         &__media {

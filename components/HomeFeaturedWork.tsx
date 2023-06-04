@@ -50,6 +50,7 @@ export default function HomeFeaturedWork() {
                         title="Sweet sixteen"
                         description="Online store built with shopify"
                         image="https://source.unsplash.com/1200x630?abstract"
+                        url="#"
                     />
                 </div>
             </div>
