@@ -1,3 +1,4 @@
+import { ProjectsType } from '@/types/projects';
 import { TOTAL_PERSONAL_PROJECTS, TOTAL_PROJECTS } from '@/data/projects.data';
 import styles from '@/styles/modules/ProjectsTabs.module.scss';
 import { gsap } from 'gsap';
@@ -10,11 +11,6 @@ import FadeInOut from './shared/gsap/FadeInOut';
 import CharsInOut from './shared/gsap/CharsInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import classNames from 'classnames';
-
-export enum ProjectsType {
-    PROJECTS,
-    PERSONAL_PROJECTS,
-}
 
 export default function ProjectsTabs() {
     const { primaryEase } = useTransitionContext();

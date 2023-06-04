@@ -1,24 +1,15 @@
+import { ProjectProps } from '@/types/projects';
 import styles from '@/styles/modules/Project.module.scss';
 import CharsInOut from './shared/gsap/CharsInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
 import { slugify } from '@/utils/string';
-
-export enum ProjectsType {
-    PROJECTS,
-    PERSONAL_PROJECTS,
-}
 
 export default function Project({
     title,
     description,
     image,
     url
-}: {
-    title: string;
-    description?: string;
-    image: string;
-    url: string;
-}) {
+}: ProjectProps) {
     return(
         <div className={styles['c-project']}>
             <div className={styles['c-project__details']}>

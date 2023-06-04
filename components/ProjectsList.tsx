@@ -1,3 +1,4 @@
+import { ProjectsType } from '@/types/projects';
 import { PERSONAL_PROJECTS, PROJECTS } from '@/data/projects.data';
 import styles from '@/styles/modules/ProjectsList.module.scss';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
@@ -5,11 +6,6 @@ import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { useMemo } from 'react';
 import Project from './Project';
 import classNames from 'classnames';
-
-export enum ProjectsType {
-    PROJECTS,
-    PERSONAL_PROJECTS,
-}
 
 const PROJECTS_LIST = {
     [ProjectsType.PROJECTS]: PROJECTS,

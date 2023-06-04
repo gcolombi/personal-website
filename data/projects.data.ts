@@ -1,3 +1,5 @@
+import { ProjectProps } from '@/types/projects';
+
 export const PROJECTS = [
     {
         title: 'Sweet sixteen',
@@ -31,14 +33,22 @@ export const PERSONAL_PROJECTS = [
         description: 'A Next.js starter that includes a collection of reusable components, hooks, and utilities to build amazing projects with complex animations and page transitions using GSAP.',
         image: 'https://source.unsplash.com/1200x630?neon',
         url: 'https://nextjs-gsap-starter.vercel.app/'
-    },
-    // {
-    //     title: 'Sogetel',
-    //     description: 'Telecommunications and media provider website',
-    //     image: 'https://source.unsplash.com/1200x630?tv',
-    //     url: 'https://sogetel.com/'
-    // }
+    }
 ]
+
+export const FEATURED_PROJECT: ProjectProps = {
+    title: 'Sweet sixteen',
+    description: 'Online store built with shopify',
+    image: 'https://source.unsplash.com/1200x630?candy',
+    url: 'https://sweetsixteen.ca/en'
+}
+
+export const LATEST_PERSONAL_PROJECT: ProjectProps = {
+    title: 'Linklist',
+    description: 'Linktree clone built with Next.js, typescript & Tailwind',
+    image: 'https://source.unsplash.com/1200x630?tech',
+    url: 'https://linklist-domain.vercel.app/'
+}
 
 export const TOTAL_PROJECTS = PROJECTS.length;
 export const TOTAL_PERSONAL_PROJECTS = PERSONAL_PROJECTS.length;
