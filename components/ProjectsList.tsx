@@ -1,30 +1,13 @@
-import { ProjectsType } from '@/types/projects';
-import { PERSONAL_PROJECTS, PROJECTS } from '@/data/projects.data';
+import { Projects } from '@/types/projects';
 import styles from '@/styles/modules/ProjectsList.module.scss';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
-import { useMemo } from 'react';
 import Project from './Project';
 import classNames from 'classnames';
 
-const PROJECTS_LIST = {
-    [ProjectsType.PROJECTS]: PROJECTS,
-    [ProjectsType.PERSONAL_PROJECTS]: PERSONAL_PROJECTS
-};
-
 export default function ProjectsList({
-    projectsType
+    projects,
 }: {
-    projectsType: ProjectsType
+    projects: Projects
 }) {
-    const projects = useMemo(() => {
-        return PROJECTS_LIST[projectsType];
-    }, [projectsType]);
-
-    useIsomorphicLayoutEffect(() => {
-        ScrollTrigger.refresh(true);
-    }, [projectsType]);
-
     return (
         <section className={classNames(
             'u-spacing--responsive--bottom',

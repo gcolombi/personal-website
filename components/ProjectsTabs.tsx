@@ -1,9 +1,9 @@
 import { ProjectsTabs } from '@/types/projects/tabs';
-import { ProjectsType } from '@/types/projects';
+import { Projects, ProjectsType } from '@/types/projects';
 import styles from '@/styles/modules/ProjectsTabs.module.scss';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { useRef, useState } from 'react';
+import { Dispatch, SetStateAction, useRef, useState } from 'react';
 import useTransitionContext from '@/context/transitionContext';
 import ProjectsList from './ProjectsList';
 import FadeInOut from './shared/gsap/FadeInOut';
@@ -15,13 +15,16 @@ import classNames from 'classnames';
 export default function ProjectsTabs({
     index,
     tabs,
+    projects,
+    setProjectsType
 }: {
     index: string;
-    tabs: ProjectsTabs
+    tabs: ProjectsTabs;
+    projects: Projects;
+    setProjectsType: Dispatch<SetStateAction<ProjectsType>>
 }) {
     const { primaryEase } = useTransitionContext();
     const [activeTabIndex, setActiveTabIndex] = useState(0);
-    const [projectsType, setProjectsType] = useState<ProjectsType>(ProjectsType.PROJECTS);
     const tabsWrapperRef = useRef<HTMLDivElement | null>(null);
 
     const handleClick = (index: number, type: ProjectsType) => {
@@ -118,7 +121,7 @@ export default function ProjectsTabs({
                     </div>
                 </div>
             </section>
-            <ProjectsList projectsType={projectsType} />
+            <ProjectsList projects={projects} />
         </>
     );
 };

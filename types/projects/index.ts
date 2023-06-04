@@ -4,7 +4,9 @@ export enum ProjectsType {
     PERSONAL_PROJECTS
 }
 
-/* Project */
+/* Projects */
+export type Projects = ProjectProps[];
+
 export type ProjectProps = {
     title: string;
     description?: string;
