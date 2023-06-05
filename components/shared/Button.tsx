@@ -9,7 +9,7 @@ export default function Button({
     isExternal,
     externalHref,
     anchor,
-    type = 'button',
+    type,
     onClick,
     disabled,
     className,

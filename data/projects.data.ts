@@ -42,14 +42,16 @@ export const FEATURED_PROJECT: ProjectProps = {
     title: 'Sweet sixteen',
     description: 'Online store built with shopify',
     image: 'https://source.unsplash.com/1200x630?candy',
-    url: 'https://sweetsixteen.ca/en'
+    url: 'https://sweetsixteen.ca/en',
+    projectsType: ProjectsType.PROJECTS
 };
 
 export const LATEST_PERSONAL_PROJECT: ProjectProps = {
     title: 'Linklist',
     description: 'Linktree clone built with Next.js, typescript & Tailwind',
     image: 'https://source.unsplash.com/1200x630?tech',
-    url: 'https://linklist-domain.vercel.app/'
+    url: 'https://linklist-domain.vercel.app/',
+    projectsType: ProjectsType.PERSONAL_PROJECTS
 };
 
 export const TOTAL_PROJECTS = PROJECTS.length;

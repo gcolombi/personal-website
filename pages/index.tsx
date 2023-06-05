@@ -4,7 +4,6 @@ import HeaderHome from '@/components/HeaderHome';
 import HomeIntroduction from '@/components/HomeIntroduction';
 import HomeFeaturedProject from '@/components/HomeFeaturedProject';
 import CallToAction from '@/components/CallToAction';
-import Button from '@/components/shared/Button';
 
 export default function Home() {
     return (
@@ -18,7 +17,12 @@ export default function Home() {
                 project={FEATURED_PROJECT}
                 button={{
                     label: 'Sell all projects',
-                    href: '/projects',
+                    href: {
+                        pathname: '/projects',
+                        query: {
+                            type: FEATURED_PROJECT.projectsType
+                        }
+                    },
                     className: 'c-btn'
                 }}
             />
@@ -28,7 +32,12 @@ export default function Home() {
                 project={LATEST_PERSONAL_PROJECT}
                 button={{
                     label: 'Sell all personal projects',
-                    href: '/projects',
+                    href: {
+                        pathname: '/projects',
+                        query: {
+                            type: LATEST_PERSONAL_PROJECT.projectsType
+                        }
+                    },
                     className: 'c-btn'
                 }}
             />

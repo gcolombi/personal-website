@@ -1,7 +1,7 @@
 /* Projects type */
 export enum ProjectsType {
-    PROJECTS,
-    PERSONAL_PROJECTS
+    PROJECTS = 'work',
+    PERSONAL_PROJECTS = 'personal'
 }
 
 /* Projects */
@@ -12,4 +12,5 @@ export type ProjectProps = {
     description?: string;
     image: string;
     url: string;
+    projectsType?: ProjectsType;
 }
