@@ -52,7 +52,7 @@ export function NavigationContextProvider({
     const navigationRef = useRef<HTMLElement | null>(null);
     const mobileNavRef = useRef<HTMLElement | null>(null);
     const [open, setOpen] = useState(false);
-    const [currentRoute, setCurrentRoute] = useState(router.asPath);
+    const [currentRoute, setCurrentRoute] = useState(router.asPath.split('?')[0]);
     const { scrollY, directionY } = useScrollbar();
     const { windowSize, isDesktop } = useWindowSize();
     const [locked, setLocked] = useLockedScroll(false);

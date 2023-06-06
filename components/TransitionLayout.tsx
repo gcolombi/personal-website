@@ -86,7 +86,7 @@ export default function TransitionLayout({
                 });
                 animateNavigation();
                 animateFooter();
-                setCurrentRoute(router.asPath);
+                setCurrentRoute(router.asPath.split('?')[0]);
                 ScrollTrigger.refresh(true);
                 return;
             }
@@ -100,12 +100,12 @@ export default function TransitionLayout({
                 });
                 animateNavigation();
                 animateFooter();
-                setCurrentRoute(router.asPath);
+                setCurrentRoute(router.asPath.split('?')[0]);
                 ScrollTrigger.refresh(true);
             });
 
         } else {
-            setCurrentRoute(router.asPath);
+            setCurrentRoute(router.asPath.split('?')[0]);
             ScrollTrigger.refresh(true);
         }
     }, [router.asPath]);
