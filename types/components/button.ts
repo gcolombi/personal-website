@@ -1,15 +1,13 @@
-import { LinkProps } from 'next/link';
 import { ButtonHTMLAttributes } from 'react';
 
 /* Button */
-export interface ButtonProps extends LinkProps {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     label: string;
+    href?: string | Object;
     isExternal?: boolean;
     externalHref?: string;
     anchor?: string;
-    type?: ButtonHTMLAttributes<HTMLButtonElement>['type'] | undefined;
     onClick?: () => void;
-    disabled?: boolean;
     className: string;
     wrapperClassName?: string;
 }
