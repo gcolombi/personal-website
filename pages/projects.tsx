@@ -3,6 +3,7 @@ import { ProjectsType } from '@/types/projects';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { useMemo, useState } from 'react';
+import { useRouter } from 'next/router';
 import MetaData from '@/components/MetaData';
 import ProjectsTabs from '@/components/ProjectsTabs';
 import CallToAction from '@/components/CallToAction';
@@ -13,6 +14,7 @@ export const PROJECTS_LIST = {
 };
 
 export default function Projects() {
+    const { query } = useRouter();
     const [projectsType, setProjectsType] = useState<ProjectsType>(ProjectsType.PROJECTS);
 
     const projects = useMemo(() => {
@@ -22,6 +24,14 @@ export default function Projects() {
     useIsomorphicLayoutEffect(() => {
         ScrollTrigger.refresh(true);
     }, [projectsType]);
+
+    useIsomorphicLayoutEffect(() => {
+        if (query.type) {
+            Object.entries(ProjectsType).forEach(([key, value]) => {
+                if (value === query.type) setProjectsType(value);
+            });
+        }
+    }, [query])
 
     return (
         <>
