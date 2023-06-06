@@ -2,6 +2,7 @@ import { ProjectProps } from '@/types/projects';
 import styles from '@/styles/modules/Project.module.scss';
 import CharsInOut from './shared/gsap/CharsInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
+import FadeInOut from './shared/gsap/FadeInOut';
 import { slugify } from '@/utils/string';
 
 export default function Project({
@@ -43,21 +44,25 @@ export default function Project({
                 </div>
             </div>
             <div className={styles['c-project__media']}>
-                <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles['c-project__media__img']}
+                <FadeInOut
+                    watch
                 >
-                    <picture>
-                        <img src={image} alt={title} />
-                    </picture>
-                    <div className={styles['c-project__media__img--overlay']}>
-                        <span>
-                            Visit website
-                        </span>
-                    </div>
-                </a>
+                    <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles['c-project__media__img']}
+                    >
+                        <picture>
+                            <img src={image} alt={title} />
+                        </picture>
+                        <div className={styles['c-project__media__img--overlay']}>
+                            <span>
+                                Visit website
+                            </span>
+                        </div>
+                    </a>
+                </FadeInOut>
             </div>
         </div>
     )

@@ -92,7 +92,7 @@ export default function ProjectsTabs({
                                             delay={0.53}
                                             y="100%"
                                         >
-                                            {total}
+                                            ({total})
                                         </TranslateInOut>
                                     </span>
                                 </button>
