@@ -26,10 +26,10 @@ export default function AboutIntroduction() {
                     </div>
                     <div className={styles['c-aboutIntroduction__content']}>
                         <LinesInOut
-                            target="#title-beginning"
+                            target="#title-begin"
                             watch
                         >
-                            <p id="title-beginning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt alias cumque odit quod aut? Molestiae labore deleniti aperiam commodi quos, nam id, tenetur illo sit iste, vel iure. Nulla, eius. Molestiae labore deleniti aperiam modus.</p>
+                            <p id="title-begin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt alias cumque odit quod aut? Molestiae labore deleniti aperiam commodi quos, nam id, tenetur illo sit iste, vel iure. Nulla, eius. Molestiae labore deleniti aperiam modus.</p>
                         </LinesInOut>
                         <LinesInOut
                             target="#title-end"

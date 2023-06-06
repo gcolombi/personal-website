@@ -1,10 +1,11 @@
 import { ButtonProps } from '@/types/components/button';
 import styles from '@/styles/modules/HeaderBasic.module.scss';
 import Button from './shared/Button';
-import classNames from 'classnames';
 import CharsInOut from './shared/gsap/CharsInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
 import FadeInOut from './shared/gsap/FadeInOut';
+import { slugify } from '@/utils/string';
+import classNames from 'classnames';
 
 export default function HeaderBasic({
     title,
@@ -37,9 +38,9 @@ export default function HeaderBasic({
                                 <h1>
                                     <CharsInOut
                                         delay={0.46}
-                                        target="#title"
+                                        target={`#${slugify(title)}`}
                                     >
-                                        <span id="title">
+                                        <span id={slugify(title)}>
                                             {title}
                                         </span>
                                     </CharsInOut>
@@ -47,10 +48,10 @@ export default function HeaderBasic({
                                 {wysiwyg &&
                                     <LinesInOut
                                         delay={0.53}
-                                        target="#intro"
+                                        target={`#${slugify(title)}-intro`}
                                     >
                                         <div className="o-wysiwyg">
-                                            <p id="intro">{wysiwyg}</p>
+                                            <p id={`${slugify(title)}-intro`}>{wysiwyg}</p>
                                         </div>
                                     </LinesInOut>
                                 }

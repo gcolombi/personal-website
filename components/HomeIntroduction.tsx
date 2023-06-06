@@ -29,10 +29,10 @@ export default function HomeIntroduction() {
                         styles['c-homeIntroduction__title']
                     )}>
                         <LinesInOut
-                            target="#title-beginning"
+                            target="#title-begin"
                             watch
                         >
-                            <p id="title-beginning">Lorem ipsum dolor sit amet consectetur adipisicing elit. At cupiditate maxime accusamus deserunt tempore quam odio in sapiente obcaecati perspiciatis.</p>
+                            <p id="title-begin">Lorem ipsum dolor sit amet consectetur adipisicing elit. At cupiditate maxime accusamus deserunt tempore quam odio in sapiente obcaecati perspiciatis.</p>
                         </LinesInOut>
                         <LinesInOut
                             target="#title-end"
