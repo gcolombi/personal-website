@@ -43,7 +43,7 @@ export const FEATURED_PROJECT: ProjectProps = {
     description: 'Online store built with shopify',
     image: 'https://source.unsplash.com/1200x630?candy',
     url: 'https://sweetsixteen.ca/en',
-    projectsType: ProjectsType.PROJECTS
+    type: ProjectsType.PROJECTS
 };
 
 export const LATEST_PERSONAL_PROJECT: ProjectProps = {
@@ -51,7 +51,7 @@ export const LATEST_PERSONAL_PROJECT: ProjectProps = {
     description: 'Linktree clone built with Next.js, typescript & Tailwind',
     image: 'https://source.unsplash.com/1200x630?tech',
     url: 'https://linklist-domain.vercel.app/',
-    projectsType: ProjectsType.PERSONAL_PROJECTS
+    type: ProjectsType.PERSONAL_PROJECTS
 };
 
 export const TOTAL_PROJECTS = PROJECTS.length;
@@ -61,13 +61,13 @@ export const PROJECTS_TABS: ProjectsTabs = [
     {
         title: 'Work',
         description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae voluptate inventore nisi aut ad est quo sunt cupiditate cum nemo quam.',
-        projectsType: ProjectsType.PROJECTS,
+        type: ProjectsType.PROJECTS,
         total: toTwoDigits(TOTAL_PROJECTS)
     },
     {
         title: 'Personal',
         description: 'Consectetur adipisicing elit. Porro aliquam eius accusamus maxime necessitatibus, itaque reiciendis architecto voluptates at quisquam adipisci nostrum tempore, minima deserunt, sequi incidunt repellendus officiis veniam.',
-        projectsType: ProjectsType.PERSONAL_PROJECTS,
+        type: ProjectsType.PERSONAL_PROJECTS,
         total: toTwoDigits(TOTAL_PERSONAL_PROJECTS)
     }
 ];

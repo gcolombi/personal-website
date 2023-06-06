@@ -12,5 +12,5 @@ export type ProjectProps = {
     description?: string;
     image: string;
     url: string;
-    projectsType?: ProjectsType;
+    type?: ProjectsType;
 }

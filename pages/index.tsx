@@ -20,7 +20,7 @@ export default function Home() {
                     href: {
                         pathname: '/projects',
                         query: {
-                            type: FEATURED_PROJECT.projectsType
+                            type: FEATURED_PROJECT.type
                         }
                     },
                     className: 'c-btn'
@@ -35,7 +35,7 @@ export default function Home() {
                     href: {
                         pathname: '/projects',
                         query: {
-                            type: LATEST_PERSONAL_PROJECT.projectsType
+                            type: LATEST_PERSONAL_PROJECT.type
                         }
                     },
                     className: 'c-btn'

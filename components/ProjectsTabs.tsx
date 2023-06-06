@@ -16,19 +16,19 @@ export default function ProjectsTabs({
     index,
     tabs,
     projects,
+    projectsType,
     setProjectsType
 }: {
     index: string;
     tabs: ProjectsTabs;
     projects: Projects;
-    setProjectsType: Dispatch<SetStateAction<ProjectsType>>
+    projectsType: ProjectsType;
+    setProjectsType: Dispatch<SetStateAction<ProjectsType>>;
 }) {
     const { primaryEase } = useTransitionContext();
-    const [activeTabIndex, setActiveTabIndex] = useState(0);
     const tabsWrapperRef = useRef<HTMLDivElement | null>(null);
 
-    const handleClick = (index: number, type: ProjectsType) => {
-        setActiveTabIndex(index);
+    const handleClick = (type: ProjectsType) => {
         setProjectsType(type);
         gsap.fromTo(tabsWrapperRef.current,
             {
@@ -62,16 +62,16 @@ export default function ProjectsTabs({
                             </FadeInOut>
                         </div>
                         <div className={styles['c-projectsTabs__header']}>
-                            {tabs.map(({ title, projectsType, total }, i) => (
+                            {tabs.map(({ title, type, total }, i) => (
                                 <button
                                     key={i}
                                     className={classNames(
                                         styles['c-projectsTabs__header__control'],
                                         {
-                                            [styles['is-active']]: activeTabIndex == i
+                                            [styles['is-active']]: projectsType === type
                                         }
                                     )}
-                                    onClick={() => handleClick(i, projectsType)}
+                                    onClick={() => handleClick(type)}
                                 >
                                     <div className="h1">
                                         <CharsInOut
@@ -102,14 +102,14 @@ export default function ProjectsTabs({
                             <FadeInOut
                                 delay={0.53}
                             >
-                                {tabs.map(({ description }, i) => (
+                                {tabs.map(({ description, type }, i) => (
                                     <div
                                         key={i}
                                         className={classNames(
                                             'o-wysiwyg',
                                             styles['c-projectsTabs__descriptions--element'],
                                             {
-                                                [styles['is-selected']]: activeTabIndex == i
+                                                [styles['is-selected']]: projectsType == type
                                             }
                                         )}
                                     >

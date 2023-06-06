@@ -5,6 +5,6 @@ export type ProjectsTabs = ProjectTab[];
 export type ProjectTab = {
     title: string;
     description: string;
-    projectsType: ProjectsType;
+    type: ProjectsType;
     total: string;
 }

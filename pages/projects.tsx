@@ -42,6 +42,7 @@ export default function Projects() {
                 index="01"
                 tabs={PROJECTS_TABS}
                 projects={projects}
+                projectsType={projectsType}
                 setProjectsType={setProjectsType}
             />
             <CallToAction
