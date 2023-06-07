@@ -22,6 +22,7 @@ export default function Button({
                     className={styles[className]}
                     href={href}
                     onClick={onClick}
+                    scroll={false}
                 >
                     {label}
                 </Link>

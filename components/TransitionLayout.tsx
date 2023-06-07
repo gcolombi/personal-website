@@ -87,6 +87,7 @@ export default function TransitionLayout({
                 animateNavigation();
                 animateFooter();
                 setCurrentRoute(router.asPath.split('?')[0]);
+                window.scrollTo(0, 0);
                 ScrollTrigger.refresh(true);
                 return;
             }
@@ -101,6 +102,7 @@ export default function TransitionLayout({
                 animateNavigation();
                 animateFooter();
                 setCurrentRoute(router.asPath.split('?')[0]);
+                window.scrollTo(0, 0);
                 ScrollTrigger.refresh(true);
             });
 

@@ -52,7 +52,7 @@ export default function CallToAction({
                         </TranslateInOut>
                     </div>
                     <div className={styles['c-callToAction__link']}>
-                        <Link href="/contact" className="h1 u-animatedLink">
+                        <Link href="/contact" className="h1 u-animatedLink" scroll={false}>
                             <CharsInOut
                                 target="#call-to-action"
                                 watch

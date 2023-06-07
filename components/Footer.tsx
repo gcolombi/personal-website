@@ -55,7 +55,7 @@ export default function Footer() {
 
                     <div className={styles['c-footer__title']}>
                         <div className={styles['c-footer__title--name']}>
-                            <Link href="/" aria-label="Gerard Colombi">
+                            <Link href="/" aria-label="Gerard Colombi" scroll={false}>
                                 Gerard Colombi
                             </Link>
                         </div>

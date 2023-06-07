@@ -131,16 +131,19 @@ export default function CharsInOut({
 
                 /* Outro animation */
                 if (!skipOutro) {
+                    const linkOutroAnimation = gsap.timeline()
+                    .to(element.current?.parentElement!, {
+                        pointerEvents: 'none'
+                    })
+                    .to(line, {
+                        '--line-width': 0,
+                        ease: easeOut ?? primaryEase,
+                        delay: initialDelayOut,
+                        duration: durationOut
+                    });
+
                     timeline?.add(
-                        gsap.to(
-                            line,
-                            {
-                                '--line-width': 0,
-                                ease: easeOut ?? primaryEase,
-                                delay: initialDelayOut,
-                                duration: durationOut
-                            }
-                        ),
+                        linkOutroAnimation,
                         0
                     );
                 }
