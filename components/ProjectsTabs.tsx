@@ -3,7 +3,7 @@ import { Projects, ProjectsType } from '@/types/projects';
 import styles from '@/styles/modules/ProjectsTabs.module.scss';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { Dispatch, SetStateAction, useRef, useState } from 'react';
+import { Dispatch, SetStateAction, useRef } from 'react';
 import useTransitionContext from '@/context/transitionContext';
 import ProjectsList from './ProjectsList';
 import FadeInOut from './shared/gsap/FadeInOut';
