@@ -12,12 +12,9 @@ export default function TransitionLayout({
     children: ReactNode;
 }) {
     const router = useRouter();
-    const [currentPage, setCurrentPage] = useState({
-        route: router.asPath,
-        children
-    });
+    const [displayChildren, setDisplayChildren] = useState(children);
     const { timeline, resetTimeline, primaryEase, footerRef } = useTransitionContext();
-    const { navigationRef, setCurrentRoute } = useNavigationContext();
+    const { navigationRef, setCurrentRoute, currentRoute } = useNavigationContext();
 
     const animateNavigation = () => {
         /* Intro animation */
@@ -77,13 +74,10 @@ export default function TransitionLayout({
     };
 
     useIsomorphicLayoutEffect(() => {
-        if (currentPage.route !== router.asPath) {
+        if (currentRoute !== router.asPath) {
             if (timeline?.duration() === 0) {
                 /* There are no outro animations, so immediately transition */
-                setCurrentPage({
-                    route: router.asPath,
-                    children
-                });
+                setDisplayChildren(children);
                 animateNavigation();
                 animateFooter();
                 setCurrentRoute(router.asPath.split('?')[0]);
@@ -95,10 +89,7 @@ export default function TransitionLayout({
             timeline?.play().then(() => {
                 /* outro complete so reset to an empty paused timeline */
                 resetTimeline();
-                setCurrentPage({
-                    route: router.asPath,
-                    children
-                });
+                setDisplayChildren(children);
                 animateNavigation();
                 animateFooter();
                 setCurrentRoute(router.asPath.split('?')[0]);
@@ -114,7 +105,7 @@ export default function TransitionLayout({
 
     return (
         <div className="u-overflow--hidden">
-            {currentPage.children}
+            {displayChildren}
         </div>
     );
 }

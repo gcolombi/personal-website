@@ -40,7 +40,7 @@ const NavigationContext = createContext<NavigationContextType>({
     hidden: false,
     toggle: () => {},
     currentRoute: '',
-    setCurrentRoute: () => ''
+    setCurrentRoute: () => {}
 });
 
 export function NavigationContextProvider({
