@@ -19,7 +19,7 @@ import useTransitionContext from './transitionContext';
 
 interface NavigationContextType {
     navigationRef: MutableRefObject<HTMLElement | null>;
-    mobileNavRef: RefObject<HTMLElement>;
+    mobileNavRef: RefObject<HTMLDivElement>;
     open: boolean;
     sticky: boolean;
     hidden: boolean;
@@ -50,7 +50,7 @@ export function NavigationContextProvider({
 }) {
     const router = useRouter();
     const navigationRef = useRef<HTMLElement | null>(null);
-    const mobileNavRef = useRef<HTMLElement | null>(null);
+    const mobileNavRef = useRef<HTMLDivElement | null>(null);
     const [open, setOpen] = useState(false);
     const [currentRoute, setCurrentRoute] = useState(router.asPath.split('?')[0]);
     const { scrollY, directionY } = useScrollbar();
@@ -60,18 +60,6 @@ export function NavigationContextProvider({
 
     const animate = (state: boolean) => {
         if (state) {
-            gsap.to(mobileNavRef.current, {
-                // scaleY: 0,
-                // transformOrigin: 'top',
-                // willChange: 'transform',
-                opacity: 0,
-                ease: primaryEase,
-                // delay: 0.35,
-                duration: 0.7,
-                onComplete: () => {
-                }
-            });
-        } else {
             gsap.fromTo(mobileNavRef.current,
             {
                 opacity: 1,
@@ -82,9 +70,13 @@ export function NavigationContextProvider({
                 transformOrigin: 'bottom',
                 willChange: 'transform',
                 ease: primaryEase,
-                duration: 0.7,
-                onComplete: () => {
-                }
+                duration: 0.7
+            });
+        } else {
+            gsap.to(mobileNavRef.current, {
+                opacity: 0,
+                ease: primaryEase,
+                duration: 0.7
             });
         }
     }
@@ -92,7 +84,7 @@ export function NavigationContextProvider({
     const toggle = () => {
         setOpen(!open);
         setLocked(!locked);
-        animate(open);
+        animate(!open);
     };
 
     /* Closes navigation if viewport is larger than 991px */
@@ -100,7 +92,7 @@ export function NavigationContextProvider({
         if (isDesktop) {
             setOpen(false);
             setLocked(false);
-            animate(true);
+            animate(false);
         }
     }, [isDesktop]);
 
@@ -109,7 +101,7 @@ export function NavigationContextProvider({
         if (open) {
             setOpen(false);
             setLocked(false);
-            animate(true);
+            animate(false);
         }
     }, [router.asPath]);
 

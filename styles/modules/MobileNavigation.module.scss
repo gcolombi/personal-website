@@ -11,7 +11,6 @@
 .c-mobileNav {
     --navigation-link-color: var(--white);
     --navigation-primary-padding: 100px;
-    // --navigation-scroll-padding: 100px;
 
     position: fixed;
     top: 0;
@@ -19,11 +18,8 @@
     width: 100%;
     height: 100%;
     background: var(--black);
-
     transform: scaleY(0);
-    // transform: translateY(100%);
     transform-origin: bottom;
-
     pointer-events: none;
     z-index: 999;
     overflow: hidden auto;
@@ -67,9 +63,6 @@
                         font-size: 50px;
                         color: var(--navigation-link-color);
                         text-transform: uppercase;
-
-                        // &.is-current-page {
-                        // }
                     }
                 }
 
