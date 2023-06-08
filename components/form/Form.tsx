@@ -131,6 +131,9 @@ export default function Form() {
                                     <TranslateInOut
                                         delay={0.1}
                                         durationIn={0.6}
+                                        outro={{
+                                            opacity: 0
+                                        }}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"
@@ -151,6 +154,9 @@ export default function Form() {
                                     <TranslateInOut
                                         delay={0.15}
                                         durationIn={0.6}
+                                        outro={{
+                                            opacity: 0
+                                        }}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"
@@ -171,6 +177,9 @@ export default function Form() {
                                     <TranslateInOut
                                         delay={0.20}
                                         durationIn={0.6}
+                                        outro={{
+                                            opacity: 0
+                                        }}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"
@@ -192,6 +201,9 @@ export default function Form() {
                                     <TranslateInOut
                                         delay={0.25}
                                         durationIn={0.6}
+                                        outro={{
+                                            opacity: 0
+                                        }}
                                         y="100%"
                                         start="-100% bottom"
                                         end="top top"

@@ -11,6 +11,7 @@ export type Animation = {
     easeOut: string;
     from: CSSProperties;
     to: GSAPTweenVars;
+    outro?: GSAPTweenVars;
     skipOutro: boolean | undefined;
     watch: boolean | undefined;
     start: string;

@@ -16,6 +16,7 @@ export default function TranslateInOut({
     xTo = 0,
     yTo = 0,
     transformOrigin,
+    outro,
     skipOutro,
     watch,
     start = 'top bottom',
@@ -44,6 +45,7 @@ export default function TranslateInOut({
                 transformOrigin,
                 willChange: 'transform'
             }}
+            outro={outro}
             skipOutro={skipOutro}
             watch={watch}
             start={start}

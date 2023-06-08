@@ -13,6 +13,7 @@ function AnimateInOut({
     easeOut,
     from,
     to,
+    outro,
     skipOutro,
     watch,
     start,
@@ -46,10 +47,12 @@ function AnimateInOut({
 
             /* Outro animation */
             if (!skipOutro) {
+                const properties = outro ?? from;
                 timeline?.add(
                     gsap.to(element.current, {
                         ease: easeOut,
-                        ...from,
+                        // ...from,
+                        ...properties,
                         delay: delayOut,
                         duration: durationOut
                     }),
