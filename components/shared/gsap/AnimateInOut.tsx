@@ -47,12 +47,11 @@ function AnimateInOut({
 
             /* Outro animation */
             if (!skipOutro) {
-                const properties = outro ?? from;
+                const outroProperties = outro ?? from;
                 timeline?.add(
                     gsap.to(element.current, {
                         ease: easeOut,
-                        // ...from,
-                        ...properties,
+                        ...outroProperties,
                         delay: delayOut,
                         duration: durationOut
                     }),

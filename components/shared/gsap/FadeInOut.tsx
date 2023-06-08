@@ -10,6 +10,7 @@ export default function FadeInOut({
     delayOut = 0,
     ease,
     easeOut,
+    outro,
     skipOutro,
     watch,
     start = 'top bottom',
@@ -33,6 +34,7 @@ export default function FadeInOut({
                 ease: ease ?? primaryEase,
                 opacity: 1
             }}
+            outro={outro}
             skipOutro={skipOutro}
             watch={watch}
             start={start}
