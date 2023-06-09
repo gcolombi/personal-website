@@ -1,8 +1,8 @@
 import styles from '@/styles/modules/AboutIntroduction.module.scss';
 import FadeInOut from './shared/gsap/FadeInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
-import classNames from 'classnames';
 import ClipPathInOut from './shared/gsap/ClipPathInOut';
+import classNames from 'classnames';
 
 export default function AboutIntroduction() {
     return (

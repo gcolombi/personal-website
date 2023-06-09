@@ -1,4 +1,4 @@
-import HeaderBasic from '@/components/HeaderBasic';
+import BasicHeader from '@/components/BasicHeader';
 import MetaData from '@/components/MetaData';
 
 export default function PageNotFound() {
@@ -8,7 +8,7 @@ export default function PageNotFound() {
                 title="404"
                 description="You are lost in Space!"
             />
-            <HeaderBasic
+            <BasicHeader
                 title="Page not found"
                 wysiwyg="Cannot read properties of undefined. The page you are looking for could not be found."
                 button={{
@@ -16,7 +16,7 @@ export default function PageNotFound() {
                     href: '/',
                     className: 'c-btn'
                 }}
-                className="c-headerBasic--fullHeight"
+                className="c-basicHeader--fullHeight"
             />
         </>
     );

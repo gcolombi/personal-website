@@ -1,5 +1,5 @@
 import { ButtonProps } from '@/types/components/button';
-import styles from '@/styles/modules/HeaderBasic.module.scss';
+import styles from '@/styles/modules/BasicHeader.module.scss';
 import Button from './shared/Button';
 import CharsInOut from './shared/gsap/CharsInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
@@ -7,7 +7,7 @@ import FadeInOut from './shared/gsap/FadeInOut';
 import { slugify } from '@/utils/string';
 import classNames from 'classnames';
 
-export default function HeaderBasic({
+export default function BasicHeader({
     title,
     wysiwyg,
     button,
@@ -23,7 +23,7 @@ export default function HeaderBasic({
             {title &&
                 <section className={classNames
                     (
-                        styles['c-headerBasic'],
+                        styles['c-basicHeader'],
                         styles[className!]
                     )}
                 >
@@ -32,7 +32,7 @@ export default function HeaderBasic({
                             <div className={classNames
                                 (
                                     'u-text--center',
-                                    styles['c-headerBasic__content']
+                                    styles['c-basicHeader__content']
                                 )}
                             >
                                 <h1>
@@ -67,7 +67,7 @@ export default function HeaderBasic({
                                             anchor={button.anchor}
                                             onClick={button.onClick}
                                             className={button.className}
-                                            wrapperClassName={styles['c-headerBasic__btn']}
+                                            wrapperClassName={styles['c-basicHeader__btn']}
                                         />
                                     </FadeInOut>
                                 }

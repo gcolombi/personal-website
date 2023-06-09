@@ -1,5 +1,5 @@
 import MetaData from '@/components/MetaData';
-import HeaderBasic from '@/components/HeaderBasic';
+import BasicHeader from '@/components/BasicHeader';
 import Form from '@/components/form/Form';
 
 export default function Contact() {
@@ -8,7 +8,7 @@ export default function Contact() {
             <MetaData
                 title="Form"
             />
-            <HeaderBasic
+            <BasicHeader
                 title="Contact"
                 wysiwyg="Is there something on your mind you'd like to talk about? Whether it's related to work, just a casual conversation or need help with some code. Feel free to contact me at anytime."
             />

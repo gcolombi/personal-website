@@ -1,5 +1,5 @@
 import MetaData from '@/components/MetaData';
-import HeaderAbout from '@/components/HeaderAbout';
+import AboutHeader from '@/components/AboutHeader';
 import AboutIntroduction from '@/components/AboutIntroduction';
 import PersonalInterests from '@/components/PersonalInterests';
 import CallToAction from '@/components/CallToAction';
@@ -10,7 +10,7 @@ export default function About() {
             <MetaData
                 title="About"
             />
-            <HeaderAbout />
+            <AboutHeader />
             <AboutIntroduction />
             <PersonalInterests />
             <CallToAction

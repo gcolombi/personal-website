@@ -13,7 +13,7 @@ export default function FormInput({
     className,
     wrapperClassName,
     register,
-    errors,
+    errors
 }: Input) {
     return(
         <div className={wrapperClassName}>
