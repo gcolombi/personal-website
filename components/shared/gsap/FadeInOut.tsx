@@ -5,7 +5,7 @@ import AnimateInOut from './AnimateInOut';
 export default function FadeInOut({
     children,
     durationIn = 1,
-    durationOut = 0.5,
+    durationOut = 0.35,
     delay = 0,
     delayOut = 0,
     ease,

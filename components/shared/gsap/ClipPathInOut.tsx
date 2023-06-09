@@ -8,7 +8,7 @@ export default function ClipPathInOut({
     children,
     fade = true,
     durationIn = 1.25,
-    durationOut = 0.5,
+    durationOut = 0.35,
     delay = 0,
     delayOut = 0,
     ease,

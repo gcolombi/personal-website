@@ -9,7 +9,6 @@ export default function Layout({
     children: ReactNode;
 }) {
     return (
-        <>
         <TransitionLayout>
             <Navigation />
             <main>
@@ -17,6 +16,5 @@ export default function Layout({
                 <Footer />
             </main>
         </TransitionLayout>
-        </>
     );
 }

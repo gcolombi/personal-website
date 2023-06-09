@@ -95,6 +95,7 @@ export default function TransitionLayout({
                 setCurrentRoute(router.asPath.split('?')[0]);
                 window.scrollTo(0, 0);
                 ScrollTrigger.refresh(true);
+                document.documentElement.classList.remove('is-transitioning');
             });
 
         } else {

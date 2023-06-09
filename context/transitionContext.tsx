@@ -38,8 +38,11 @@ export function TransitionContextProvider({
 }: {
     children: ReactNode
 }) {
+    const setTransition = () => {
+        document.documentElement.classList.add('is-transitioning');
+    };
     const [timeline, setTimeline] = useState(
-        gsap.timeline({ paused: true })
+        gsap.timeline({ onStart: setTransition, paused: true })
     );
     const primaryEase = typeof window !== 'undefined' ? CustomEase.create('primaryEase', 'M0,0 C0.62,0.05 0.01,0.99 1,1') : null;
     const footerRef = useRef<HTMLDivElement | null>(null);
