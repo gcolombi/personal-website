@@ -42,7 +42,7 @@ export default function HomeHeader() {
                                 y="100%"
                             >
                                 <div className={classNames(
-                                    'u-headingColor--gray-600',
+                                    'u-headingColor--gray-700',
                                     styles['c-homeHeader__title--subfield']
                                 )}>
                                     <h2 className="h6 u-margin--none u-uppercase">Full stack capable</h2>
