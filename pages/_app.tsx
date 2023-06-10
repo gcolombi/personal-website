@@ -4,12 +4,13 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import localFont from 'next/font/local';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useNextCssRemovalPrevention from '@/hooks/useNextCssRemovalPrevention';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { TransitionContextProvider } from '@/context/transitionContext';
 import { NavigationContextProvider } from '@/context/navigationContext';
 import Layout from '@/components/Layout';
+import Loader from '@/components/Loader';
 
 const neueMontreal = localFont({
     fallback: ['-apple-systen', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'],
@@ -42,6 +43,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function App({ Component, pageProps }: AppProps) {
     const router = useRouter();
+    const [isLoading, setIsLoading] = useState(true);
+    const [isReady, setIsReady] = useState(false);
 
     /* Removes focus from next/link element after page change */
     useEffect(() => {
@@ -53,31 +56,36 @@ export default function App({ Component, pageProps }: AppProps) {
 
     return (
         <>
-            <GoogleReCaptchaProvider
-                reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                scriptProps={{
-                    async: true,
-                    defer: true,
-                    appendTo: 'body'
-                }}
-            >
-                <TransitionContextProvider>
-                    <NavigationContextProvider>
-                        <style jsx global>
-                            {
-                                `
-                                    :root {
-                                        --font-primary: ${neueMontreal.style.fontFamily};
-                                    }
-                                `
-                            }
-                        </style>
-                        <Layout>
-                            <Component {...pageProps} />
-                        </Layout>
-                    </NavigationContextProvider>
-                </TransitionContextProvider>
-            </GoogleReCaptchaProvider>
+            {isLoading &&
+                <Loader setIsLoading={setIsLoading} setIsReady={setIsReady} />
+            }
+            {isReady &&
+                <GoogleReCaptchaProvider
+                    reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                    scriptProps={{
+                        async: true,
+                        defer: true,
+                        appendTo: 'body'
+                    }}
+                >
+                    <TransitionContextProvider>
+                        <NavigationContextProvider>
+                            <style jsx global>
+                                {
+                                    `
+                                        :root {
+                                            --font-primary: ${neueMontreal.style.fontFamily};
+                                        }
+                                    `
+                                }
+                            </style>
+                            <Layout>
+                                <Component {...pageProps} />
+                            </Layout>
+                        </NavigationContextProvider>
+                    </TransitionContextProvider>
+                </GoogleReCaptchaProvider>
+            }
         </>
     );
 }

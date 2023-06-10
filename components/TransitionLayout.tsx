@@ -38,7 +38,7 @@ export default function TransitionLayout({
                 {
                     opacity: 0,
                     ease: primaryEase,
-                    duration: 0.45
+                    duration: 0.35
                 }
             ),
             0
@@ -66,7 +66,7 @@ export default function TransitionLayout({
                 {
                     opacity: 0,
                     ease: primaryEase,
-                    duration: 0.45
+                    duration: 0.35
                 }
             ),
             0

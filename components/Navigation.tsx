@@ -36,7 +36,7 @@ export default function Navigation() {
                     {
                         opacity: 0,
                         ease: primaryEase,
-                        duration: 0.45
+                        duration: 0.35
                     }
                 ),
                 0
