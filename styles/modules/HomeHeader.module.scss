@@ -88,14 +88,14 @@
 
         &__text {
             grid-column: 1 / 4;
-            align-self: flex-end;
+            align-self: end;
             padding-right: var(--text-pdding-r);
         }
 
         &__name {
             text-align: right;
             grid-column: 4 / -1;
-            align-self: flex-end;
+            align-self: end;
         }
     }
 
@@ -107,7 +107,7 @@
         &__media {
             grid-column: 10 / -1;
             grid-row: 1 / span 2;
-            justify-self: flex-end;
+            justify-self: end;
 
             &--img {
                 img {

@@ -16,14 +16,13 @@
     mix-blend-mode: difference;
 
     &__row {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0 var(--grid-gap-columns);
         align-items: center;
     }
 
     &__logo {
-        padding-right: 15px;
-
         a {
             display: inline-block;
             font-size: var(--navigation-link-size);
@@ -48,6 +47,8 @@
         --navigation-padding: 25px;
 
         &__nav {
+            justify-self: end;
+
             &__primary {
                 &--list {
                     ul {
@@ -62,7 +63,7 @@
                             margin: 0;
 
                             &:not(:last-child) {
-                                margin-right: 15px;
+                                margin-right: 25px;
                             }
 
                             span {
@@ -72,7 +73,6 @@
                                 font-weight: var(--font-medium);
                                 line-height: 1.15;
                                 color: var(--navigation-link-color);
-                                padding: 0 5px;
 
                                 a {
                                     display: inline-block;
@@ -124,6 +124,7 @@
     width: 48px;
     height: 48px;
     color: var(--gray-200);
+    justify-self: end;
 
     // **---------------------------------------------------**
     // MEDIA QUERIES
