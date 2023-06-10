@@ -19,6 +19,10 @@ yarn.lock
 *.pem
 prepros.config
 
+# Sitemap & robots
+sitemap*.xml
+robots.txt
+
 # Mac OS X
 .DS_Store
 .DS_Store?
