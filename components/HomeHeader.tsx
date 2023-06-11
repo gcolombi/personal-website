@@ -41,10 +41,7 @@ export default function HomeHeader() {
                                 delay={0.46}
                                 y="100%"
                             >
-                                <div className={classNames(
-                                    'u-headingColor--gray-700',
-                                    styles['c-homeHeader__title--subfield']
-                                )}>
+                                <div className={styles['c-homeHeader__title--subfield']}>
                                     <h2 className="h6 u-margin--none u-uppercase">Full stack capable</h2>
                                 </div>
                             </TranslateInOut>

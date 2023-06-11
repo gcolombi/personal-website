@@ -16,6 +16,8 @@
         grid-column: 1 / -1;
 
         &--subfield {
+	        --body-heading-color: var(--body-subfield-color);
+
             position: relative;
             padding-left: var(--subfield-padding-l);
             margin-top: 10px;
