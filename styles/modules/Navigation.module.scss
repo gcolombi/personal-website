@@ -17,12 +17,14 @@
 
     &__row {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 0 var(--grid-gap-columns);
         align-items: center;
     }
 
     &__logo {
+        grid-column: 1 / 3;
+
         a {
             display: inline-block;
             font-size: var(--navigation-link-size);
@@ -30,6 +32,25 @@
             line-height: 1.15;
             color: var(--navigation-link-color);
         }
+    }
+
+    &__switcher {
+        grid-column: 3 / 4;
+        justify-self: end;
+
+        &--theme {
+            button {
+                display: flex;
+                font-size: var(--navigation-link-size);
+                font-weight: var(--font-medium);
+                color: var(--navigation-link-color);
+            }
+        }
+    }
+
+    &__toggler {
+        grid-column: 4 / -1;
+        justify-self: end;
     }
 
     // **---------------------------------------------------**
@@ -46,8 +67,26 @@
     @include mediaq('>MD') {
         --navigation-padding: 25px;
 
+        &__row {
+            grid-template-columns: repeat(var(--grid-columns), 1fr);
+        }
+
+        &__logo {
+            grid-column: 1 / 6;
+        }
+
+        &__switcher {
+            grid-column: 11 / -1;
+        }
+
+        &__toggler {
+            display: none;
+        }
+
         &__nav {
-            justify-self: end;
+            grid-row: 1;
+            grid-column: 7 / 11;
+            // justify-self: end;
 
             &__primary {
                 &--list {
@@ -85,10 +124,10 @@
                                             position: absolute;
                                             top: 50%;
                                             left: 0;
-                                            width: 100%;
+                                            width: calc(100% + 6px);
                                             height: 2px;
                                             background: currentColor;
-                                            transform: scale3d(0, 1, 1);
+                                            transform: translate3d(-3px, 0, 0) scale3d(0, 1, 1);
                                             transform-origin: 100% 50%;
                                             pointer-events: none;
                                             transition: transform 0.6s $primary-ease;
@@ -97,14 +136,14 @@
                                         &:hover, &:active, &:focus {
                                             &:before {
                                                 transform-origin: 0% 50%;
-                                                transform: scale3d(1, 1, 1);
+                                                transform: translate3d(-3px, 0, 0) scale3d(1, 1, 1);
                                             }
                                         }
                                     }
 
                                     &.is-current-page {
                                         &:before {
-                                            transform: scale3d(1, 1, 1);
+                                            transform: translate3d(-3px, 0, 0) scale3d(1, 1, 1);
                                         }
                                     }
                                 }
@@ -121,15 +160,18 @@
 ========================================================================== */
 
 .m-toggler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: var(--font-medium);
     width: 48px;
     height: 48px;
     color: var(--gray-200);
-    justify-self: end;
 
     // **---------------------------------------------------**
     // MEDIA QUERIES
 
     @include mediaq('>MD') {
-        display: none;
+        // display: none;
     }
 }

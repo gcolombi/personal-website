@@ -68,10 +68,24 @@ export default function Navigation() {
                                 Gerard Colombi
                             </Link>
                         </div>
-                        <Toggler
-                            open={open}
-                            toggle={toggle}
-                        />
+                        <div className={styles['c-navigation__switcher']}>
+                            <div className={styles['c-navigation__switcher--theme']}>
+                                <button
+                                    type="button"
+                                    aria-label="Theme toggler"
+                                    // onClick={}
+                                >
+                                    {/* {open ? 'Close' : 'Menu'} */}
+                                    Light
+                                </button>
+                            </div>
+                        </div>
+                        <div className={styles['c-navigation__toggler']}>
+                            <Toggler
+                                open={open}
+                                toggle={toggle}
+                            />
+                        </div>
                         <nav className={styles['c-navigation__nav']}>
                             <div className={styles['c-navigation__nav__primary']}>
                                 <div className={styles['c-navigation__nav__primary--list']}>
