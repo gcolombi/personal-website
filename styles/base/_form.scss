@@ -69,11 +69,11 @@ label, .c-label {
     @include font-size(16px);
 
     .Toastify__toast {
-        background: var(--black);
-        color: var(--white);
+        background: var(--background-color);
+        color: var(--form-alert-color);
 
         .Toastify__close-button {
-            color: var(--white);
+            color: var(--form-alert-color);
             opacity: 1;
         }
     }
