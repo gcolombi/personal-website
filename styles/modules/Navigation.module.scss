@@ -5,7 +5,7 @@
 .c-navigation {
     --navigation-padding: 15px;
     --navigation-link-size: var(--font-base);
-    --navigation-link-color: var(--gray-200);
+    --navigation-link-color: var(--navigation-item-color);
 
     position: fixed;
     top: 0;
@@ -86,7 +86,6 @@
         &__nav {
             grid-row: 1;
             grid-column: 7 / 11;
-            // justify-self: end;
 
             &__primary {
                 &--list {
@@ -160,18 +159,13 @@
 ========================================================================== */
 
 .m-toggler {
+    --toggler-color: var(--navigation-item-color);
+
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: var(--font-medium);
     width: 48px;
     height: 48px;
-    color: var(--gray-200);
-
-    // **---------------------------------------------------**
-    // MEDIA QUERIES
-
-    @include mediaq('>MD') {
-        // display: none;
-    }
+    color: var(--toggler-color);
 }

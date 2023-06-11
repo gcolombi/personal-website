@@ -16,7 +16,11 @@
 	--body-heading-color: var(--black);
 	--body-link-color: var(--body-text-color);
     --body-bg-color: var(--gray-200);
-    --paragraph-size: var(--font-base);
+    --background-color: var(--black);
+    --navigation-mobile-item-color: var(--gray-200);
+    --navigation-item-color: var(--gray-200);
+    --form-element-color: var(--gray-500);
+    --form-border-color: var(--black);
 
 	/* Font Families - css variables are defined in _app */
 
@@ -27,6 +31,7 @@
 	/* Typography */
 	--font-base: #{$font-base};
 	--font-line-height: 1.32;
+    --paragraph-size: var(--font-base);
 
     /* Heading */
 	--h1: 45px;
@@ -79,6 +84,21 @@
     @include mediaq('>1850px') {
         --h1: 144px;
     }
+}
+
+/* Theme
+========================================================================== */
+
+[data-theme='dark'] {
+    --body-text-color: var(--gray-200);
+	--body-heading-color: var(--gray-200);
+	--body-link-color: var(--body-text-color);
+    --body-bg-color: var(--black);
+    --background-color: var(--gray-200);
+    --navigation-mobile-item-color: var(--black);
+    --navigation-item-color: var(--gray-200);
+    --form-element-color: var(--white);
+    --form-border-color: var(--gray-200);
 }
 
 /* Document

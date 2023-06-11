@@ -2,10 +2,6 @@
     Base / Form
 ========================================================================== */
 
-:root {
-    --form-element-color: var(--gray-600);
-}
-
 .c-formElement {
     @include default-styles();
 
