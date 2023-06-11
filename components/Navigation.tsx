@@ -5,6 +5,8 @@ import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useElementSize from '@/hooks/useElementSize';
+import useIsMounted from '@/hooks/useIsMounted';
+import { useTheme } from 'next-themes';
 import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
 
@@ -12,6 +14,8 @@ export default function Navigation() {
     const { timeline, primaryEase } = useTransitionContext();
     const { navigationRef, open, toggle } = useNavigationContext();
     const [headerRef, { height }] = useElementSize();
+    const isMounted = useIsMounted();
+    const { resolvedTheme, setTheme } = useTheme();
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -70,14 +74,17 @@ export default function Navigation() {
                         </div>
                         <div className={styles['c-navigation__switcher']}>
                             <div className={styles['c-navigation__switcher--theme']}>
-                                <button
-                                    type="button"
-                                    aria-label="Theme toggler"
-                                    // onClick={}
-                                >
-                                    {/* {open ? 'Close' : 'Menu'} */}
-                                    Light
-                                </button>
+                                {isMounted() &&
+                                    <button
+                                        type="button"
+                                        aria-label="Theme toggler"
+                                        onClick={() =>
+                                            setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+                                        }
+                                    >
+                                        {resolvedTheme === 'dark' ? 'Dark' : 'Light'}
+                                    </button>
+                                }
                             </div>
                         </div>
                         <div className={styles['c-navigation__toggler']}>
