@@ -75,15 +75,10 @@ export default function Navigation() {
                         <div className={styles['c-navigation__switcher']}>
                             <div className={styles['c-navigation__switcher--theme']}>
                                 {isMounted() &&
-                                    <button
-                                        type="button"
-                                        aria-label="Theme toggler"
-                                        onClick={() =>
-                                            setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-                                        }
-                                    >
-                                        {resolvedTheme === 'dark' ? 'Dark' : 'Light'}
-                                    </button>
+                                    <ThemeToggler
+                                        resolvedTheme={resolvedTheme}
+                                        setTheme={setTheme}
+                                    />
                                 }
                             </div>
                         </div>
@@ -147,4 +142,25 @@ function Toggler({
             {open ? 'Close' : 'Menu'}
         </button>
     );
+}
+
+function ThemeToggler({
+    resolvedTheme,
+    setTheme
+}: {
+    resolvedTheme: string | undefined;
+    setTheme: (theme: string) => void;
+}) {
+    return (
+        <button
+            className={styles['m-themeToggler']}
+            type="button"
+            aria-label="Theme toggler"
+            onClick={() =>
+                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+            }
+        >
+            <span></span>
+        </button>
+    )
 }

@@ -37,15 +37,6 @@
     &__switcher {
         grid-column: 3 / 4;
         justify-self: end;
-
-        &--theme {
-            button {
-                display: flex;
-                font-size: var(--navigation-link-size);
-                font-weight: var(--font-medium);
-                color: var(--navigation-link-color);
-            }
-        }
     }
 
     &__toggler {
@@ -168,4 +159,60 @@
     width: 48px;
     height: 48px;
     color: var(--toggler-color);
+}
+
+/* Theme Toggler
+========================================================================== */
+
+.m-themeToggler {
+    --button-w: 48px;
+    --button-h: 48px;
+    --circle-w: 22px;
+    --circle-h: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--button-w);
+    height: var(--button-h);
+
+    span {
+        position: relative;
+        display: block;
+        width: var(--circle-w);
+        height: var(--circle-h);
+        border: 1px solid var(--navigation-item-color);
+        border-radius: 50%;
+        backface-visibility: hidden;
+    	transition: transform .35s $primary-ease;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            bottom: -1px;
+            width: calc(var(--circle-w) / 2);
+            background: var(--navigation-item-color);
+            border-left: 1px solid var(--navigation-item-color);
+            border-radius: 0 calc(var(--circle-w) / 2) calc(var(--circle-w) / 2) 0;
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            span {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>LG') {
+        --circle-w: 24px;
+        --circle-h: 24px;
+    }
 }
