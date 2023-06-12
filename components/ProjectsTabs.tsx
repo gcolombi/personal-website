@@ -73,7 +73,10 @@ export default function ProjectsTabs({
                                     )}
                                     onClick={() => handleClick(type)}
                                 >
-                                    <div className="h1">
+                                    <div className={classNames(
+                                        'h1',
+                                        styles['c-projectsTabs__header__control--title']
+                                    )}>
                                         <CharsInOut
                                             delay={0.46}
                                             target={`#${slugify(title)}`}

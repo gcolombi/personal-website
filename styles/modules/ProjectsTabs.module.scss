@@ -6,8 +6,8 @@
     --grid-gap-row: 0;
     --header-margin-t: 70px;
     --header-margin-b: 70px;
-    --count--padding-t: 0.1em;
-    --count--padding-l: 0.4em;
+    --count-padding-t: 0.1em;
+    --count-padding-l: 0.4em;
     --count-font-size: 20px;
 
     padding: calc(var(--navigation-height) + var(--spacing-responsive)) 0 var(--spacing-responsive) 0;
@@ -46,7 +46,7 @@
                 line-height: var(--font-heading-line-height);
                 color: var(--body-heading-color);
                 font-size: var(--count-font-size);
-                padding: var(--count--padding-t) 0 0 var(--count--padding-l);
+                padding: var(--count-padding-t) 0 0 var(--count-padding-l);
             }
 
             /* States */
@@ -83,7 +83,7 @@
 
     @include mediaq('>MD') {
         --header-margin-t: 0;
-        --count--padding-t: 0.2em;
+        --count-padding-t: 0.2em;
         --count-font-size: 28px;
 
         &__header {
