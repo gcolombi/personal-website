@@ -28,6 +28,13 @@
     // **---------------------------------------------------**
     // MEDIA QUERIES
 
+    @include mediaq('>XS') {
+
+        &__media {
+            grid-column: 1 / 4;
+        }
+    }
+
     @include mediaq('>MD') {
         --content-margin-t: 0;
         --content-margin-b: 65px;

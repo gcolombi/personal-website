@@ -2,6 +2,7 @@ import styles from '@/styles/modules/AboutIntroduction.module.scss';
 import FadeInOut from './shared/gsap/FadeInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
 import ClipPathInOut from './shared/gsap/ClipPathInOut';
+import Image from 'next/image';
 import classNames from 'classnames';
 
 export default function AboutIntroduction() {
@@ -48,8 +49,13 @@ export default function AboutIntroduction() {
                         >
                             <div className={styles['c-aboutIntroduction__media--img']}>
                                 <picture>
-                                    <source srcSet="https://source.unsplash.com/433x487?tech" media="(max-width: 990px)" />
-                                    <img src="https://source.unsplash.com/422x677?tech" alt="" />
+                                    <Image
+                                        alt="Gerard Colombi"
+                                        src="/static/images/about-portrait.jpg"
+                                        width={423}
+                                        height={555}
+                                        priority
+                                    />
                                 </picture>
                             </div>
                          </ClipPathInOut>

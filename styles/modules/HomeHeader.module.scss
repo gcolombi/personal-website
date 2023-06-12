@@ -38,10 +38,9 @@
     }
 
     &__media {
-        grid-column: 1 / -1;
+        grid-column: 1 / 5;
 
         &--img {
-            padding-right: var(--media-padding-r);
 
             img {
                 width: auto;
@@ -77,15 +76,7 @@
 
         &__media {
             display: flex;
-            grid-column: 1 / 5;
-
-            &--img {
-                height: 100%;
-
-                img {
-                    height: 100%;
-                }
-            }
+            grid-column: 1 / 4;
         }
 
         &__text {
@@ -114,7 +105,6 @@
             &--img {
                 img {
                     width: 100%;
-                    height: auto;
                 }
             }
         }

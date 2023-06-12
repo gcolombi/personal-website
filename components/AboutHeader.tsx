@@ -1,6 +1,7 @@
 import styles from '@/styles/modules/AboutHeader.module.scss';
 import CharsInOut from './shared/gsap/CharsInOut';
 import ClipPathInOut from './shared/gsap/ClipPathInOut';
+import Image from 'next/image';
 
 export default function AboutHeader() {
     return (
@@ -43,7 +44,13 @@ export default function AboutHeader() {
                         >
                             <div className={styles['c-aboutHeader__media--img']}>
                                 <picture>
-                                    <img src="https://source.unsplash.com/870x542?tech" alt="" />
+                                    <Image
+                                        alt="gaming"
+                                        src="/static/images/about-header.jpg"
+                                        width={870}
+                                        height={580}
+                                        priority
+                                    />
                                 </picture>
                             </div>
                         </ClipPathInOut>

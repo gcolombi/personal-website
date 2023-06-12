@@ -212,6 +212,8 @@
     // MEDIA QUERIES
 
     @include mediaq('>LG') {
+        --button-w: 32px;
+        --button-h: 32px;
         --circle-w: 24px;
         --circle-h: 24px;
     }

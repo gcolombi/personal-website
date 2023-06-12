@@ -3,6 +3,7 @@ import CharsInOut from "./shared/gsap/CharsInOut";
 import ClipPathInOut from './shared/gsap/ClipPathInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
+import Image from 'next/image';
 import classNames from 'classnames';
 
 export default function HomeHeader() {
@@ -55,9 +56,13 @@ export default function HomeHeader() {
                         >
                             <div className={styles['c-homeHeader__media--img']}>
                                 <picture>
-                                    <source srcSet="https://source.unsplash.com/350x350?tech" media="(max-width: 767px)" />
-                                    <source srcSet="https://source.unsplash.com/250x350?tech" media="(max-width: 1449px)" />
-                                    <img src="https://source.unsplash.com/380x500?tech" alt="" />
+                                    <Image
+                                        alt="Gerard Colombi"
+                                        src="/static/images/home-portrait.jpg"
+                                        width={384}
+                                        height={503}
+                                        priority
+                                    />
                                 </picture>
                             </div>
                         </ClipPathInOut>
