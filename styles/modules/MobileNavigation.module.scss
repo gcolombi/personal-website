@@ -68,6 +68,11 @@
 
                 &:has(.is-current-page) {
                     position: relative;
+                    margin-bottom: 7px;
+
+                    &:not(:last-child) {
+                        margin-bottom: 22px;
+                    }
 
                     &:after {
                         content: '';
