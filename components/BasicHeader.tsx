@@ -23,19 +23,15 @@ export default function BasicHeader({
             {title &&
                 <section className={classNames
                     (
+                        'u-text--center',
                         styles['c-basicHeader'],
                         styles[className!]
                     )}
                 >
                     <div className="o-container">
                         <div className="o-grid">
-                            <div className={classNames
-                                (
-                                    'u-text--center',
-                                    styles['c-basicHeader__content']
-                                )}
-                            >
-                                <h1>
+                            <div className={classNames(styles['c-basicHeader__title'])}>
+                                <h1 className="u-margin--none">
                                     <CharsInOut
                                         delay={0.46}
                                         target={`#${slugify(title)}`}
@@ -45,6 +41,8 @@ export default function BasicHeader({
                                         </span>
                                     </CharsInOut>
                                 </h1>
+                            </div>
+                            <div className={classNames(styles['c-basicHeader__content'])}>
                                 {wysiwyg &&
                                     <LinesInOut
                                         delay={0.53}

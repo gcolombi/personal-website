@@ -5,7 +5,7 @@
 .c-basicHeader {
     padding: calc(var(--navigation-height) + var(--spacing-responsive)) 0 var(--spacing-responsive) 0;
 
-    &__content {
+    &__title, &__content {
         grid-column: 1 / -1;
     }
 
@@ -24,14 +24,20 @@
     // **---------------------------------------------------**
     // MEDIA QUERIES
 
+    @include mediaq('>SM') {
+        &__title, &__content {
+            grid-column: 2 / 6;
+        }
+    }
+
     @include mediaq('>MD') {
-        &__content {
+        &__title, &__content {
             grid-column: 3 / 11;
         }
     }
 
     @include mediaq('>XXLG') {
-        &__content {
+        &__title, &__content {
             grid-column: 4 / 10;
         }
     }
