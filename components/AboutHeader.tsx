@@ -48,7 +48,7 @@ export default function AboutHeader() {
                                         alt="gaming"
                                         src="/static/images/about-header.jpg"
                                         width={870}
-                                        height={580}
+                                        height={542}
                                         priority
                                     />
                                 </picture>
