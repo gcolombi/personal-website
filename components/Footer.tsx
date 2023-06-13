@@ -1,3 +1,4 @@
+import { SocialMedias } from '@/types/socials';
 import styles from '@/styles/modules/Footer.module.scss';
 import { gsap } from 'gsap';
 import useTransitionContext from '@/context/transitionContext';
@@ -6,7 +7,11 @@ import Link from 'next/link';
 import Button from './shared/Button';
 import classNames from 'classnames';
 
-export default function Footer() {
+export default function Footer({
+    socialMedias
+}: {
+    socialMedias: SocialMedias
+}) {
     const { timeline, primaryEase, footerRef } = useTransitionContext();
 
     useIsomorphicLayoutEffect(() => {
@@ -70,30 +75,16 @@ export default function Footer() {
                     </div>
                     <div className={styles['c-footer__socialLinks']}>
                         <ul>
-                            <li>
-                                <Button
-                                    label="Instagram"
-                                    className="c-btn--external"
-                                    externalHref="https://www.instagram.com/"
-                                    isExternal
-                                />
-                            </li>
-                            <li>
-                                <Button
-                                    label="Twitter"
-                                    className="c-btn--external"
-                                    externalHref="https://twitter.com/"
-                                    isExternal
-                                />
-                            </li>
-                            <li>
-                                <Button
-                                    label="Github"
-                                    className="c-btn--external"
-                                    externalHref="https://github.com/"
-                                    isExternal
-                                />
-                            </li>
+                            {socialMedias.map(({ title, url }, i) => (
+                                <li key={i}>
+                                    <Button
+                                        label={title}
+                                        className="c-btn--external"
+                                        externalHref={url}
+                                        isExternal
+                                    />
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <div className={styles['c-footer__copyright']}>

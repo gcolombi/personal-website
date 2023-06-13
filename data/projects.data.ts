@@ -1,8 +1,8 @@
 import { ProjectsTabs } from '@/types/projects/tabs';
-import { ProjectProps, ProjectsType } from '@/types/projects';
+import { ProjectProps, Projects, ProjectsType } from '@/types/projects';
 import { toTwoDigits } from '@/utils/number';
 
-export const PROJECTS = [
+export const PROJECTS: Projects = [
     {
         title: 'Sweet sixteen',
         description: 'Online store built with shopify',
@@ -23,7 +23,7 @@ export const PROJECTS = [
     }
 ];
 
-export const PERSONAL_PROJECTS = [
+export const PERSONAL_PROJECTS: Projects = [
     {
         title: 'Linklist',
         description: 'Linktree clone built with Next.js, typescript & Tailwind',
