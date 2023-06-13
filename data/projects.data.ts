@@ -6,19 +6,19 @@ export const PROJECTS: Projects = [
     {
         title: 'Sweet sixteen',
         description: 'Online store built with shopify',
-        image: 'https://source.unsplash.com/1200x630?candy',
-        url: 'https://sweetsixteen.ca/en'
+        image: '/static/images/projects/sweet-sixteen.jpg',
+        url: 'https://sweetsixteen.ca/'
     },
     {
         title: 'Mondoux',
         description: 'Corporate website',
-        image: 'https://source.unsplash.com/1200x630?store',
+        image: '/static/images/projects/mondoux.jpg',
         url: 'https://mondoux.ca/en/'
     },
     {
         title: 'Sogetel',
         description: 'Telecommunications and media provider website',
-        image: 'https://source.unsplash.com/1200x630?tv',
+        image: '/static/images/projects/sogetel.jpg',
         url: 'https://sogetel.com/'
     }
 ];
@@ -41,8 +41,8 @@ export const PERSONAL_PROJECTS: Projects = [
 export const FEATURED_PROJECT: ProjectProps = {
     title: 'Sweet sixteen',
     description: 'Online store built with shopify',
-    image: 'https://source.unsplash.com/1200x630?candy',
-    url: 'https://sweetsixteen.ca/en',
+    image: '/static/images/projects/sweet-sixteen.jpg',
+    url: 'https://sweetsixteen.ca/',
     type: ProjectsType.PROJECTS
 };
 
