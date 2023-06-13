@@ -5,6 +5,7 @@
 .c-project {
     --description-margin-t: 30px;
     --description-margin-b: 30px;
+    --btn-margin-b: 30px;
     --overlay-span-size: 120px;
 
     display: grid;
@@ -17,50 +18,17 @@
         &--description {
             margin: var(--description-margin-t) 0 var(--description-margin-b);
         }
+
+        &--btn {
+            margin-bottom: var(--btn-margin-b);
+        }
     }
 
     &__media {
         grid-column: 1 / -1;
 
-        &__img {
-            $parent: &;
-            display: inline-block;
-            position: relative;
-
-            &--overlay {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                pointer-events: none;
-                transform: translate3d(-50%, -50%, 0);
-
-                span {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: var(--overlay-span-size);
-                    height: var(--overlay-span-size);
-                    padding: 15px;
-                    background: var(--white);
-                    color: var(--black);
-                    text-align: center;
-                    line-height: 1;
-                    border-radius: 50%;
-                }
-            }
-
-            @media (hover: hover) and (pointer: fine) {
-                &--overlay {
-                    opacity: 0;
-                    transition: opacity 0.7s $primary-ease;
-                }
-
-                &:hover, &:active, &:focus & {
-                    #{$parent}--overlay {
-                        opacity: 1;
-                    }
-                }
-            }
+        &__link {
+            display: none;
         }
     }
 
@@ -77,10 +45,59 @@
             &--description {
                 padding-right: 8vw;
             }
+
+            &--btn {
+                display: none;
+            }
         }
 
         &__media {
             grid-column: 7 / -1;
+
+            &__link {
+                $parent: &;
+                display: inline-block;
+                position: relative;
+
+                &--overlay {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    pointer-events: none;
+                    transform: translate3d(-50%, -50%, 0);
+
+                    span {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: var(--overlay-span-size);
+                        height: var(--overlay-span-size);
+                        padding: 15px;
+                        background: var(--white);
+                        color: var(--black);
+                        text-align: center;
+                        line-height: 1;
+                        border-radius: 50%;
+                    }
+                }
+
+                @media (hover: hover) and (pointer: fine) {
+                    &--overlay {
+                        opacity: 0;
+                        transition: opacity 0.7s $primary-ease;
+                    }
+
+                    &:hover, &:active, &:focus & {
+                        #{$parent}--overlay {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            &__img {
+                display: none;
+            }
         }
     }
 

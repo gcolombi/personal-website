@@ -1,5 +1,6 @@
 import { ProjectProps } from '@/types/projects';
 import styles from '@/styles/modules/Project.module.scss';
+import Button from './shared/Button';
 import CharsInOut from './shared/gsap/CharsInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
 import FadeInOut from './shared/gsap/FadeInOut';
@@ -42,6 +43,18 @@ export default function Project({
                         </div>
                     </LinesInOut>
                 </div>
+                <div className={styles['c-project__details--btn']}>
+                    <FadeInOut
+                        watch
+                    >
+                    <Button
+                        label="Visit website"
+                        className="c-btn--external"
+                        externalHref={url}
+                        isExternal
+                    />
+                    </FadeInOut>
+                </div>
             </div>
             <div className={styles['c-project__media']}>
                 <FadeInOut
@@ -51,17 +64,24 @@ export default function Project({
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={styles['c-project__media__img']}
+                        className={styles['c-project__media__link']}
                     >
                         <picture>
                             <img src={image} alt={title} />
                         </picture>
-                        <div className={styles['c-project__media__img--overlay']}>
+                        <div className={styles['c-project__media__link--overlay']}>
                             <span>
                                 Visit website
                             </span>
                         </div>
                     </a>
+                    <div
+                        className={styles['c-project__media__img']}
+                    >
+                        <picture>
+                            <img src={image} alt={title} />
+                        </picture>
+                    </div>
                 </FadeInOut>
             </div>
         </div>
