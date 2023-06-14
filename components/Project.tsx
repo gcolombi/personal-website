@@ -44,7 +44,7 @@ export default function Project({
                     >
                     <Button
                         label="Visit website"
-                        className="c-btn--externalIcon"
+                        className="c-btn--external"
                         externalHref={url}
                         isExternal
                         icon

@@ -54,6 +54,13 @@
 
     &--external {
         position: relative;
+        display: inline-flex;
+        align-items: center;
+
+        svg {
+            width: 20px;
+            margin-left: 10px;
+        }
 
         &:after {
             content: '';
@@ -77,16 +84,6 @@
                     transform-origin: left;
                 }
             }
-        }
-    }
-
-    &--externalIcon {
-        display: inline-flex;
-        align-items: center;
-
-        svg {
-            width: 20px;
-            margin-left: 15px;
         }
     }
 }
