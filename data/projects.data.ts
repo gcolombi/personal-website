@@ -27,13 +27,13 @@ export const PERSONAL_PROJECTS: Projects = [
     {
         title: 'Linklist',
         description: 'Linktree clone built with Next.js, typescript & Tailwind',
-        image: 'https://source.unsplash.com/1200x630?tech',
+        image: '/static/images/projects/linklist.jpg',
         url: 'https://linklist-domain.vercel.app/'
     },
     {
         title: 'Next.js starter',
         description: 'A Next.js starter that includes a collection of reusable components, hooks, and utilities to build amazing projects with complex animations and page transitions using GSAP.',
-        image: 'https://source.unsplash.com/1200x630?neon',
+        image: '/static/images/projects/nextjs-starter.jpg',
         url: 'https://nextjs-gsap-starter.vercel.app/'
     }
 ];
@@ -49,7 +49,7 @@ export const FEATURED_PROJECT: ProjectProps = {
 export const LATEST_PERSONAL_PROJECT: ProjectProps = {
     title: 'Linklist',
     description: 'Linktree clone built with Next.js, typescript & Tailwind',
-    image: 'https://source.unsplash.com/1200x630?tech',
+    image: '/static/images/projects/linklist.jpg',
     url: 'https://linklist-domain.vercel.app/',
     type: ProjectsType.PERSONAL_PROJECTS
 };
