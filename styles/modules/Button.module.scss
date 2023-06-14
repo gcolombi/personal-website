@@ -79,4 +79,14 @@
             }
         }
     }
+
+    &--externalIcon {
+        display: inline-flex;
+        align-items: center;
+
+        svg {
+            width: 20px;
+            margin-left: 15px;
+        }
+    }
 }

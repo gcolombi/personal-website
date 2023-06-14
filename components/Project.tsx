@@ -17,22 +17,16 @@ export default function Project({
         <div className={styles['c-project']}>
             <div className={styles['c-project__details']}>
                 <div className={styles['c-project__details--title']}>
-                    <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="h1 u-margin--none u-animatedLink"
-                    >
+                    <h2 className="h1 u-margin--none">
                         <CharsInOut
                             target={`#${slugify(title)}`}
                             watch
-                            isLink
                         >
                             <span id={slugify(title)}>
                                 {title}
                             </span>
                         </CharsInOut>
-                    </a>
+                    </h2>
                 </div>
                 <div className={styles['c-project__details--description']}>
                     <LinesInOut
@@ -50,9 +44,10 @@ export default function Project({
                     >
                     <Button
                         label="Visit website"
-                        className="c-btn--external"
+                        className="c-btn--externalIcon"
                         externalHref={url}
                         isExternal
+                        icon
                     />
                     </FadeInOut>
                 </div>
@@ -61,29 +56,7 @@ export default function Project({
                 <FadeInOut
                     watch
                 >
-                    <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles['c-project__media__link']}
-                    >
-                        <picture>
-                            <Image
-                                alt={title}
-                                src={image}
-                                width={870}
-                                height={457}
-                            />
-                        </picture>
-                        <div className={styles['c-project__media__link--overlay']}>
-                            <span>
-                                Visit website
-                            </span>
-                        </div>
-                    </a>
-                    <div
-                        className={styles['c-project__media__img']}
-                    >
+                    <div className={styles['c-project__media--img']}>
                         <picture>
                             <Image
                                 alt={title}

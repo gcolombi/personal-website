@@ -6,6 +6,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     href?: string | Object;
     isExternal?: boolean;
     externalHref?: string;
+    icon?: boolean;
     anchor?: string;
     onClick?: () => void;
     className: string;
