@@ -4,6 +4,7 @@ import Button from './shared/Button';
 import CharsInOut from './shared/gsap/CharsInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
 import FadeInOut from './shared/gsap/FadeInOut';
+import Image from 'next/image';
 import { slugify } from '@/utils/string';
 
 export default function Project({
@@ -67,7 +68,12 @@ export default function Project({
                         className={styles['c-project__media__link']}
                     >
                         <picture>
-                            <img src={image} alt={title} />
+                            <Image
+                                alt={title}
+                                src={image}
+                                width={870}
+                                height={457}
+                            />
                         </picture>
                         <div className={styles['c-project__media__link--overlay']}>
                             <span>
@@ -79,7 +85,12 @@ export default function Project({
                         className={styles['c-project__media__img']}
                     >
                         <picture>
-                            <img src={image} alt={title} />
+                            <Image
+                                alt={title}
+                                src={image}
+                                width={870}
+                                height={457}
+                            />
                         </picture>
                     </div>
                 </FadeInOut>
