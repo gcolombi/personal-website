@@ -18,6 +18,7 @@
 	--body-link-color: var(--body-text-color);
     --body-bg-color: var(--gray-200);
     --background-color: var(--black);
+    --selection-color: var(--gray-200);
     --navigation-mobile-item-color: var(--gray-200);
     --navigation-item-color: var(--gray-200);
     --form-element-color: var(--gray-500);
@@ -102,6 +103,7 @@
 	--body-link-color: var(--body-text-color);
     --body-bg-color: var(--black);
     --background-color: var(--gray-200);
+    --selection-color: var(--black);
     --navigation-mobile-item-color: var(--black);
     --navigation-item-color: var(--gray-200);
     --form-element-color: var(--white);
@@ -153,13 +155,13 @@ main {
 }
 
 ::-moz-selection {
-	background-color: var(--black);
-	color: var(--white);
+	background-color: var(--background-color);
+	color: var(--selection-color);
 }
 
 ::selection {
-	background-color: var(--black);
-	color: var(--white);
+    background-color: var(--background-color);
+	color: var(--selection-color);
 }
 
 /* Heading
