@@ -1,6 +1,7 @@
 import { ProjectsTabs } from '@/types/projects/tabs';
 import { ProjectProps, Projects, ProjectsType } from '@/types/projects';
 import { toTwoDigits } from '@/utils/number';
+import { randomItem } from '@/utils/array';
 
 export const PROJECTS: Projects = [
     {
@@ -38,13 +39,7 @@ export const PERSONAL_PROJECTS: Projects = [
     }
 ];
 
-export const FEATURED_PROJECT: ProjectProps = {
-    title: 'Sweet sixteen',
-    description: 'Online store built with shopify',
-    image: '/static/images/projects/sweet-sixteen.jpg',
-    url: 'https://sweetsixteen.ca/',
-    type: ProjectsType.PROJECTS
-};
+export const FEATURED_PROJECT: ProjectProps = randomItem(PROJECTS);
 
 export const LATEST_PERSONAL_PROJECT: ProjectProps = {
     title: 'Linklist',
