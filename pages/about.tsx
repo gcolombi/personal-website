@@ -8,7 +8,7 @@ export default function About() {
     return (
         <>
             <MetaData
-                title="About"
+                title="About | Gerard Colombi"
             />
             <AboutHeader />
             <AboutIntroduction />

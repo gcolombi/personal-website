@@ -6,7 +6,7 @@ export default function Contact() {
     return (
         <>
             <MetaData
-                title="Form"
+                title="Contact | Gerard Colombi"
             />
             <BasicHeader
                 title="Contact"

@@ -36,7 +36,7 @@ export default function Projects() {
     return (
         <>
             <MetaData
-                title="Projects"
+                title="Projects | Gerard Colombi"
             />
             <ProjectsTabs
                 index="01"

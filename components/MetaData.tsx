@@ -3,7 +3,7 @@ import useWindowLocation from '@/hooks/useWindowLocation';
 
 export default function MetaData({
     title = 'Gerard Colombi',
-    description = 'The React Framework for the Web.',
+    description = 'Front-end developer capable of full stack development, passionate about building appealing and interactive web experiences.',
     image = `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image.png`,
     type = 'website'
 }: {
