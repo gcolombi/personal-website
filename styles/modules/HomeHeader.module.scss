@@ -16,6 +16,7 @@
         grid-column: 1 / -1;
 
         &--subfield {
+            --h4: 16px;
 	        --body-heading-color: var(--body-subfield-color);
 
             position: relative;
@@ -72,6 +73,10 @@
 
         &__title {
             grid-column: 1 / 5;
+
+            &--subfield {
+            	--h4: 20px;
+            }
         }
 
         &__media {
@@ -122,6 +127,12 @@
     @include mediaq('>LG') {
         --section-padding-t: calc(var(--spacing-responsive) - var(--navigation-height));
         align-items: center;
+
+        &__title {
+            &--subfield {
+            	--h4: 22px;
+            }
+        }
     }
 
     @include mediaq('>XLG') {

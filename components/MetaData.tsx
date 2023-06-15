@@ -2,7 +2,7 @@ import Head from 'next/head';
 import useWindowLocation from '@/hooks/useWindowLocation';
 
 export default function MetaData({
-    title = 'Next.js',
+    title = 'Gerard Colombi',
     description = 'The React Framework for the Web.',
     image = `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image.png`,
     type = 'website'

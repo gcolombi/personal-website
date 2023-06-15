@@ -43,7 +43,7 @@ export default function HomeHeader() {
                                 y="100%"
                             >
                                 <div className={styles['c-homeHeader__title--subfield']}>
-                                    <h2 className="h6 u-margin--none u-uppercase">Full stack capable</h2>
+                                    <h2 className="h4 u-margin--none u-uppercase">Full stack capable</h2>
                                 </div>
                             </TranslateInOut>
                         </div>
