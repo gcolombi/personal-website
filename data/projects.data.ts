@@ -5,22 +5,34 @@ import { randomItem } from '@/utils/array';
 
 export const PROJECTS: Projects = [
     {
-        title: 'Sweet sixteen',
-        description: 'Online store built with shopify',
-        image: '/static/images/projects/sweet-sixteen.jpg',
-        url: 'https://sweetsixteen.ca/'
+        title: 'Cartv',
+        description: 'Organization guarding and defending the authenticity of food products recognized by the Quebec Government',
+        image: '/static/images/projects/cartv.jpg',
+        url: 'https://cartv.gouv.qc.ca/en/'
+    },
+    {
+        title: 'Dici',
+        description: 'Magazine and showcase on culture in Mauricie',
+        image: '/static/images/projects/dici.jpg',
+        url: 'https://dici.ca/'
     },
     {
         title: 'Mondoux',
-        description: 'Corporate website',
+        description: 'Leading Canadian packager and distributor of top quality candies and chocolates',
         image: '/static/images/projects/mondoux.jpg',
         url: 'https://mondoux.ca/en/'
     },
     {
         title: 'Sogetel',
-        description: 'Telecommunications and media provider website',
+        description: 'Canadian telecommunications company that serves multiple areas in Quebec',
         image: '/static/images/projects/sogetel.jpg',
         url: 'https://sogetel.com/'
+    },
+    {
+        title: 'Sweet sixteen',
+        description: 'Online candies store built with shopify',
+        image: '/static/images/projects/sweet-sixteen.jpg',
+        url: 'https://sweetsixteen.ca/'
     }
 ];
 
