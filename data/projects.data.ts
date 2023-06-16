@@ -12,7 +12,7 @@ export const PROJECTS: Projects = [
     },
     {
         title: 'Dici',
-        description: 'Magazine and showcase on culture in Mauricie',
+        description: 'Magazine and showcase on culture in Mauricie, Quebec (Canada)',
         image: '/static/images/projects/dici.jpg',
         url: 'https://dici.ca/'
     },
@@ -30,7 +30,7 @@ export const PROJECTS: Projects = [
     },
     {
         title: 'Sweet sixteen',
-        description: 'Online candies store built with shopify',
+        description: 'Online candy store built with shopify',
         image: '/static/images/projects/sweet-sixteen.jpg',
         url: 'https://sweetsixteen.ca/'
     }
