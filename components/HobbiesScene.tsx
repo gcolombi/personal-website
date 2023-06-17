@@ -1,4 +1,4 @@
-import { HobbiesSceneProps } from '@/types/hobbies';
+import { HobbiesSceneProps } from '@/types/interests/hobbies';
 import { Suspense, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PresentationControls } from '@react-three/drei';
