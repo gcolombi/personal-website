@@ -93,6 +93,7 @@ export default function HobbiesTabs({
                                         <CharsInOut
                                             target={`#${slugify(title)}`}
                                             watch
+                                            textAlign="left"
                                         >
                                             <span id={slugify(title)}>
                                                 {title}

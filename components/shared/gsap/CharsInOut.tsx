@@ -26,7 +26,8 @@ export default function CharsInOut({
     end = 'bottom top',
     scrub = false,
     markers,
-    isLink = false
+    isLink = false,
+    textAlign
 }: Chars) {
     const { timeline, primaryEase } = useTransitionContext();
     const element = useRef<HTMLDivElement | null>(null);
@@ -45,13 +46,14 @@ export default function CharsInOut({
 
         const splitTextParent = new SplitText(target, {type: 'lines', linesClass: 'split-parent'});
         const lines = splitTextParent.lines;
+        const alignProperty = textAlign ? {textAlign: textAlign} : {};
 
         lines.forEach(line => {
             /* Overwrite the default display block */
             if (isLink) {
                 gsap.set(line, {display: 'flex'});
             } else {
-                gsap.set(line, {display: 'inline-block'});
+                gsap.set(line, {display: 'inline-block', ...alignProperty});
             }
 
             const splitLineChild = new SplitText(line, {type: 'lines, chars', linesClass: 'split-child'});

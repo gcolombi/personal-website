@@ -78,17 +78,19 @@
         }
 
         &__header {
-            grid-column: 4 / -1;
+            // grid-column: 4 / -1;
+            grid-column: 1 / 7;
         }
 
         &__descriptions {
-            grid-column: 4 / 9;
+            // grid-column: 4 / 9;
+            grid-column: 1 / 4;
         }
     }
 
     @include mediaq('>XXLG') {
         &__descriptions {
-            grid-column: 4 / 7;
+            // grid-column: 4 / 7;
         }
     }
 }

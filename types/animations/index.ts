@@ -26,6 +26,7 @@ export type Chars = {
     increment?: number;
     target: string;
     isLink?: boolean;
+    textAlign?: string;
 } & AnimationProperties;
 
 export type ClipPath = {
