@@ -1,4 +1,5 @@
 import { HOBBIES_TABS } from '@/data/personalInterests.data';
+import { MODELS } from '@/data/personalInterests.data';
 import MetaData from '@/components/MetaData';
 import AboutHeader from '@/components/AboutHeader';
 import AboutIntroduction from '@/components/AboutIntroduction';
@@ -16,6 +17,7 @@ export default function About() {
             <HobbiesTabs
                 index="02"
                 tabs={HOBBIES_TABS}
+                models={MODELS}
             />
             <CallToAction
                 index="03"

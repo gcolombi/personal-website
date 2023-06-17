@@ -45,6 +45,10 @@
         }
     }
 
+    &__scenes {
+        grid-column: 1 / -1;
+    }
+
     &__descriptions {
         position: relative;
         grid-column: 1 / -1;

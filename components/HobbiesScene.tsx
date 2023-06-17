@@ -7,7 +7,8 @@ import { PresentationControls } from '@react-three/drei';
 export default function HobbiesScene({
     activeIndex,
     className,
-    renderDelay = 0
+    renderDelay = 0,
+    models
 }: HobbiesSceneProps) {
     const [renderScene, setRenderScene] = useState(!renderDelay);
 
@@ -27,18 +28,19 @@ export default function HobbiesScene({
                 <pointLight intensity={2} position={[-4, 10, 10]} />
                 <Suspense fallback={<mesh />}>
                     {renderScene &&
-                        <PresentationControls
-                            // remount PresentationControls (and Model) to reset rotation and preserve initial animation
-                            // key={
-                            //     activeIndex === index ? `active-${index}` : `passive-${index}`
-                            // }
-                            cursor={true}
-                            global={false}
-                            // speed={activeIndex === index ? 2.5 : 0}
-                            speed={2.5}
-                        >
-                            {/* <Model /> */}
-                        </PresentationControls>
+                        models.map((Model, index) => (
+                            <PresentationControls
+                                /* Remount PresentationControls (and Model) to reset rotation and preserve initial animation */
+                                key={
+                                    activeIndex === index ? `active-${index}` : `passive-${index}`
+                                }
+                                cursor={true}
+                                global={false}
+                                speed={activeIndex === index ? 2.5 : 0}
+                            >
+                                <Model visible={activeIndex === index} />
+                            </PresentationControls>
+                        ))
                     }
                 </Suspense>
             </Canvas>

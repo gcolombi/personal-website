@@ -1,7 +1,10 @@
+import { Models } from './models';
+
 /* Hobbies tabs */
 export type HobbiesTabsProps = {
     index: string;
     tabs: HobbiesTabs;
+    models: Models;
 }
 
 export type HobbiesTabs = HobbyTab[];

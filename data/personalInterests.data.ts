@@ -1,9 +1,10 @@
-import { HobbiesTabs } from "@/types/hobbies/tabs";
-import Controller from "@/components/models/Controller";
-import Headphone from "@/components/models/Headphone";
-import Movies from "@/components/models/Movies";
+import { HobbiesTabs } from '@/types/hobbies/tabs';
+import Controller from '@/components/models/Controller';
+import Headphone from '@/components/models/Headphone';
+import Movies from '@/components/models/Movies';
+import { Models } from '@/types/hobbies/models';
 
-export const MODELS = [Controller, Headphone, Movies];
+export const MODELS: Models = [Controller, Headphone, Movies];
 
 export const HOBBIES_TABS: HobbiesTabs = [
     {

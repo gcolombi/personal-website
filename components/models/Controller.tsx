@@ -1,10 +1,13 @@
+import { ModelProps } from '@/types/hobbies/models';
 import { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { Group } from 'three';
 import { GLTF } from 'three-stdlib';
 
-export default function Controller({ visible = true }) {
+export default function Controller({
+    visible
+}: ModelProps) {
     const groupRef = useRef<THREE.Mesh & Group>(null);
     const { scene } = useGLTF('static/models/controller/source/scene.glb') as unknown as GLTF;
 

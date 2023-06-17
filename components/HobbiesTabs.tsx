@@ -7,12 +7,14 @@ import useTransitionContext from '@/context/transitionContext';
 import FadeInOut from './shared/gsap/FadeInOut';
 import CharsInOut from './shared/gsap/CharsInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
+import HobbiesScene from './HobbiesScene';
 import { slugify } from '@/utils/string';
 import classNames from 'classnames';
 
 export default function HobbiesTabs({
     index,
-    tabs
+    tabs,
+    models
 }: HobbiesTabsProps) {
     const { primaryEase } = useTransitionContext();
     const tabsWrapperRef = useRef<HTMLDivElement | null>(null);
@@ -102,6 +104,12 @@ export default function HobbiesTabs({
                                     </div>
                                 </button>
                             ))}
+                        </div>
+                        <div className={styles['c-hobbiesTabs__scenes']}>
+                            <HobbiesScene
+                                activeIndex={activeId}
+                                models={models}
+                            />
                         </div>
                         <div className={styles['c-hobbiesTabs__descriptions']} ref={tabsWrapperRef}>
                             <FadeInOut
