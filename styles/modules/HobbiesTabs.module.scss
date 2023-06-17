@@ -4,8 +4,9 @@
 
 .c-hobbiesTabs {
     --grid-gap-row: 0;
-    --header-margin-t: 70px;
-    --header-margin-b: 70px;
+    --title-margin-b: 70px;
+    --header-margin-b: 0;
+    // --header-margin-b: 70px;
 
     &__index {
         grid-column: 1 / 1;
@@ -17,11 +18,12 @@
 
     &__title {
         grid-column: 3 / -1;
+        margin-bottom: var(--title-margin-b);
     }
 
     &__header {
         grid-column: 1 / -1;
-        margin: var(--header-margin-t) 0 var(--header-margin-b);
+        margin: 0 0 var(--header-margin-b);
 
         &__control {
             display: flex;
@@ -43,9 +45,13 @@
                 opacity: 1;
             }
         }
+
+        &__descriptions {
+            display: none;
+        }
     }
 
-    &__scenes {
+    &__scene {
         grid-column: 1 / -1;
     }
 
@@ -75,7 +81,8 @@
     // MEDIA QUERIES
 
     @include mediaq('>MD') {
-        --header-margin-t: 120px;
+        --title-margin-b: 120px;
+        --description-margin-t: 70px;
 
         &__title {
             grid-column: 4 / 7;
@@ -84,11 +91,40 @@
         &__header {
             // grid-column: 4 / -1;
             grid-column: 1 / 7;
+
+            &__descriptions {
+                display: block;
+                position: relative;
+                max-width: 422px;
+                margin-top: var(--description-margin-t);
+
+                &--element {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    opacity: 0;
+                    transition: opacity .7s $primary-ease;
+
+                    /* States */
+                    &.is-selected {
+                        position: relative;
+                        top: auto;
+                        left: auto;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &__scene {
+            grid-column: 7/-1;
         }
 
         &__descriptions {
+            display: none;
             // grid-column: 4 / 9;
-            grid-column: 1 / 4;
+            // grid-column: 1 / 4;
         }
     }
 

@@ -104,8 +104,28 @@ export default function HobbiesTabs({
                                     </div>
                                 </button>
                             ))}
+                            <div className={styles['c-hobbiesTabs__header__descriptions']} ref={tabsWrapperRef}>
+                                <FadeInOut
+                                    watch
+                                >
+                                    {tabs.map(({ description, id }) => (
+                                        <div
+                                            key={id}
+                                            className={classNames(
+                                                'o-wysiwyg',
+                                                styles['c-hobbiesTabs__header__descriptions--element'],
+                                                {
+                                                    [styles['is-selected']]: activeId == id
+                                                }
+                                            )}
+                                        >
+                                            <p>{description}</p>
+                                        </div>
+                                    ))}
+                                </FadeInOut>
+                            </div>
                         </div>
-                        <div className={styles['c-hobbiesTabs__scenes']}>
+                        <div className={styles['c-hobbiesTabs__scene']}>
                             <HobbiesScene
                                 activeIndex={activeId}
                                 models={models}
