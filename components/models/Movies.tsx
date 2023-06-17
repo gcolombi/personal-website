@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { Group } from 'three';
-import { GLTF } from "three-stdlib";
+import { GLTF } from 'three-stdlib';
 
 export default function Movies({ visible = true }) {
     const groupRef = useRef<THREE.Mesh & Group>(null);
