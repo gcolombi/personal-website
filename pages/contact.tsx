@@ -74,8 +74,9 @@ export default function Contact() {
 const Model = ({ visible = true }) => {
     const groupRef = useRef<THREE.Mesh & Group>(null);
 
-    const { scene } = useGLTF('static/models/controller/source/scene.glb') as unknown as GLTF;
+    // const { scene } = useGLTF('static/models/controller/source/scene.glb') as unknown as GLTF;
     // const { scene } = useGLTF('static/models/headphone/scene.glb') as unknown as GLTF;
+    const { scene } = useGLTF('static/models/movies/the_fifth_element.glb') as unknown as GLTF;
 
     useFrame(() => {
         const group = groupRef.current;
@@ -99,12 +100,13 @@ const Model = ({ visible = true }) => {
                 // scale={0.65}
                 // position={[0.02, 0.03, 0]}
 
-                // scale={0.01}
+                // movies
+                scale={0.014}
                 // position={[0.02, 0.03, 0]}
 
                 // controller
-                scale={0.25}
-                position={[0.015, 0, 0]}
+                // scale={0.25}
+                // position={[0.015, 0, 0]}
 
                 // headphone
                 // scale={0.40}
