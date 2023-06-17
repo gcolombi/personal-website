@@ -1,4 +1,5 @@
 import { HobbiesSceneProps } from '@/types/interests/scene';
+import styles from '@/styles/modules/HobbiesScene.module.scss';
 import { Suspense, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PresentationControls } from '@react-three/drei';
