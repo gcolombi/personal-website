@@ -20,29 +20,8 @@ export default function Contact() {
                 wysiwyg="Is there something on your mind you'd like to talk about? Whether it's related to work, just a casual conversation or need help with some code. Feel free to contact me at anytime."
             />
 
-            <section
-                className="u-spacing--responsive"
-                // style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}
-            >
+            <section className="u-spacing--responsive">
                 <div className="xbox">
-                    {/* <Canvas
-                        dpr={[1, 2]}
-                        camera={{ fov: 2.5 }}
-                    >
-                        <PresentationControls
-                            cursor={false}
-                            global={false}
-                            speed={2.5}
-                        >
-                            <ambientLight intensity={0.7} />
-                            <spotLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
-                            <Suspense fallback={null}>
-                                <Model />
-                                <Environment preset="city" />
-                            </Suspense>
-                        </PresentationControls>
-
-                    </Canvas> */}
                     <Canvas camera={{ fov: 2.5 }} dpr={[1, 2]}>
                         <ambientLight intensity={2} />
                         <pointLight intensity={2} position={[-4, 10, 10]} />
@@ -112,7 +91,7 @@ const Model = ({ visible = true }) => {
                 // scale={0.40}
                 // position={[0, -0.07, 0]}
 
-                rotation={[0, Math.PI * 1.79, 0]}
+                rotation={[0, Math.PI * 1.3, 0]}
                 visible={visible}
                 renderOrder={visible ? 1 : 0}
             >

@@ -29,7 +29,7 @@ export default function Movies({ visible = true }) {
                 dispose={null}
                 scale={0.014}
                 // position={[0.02, 0.03, 0]}
-                rotation={[0, Math.PI * 1.79, 0]}
+                rotation={[0, Math.PI * 1.3, 0]}
                 visible={visible}
                 renderOrder={visible ? 1 : 0}
             >
