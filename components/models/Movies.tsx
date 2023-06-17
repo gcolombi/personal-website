@@ -17,8 +17,8 @@ export default function Movies({
         if (visible && group) {
             const scaleX = group.scale.x;
 
-            if (scaleX < 0.7) {
-                const currScale = scaleX + (0.7 - scaleX) * 0.09;
+            if (scaleX < 0.015) {
+                const currScale = scaleX + (0.015 - scaleX) * 0.09;
                 group.scale.set(currScale, currScale, currScale);
             }
         }
@@ -28,11 +28,11 @@ export default function Movies({
         <>
             {/* Use scale to control the size of the 3D model */}
             <group
-                // ref={groupRef}
+                ref={groupRef}
                 dispose={null}
-                scale={0.014}
+                scale={0.010}
                 // position={[0.02, 0.03, 0]}
-                rotation={[0, Math.PI * 1.3, 0]}
+                rotation={[0, Math.PI * 1.25, 0]}
                 visible={visible}
                 renderOrder={visible ? 1 : 0}
             >

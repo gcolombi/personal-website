@@ -4,10 +4,8 @@
 
 .c-hobbiesTabs {
     --grid-gap-row: 0;
-    // --title-margin-b: 70px;
     --header-margin-t: 70px;
-    --header-margin-b: 0;
-    // --header-margin-b: 70px;
+    --scene-margin-t: 0;
 
     &__index {
         grid-column: 1 / 1;
@@ -19,13 +17,11 @@
 
     &__title {
         grid-column: 3 / -1;
-        margin-bottom: var(--title-margin-b);
     }
 
     &__header {
         grid-column: 1 / -1;
-        // margin: 0 0 var(--header-margin-b);
-        margin: var(--header-margin-t) 0 var(--header-margin-b);
+        margin: var(--header-margin-t) 0 0;
 
         &__control {
             display: flex;
@@ -55,11 +51,11 @@
 
     &__scene {
         grid-column: 1 / -1;
+        margin-top: var(--scene-margin-t);
     }
 
-    &__descriptions {
+    &__header__descriptions, &__descriptions {
         position: relative;
-        grid-column: 1 / -1;
 
         &--element {
             position: absolute;
@@ -79,12 +75,16 @@
         }
     }
 
+    &__descriptions {
+        grid-column: 1 / -1;
+    }
+
     // **---------------------------------------------------**
     // MEDIA QUERIES
 
     @include mediaq('>MD') {
-        // --title-margin-b: 120px;
         --header-margin-t: 120px;
+        --scene-margin-t: 45px;
         --description-margin-t: 70px;
 
         &__title {
@@ -92,31 +92,12 @@
         }
 
         &__header {
-            // grid-column: 4 / -1;
             grid-column: 1 / 7;
 
             &__descriptions {
                 display: block;
-                position: relative;
                 max-width: 422px;
                 margin-top: var(--description-margin-t);
-
-                &--element {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    opacity: 0;
-                    transition: opacity .7s $primary-ease;
-
-                    /* States */
-                    &.is-selected {
-                        position: relative;
-                        top: auto;
-                        left: auto;
-                        opacity: 1;
-                    }
-                }
             }
         }
 
@@ -126,14 +107,10 @@
 
         &__descriptions {
             display: none;
-            // grid-column: 4 / 9;
-            // grid-column: 1 / 4;
         }
     }
 
-    @include mediaq('>XXLG') {
-        &__descriptions {
-            // grid-column: 4 / 7;
-        }
+    @include mediaq('>LG') {
+        --scene-margin-t: 0;
     }
 }

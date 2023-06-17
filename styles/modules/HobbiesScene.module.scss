@@ -5,9 +5,8 @@
 .c-hobbiesScene {
     --scene-height: 66vw;
 
-    // height: 87vw;
     height: var(--scene-height);
-    max-height: 850px;
+    max-height: 768px;
 
     canvas {
         touch-action: none;

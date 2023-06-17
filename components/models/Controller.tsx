@@ -17,8 +17,9 @@ export default function Controller({
         if (visible && group) {
             const scaleX = group.scale.x;
 
-            if (scaleX < 0.7) {
-                const currScale = scaleX + (0.7 - scaleX) * 0.09;
+            if (scaleX < 0.25) {
+                console.log(scaleX);
+                const currScale = scaleX + (0.25 - scaleX) * 0.09;
                 group.scale.set(currScale, currScale, currScale);
             }
         }
@@ -28,9 +29,9 @@ export default function Controller({
         <>
             {/* Use scale to control the size of the 3D model */}
             <group
-                // ref={groupRef}
+                ref={groupRef}
                 dispose={null}
-                scale={0.25}
+                scale={0.15}
                 position={[0.015, 0, 0]}
                 rotation={[0, Math.PI * 1.79, 0]}
                 visible={visible}

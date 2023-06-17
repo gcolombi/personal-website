@@ -17,8 +17,8 @@ export default function Headphone({
         if (visible && group) {
             const scaleX = group.scale.x;
 
-            if (scaleX < 0.7) {
-                const currScale = scaleX + (0.7 - scaleX) * 0.09;
+            if (scaleX < 0.45) {
+                const currScale = scaleX + (0.45 - scaleX) * 0.09;
                 group.scale.set(currScale, currScale, currScale);
             }
         }
@@ -28,9 +28,9 @@ export default function Headphone({
         <>
             {/* Use scale to control the size of the 3D model */}
             <group
-                // ref={groupRef}
+                ref={groupRef}
                 dispose={null}
-                scale={0.40}
+                scale={0.35}
                 position={[0, -0.07, 0]}
                 rotation={[0, Math.PI * 1.79, 0]}
                 visible={visible}
