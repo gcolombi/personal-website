@@ -1,4 +1,4 @@
-import { HobbiesTabs } from "@/types/interests/tabs";
+import { HobbiesTabs } from "@/types/hobbies/tabs";
 import Controller from "@/components/models/Controller";
 import Headphone from "@/components/models/Headphone";
 import Movies from "@/components/models/Movies";

@@ -1,8 +1,8 @@
-import { HobbiesTabsProps } from '@/types/interests/tabs';
+import { HobbiesTabsProps } from '@/types/hobbies/tabs';
 import styles from '@/styles/modules/HobbiesTabs.module.scss';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { Dispatch, SetStateAction, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import useTransitionContext from '@/context/transitionContext';
 import FadeInOut from './shared/gsap/FadeInOut';
 import CharsInOut from './shared/gsap/CharsInOut';
@@ -36,7 +36,10 @@ export default function HobbiesTabs({
 
     return (
         <>
-            <section className={styles['c-hobbiesTabs']}>
+            <section className={classNames(
+                'u-spacing--responsive',
+                styles['c-hobbiesTabs']
+            )}>
                 <div className="o-container">
                     <div className="o-grid">
                         <div className={classNames(
