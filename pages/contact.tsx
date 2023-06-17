@@ -74,8 +74,8 @@ export default function Contact() {
 const Model = ({ visible = true }) => {
     const groupRef = useRef<THREE.Mesh & Group>(null);
 
-    const { scene } = useGLTF('static/models/xbox_controller/source/scene.glb') as unknown as GLTF;
-    // const { scene } = useGLTF('static/models/headphone/headphones.glb') as unknown as GLTF;
+    const { scene } = useGLTF('static/models/controller/source/scene.glb') as unknown as GLTF;
+    // const { scene } = useGLTF('static/models/headphone/scene.glb') as unknown as GLTF;
 
     useFrame(() => {
         const group = groupRef.current;
@@ -99,8 +99,7 @@ const Model = ({ visible = true }) => {
                 // scale={0.65}
                 // position={[0.02, 0.03, 0]}
 
-                // blade runner
-                // scale={0.05}
+                // scale={0.01}
                 // position={[0.02, 0.03, 0]}
 
                 // controller
