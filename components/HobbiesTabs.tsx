@@ -126,10 +126,14 @@ export default function HobbiesTabs({
                             </div>
                         </div>
                         <div className={styles['c-hobbiesTabs__scene']}>
-                            <HobbiesScene
-                                activeIndex={activeId}
-                                models={models}
-                            />
+                            <FadeInOut
+                                watch
+                            >
+                                <HobbiesScene
+                                    activeIndex={activeId}
+                                    models={models}
+                                />
+                            </FadeInOut>
                         </div>
                         <div className={styles['c-hobbiesTabs__descriptions']} ref={tabsWrapperRef}>
                             <FadeInOut

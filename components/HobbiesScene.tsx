@@ -3,10 +3,10 @@ import styles from '@/styles/modules/HobbiesScene.module.scss';
 import { Suspense, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PresentationControls } from '@react-three/drei';
+import FadeInOut from './shared/gsap/FadeInOut';
 
 export default function HobbiesScene({
     activeIndex,
-    className,
     renderDelay = 0,
     models
 }: HobbiesSceneProps) {
@@ -22,7 +22,7 @@ export default function HobbiesScene({
     }, []);
 
     return (
-        <div className={styles['temporary']}>
+        <div className={styles['c-hobbiesScene']}>
             <Canvas camera={{ fov: 2.5 }} dpr={[1, 2]}>
                 <ambientLight intensity={2} />
                 <pointLight intensity={2} position={[-4, 10, 10]} />
@@ -30,10 +30,8 @@ export default function HobbiesScene({
                     {renderScene &&
                         models.map((Model, index) => (
                             <PresentationControls
-                                /* Remount PresentationControls (and Model) to reset rotation and preserve initial animation */
-                                key={
-                                    activeIndex === index ? `active-${index}` : `passive-${index}`
-                                }
+                                /* Remount PresentationControls (and Model) to reset rotation */
+                                key={activeIndex === index ? `active-${index}` : `passive-${index}`}
                                 cursor={true}
                                 global={false}
                                 speed={activeIndex === index ? 2.5 : 0}

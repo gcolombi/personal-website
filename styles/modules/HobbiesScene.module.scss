@@ -2,11 +2,21 @@
     Hobbies scene
 ========================================================================== */
 
-.temporary {
-    height: 87vw;
+.c-hobbiesScene {
+    --scene-height: 66vw;
+
+    // height: 87vw;
+    height: var(--scene-height);
     max-height: 850px;
 
     canvas {
         touch-action: none;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --scene-height: 40vw;
     }
 }
