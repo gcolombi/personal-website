@@ -2,8 +2,8 @@ import { PersonalInterestsProps } from '@/types/interests';
 import styles from '@/styles/modules/PersonalInterests.module.scss';
 import FadeInOut from './shared/gsap/FadeInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
-import classNames from 'classnames';
 import HobbiesTabs from './HobbiesTabs';
+import classNames from 'classnames';
 
 export default function PersonalInterests({
     index,
@@ -14,7 +14,7 @@ export default function PersonalInterests({
             'u-spacing--responsive',
             styles['c-personalInterests']
         )}>
-            <div className="o-container">
+            {/* <div className="o-container">
                 <div className="o-grid">
                     <div className={classNames(
                         'h4',
@@ -54,7 +54,7 @@ export default function PersonalInterests({
                         />
                     </div>
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 }

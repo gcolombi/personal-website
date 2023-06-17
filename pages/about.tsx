@@ -3,6 +3,7 @@ import MetaData from '@/components/MetaData';
 import AboutHeader from '@/components/AboutHeader';
 import AboutIntroduction from '@/components/AboutIntroduction';
 import PersonalInterests from '@/components/PersonalInterests';
+import HobbiesTabs from '@/components/HobbiesTabs';
 import CallToAction from '@/components/CallToAction';
 
 export default function About() {
@@ -13,7 +14,11 @@ export default function About() {
             />
             <AboutHeader />
             <AboutIntroduction />
-            <PersonalInterests
+            {/* <PersonalInterests
+                index="02"
+                tabs={HOBBIES_TABS}
+            /> */}
+            <HobbiesTabs
                 index="02"
                 tabs={HOBBIES_TABS}
             />

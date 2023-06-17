@@ -1,5 +1,6 @@
 /* Hobbies tabs */
 export type HobbiesTabsProps = {
+    index: string;
     tabs: HobbiesTabs;
 }
 

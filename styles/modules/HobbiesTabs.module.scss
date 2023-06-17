@@ -6,9 +6,6 @@
     --grid-gap-row: 0;
     --header-margin-t: 70px;
     --header-margin-b: 70px;
-    --count-padding-t: 0.1em;
-    --count-padding-l: 0.4em;
-    --count-font-size: 20px;
 
     &__index {
         grid-column: 1 / 1;
@@ -16,6 +13,10 @@
         span {
             display: block;
         }
+    }
+
+    &__title {
+        grid-column: 3 / -1;
     }
 
     &__header {
@@ -35,16 +36,6 @@
                 &:hover, &:active, &:focus {
                     opacity: 0.24;
                 }
-            }
-
-            &--count {
-                display: inline-block;
-                font-family: var(--font-heading);
-                font-weight: var(--font-heading-weight);
-                line-height: var(--font-heading-line-height);
-                color: var(--body-heading-color);
-                font-size: var(--count-font-size);
-                padding: var(--count-padding-t) 0 0 var(--count-padding-l);
             }
 
             /* States */
@@ -80,9 +71,11 @@
     // MEDIA QUERIES
 
     @include mediaq('>MD') {
-        --header-margin-t: 0;
-        --count-padding-t: 0.2em;
-        --count-font-size: 28px;
+        --header-margin-t: 120px;
+
+        &__title {
+            grid-column: 4 / 7;
+        }
 
         &__header {
             grid-column: 4 / -1;
@@ -91,10 +84,6 @@
         &__descriptions {
             grid-column: 4 / 9;
         }
-    }
-
-    @include mediaq('>LG') {
-        --count-font-size: 40px;
     }
 
     @include mediaq('>XXLG') {
