@@ -4,9 +4,9 @@ import { useFrame } from '@react-three/fiber';
 import { Group } from 'three';
 import { GLTF } from "three-stdlib";
 
-export default function Movies({ visible = true }) {
+export default function Headphone({ visible = true }) {
     const groupRef = useRef<THREE.Mesh & Group>(null);
-    const { scene } = useGLTF('static/models/movies/the_fifth_element.glb') as unknown as GLTF;
+    const { scene } = useGLTF('static/models/headphone/scene.glb') as unknown as GLTF;
 
     useFrame(() => {
         const group = groupRef.current;
@@ -27,8 +27,8 @@ export default function Movies({ visible = true }) {
             <group
                 // ref={groupRef}
                 dispose={null}
-                scale={0.014}
-                // position={[0.02, 0.03, 0]}
+                scale={0.40}
+                position={[0, -0.07, 0]}
                 rotation={[0, Math.PI * 1.79, 0]}
                 visible={visible}
                 renderOrder={visible ? 1 : 0}
