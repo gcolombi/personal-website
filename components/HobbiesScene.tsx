@@ -22,7 +22,7 @@ export default function HobbiesScene({
     }, []);
 
     return (
-        <div className="temporary-class">
+        <div className={styles['temporary']}>
             <Canvas camera={{ fov: 2.5 }} dpr={[1, 2]}>
                 <ambientLight intensity={2} />
                 <pointLight intensity={2} position={[-4, 10, 10]} />
