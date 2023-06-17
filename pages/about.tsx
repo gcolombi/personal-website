@@ -1,3 +1,4 @@
+import { HOBBIES_TABS } from '@/data/personalInterests.data';
 import MetaData from '@/components/MetaData';
 import AboutHeader from '@/components/AboutHeader';
 import AboutIntroduction from '@/components/AboutIntroduction';
@@ -12,7 +13,10 @@ export default function About() {
             />
             <AboutHeader />
             <AboutIntroduction />
-            <PersonalInterests />
+            <PersonalInterests
+                index="02"
+                tabs={HOBBIES_TABS}
+            />
             <CallToAction
                 index="03"
                 title="Get in touch"

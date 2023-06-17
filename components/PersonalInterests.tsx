@@ -1,3 +1,4 @@
+import { PersonalInterestsProps } from '@/types/interests';
 import styles from '@/styles/modules/PersonalInterests.module.scss';
 import FadeInOut from './shared/gsap/FadeInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
@@ -5,8 +6,9 @@ import classNames from 'classnames';
 import HobbiesTabs from './HobbiesTabs';
 
 export default function PersonalInterests({
-
-}) {
+    index,
+    tabs,
+}: PersonalInterestsProps) {
     return (
         <section className={classNames(
             'u-spacing--responsive',
@@ -22,7 +24,7 @@ export default function PersonalInterests({
                             watch
                         >
                             <span>
-                                02
+                                {index}
                             </span>
                         </FadeInOut>
                     </div>
@@ -47,7 +49,9 @@ export default function PersonalInterests({
                         </TranslateInOut>
                     </div>
                     <div className={styles['c-personalInterests__hobbies']}>
-                        <HobbiesTabs />
+                        <HobbiesTabs
+                            tabs={tabs}
+                        />
                     </div>
                 </div>
             </div>

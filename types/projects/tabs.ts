@@ -1,5 +1,6 @@
 import { ProjectsType } from '.';
 
+/* Projects tabs */
 export type ProjectsTabs = ProjectTab[];
 
 export type ProjectTab = {

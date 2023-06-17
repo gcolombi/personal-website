@@ -1,11 +1,11 @@
-import { Hobbies } from "@/types/interests/hobbies";
+import { HobbiesTabs } from "@/types/interests/tabs";
 import Controller from "@/components/models/Controller";
 import Headphone from "@/components/models/Headphone";
 import Movies from "@/components/models/Movies";
 
 export const MODELS = [Controller, Headphone, Movies];
 
-export const HOBBIES: Hobbies = [
+export const HOBBIES_TABS: HobbiesTabs = [
     {
         id: 0,
         title: "Gaming",
