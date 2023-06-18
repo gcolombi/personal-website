@@ -17,8 +17,8 @@ export default function Headphone({
         if (visible && group) {
             const scaleX = group.scale.x;
 
-            if (scaleX < 0.011) {
-                const currScale = scaleX + (0.011 - scaleX) * 0.09;
+            if (scaleX < 1) {
+                const currScale = scaleX + (1 - scaleX) * 0.09;
                 group.scale.set(currScale, currScale, currScale);
             }
         }
@@ -30,8 +30,7 @@ export default function Headphone({
             <group
                 ref={groupRef}
                 dispose={null}
-                // scale={0.011}
-                scale={0.005}
+                scale={0.5}
                 position={[0, -0.02, 0]}
                 rotation={[0, Math.PI * 1.79, 0]}
                 visible={visible}
@@ -42,7 +41,7 @@ export default function Headphone({
                     <boxGeometry args={[1, 1, 1]} />
                     <meshStandardMaterial opacity={0} transparent />
                 </mesh>
-                <primitive object={scene} />
+                <primitive object={scene} scale={0.011} />
             </group>
         </>
     );

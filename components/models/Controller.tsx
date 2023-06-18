@@ -18,7 +18,6 @@ export default function Controller({
             const scaleX = group.scale.x;
 
             if (scaleX < 0.25) {
-                console.log(scaleX);
                 const currScale = scaleX + (0.25 - scaleX) * 0.09;
                 group.scale.set(currScale, currScale, currScale);
             }

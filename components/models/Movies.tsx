@@ -10,7 +10,8 @@ export default function Movies({
 }: ModelProps) {
     const groupRef = useRef<THREE.Mesh & Group>(null);
     // const { scene } = useGLTF('static/models/movies/the_fifth_element.glb') as unknown as GLTF;
-    const { scene } = useGLTF('static/models/movies/scene.glb') as unknown as GLTF;
+    // const { scene } = useGLTF('static/models/movies/scene.glb') as unknown as GLTF;
+    const { scene } = useGLTF('static/models/movies/tie_fighter.glb') as unknown as GLTF;
 
     useFrame(() => {
         const group = groupRef.current;
@@ -22,6 +23,11 @@ export default function Movies({
                 const currScale = scaleX + (0.01 - scaleX) * 0.09;
                 group.scale.set(currScale, currScale, currScale);
             }
+
+            // if (scaleX < 0.018) {
+            //     const currScale = scaleX + (0.018 - scaleX) * 0.09;
+            //     group.scale.set(currScale, currScale, currScale);
+            // }
         }
     });
 
@@ -29,15 +35,17 @@ export default function Movies({
         <>
             {/* Use scale to control the size of the 3D model */}
             <group
-                ref={groupRef}
+                // ref={groupRef}
                 dispose={null}
                 // scale={0.010}
 
-                scale={0.005}
+                scale={0.02}
 
                 // position={[0.02, -0.08, 0]}
 
-                rotation={[0, Math.PI * 1.8, 0]}
+                // rotation={[0, Math.PI * 0.8, 0]}
+
+                // rotation={[-0.2, Math.PI * 1.85, -0.3]}
 
                 // rotation={[0, Math.PI * 1.25, 0]}
                 visible={visible}
