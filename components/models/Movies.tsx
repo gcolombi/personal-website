@@ -9,7 +9,8 @@ export default function Movies({
     visible = true
 }: ModelProps) {
     const groupRef = useRef<THREE.Mesh & Group>(null);
-    const { scene } = useGLTF('static/models/movies/the_fifth_element.glb') as unknown as GLTF;
+    // const { scene } = useGLTF('static/models/movies/the_fifth_element.glb') as unknown as GLTF;
+    const { scene } = useGLTF('static/models/movies/scene.glb') as unknown as GLTF;
 
     useFrame(() => {
         const group = groupRef.current;
@@ -17,8 +18,8 @@ export default function Movies({
         if (visible && group) {
             const scaleX = group.scale.x;
 
-            if (scaleX < 0.015) {
-                const currScale = scaleX + (0.015 - scaleX) * 0.09;
+            if (scaleX < 0.01) {
+                const currScale = scaleX + (0.01 - scaleX) * 0.09;
                 group.scale.set(currScale, currScale, currScale);
             }
         }
@@ -30,9 +31,15 @@ export default function Movies({
             <group
                 ref={groupRef}
                 dispose={null}
-                scale={0.010}
-                // position={[0.02, 0.03, 0]}
-                rotation={[0, Math.PI * 1.25, 0]}
+                // scale={0.010}
+
+                scale={0.005}
+
+                // position={[0.02, -0.08, 0]}
+
+                rotation={[0, Math.PI * 1.8, 0]}
+
+                // rotation={[0, Math.PI * 1.25, 0]}
                 visible={visible}
                 renderOrder={visible ? 1 : 0}
             >

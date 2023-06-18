@@ -17,8 +17,8 @@ export default function Headphone({
         if (visible && group) {
             const scaleX = group.scale.x;
 
-            if (scaleX < 0.45) {
-                const currScale = scaleX + (0.45 - scaleX) * 0.09;
+            if (scaleX < 0.011) {
+                const currScale = scaleX + (0.011 - scaleX) * 0.09;
                 group.scale.set(currScale, currScale, currScale);
             }
         }
@@ -30,8 +30,9 @@ export default function Headphone({
             <group
                 ref={groupRef}
                 dispose={null}
-                scale={0.35}
-                position={[0, -0.07, 0]}
+                // scale={0.011}
+                scale={0.005}
+                position={[0, -0.02, 0]}
                 rotation={[0, Math.PI * 1.79, 0]}
                 visible={visible}
                 renderOrder={visible ? 1 : 0}

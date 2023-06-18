@@ -1,5 +1,5 @@
 import { ModelProps } from '@/types/hobbies/models';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { Group } from 'three';
