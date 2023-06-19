@@ -1,4 +1,4 @@
-import { SocialMedias } from '@/types/socials';
+import { FooterProps } from '@/types/components/global';
 import styles from '@/styles/modules/Footer.module.scss';
 import { gsap } from 'gsap';
 import useTransitionContext from '@/context/transitionContext';
@@ -8,10 +8,10 @@ import Button from './shared/Button';
 import classNames from 'classnames';
 
 export default function Footer({
-    socialMedias
-}: {
-    socialMedias: SocialMedias
-}) {
+    title,
+    socialMedias,
+    copyright
+}: FooterProps) {
     const { timeline, primaryEase, footerRef } = useTransitionContext();
 
     useIsomorphicLayoutEffect(() => {
@@ -60,8 +60,8 @@ export default function Footer({
 
                     <div className={styles['c-footer__title']}>
                         <div className={styles['c-footer__title--name']}>
-                            <Link href="/" aria-label="Gerard Colombi" scroll={false}>
-                                Gerard Colombi
+                            <Link href="/" aria-label={process.env.NEXT_PUBLIC_SITE_NAME} scroll={false}>
+                                {process.env.NEXT_PUBLIC_SITE_NAME}
                             </Link>
                         </div>
                         <div className={classNames
@@ -70,7 +70,7 @@ export default function Footer({
                                 styles['c-footer__title--jobTitle']
                             )}
                         >
-                            <p>Front-end developer</p>
+                            <p>{title}</p>
                         </div>
                     </div>
                     <div className={styles['c-footer__socialLinks']}>
@@ -98,7 +98,7 @@ export default function Footer({
                             'o-wysiwyg',
                             styles['c-footer__copyright--text']
                         )}>
-                            <p>All rights reserved</p>
+                            <p>{copyright}</p>
                         </div>
                     </div>
                 </div>

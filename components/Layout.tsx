@@ -1,3 +1,4 @@
+import { FOOTER } from '@/data/global.data';
 import { SOCIAL_MEDIAS } from '@/data/socialMedias.data';
 import { ReactNode } from 'react';
 import TransitionLayout from './TransitionLayout';
@@ -15,6 +16,7 @@ export default function Layout({
             <main>
                 {children}
                 <Footer
+                    {...FOOTER}
                     socialMedias={SOCIAL_MEDIAS}
                 />
             </main>

@@ -1,9 +1,21 @@
+import { SocialMedias } from '../socials';
+
 /* Meta data */
 export type MetaDataProps = {
     title?: string;
     description?: string;
     image?: string;
     type?: string;
+}
+
+/* Footer */
+export type FooterProps = {
+    socialMedias: SocialMedias;
+} & FooterContent;
+
+export type FooterContent = {
+    title: string;
+    copyright: string;
 }
 
 /* Call to action */
