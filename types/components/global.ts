@@ -15,6 +15,14 @@ export type MetaDataProps = {
     type?: string;
 }
 
+/* Navigation item */
+export type NavItemProps = {
+    href: string;
+    title: string;
+    onClick?: () => void;
+    className: string;
+}
+
 /* Footer */
 export type FooterProps = {
     socialMedias: SocialMedias;
