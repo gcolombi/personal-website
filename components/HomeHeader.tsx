@@ -1,12 +1,20 @@
+import { HomeHeaderProps } from '@/types/components/headers';
 import styles from '@/styles/modules/HomeHeader.module.scss';
 import CharsInOut from "./shared/gsap/CharsInOut";
 import ClipPathInOut from './shared/gsap/ClipPathInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
 import Image from 'next/image';
+import { slugify } from '@/utils/string';
 import classNames from 'classnames';
 
-export default function HomeHeader() {
+export default function HomeHeader({
+    titles,
+    subfield,
+    image,
+    content,
+    name
+}: HomeHeaderProps) {
     return (
         <section className={styles['c-homeHeader']}>
             <div className={classNames(
@@ -19,22 +27,17 @@ export default function HomeHeader() {
                 )}>
                     <div className={styles['c-homeHeader__title']}>
                         <h1 className="u-margin--none">
-                            <CharsInOut
-                                delay={0.46}
-                                target="#job-type"
-                            >
-                                <span id="job-type">
-                                    Front-end
-                                </span>
-                            </CharsInOut>
-                            <CharsInOut
-                                delay={0.46}
-                                target="#job-title"
-                            >
-                                <span id="job-title">
-                                    Developer
-                                </span>
-                            </CharsInOut>
+                            {titles.map((title, i) => (
+                                <CharsInOut
+                                    key={i}
+                                    delay={0.46}
+                                    target={`#${slugify(title)}`}
+                                >
+                                    <span id={slugify(title)}>
+                                        {title}
+                                    </span>
+                                </CharsInOut>
+                            ))}
                         </h1>
                         <div className="u-overflow--hidden">
                             <TranslateInOut
@@ -43,7 +46,7 @@ export default function HomeHeader() {
                                 y="100%"
                             >
                                 <div className={styles['c-homeHeader__title--subfield']}>
-                                    <h2 className="h4 u-margin--none u-uppercase">Full stack capable</h2>
+                                    <h2 className="h4 u-margin--none u-uppercase">{subfield}</h2>
                                 </div>
                             </TranslateInOut>
                         </div>
@@ -57,8 +60,8 @@ export default function HomeHeader() {
                             <div className={styles['c-homeHeader__media--img']}>
                                 <picture>
                                     <Image
-                                        alt="Gerard Colombi"
-                                        src="/static/images/home-portrait.jpg"
+                                        alt={name.join(' ')}
+                                        src={image}
                                         width={384}
                                         height={503}
                                         priority
@@ -73,28 +76,23 @@ export default function HomeHeader() {
                             target="#text"
                         >
                             <div className="o-wysiwyg u-uppercase">
-                                <p id="text">Maker of things with passion and excellence</p>
+                                <p id="text">{content}</p>
                             </div>
                         </LinesInOut>
                     </div>
                     <div className={styles['c-homeHeader__name']}>
                         <h2 className="h1 u-margin--none">
-                            <CharsInOut
-                                delay={0.46}
-                                target="#firstname"
-                            >
-                                <span id="firstname">
-                                    Gerard
-                                </span>
-                            </CharsInOut>
-                            <CharsInOut
-                                delay={0.46}
-                                target="#lastname"
-                            >
-                                <span id="lastname">
-                                    Colombi
-                                </span>
-                            </CharsInOut>
+                            {name.map((element, i) => (
+                                <CharsInOut
+                                    key={i}
+                                    delay={0.46}
+                                    target={`#${slugify(element)}`}
+                                >
+                                    <span id={slugify(element)}>
+                                        {element}
+                                    </span>
+                                </CharsInOut>
+                            ))}
                         </h2>
                     </div>
                 </div>
