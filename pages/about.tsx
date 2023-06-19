@@ -1,4 +1,4 @@
-import { ABOUT_HEADER } from '@/data/about.data';
+import { ABOUT_HEADER, ABOUT_INTRODUCTION } from '@/data/about.data';
 import { HOBBIES_TABS, MODELS } from '@/data/hobbies.data';
 import MetaData from '@/components/MetaData';
 import AboutHeader from '@/components/AboutHeader';
@@ -12,8 +12,13 @@ export default function About() {
             <MetaData
                 title="About | Gerard Colombi"
             />
-            <AboutHeader {...ABOUT_HEADER} />
-            <AboutIntroduction />
+            <AboutHeader
+                {...ABOUT_HEADER}
+            />
+            <AboutIntroduction
+                index="01"
+                {...ABOUT_INTRODUCTION}
+            />
             <HobbiesTabs
                 index="02"
                 tabs={HOBBIES_TABS}

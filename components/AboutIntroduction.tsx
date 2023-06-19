@@ -1,3 +1,4 @@
+import { AboutIntroductionProps } from '@/types/components/introductions';
 import styles from '@/styles/modules/AboutIntroduction.module.scss';
 import FadeInOut from './shared/gsap/FadeInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
@@ -5,7 +6,11 @@ import ClipPathInOut from './shared/gsap/ClipPathInOut';
 import Image from 'next/image';
 import classNames from 'classnames';
 
-export default function AboutIntroduction() {
+export default function AboutIntroduction({
+    index,
+    content,
+    image
+}: AboutIntroductionProps) {
     return (
         <section className={classNames(
             'u-spacing--responsive',
@@ -21,25 +26,20 @@ export default function AboutIntroduction() {
                             watch
                         >
                             <span>
-                                01
+                                {index}
                             </span>
                         </FadeInOut>
                     </div>
                     <div className={styles['c-aboutIntroduction__content']}>
-                        <LinesInOut
-                            target="#title-begin"
-                            watch
-                        >
-                            <p id="title-begin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt alias cumque odit quod aut? Molestiae labore deleniti aperiam commodi quos, nam id, tenetur illo sit iste, vel iure. Nulla, eius. Molestiae labore deleniti aperiam modus.</p>
-                        </LinesInOut>
-                        <LinesInOut
-                            target="#title-end"
-                            watch
-                        >
-                            <div className="o-wysiwyg">
-                                <p id="title-end">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quos doloribus maiores laboriosam aspernatur voluptatibus.</p>
-                            </div>
-                        </LinesInOut>
+                        {content.map((element, i) => (
+                            <LinesInOut
+                                key={i}
+                                target={`#content-${i}`}
+                                watch
+                            >
+                                <p id={`content-${i}`}>{element}</p>
+                            </LinesInOut>
+                        ))}
                     </div>
                     <div className={styles['c-aboutIntroduction__media']}>
                         <ClipPathInOut
@@ -51,7 +51,7 @@ export default function AboutIntroduction() {
                                 <picture>
                                     <Image
                                         alt="Gerard Colombi"
-                                        src="/static/images/about-portrait.jpg"
+                                        src={image}
                                         width={423}
                                         height={555}
                                         priority
