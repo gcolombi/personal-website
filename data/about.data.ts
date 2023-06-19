@@ -1,5 +1,10 @@
+import { MetaDataProps } from '@/types/components/global';
 import { AboutHeaderProps } from '@/types/components/headers';
 import { AboutIntroductionContent } from '@/types/components/introductions';
+
+export const META_ABOUT: MetaDataProps = {
+    title: 'About'
+}
 
 export const ABOUT_HEADER: AboutHeaderProps = {
     titles: ['Passionate', 'Front-end', 'Developer'],

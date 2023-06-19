@@ -1,4 +1,4 @@
-import { ABOUT_HEADER, ABOUT_INTRODUCTION } from '@/data/about.data';
+import { ABOUT_HEADER, ABOUT_INTRODUCTION, META_ABOUT } from '@/data/about.data';
 import { HOBBIES_TABS, MODELS } from '@/data/hobbies.data';
 import { CALL_TO_ACTION } from '@/data/global.data';
 import MetaData from '@/components/MetaData';
@@ -11,7 +11,7 @@ export default function About() {
     return (
         <>
             <MetaData
-                title="About | Gerard Colombi"
+                {...META_ABOUT}
             />
             <AboutHeader
                 {...ABOUT_HEADER}
