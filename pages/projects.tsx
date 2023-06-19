@@ -1,4 +1,4 @@
-import { PERSONAL_PROJECTS, PROJECTS, PROJECTS_TABS } from '@/data/projects.data';
+import { META_PROJECTS, PERSONAL_PROJECTS, PROJECTS, PROJECTS_TABS } from '@/data/projects.data';
 import { CALL_TO_ACTION } from '@/data/global.data';
 import { ProjectsType } from '@/types/projects';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -37,7 +37,7 @@ export default function Projects() {
     return (
         <>
             <MetaData
-                title="Projects | Gerard Colombi"
+                {...META_PROJECTS}
             />
             <ProjectsTabs
                 index="01"

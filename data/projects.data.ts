@@ -1,7 +1,12 @@
+import { MetaDataProps } from '@/types/components/global';
 import { ProjectsTabs } from '@/types/projects/tabs';
 import { ProjectProps, Projects, ProjectsType } from '@/types/projects';
 import { toTwoDigits } from '@/utils/number';
 import { randomItem } from '@/utils/array';
+
+export const META_PROJECTS: MetaDataProps = {
+    title: `Projects | ${process.env.NEXT_PUBLIC_SITE_NAME}`
+};
 
 export const PROJECTS: Projects = [
     {
