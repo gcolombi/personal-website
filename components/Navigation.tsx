@@ -1,3 +1,4 @@
+import { NavigationProps } from '@/types/components/global';
 import styles from '@/styles/modules/Navigation.module.scss';
 import { gsap } from 'gsap';
 import Link from 'next/link';
@@ -10,7 +11,9 @@ import { useTheme } from 'next-themes';
 import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
 
-export default function Navigation() {
+export default function Navigation({
+    socialMedias
+}: NavigationProps) {
     const { timeline, primaryEase } = useTransitionContext();
     const { navigationRef, open, toggle } = useNavigationContext();
     const [headerRef, { height }] = useElementSize();
@@ -120,7 +123,9 @@ export default function Navigation() {
                     </div>
                 </div>
             </header>
-            <MobileNavigation />
+            <MobileNavigation
+                socialMedias={socialMedias}
+            />
         </>
     );
 }

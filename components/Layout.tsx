@@ -12,7 +12,9 @@ export default function Layout({
 }) {
     return (
         <TransitionLayout>
-            <Navigation />
+            <Navigation
+                socialMedias={SOCIAL_MEDIAS}
+            />
             <main>
                 {children}
                 <Footer

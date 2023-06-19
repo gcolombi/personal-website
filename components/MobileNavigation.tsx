@@ -1,3 +1,4 @@
+import { MobileNavigationProps } from '@/types/components/global';
 import styles from '@/styles/modules/MobileNavigation.module.scss';
 import { gsap } from 'gsap';
 import SplitText from 'gsap/dist/SplitText';
@@ -12,7 +13,9 @@ if (typeof window !== 'undefined') {
     gsap.registerPlugin(SplitText);
 }
 
-export default function MobileNavigation() {
+export default function MobileNavigation({
+    socialMedias
+}: MobileNavigationProps) {
     const { primaryEase } = useTransitionContext();
     const { mobileNavRef, open } = useNavigationContext();
     const navItemsRef = useRef<HTMLAnchorElement[] | null[]>([]);
@@ -103,33 +106,17 @@ export default function MobileNavigation() {
                 </nav>
                 <div className={styles['c-mobileNav__footer']}>
                     <ul ref={navSocialsRef}>
-                        <li>
-                            <a
-                                href="https://www.instagram.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Instagram
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Twitter
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="https://github.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Github
-                            </a>
-                        </li>
+                        {socialMedias.map(({ title, url }, i) => (
+                            <li key={i}>
+                                <a
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {title}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>

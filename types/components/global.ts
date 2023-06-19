@@ -15,12 +15,20 @@ export type MetaDataProps = {
     type?: string;
 }
 
-/* Navigation item */
+/* Navigation */
 export type NavItemProps = {
     href: string;
     title: string;
     onClick?: () => void;
     className: string;
+}
+
+export type NavigationProps = {
+    socialMedias: SocialMedias;
+}
+
+export type MobileNavigationProps = {
+    socialMedias: SocialMedias;
 }
 
 /* Footer */
