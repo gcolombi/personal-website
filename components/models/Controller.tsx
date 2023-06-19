@@ -9,7 +9,7 @@ export default function Controller({
     visible
 }: ModelProps) {
     const groupRef = useRef<THREE.Mesh & Group>(null);
-    const { scene } = useGLTF('static/models/controller/source/scene.glb') as unknown as GLTF;
+    const { scene } = useGLTF('static/models/controller/xbox.glb') as unknown as GLTF;
 
     useFrame(() => {
         const group = groupRef.current;

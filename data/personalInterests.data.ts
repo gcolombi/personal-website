@@ -21,7 +21,7 @@ export const HOBBIES_TABS: HobbiesTabs = [
     },
     {
         id: 2,
-        title: 'Movies',
+        title: 'Cinema',
         // title: 'Films',
         description: 'Cursus mattis molestie a iaculis at erat pellentesque adipiscing. Non odio euismod lacinia at quis risus sed vulputate odio. Vitae justo eget magna fermentum iaculis eu non.'
     }
