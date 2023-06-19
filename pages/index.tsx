@@ -5,6 +5,7 @@ import HomeHeader from '@/components/HomeHeader';
 import HomeIntroduction from '@/components/HomeIntroduction';
 import HomeFeaturedProject from '@/components/HomeFeaturedProject';
 import CallToAction from '@/components/CallToAction';
+import { HOME_FEATURED_PROJECT_CONTENT } from '@/data/home.data';
 
 export default function Home() {
     return (
@@ -14,10 +15,10 @@ export default function Home() {
             <HomeIntroduction />
             <HomeFeaturedProject
                 index="02"
-                title="Featured work"
+                title={HOME_FEATURED_PROJECT_CONTENT.title}
                 project={FEATURED_PROJECT}
                 button={{
-                    label: 'Sell all projects',
+                    ...HOME_FEATURED_PROJECT_CONTENT.button,
                     href: {
                         pathname: '/projects',
                         query: {

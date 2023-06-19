@@ -51,7 +51,10 @@ export const PERSONAL_PROJECTS: Projects = [
     }
 ];
 
-export const FEATURED_PROJECT: ProjectProps = randomItem(PROJECTS);
+export const FEATURED_PROJECT: ProjectProps = {
+    ...randomItem(PROJECTS),
+    type: ProjectsType.PROJECTS
+};
 
 export const LATEST_PERSONAL_PROJECT: ProjectProps = {
     title: 'Linklist',

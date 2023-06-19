@@ -1,5 +1,4 @@
-import { ProjectProps } from '@/types/projects';
-import { ButtonProps } from '@/types/components/button';
+import { HomeFeaturedProjectProps } from '@/types/components/sections';
 import styles from '@/styles/modules/HomeFeaturedProject.module.scss';
 import Project from './Project';
 import Button from './shared/Button';
@@ -12,12 +11,7 @@ export default function HomeFeaturedProject({
     title,
     project,
     button
-}: {
-    index: string;
-    title: string;
-    project: ProjectProps;
-    button?: ButtonProps
-}) {
+}: HomeFeaturedProjectProps) {
     return(
         <section className={classNames(
             'u-spacing--responsive',
