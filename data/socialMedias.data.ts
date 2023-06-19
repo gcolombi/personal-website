@@ -13,4 +13,4 @@ export const SOCIAL_MEDIAS: SocialMedias = [
         title: 'Instagram',
         url: 'https://www.instagram.com/gerardcolombi'
     }
-]
+];

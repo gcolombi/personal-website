@@ -4,12 +4,12 @@ import { AboutIntroductionContent } from '@/types/components/introductions';
 
 export const META_ABOUT: MetaDataProps = {
     title: `About | ${process.env.NEXT_PUBLIC_SITE_NAME}`
-}
+};
 
 export const ABOUT_HEADER: AboutHeaderProps = {
     titles: ['Passionate', 'Front-end', 'Developer'],
     image: '/static/images/about-header.jpg'
-}
+};
 
 export const ABOUT_INTRODUCTION: AboutIntroductionContent = {
     content: [
@@ -17,4 +17,4 @@ export const ABOUT_INTRODUCTION: AboutIntroductionContent = {
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quos doloribus maiores laboriosam aspernatur voluptatibus.'
     ],
     image: '/static/images/about-portrait.jpg'
-}
+};
