@@ -2,8 +2,7 @@ import { HobbiesSceneProps } from '@/types/hobbies/scene';
 import styles from '@/styles/modules/HobbiesScene.module.scss';
 import { Suspense, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { PresentationControls } from '@react-three/drei';
-import FadeInOut from './shared/gsap/FadeInOut';
+import { Preload, PresentationControls } from '@react-three/drei';
 
 export default function HobbiesScene({
     activeIndex,
@@ -41,6 +40,7 @@ export default function HobbiesScene({
                         ))
                     }
                 </Suspense>
+                <Preload all />
             </Canvas>
         </div>
     );
