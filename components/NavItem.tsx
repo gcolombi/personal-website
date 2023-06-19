@@ -1,3 +1,4 @@
+import { NavItemProps } from '@/types/components/global';
 import Link from 'next/link';
 import useNavigationContext from '@/context/navigationContext';
 import { ForwardedRef, forwardRef } from 'react';
@@ -8,12 +9,7 @@ function NavItem({
     title,
     onClick,
     className
-}: {
-    href: string;
-    title: string;
-    onClick?: () => void;
-    className: string;
-}, ref: ForwardedRef<HTMLAnchorElement>) {
+}: NavItemProps, ref: ForwardedRef<HTMLAnchorElement>) {
     const { currentRoute } = useNavigationContext();
     const isActive = currentRoute === href;
 
