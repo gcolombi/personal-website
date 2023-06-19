@@ -1,5 +1,4 @@
-import { HOBBIES_TABS } from '@/data/personalInterests.data';
-import { MODELS } from '@/data/personalInterests.data';
+import { HOBBIES_TABS, MODELS } from '@/data/hobbies.data';
 import MetaData from '@/components/MetaData';
 import AboutHeader from '@/components/AboutHeader';
 import AboutIntroduction from '@/components/AboutIntroduction';

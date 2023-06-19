@@ -30,7 +30,7 @@ export default function Movies({
             <group
                 ref={groupRef}
                 dispose={null}
-                scale={0.20}
+                scale={0.2}
                 position={[0, -0.072, 0]}
                 rotation={[0, Math.PI * 1.85, 0]}
                 visible={visible}

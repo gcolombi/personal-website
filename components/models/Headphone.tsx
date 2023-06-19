@@ -41,7 +41,7 @@ export default function Headphone({
                     <boxGeometry args={[1, 1, 1]} />
                     <meshStandardMaterial opacity={0} transparent />
                 </mesh>
-                <primitive object={scene} scale={0.011} />
+                <primitive object={scene} scale={0.012} />
             </group>
         </>
     );
