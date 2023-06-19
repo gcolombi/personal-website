@@ -1,4 +1,11 @@
+import { Dispatch, SetStateAction } from 'react';
 import { SocialMedias } from '../socials';
+
+/* Loader */
+export type LoaderProps = {
+    setIsLoading: Dispatch<SetStateAction<boolean>>;
+    setIsReady: Dispatch<SetStateAction<boolean>>;
+}
 
 /* Meta data */
 export type MetaDataProps = {

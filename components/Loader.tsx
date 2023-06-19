@@ -1,7 +1,8 @@
+import { LoaderProps } from '@/types/components/global';
 import styles from '@/styles/modules/Loader.module.scss';
 import gsap from 'gsap';
 import CustomEase from 'gsap/dist/CustomEase';
-import { Dispatch, SetStateAction, useRef } from 'react';
+import { useRef } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 
 if (typeof window !== 'undefined') {
@@ -11,10 +12,7 @@ if (typeof window !== 'undefined') {
 export default function Loader({
     setIsLoading,
     setIsReady
-}: {
-    setIsLoading: Dispatch<SetStateAction<boolean>>;
-    setIsReady: Dispatch<SetStateAction<boolean>>;
-}) {
+}: LoaderProps) {
     const loaderRef = useRef<HTMLDivElement>(null);
 
     useIsomorphicLayoutEffect(() => {
