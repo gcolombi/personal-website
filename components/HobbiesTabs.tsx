@@ -13,6 +13,7 @@ import classNames from 'classnames';
 
 export default function HobbiesTabs({
     index,
+    title,
     tabs,
     models
 }: HobbiesTabsProps) {
@@ -72,7 +73,7 @@ export default function HobbiesTabs({
                                     'h4',
                                     'u-margin--none',
                                 )}>
-                                    Personal Interests
+                                    {title}
                                 </h2>
                             </TranslateInOut>
                         </div>

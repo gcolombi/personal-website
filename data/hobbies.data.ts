@@ -6,6 +6,8 @@ import { Models } from '@/types/hobbies/models';
 
 export const MODELS: Models = [Controller, Headphone, Movies];
 
+export const HOBBIES_TITLE: string = 'Personal interests';
+
 export const HOBBIES_TABS: HobbiesTabs = [
     {
         id: 0,
