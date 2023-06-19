@@ -3,7 +3,7 @@ import { AboutHeaderProps } from '@/types/components/headers';
 import { AboutIntroductionContent } from '@/types/components/introductions';
 
 export const META_ABOUT: MetaDataProps = {
-    title: 'About'
+    title: `About | ${process.env.NEXT_PUBLIC_SITE_NAME}`
 }
 
 export const ABOUT_HEADER: AboutHeaderProps = {
