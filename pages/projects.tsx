@@ -1,4 +1,5 @@
 import { PERSONAL_PROJECTS, PROJECTS, PROJECTS_TABS } from '@/data/projects.data';
+import { CALL_TO_ACTION } from '@/data/global.data';
 import { ProjectsType } from '@/types/projects';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
@@ -47,7 +48,8 @@ export default function Projects() {
             />
             <CallToAction
                 index="02"
-                title="Get in touch"
+                {...CALL_TO_ACTION}
+                buttonHref="/about"
             />
         </>
     );

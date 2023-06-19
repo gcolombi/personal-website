@@ -1,5 +1,6 @@
 import { ABOUT_HEADER, ABOUT_INTRODUCTION } from '@/data/about.data';
 import { HOBBIES_TABS, MODELS } from '@/data/hobbies.data';
+import { CALL_TO_ACTION } from '@/data/global.data';
 import MetaData from '@/components/MetaData';
 import AboutHeader from '@/components/AboutHeader';
 import AboutIntroduction from '@/components/AboutIntroduction';
@@ -26,7 +27,8 @@ export default function About() {
             />
             <CallToAction
                 index="03"
-                title="Get in touch"
+                {...CALL_TO_ACTION}
+                buttonHref="/about"
             />
         </>
     );

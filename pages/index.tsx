@@ -1,4 +1,5 @@
 import { FEATURED_PROJECT, LATEST_PERSONAL_PROJECT } from '@/data/projects.data';
+import { CALL_TO_ACTION } from '@/data/global.data';
 import MetaData from '@/components/MetaData';
 import HomeHeader from '@/components/HomeHeader';
 import HomeIntroduction from '@/components/HomeIntroduction';
@@ -43,7 +44,8 @@ export default function Home() {
             />
             <CallToAction
                 index="04"
-                title="Get in touch"
+                {...CALL_TO_ACTION}
+                buttonHref="/about"
             />
         </>
     )

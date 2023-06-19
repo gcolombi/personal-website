@@ -1,3 +1,4 @@
+import { CallToActionProps } from '@/types/components/global';
 import styles from '@/styles/modules/CallToAction.module.scss';
 import Link from 'next/link';
 import CharsInOut from './shared/gsap/CharsInOut';
@@ -7,11 +8,10 @@ import classNames from 'classnames';
 
 export default function CallToAction({
     index,
-    title
-}: {
-    index: string;
-    title: string;
-}) {
+    title,
+    buttonLabel,
+    buttonHref
+}: CallToActionProps) {
     return(
         <section className={classNames(
             'u-spacing--responsive',
@@ -52,14 +52,14 @@ export default function CallToAction({
                         </TranslateInOut>
                     </div>
                     <div className={styles['c-callToAction__link']}>
-                        <Link href="/contact" className="h1 u-animatedLink" scroll={false}>
+                        <Link href={buttonHref} className="h1 u-animatedLink" scroll={false}>
                             <CharsInOut
                                 target="#call-to-action"
                                 watch
                                 isLink
                             >
                                 <span id="call-to-action">
-                                    Contact me
+                                    {buttonLabel}
                                 </span>
                             </CharsInOut>
                         </Link>
