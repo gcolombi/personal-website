@@ -71,8 +71,8 @@ export default function Navigation({
                 <div className="o-container">
                     <div className={styles['c-navigation__row']}>
                         <div className={styles['c-navigation__logo']}>
-                            <Link href="/" aria-label="Gerard Colombi" scroll={false}>
-                                Gerard Colombi
+                            <Link href="/" aria-label={process.env.NEXT_PUBLIC_SITE_NAME} scroll={false}>
+                                {process.env.NEXT_PUBLIC_SITE_NAME}
                             </Link>
                         </div>
                         <div className={styles['c-navigation__switcher']}>

@@ -1,4 +1,4 @@
-import { ButtonProps } from '@/types/components/button';
+import { BasicHeaderProps } from '@/types/components/headers';
 import styles from '@/styles/modules/BasicHeader.module.scss';
 import Button from './shared/Button';
 import CharsInOut from './shared/gsap/CharsInOut';
@@ -9,15 +9,10 @@ import classNames from 'classnames';
 
 export default function BasicHeader({
     title,
-    wysiwyg,
+    content,
     button,
     className
-}: {
-    title: string;
-    wysiwyg?: string;
-    button?: ButtonProps;
-    className?: string;
-}) {
+}: BasicHeaderProps) {
     return (
         <>
             {title &&
@@ -43,13 +38,13 @@ export default function BasicHeader({
                                 </h1>
                             </div>
                             <div className={classNames(styles['c-basicHeader__content'])}>
-                                {wysiwyg &&
+                                {content &&
                                     <LinesInOut
                                         delay={0.53}
                                         target={`#${slugify(title)}-intro`}
                                     >
                                         <div className="o-wysiwyg">
-                                            <p id={`${slugify(title)}-intro`}>{wysiwyg}</p>
+                                            <p id={`${slugify(title)}-intro`}>{content}</p>
                                         </div>
                                     </LinesInOut>
                                 }
@@ -58,13 +53,7 @@ export default function BasicHeader({
                                         delay={0.60}
                                     >
                                         <Button
-                                            label={button.label}
-                                            href={button.href}
-                                            isExternal={button.isExternal}
-                                            externalHref={button.externalHref}
-                                            anchor={button.anchor}
-                                            onClick={button.onClick}
-                                            className={button.className}
+                                            {...button}
                                             wrapperClassName={styles['c-basicHeader__btn']}
                                         />
                                     </FadeInOut>

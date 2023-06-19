@@ -1,3 +1,4 @@
+import { META_404, PAGE_NOT_FOUND_HEADER } from '@/data/global.data';
 import BasicHeader from '@/components/BasicHeader';
 import MetaData from '@/components/MetaData';
 
@@ -5,15 +6,11 @@ export default function PageNotFound() {
     return (
         <>
             <MetaData
-                title="404 | Gerard Colombi"
+                {...META_404}
             />
             <BasicHeader
-                title="Page not found"
-                wysiwyg="Cannot read properties of undefined. The page you are looking for could not be found."
-                button={{
-                    label: 'Please get me out of here',
-                    href: '/'
-                }}
+                {...PAGE_NOT_FOUND_HEADER}
+                button={PAGE_NOT_FOUND_HEADER?.button ? {...PAGE_NOT_FOUND_HEADER.button, href: '/'} : undefined}
                 className="c-basicHeader--fullHeight"
             />
         </>
