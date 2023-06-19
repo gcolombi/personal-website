@@ -9,6 +9,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     icon?: boolean;
     anchor?: string;
     onClick?: () => void;
-    className: string;
+    className?: string;
     wrapperClassName?: string;
 }

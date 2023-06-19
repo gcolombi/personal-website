@@ -12,8 +12,7 @@ export default function PageNotFound() {
                 wysiwyg="Cannot read properties of undefined. The page you are looking for could not be found."
                 button={{
                     label: 'Please get me out of here',
-                    href: '/',
-                    className: 'c-btn'
+                    href: '/'
                 }}
                 className="c-basicHeader--fullHeight"
             />

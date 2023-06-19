@@ -9,5 +9,5 @@ export type HomeFeaturedProjectProps = {
 
 export type HomeFeaturedProjectContent = {
     title: string;
-    button?: ButtonProps;
+    button: ButtonProps;
 }

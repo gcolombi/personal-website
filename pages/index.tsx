@@ -1,4 +1,4 @@
-import { HOME_FEATURED_PROJECT_CONTENT, HOME_HEADER, HOME_LATEST_PROJECT_CONTENT } from '@/data/home.data';
+import { HOME_FEATURED_PROJECT_CONTENT, HOME_HEADER, HOME_INTRODUCTION, HOME_LATEST_PROJECT_CONTENT } from '@/data/home.data';
 import { FEATURED_PROJECT, LATEST_PERSONAL_PROJECT } from '@/data/projects.data';
 import { CALL_TO_ACTION } from '@/data/global.data';
 import MetaData from '@/components/MetaData';
@@ -11,8 +11,17 @@ export default function Home() {
     return (
         <>
             <MetaData />
-            <HomeHeader {...HOME_HEADER} />
-            <HomeIntroduction />
+            <HomeHeader
+                {...HOME_HEADER}
+            />
+            <HomeIntroduction
+                index="01"
+                {...HOME_INTRODUCTION}
+                button={{
+                    ...HOME_INTRODUCTION.button,
+                    href: '/about'
+                }}
+            />
             <HomeFeaturedProject
                 index="02"
                 title={HOME_FEATURED_PROJECT_CONTENT.title}
@@ -24,8 +33,7 @@ export default function Home() {
                         query: {
                             type: FEATURED_PROJECT.type
                         }
-                    },
-                    className: 'c-btn'
+                    }
                 }}
             />
             <HomeFeaturedProject
@@ -39,8 +47,7 @@ export default function Home() {
                         query: {
                             type: LATEST_PERSONAL_PROJECT.type
                         }
-                    },
-                    className: 'c-btn'
+                    }
                 }}
             />
             <CallToAction

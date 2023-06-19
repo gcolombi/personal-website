@@ -1,10 +1,16 @@
+import { HomeIntroductionProps } from '@/types/components/introductions';
 import styles from '@/styles/modules/HomeIntroduction.module.scss';
 import Button from './shared/Button';
 import LinesInOut from './shared/gsap/LinesInOut';
 import FadeInOut from './shared/gsap/FadeInOut';
 import classNames from 'classnames';
 
-export default function HomeIntroduction() {
+export default function HomeIntroduction({
+    index,
+    titles,
+    content,
+    button
+}: HomeIntroductionProps) {
     return(
         <section className={classNames(
             'u-spacing--responsive',
@@ -20,7 +26,7 @@ export default function HomeIntroduction() {
                             watch
                         >
                             <span>
-                                01
+                                {index}
                             </span>
                         </FadeInOut>
                     </div>
@@ -28,28 +34,28 @@ export default function HomeIntroduction() {
                         'u-large-text',
                         styles['c-homeIntroduction__title']
                     )}>
-                        <LinesInOut
-                            target="#title-begin"
-                            watch
-                        >
-                            <p id="title-begin">Lorem ipsum dolor sit amet consectetur adipisicing elit. At cupiditate maxime accusamus deserunt tempore quam odio in sapiente obcaecati perspiciatis.</p>
-                        </LinesInOut>
-                        <LinesInOut
-                            target="#title-end"
-                            watch
-                        >
-                            <div className="o-wysiwyg">
-                                <p id="title-end">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolorum facilis libero enim officia commo.</p>
-                            </div>
-                        </LinesInOut>
+                        {titles.map((title, i) => (
+                            <LinesInOut
+                                key={i}
+                                target={`#title-${i}`}
+                                watch
+                            >
+                                <div className={classNames({
+                                    'o-wysiwyg': i > 0
+                                })}>
+                                    <p id={`title-${i}`}>{title}</p>
+                                </div>
+                            </LinesInOut>
+                        ))}
                     </div>
                     <div className={styles['c-homeIntroduction__content']}>
                         <FadeInOut
                             watch
                         >
                             <div className="o-wysiwyg">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt alias cumque odit quod aut? Molestiae labore deleniti aperiam commodi quos, nam id, tenetur illo sit iste, vel iure. Nulla, eius. Molestiae labore deleniti aperiam modus.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quos doloribus maiores laboriosam aspernatur voluptatibus.</p>
+                                {content.map((element, i) => (
+                                    <p key={i}>{element}</p>
+                                ))}
                             </div>
                         </FadeInOut>
                     </div>
@@ -57,11 +63,7 @@ export default function HomeIntroduction() {
                         <FadeInOut
                             watch
                         >
-                            <Button
-                                label="More about me"
-                                href="/about"
-                                className="c-btn"
-                            />
+                            <Button {...button} />
                         </FadeInOut>
                     </div>
                 </div>
