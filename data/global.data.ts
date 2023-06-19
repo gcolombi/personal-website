@@ -13,7 +13,7 @@ export const CALL_TO_ACTION: CallToActionContent = {
 
 export const META_404: MetaDataProps = {
     title: `Error 404 | ${process.env.NEXT_PUBLIC_SITE_NAME}`
-}
+};
 
 export const PAGE_NOT_FOUND_HEADER: BasicHeaderProps = {
     title: 'Page not found',
@@ -21,4 +21,4 @@ export const PAGE_NOT_FOUND_HEADER: BasicHeaderProps = {
     button: {
         label: 'Please get me out of here'
     }
-}
+};

@@ -8,4 +8,4 @@ export const META_CONTACT: MetaDataProps = {
 export const CONTACT_HEADER: BasicHeaderProps = {
     title: 'Contact',
     content: 'Is there something on your mind you\'d like to talk about? Whether it\'s related to work, just a casual conversation or need help with some code. Feel free to contact me at anytime.'
-}
+};

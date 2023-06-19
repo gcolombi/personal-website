@@ -22,7 +22,7 @@ export const HOME_INTRODUCTION: HomeIntroductionContent = {
     button: {
         label: 'More about me'
     }
-}
+};
 
 export const HOME_FEATURED_PROJECT_CONTENT: HomeFeaturedProjectContent = {
     title: 'Featured work',
