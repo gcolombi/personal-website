@@ -1,9 +1,9 @@
-import { ProjectsTabs } from '@/types/projects/tabs';
-import { Projects, ProjectsType } from '@/types/projects';
+import { ProjectsTabs, ProjectsTabsProps } from '@/types/projects/tabs';
+import { ProjectsType } from '@/types/projects';
 import styles from '@/styles/modules/ProjectsTabs.module.scss';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { Dispatch, SetStateAction, useRef } from 'react';
+import { useRef } from 'react';
 import useTransitionContext from '@/context/transitionContext';
 import ProjectsList from './ProjectsList';
 import FadeInOut from './shared/gsap/FadeInOut';
@@ -18,13 +18,7 @@ export default function ProjectsTabs({
     projects,
     projectsType,
     setProjectsType
-}: {
-    index: string;
-    tabs: ProjectsTabs;
-    projects: Projects;
-    projectsType: ProjectsType;
-    setProjectsType: Dispatch<SetStateAction<ProjectsType>>;
-}) {
+}: ProjectsTabsProps) {
     const { primaryEase } = useTransitionContext();
     const tabsWrapperRef = useRef<HTMLDivElement | null>(null);
 
