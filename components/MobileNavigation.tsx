@@ -14,6 +14,7 @@ if (typeof window !== 'undefined') {
 }
 
 export default function MobileNavigation({
+    routes,
     socialMedias
 }: MobileNavigationProps) {
     const { primaryEase } = useTransitionContext();
@@ -78,30 +79,16 @@ export default function MobileNavigation({
             <div className={styles['c-mobileNav__inner']}>
                 <nav className={styles['c-mobileNav__nav']}>
                         <ul>
-                            <li>
-                                <NavItem
-                                    href="/projects"
-                                    title="Projects"
-                                    className={styles['is-current-page']}
-                                    ref={(el) => navItemsRef.current[0] = el}
-                                />
-                            </li>
-                            <li>
-                                <NavItem
-                                    href="/about"
-                                    title="About"
-                                    className={styles['is-current-page']}
-                                    ref={(el) => navItemsRef.current[1] = el}
-                                />
-                            </li>
-                            <li>
-                                <NavItem
-                                    href="/contact"
-                                    title="Contact"
-                                    className={styles['is-current-page']}
-                                    ref={(el) => navItemsRef.current[2] = el}
-                                />
-                            </li>
+                            {routes.map(({ href, title }, i) => (
+                                <li key={i}>
+                                    <NavItem
+                                        href={`/${href}`}
+                                        title={title}
+                                        className={styles['is-current-page']}
+                                        ref={(el) => navItemsRef.current[i] = el}
+                                    />
+                                </li>
+                            ))}
                         </ul>
                 </nav>
                 <div className={styles['c-mobileNav__footer']}>

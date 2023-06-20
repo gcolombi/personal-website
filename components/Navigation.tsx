@@ -12,6 +12,7 @@ import MobileNavigation from './MobileNavigation';
 import NavItem from './NavItem';
 
 export default function Navigation({
+    routes,
     socialMedias
 }: NavigationProps) {
     const { timeline, primaryEase } = useTransitionContext();
@@ -95,27 +96,15 @@ export default function Navigation({
                             <div className={styles['c-navigation__nav__primary']}>
                                 <div className={styles['c-navigation__nav__primary--list']}>
                                     <ul>
-                                        <li>
-                                            <NavItem
-                                                href="/projects"
-                                                title="Projects"
-                                                className={styles['is-current-page']}
-                                            />
-                                        </li>
-                                        <li>
-                                            <NavItem
-                                                href="/about"
-                                                title="About"
-                                                className={styles['is-current-page']}
-                                            />
-                                        </li>
-                                        <li>
-                                            <NavItem
-                                                href="/contact"
-                                                title="Contact"
-                                                className={styles['is-current-page']}
-                                            />
-                                        </li>
+                                        {routes.map(({ href, title }, i) => (
+                                            <li key={i}>
+                                                <NavItem
+                                                    href={`/${href}`}
+                                                    title={title}
+                                                    className={styles['is-current-page']}
+                                                />
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                             </div>
@@ -124,6 +113,7 @@ export default function Navigation({
                 </div>
             </header>
             <MobileNavigation
+                routes={routes}
                 socialMedias={socialMedias}
             />
         </>

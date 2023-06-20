@@ -24,11 +24,20 @@ export type NavItemProps = {
 }
 
 export type NavigationProps = {
+    routes: NavigationRoutes;
     socialMedias: SocialMedias;
 }
 
 export type MobileNavigationProps = {
+    routes: NavigationRoutes;
     socialMedias: SocialMedias;
+}
+
+export type NavigationRoutes = NavigationRoute[];
+
+export type NavigationRoute = {
+    href: string;
+    title: string;
 }
 
 /* Footer */

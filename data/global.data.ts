@@ -1,10 +1,25 @@
-import { CallToActionContent, FooterContent, MetaDataProps } from '@/types/components/global';
+import { CallToActionContent, FooterContent, MetaDataProps, NavigationRoutes } from '@/types/components/global';
 import { BasicHeaderProps } from '@/types/components/headers';
 
 export const FOOTER: FooterContent = {
     title: 'Front-end developer',
     copyright: 'All rights reserved'
 };
+
+export const NAVIGATION_ROUTES: NavigationRoutes = [
+    {
+        href: 'projects',
+        title: 'Projects'
+    },
+    {
+        href: 'about',
+        title: 'About'
+    },
+    {
+        href: 'contact',
+        title: 'Contact'
+    }
+];
 
 export const CALL_TO_ACTION: CallToActionContent = {
     title: 'Get in touch',

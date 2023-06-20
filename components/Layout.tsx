@@ -1,4 +1,4 @@
-import { FOOTER } from '@/data/global.data';
+import { FOOTER, NAVIGATION_ROUTES } from '@/data/global.data';
 import { SOCIAL_MEDIAS } from '@/data/socialMedias.data';
 import { ReactNode } from 'react';
 import TransitionLayout from './TransitionLayout';
@@ -13,6 +13,7 @@ export default function Layout({
     return (
         <TransitionLayout>
             <Navigation
+                routes={NAVIGATION_ROUTES}
                 socialMedias={SOCIAL_MEDIAS}
             />
             <main>
