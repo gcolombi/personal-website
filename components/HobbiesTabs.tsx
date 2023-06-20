@@ -39,10 +39,7 @@ export default function HobbiesTabs({
 
     return (
         <>
-            <section className={classNames(
-                'u-spacing--responsive',
-                styles['c-hobbiesTabs']
-            )}>
+            <section className={styles['c-hobbiesTabs']}>
                 <div className="o-container">
                     <div className="o-grid">
                         <div className={classNames(

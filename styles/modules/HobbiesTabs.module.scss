@@ -3,9 +3,13 @@
 ========================================================================== */
 
 .c-hobbiesTabs {
+    --section-spacing-t: var(--spacing-responsive);
+    --section-spacing-b: var(--spacing-responsive);
     --grid-gap-row: 0;
     --header-margin-t: 70px;
     --scene-margin-t: 0;
+
+    padding: var(--section-spacing-t) 0 var(--section-spacing-b);
 
     &__index {
         grid-column: 1 / 1;
@@ -112,5 +116,9 @@
 
     @include mediaq('>LG') {
         --scene-margin-t: 0;
+    }
+
+    @include mediaq('>XXLG') {
+        --section-spacing-b: calc(var(--spacing-responsive) / 2);
     }
 }
