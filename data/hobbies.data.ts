@@ -12,16 +12,16 @@ export const HOBBIES_TABS: HobbiesTabs = [
     {
         id: 0,
         title: 'Gaming',
-        description: 'Ultricies tristique nulla aliquet enim tortor. Eget egestas purus viverra accumsan in nisl nisi. Sapien eget mi proin sed libero enim.'
+        description: 'I play a lot of video games but I mostly enjoy first person shooter, survival and action role-playing game. Call of duty, Dayz, Souls games and Elden ring are the most recent games I played.'
     },
     {
         id: 1,
         title: 'Music',
-        description: 'Nullam non nisi est sit amet facilisis magna etiam tempor. Amet risus nullam eget felis eget nunc lobortis mattis. Libero justo laoreet sit amet cursus sit amet dictum. Ornare arcu odio ut sem nulla pharetra.'
+        description: 'I listen to a broad range of genres, my favorites would be lofi, alternative/indie and pop music. I enjoy music when I\'m coding or in road trip.'
     },
     {
         id: 2,
         title: 'Cinema',
-        description: 'Cursus mattis molestie a iaculis at erat pellentesque adipiscing. Non odio euismod lacinia at quis risus sed vulputate odio. Vitae justo eget magna fermentum iaculis eu non.'
+        description: 'I like watching movies and TV shows because it can have a positive emotional impact, it\'s a wonderful shared experience, and sometimes I learn something. I consider myself as cinephile.'
     }
 ];
