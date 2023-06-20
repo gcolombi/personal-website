@@ -46,9 +46,8 @@ npm install
 
 ### UI
 
-- [Tailwind CSS](https://tailwindcss.com/) - Tailwind CSS is a utility-first CSS framework to build rapidly modern websites without ever leaving your HTML
 - [CSS/SASS/SCSS Modules](https://nextjs.org/docs/app/building-your-application/styling/css-modules) - CSS architecture containing generic and base style, custom configuration, grid, utilities, mixins etc.
-- [GSAP](https://greensock.com/) - GSAP is an industry standard JavaScript animation library from GreenSock that lets you craft high-performance animations that work in every major browser. A great place to get started with GSAP and React is to read [GSAP X React](https://greensock.com/react), [Getting Started with GSAP + React](https://greensock.com/react-basics) and [GSAP + React, Advanced Animation Techniques](https://greensock.com/react-advanced)
+- [`GSAP`](https://greensock.com/) - GSAP is an industry standard JavaScript animation library from GreenSock that lets you craft high-performance animations that work in every major browser. A great place to get started with GSAP and React is to read [GSAP X React](https://greensock.com/react), [Getting Started with GSAP + React](https://greensock.com/react-basics) and [GSAP + React, Advanced Animation Techniques](https://greensock.com/react-advanced)
 
 > **Warning**
 This project use a [Club GreenSock license](https://greensock.com/club/) which gives access to bonus plugins such as [`SplitText`](https://greensock.com/docs/v3/Plugins/SplitText) or [`ScrambleTextPlugin`](https://greensock.com/docs/v3/Plugins/ScrambleTextPlugin). If you want to use or deploy it you need to remove [`CharsInOut`](https://github.com/gcolombi/personal-website/blob/master/components/shared/gsap/CharsInOut.tsx), [`ImplodeExplodeInOut`](https://github.com/gcolombi/personal-website/blob/master/components/shared/gsap/ImplodeExplodeInOut.tsx), [`LinesInOut`](https://github.com/gcolombi/personal-website/blob/master/components/shared/gsap/LinesInOut.tsx) and [`ShuffleTextInOut`](https://github.com/gcolombi/personal-website/blob/master/components/shared/gsap/ShuffleTextInOut.tsx) components because they use them, as well as the actual gsap package. Install [`gsap`](https://github.com/greensock/GSAP#npm) package without these components or join the [Club GreenSock](https://greensock.com/club/), install the corresponding package using installation steps in the dashboard and use them.
@@ -68,6 +67,10 @@ This project use a [Club GreenSock license](https://greensock.com/club/) which g
     - [`yup`](https://github.com/jquense/yup) - Schema builder for runtime value parsing and validation
     - [`react-google-recaptcha-v3`](https://github.com/t49tran/react-google-recaptcha-v3) - React library for integrating Google ReCaptcha V3 to your App. To use `react-google-recaptcha-v3`, you need to create a recaptcha key for your domain, you can get one from [here](https://www.google.com/recaptcha/about/)
     - [`@sendgrid/mail`](https://github.com/sendgrid/sendgrid-nodejs) - SendGrid delivers your emails through a cloud-based email delivery platform. To use Sengrid, you need to sign up [here](https://signup.sendgrid.com/)
+
+### Sitemap
+
+- [`next-sitemap`](https://github.com/iamvishnusankar/next-sitemap) - Sitemap generator for next.js. Generate sitemap(s) and robots.txt for all static/pre-rendered/dynamic/server-side pages.
 
 ### Hooks
 
