@@ -13,8 +13,8 @@ export const ABOUT_HEADER: AboutHeaderProps = {
 
 export const ABOUT_INTRODUCTION: AboutIntroductionContent = {
     content: [
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt alias cumque odit quod aut? Molestiae labore deleniti aperiam commodi quos, nam id, tenetur illo sit iste, vel iure. Nulla, eius. Molestiae labore deleniti aperiam modus.',
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quos doloribus maiores laboriosam aspernatur voluptatibus.'
+        'I\'m a front-end developer with years of experiences in building performant, accessible and responsive applications/websites. I like to code things from scratch, and enjoy bringing ideas to life in the browser. The life of a developer requires one to learn new things everyday, because technology keeps changing at a very fast pace. I have therefore, embraced the concept of being a life long learner and continue to learn new concepts and technologies in my free time.',
+        'The things we make and the quality of the work we do reveal something about who we are, so I always strive to put my best into it.'
     ],
     image: '/static/images/about-portrait.jpg'
 };
