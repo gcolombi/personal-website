@@ -12,12 +12,12 @@ export const HOME_HEADER: HomeHeaderProps = {
 
 export const HOME_INTRODUCTION: HomeIntroductionContent = {
     titles: [
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. At cupiditate maxime accusamus deserunt tempore quam odio in sapiente obcaecati perspiciatis.',
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolorum facilis libero enim officia commo.'
+        'Passionate about web technologies, I always been excited about the entire development spectrum. Front-end addicted and frequently engage in backend.',
+        'When I\'m not coding or exploring new web technologies, I\'m probably playing games or watching the latest movie and tv show released.'
     ],
     content: [
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt alias cumque odit quod aut? Molestiae labore deleniti aperiam commodi quos, nam id, tenetur illo sit iste, vel iure. Nulla, eius. Molestiae labore deleniti aperiam modus.',
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quos doloribus maiores laboriosam aspernatur voluptatibus.'
+        'Over the years I have spent time converting designs into pixel-perfect, performant, accessible and responsive applications/websites. The life of a developer requires one to learn new things everyday, because technology keeps changing at a very fast pace. I have therefore, embraced the concept of being a life long learner.',
+        'I sincerely simply love working on ambitious projects on my own or with positive people.'
     ],
     button: {
         label: 'More about me'
