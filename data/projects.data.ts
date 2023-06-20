@@ -84,13 +84,13 @@ export const TOTAL_PERSONAL_PROJECTS = PERSONAL_PROJECTS.length;
 export const PROJECTS_TABS: ProjectsTabs = [
     {
         title: 'Work',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae voluptate inventore nisi aut ad est quo sunt cupiditate cum nemo quam.',
+        description: 'A selected set of projects I\'ve built on my own or in teams in the last few years.',
         type: ProjectsType.PROJECTS,
         total: toTwoDigits(TOTAL_PROJECTS)
     },
     {
         title: 'Personal',
-        description: 'Consectetur adipisicing elit. Porro aliquam eius accusamus maxime necessitatibus, itaque reiciendis architecto voluptates at quisquam adipisci nostrum tempore, minima deserunt, sequi incidunt repellendus officiis veniam.',
+        description: 'A selected set of personal projects I\'m building as I navigate through ideas and technologies.',
         type: ProjectsType.PERSONAL_PROJECTS,
         total: toTwoDigits(TOTAL_PERSONAL_PROJECTS)
     }
