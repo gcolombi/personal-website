@@ -13,7 +13,6 @@
 # Package manager
 package-lock.json
 yarn.lock
-.npmrc
 
 # Misc
 *.pem
