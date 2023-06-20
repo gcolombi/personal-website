@@ -29,7 +29,7 @@ export default function About() {
             <CallToAction
                 index="03"
                 {...CALL_TO_ACTION}
-                buttonHref="/about"
+                buttonHref="/contact"
             />
         </>
     );

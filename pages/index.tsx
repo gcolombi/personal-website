@@ -53,7 +53,7 @@ export default function Home() {
             <CallToAction
                 index="04"
                 {...CALL_TO_ACTION}
-                buttonHref="/about"
+                buttonHref="/contact"
             />
         </>
     )

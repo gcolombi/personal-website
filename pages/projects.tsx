@@ -49,7 +49,7 @@ export default function Projects() {
             <CallToAction
                 index="02"
                 {...CALL_TO_ACTION}
-                buttonHref="/about"
+                buttonHref="/contact"
             />
         </>
     );
