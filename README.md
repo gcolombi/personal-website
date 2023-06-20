@@ -52,6 +52,7 @@ npm install
 > **Warning**
 This project use a [Club GreenSock license](https://greensock.com/club/) which gives access to bonus plugins such as [`SplitText`](https://greensock.com/docs/v3/Plugins/SplitText) or [`ScrambleTextPlugin`](https://greensock.com/docs/v3/Plugins/ScrambleTextPlugin). If you want to use or deploy it you need to remove [`CharsInOut`](https://github.com/gcolombi/personal-website/blob/master/components/shared/gsap/CharsInOut.tsx), [`ImplodeExplodeInOut`](https://github.com/gcolombi/personal-website/blob/master/components/shared/gsap/ImplodeExplodeInOut.tsx), [`LinesInOut`](https://github.com/gcolombi/personal-website/blob/master/components/shared/gsap/LinesInOut.tsx) and [`ShuffleTextInOut`](https://github.com/gcolombi/personal-website/blob/master/components/shared/gsap/ShuffleTextInOut.tsx) components because they use them, as well as the actual gsap package. Install [`gsap`](https://github.com/greensock/GSAP#npm) package without these components or join the [Club GreenSock](https://greensock.com/club/), install the corresponding package using installation steps in the dashboard and use them.
 
+- [`next-themes`](https://github.com/pacocoursey/next-themes) - Perfect Next.js dark mode in 2 lines of code. Support System preference and any other theme with no flashing
 - [`@next/font`](https://nextjs.org/docs/basic-features/font-optimization) - Optimize your fonts (including custom fonts) and remove external network requests for improved privacy and performance
 
 ### Form
