@@ -43,16 +43,25 @@ export const PROJECTS: Projects = [
 
 export const PERSONAL_PROJECTS: Projects = [
     {
+        title: 'Portfolio',
+        description: 'Portfolio built with Next.js, Typescript and GSAP.',
+        image: '/static/images/projects/portfolio.jpg',
+        url: 'https://github.com/gcolombi/personal-website',
+        githubUrl: 'https://github.com/gcolombi/personal-website'
+    },
+    {
         title: 'Linklist',
-        description: 'Linktree clone built with Next.js, typescript & Tailwind',
+        description: 'Linktree clone built with Next.js, typescript and Tailwind',
         image: '/static/images/projects/linklist.jpg',
-        url: 'https://linklist-domain.vercel.app/'
+        url: 'https://linklist-domain.vercel.app/',
+        githubUrl: 'https://github.com/gcolombi/linklist'
     },
     {
         title: 'Next.js starter',
-        description: 'A Next.js starter that includes a collection of reusable components, hooks, and utilities to build amazing projects with complex animations and page transitions using GSAP.',
+        description: 'Starter that includes a collection of reusable components, hooks, and utilities to build amazing projects with complex animations and page transitions using GSAP.',
         image: '/static/images/projects/nextjs-starter.jpg',
-        url: 'https://nextjs-gsap-starter.vercel.app/'
+        url: 'https://nextjs-gsap-starter.vercel.app/',
+        githubUrl: 'https://github.com/gcolombi/nextjs-starter'
     }
 ];
 
@@ -63,7 +72,7 @@ export const FEATURED_PROJECT: ProjectProps = {
 
 export const LATEST_PERSONAL_PROJECT: ProjectProps = {
     title: 'Linklist',
-    description: 'Linktree clone built with Next.js, typescript & Tailwind',
+    description: 'Linktree clone built with Next.js, typescript and Tailwind',
     image: '/static/images/projects/linklist.jpg',
     url: 'https://linklist-domain.vercel.app/',
     type: ProjectsType.PERSONAL_PROJECTS

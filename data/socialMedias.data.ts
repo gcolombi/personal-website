@@ -6,7 +6,7 @@ export const SOCIAL_MEDIAS: SocialMedias = [
         url: 'https://www.linkedin.com/in/gerard-colombi'
     },
     {
-        title: 'Github',
+        title: 'GitHub',
         url: 'https://github.com/gcolombi'
     },
     {

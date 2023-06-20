@@ -11,7 +11,8 @@ export default function Project({
     title,
     description,
     image,
-    url
+    url,
+    githubUrl
 }: ProjectProps) {
     return(
         <div className={styles['c-project']}>
@@ -42,14 +43,27 @@ export default function Project({
                     <FadeInOut
                         watch
                     >
-                    <Button
-                        label="Visit website"
-                        className="c-btn--external"
-                        externalHref={url}
-                        isExternal
-                        icon
-                    />
+                        <Button
+                            label="Visit website"
+                            className="c-btn--external"
+                            externalHref={url}
+                            isExternal
+                            icon
+                        />
                     </FadeInOut>
+                    {githubUrl &&
+                        <FadeInOut
+                            watch
+                        >
+                            <Button
+                                label="GitHub repository"
+                                className="c-btn--external"
+                                externalHref={githubUrl}
+                                isExternal
+                                icon
+                            />
+                        </FadeInOut>
+                    }
                 </div>
             </div>
             <div className={styles['c-project__media']}>

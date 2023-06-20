@@ -12,5 +12,6 @@ export type ProjectProps = {
     description?: string;
     image: string;
     url: string;
+    githubUrl?: string;
     type?: ProjectsType;
 }

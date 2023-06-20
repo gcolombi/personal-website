@@ -15,8 +15,8 @@ export default function ProjectsList({
         )}>
             <div className="o-container">
                 <div className={styles['c-projectsList__list']}>
-                    {projects.map((project, i) => (
-                        <div key={i} className={styles['c-projectsList__item']}>
+                    {projects.map((project) => (
+                        <div key={project.title} className={styles['c-projectsList__item']}>
                             <Project
                                 {...project}
                             />

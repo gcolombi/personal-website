@@ -76,7 +76,6 @@ This project use a [Club GreenSock license](https://greensock.com/club/) which g
 ### Hooks
 
 - `useElementSize` - This hook helps you to dynamically recover the width and the height of an HTML element. Dimensions are updated on load, on mount/un-mount, when resizing the window and when the ref changes
-- `useIsFirstRender` - Simple React hook that return a boolean, `true` at the mount time then always `false`
 - `useIsMounted` - A React hook to check if the component is mounted
 - `useIsomorphicLayoutEffect` - A React helper hook to schedule a layout effect with a fallback to a regular effect for environments where layout effects should not be used (such as server-side rendering)
 - `useLockedScroll` - This React hook blocks scrolling on a page, a good example is when opening modals

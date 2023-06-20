@@ -67,13 +67,13 @@
     }
 
     @include mediaq('>MD') {
-        --h1: 82px;
+        --h1: 75px;
         --h2: 56px;
     	--h3: 35px;
     }
 
     @include mediaq('>LG') {
-        --h1: 92px;
+        --h1: 82px;
         --h4: 22px;
         --h5: 20px;
         --h6: 18px;
