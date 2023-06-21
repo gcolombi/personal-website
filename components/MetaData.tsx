@@ -1,4 +1,4 @@
-import { MetaDataProps } from '@/types/components/global';
+// import { MetaDataProps } from '@/types/components/global';
 import Head from 'next/head';
 import useWindowLocation from '@/hooks/useWindowLocation';
 import { useEffect } from 'react';
@@ -8,7 +8,12 @@ export default function MetaData({
     description = 'Front-end developer capable of full stack development, passionate about building appealing and interactive web experiences.',
     image = `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image.png`,
     type = 'website'
-}: MetaDataProps) {
+}: {
+    title?: string;
+    description?: string;
+    image?: string;
+    type?: string;
+}) {
     const { currentURL } = useWindowLocation();
 
     useEffect(() => {

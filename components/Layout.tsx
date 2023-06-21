@@ -16,7 +16,7 @@ export default function Layout({
                 routes={NAVIGATION_ROUTES}
                 socialMedias={SOCIAL_MEDIAS}
             />
-            <main>
+            <main id="content">
                 {children}
                 <Footer
                     {...FOOTER}
