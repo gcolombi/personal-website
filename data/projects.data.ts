@@ -44,7 +44,7 @@ export const PROJECTS: Projects = [
 export const PERSONAL_PROJECTS: Projects = [
     {
         title: 'Portfolio',
-        description: 'Portfolio built with Next.js, Typescript and GSAP.',
+        description: 'Portfolio built with Next.js, Typescript and GSAP',
         image: '/static/images/projects/portfolio.jpg',
         url: 'https://github.com/gcolombi/personal-website',
         githubUrl: 'https://github.com/gcolombi/personal-website'
@@ -58,7 +58,7 @@ export const PERSONAL_PROJECTS: Projects = [
     },
     {
         title: 'Next.js starter',
-        description: 'Starter that includes a collection of reusable components, hooks, and utilities to build amazing projects with complex animations and page transitions using GSAP.',
+        description: 'Starter that includes a collection of reusable components, hooks, and utilities to build amazing projects with complex animations and page transitions using GSAP',
         image: '/static/images/projects/nextjs-starter.jpg',
         url: 'https://nextjs-gsap-starter.vercel.app/',
         githubUrl: 'https://github.com/gcolombi/nextjs-starter'

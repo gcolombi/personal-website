@@ -16,7 +16,7 @@ export const HOME_INTRODUCTION: HomeIntroductionContent = {
         'When I\'m not coding or exploring new web technologies, I\'m probably playing video games or watching the latest movie and tv show released.'
     ],
     content: [
-        'Over the years I have spent time converting designs into pixel-perfect, performant, accessible and responsive applications/websites. Each project is an opportunity to learn new concepts across multiple domains',
+        'Over the years I have spent time converting designs into pixel-perfect, performant, accessible and responsive applications/websites. Each project is an opportunity to learn new concepts across multiple domains.',
         'I sincerely simply love working on ambitious projects on my own or with positive people.'
     ],
     button: {

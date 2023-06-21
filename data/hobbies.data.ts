@@ -12,7 +12,7 @@ export const HOBBIES_TABS: HobbiesTabs = [
     {
         id: 0,
         title: 'Gaming',
-        description: 'I play a lot of video games but I mostly enjoy first person shooter, survival and action role-playing game. Call of duty, Dayz, Souls games and Elden ring are the most recent games I played.'
+        description: 'I play a lot of video games but I mostly enjoy first person shooter, survival and action role-playing game. Call of duty, DayZ, Souls games and Elden ring are the most recent games I played.'
     },
     {
         id: 1,
@@ -22,6 +22,6 @@ export const HOBBIES_TABS: HobbiesTabs = [
     {
         id: 2,
         title: 'Cinema',
-        description: 'I like watching movies and TV shows because it can have a positive emotional impact, it\'s a wonderful shared experience, and sometimes I learn something. I consider myself as cinephile.'
+        description: 'I like watching movies and TV shows because it can have a positive emotional impact, it\'s a wonderful shared experience, and sometimes learn something. I consider myself as cinephile.'
     }
 ];
