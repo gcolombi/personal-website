@@ -46,7 +46,6 @@ export const PERSONAL_PROJECTS: Projects = [
         title: 'Portfolio',
         description: 'Portfolio built with Next.js, Typescript and GSAP',
         image: '/static/images/projects/portfolio.jpg',
-        url: 'https://github.com/gcolombi/personal-website',
         githubUrl: 'https://github.com/gcolombi/personal-website'
     },
     {
