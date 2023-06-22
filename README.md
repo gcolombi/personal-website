@@ -1,4 +1,4 @@
-<a href="https://github.com/gcolombi">
+<a href="https://www.gerardcolombi.io">
     <img alt="Gerard Colombi" src="https://github.com/gcolombi/personal-website/blob/master/public/static/og-image.png?raw=true">
 </a>
 
