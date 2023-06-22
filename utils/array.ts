@@ -9,7 +9,7 @@ export const shuffle = <T>(array: T[]): T[] => {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
-}
+};
 
 /**
  * Selects a random item from an array
@@ -18,4 +18,4 @@ export const shuffle = <T>(array: T[]): T[] => {
  */
 export const randomItem = <T>(array: T[]): T => {
     return array[Math.floor(Math.random() * array.length)];
-}
+};

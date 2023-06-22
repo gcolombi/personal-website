@@ -15,4 +15,4 @@ export const getEmailTemplateFile = async (path: string, res: NextApiResponse): 
     } catch (err) {
         if (err instanceof Error) return res.status(404).json({ message: err.message });
     }
-}
+};

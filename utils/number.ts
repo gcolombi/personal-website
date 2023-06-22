@@ -6,7 +6,7 @@
  */
 export const randomNumber = (min: number, max: number): number => {
     return Math.floor(Math.random() * (1 + max - min) + min);
-}
+};
 
 /**
  * Formats number by prepending 0 to single-digit number
