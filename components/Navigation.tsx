@@ -93,6 +93,7 @@ export default function Navigation({
                                         setTheme={setTheme}
                                     />
                                 }
+                                <LanguageSwitcher />
                             </div>
                         </div>
                         <div className={styles['c-navigation__toggler']}>
@@ -108,14 +109,13 @@ export default function Navigation({
                                         {routes.map(({ href, title }, i) => (
                                             <li key={i}>
                                                 <NavItem
-                                                    href={`/${href}`}
-                                                    // href={translateUrl('/form', router.locale ?? '')}
+                                                    // href={`/${href}`}
+                                                    href={translateUrl(href, router.locale ?? '')}
                                                     title={title}
                                                     className={styles['is-current-page']}
                                                 />
                                             </li>
                                         ))}
-                                        <LanguageSwitcher />
                                     </ul>
                                 </div>
                             </div>
@@ -198,6 +198,7 @@ function LanguageSwitcher() {
                             href={href}
                             locale={locale}
                             onClick={switchToLocale}
+                            scroll={false}
                         >
                             {locale}
                         </Link>
