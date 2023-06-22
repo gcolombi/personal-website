@@ -3,11 +3,12 @@ import { ButtonHTMLAttributes } from 'react';
 /* Button */
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     label: string;
-    href?: string;
-    isExternal?: string;
+    href?: string | Object;
+    isExternal?: boolean;
     externalHref?: string;
+    icon?: boolean;
     anchor?: string;
     onClick?: () => void;
-    className: string;
+    className?: string;
     wrapperClassName?: string;
 }

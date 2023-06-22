@@ -6,26 +6,22 @@
 ========================================================================== */
 
 @mixin make-button() {
-	--btn-bg-color: var(--primary);
-    --btn-border-color: var(--primary);
-    --btn-color: var(--white);
-    --btn-padding-tb: 8px;
-    --btn-padding-lr: 20px;
-	--btn-hover-color: var(--white);
-    --btn-hover-bg-color: var(--primary-light);
-    --btn-hover-border-color: var(--primary-light);
+    --btn-color: var(--body-text-color);
+    --btn-font-size: var(--font-base);
+    --btn-padding-tb: 0;
+    --btn-padding-lr: 0;
+    --btn-hover-color: initial;
 
 	display: inline-block;
-	background: var(--btn-bg-color);
-	border: 1px solid var(--btn-border-color);
 	color: var(--btn-color);
-	font-weight: var(--font-bold);
+    font-size: var(--btn-font-size);
+	font-weight: var(--font-medium);
 	padding: var(--btn-padding-tb) var(--btn-padding-lr);
-	transition: all .35s $ease-in;
+	transition: all .35s $primary-ease;
 
-	&:hover, &:focus {
-		background: var(--btn-hover-bg-color);
-		border: 1px solid var(--btn-hover-border-color);
-		color: var(--btn-hover-color);
-	}
+    @media (hover: hover) and (pointer: fine) {
+        &:hover, &:focus {
+            color: var(--btn-hover-color);
+        }
+    }
 }

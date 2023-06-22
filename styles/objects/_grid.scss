@@ -3,7 +3,20 @@
 ========================================================================== */
 
 :root {
-	--grid-columns: #{$grid-columns};
+	--flex-columns: #{$flex-columns};
+	--flex-gutter-width: #{$flex-gutter-width};
+    --grid-columns: 6;
+    --grid-gap-columns: 15px;
+    --grid-gap-row: 20px;
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --grid-columns: 12;
+        --grid-gap-columns: 25px;
+        --grid-gap-row: 35px;
+    }
 }
 
 /* Grid
@@ -15,7 +28,7 @@
 	&--noGutters {
 		margin-left: 0;
 		margin-right: 0;
-	
+
 		> .o-col,
 		> [class*="col-"] {
 			padding-left: 0;
@@ -25,24 +38,24 @@
 }
 
 @if $activate-grid-classes {
-	@for $i from 1 through $grid-columns {
+	@for $i from 1 through $flex-columns {
 		.o-col-#{$i} {
 			@include make-col-ready();
-			@include make-col($i, $columns: $grid-columns);
+			@include make-col($i, $columns: $flex-columns);
 		}
 	}
-	
+
 	@each $breakpoint, $value in $breakpoints {
 		.o-col-#{$breakpoint} {
 			@include make-col-ready();
 		}
-	
-		@for $i from 1 through $grid-columns {
+
+		@for $i from 1 through $flex-columns {
 			.o-col-#{$breakpoint}-#{$i} {
 				@include make-col-ready();
 			}
 		}
-	
+
 		@include mediaq('>#{$value}') {
 			.o-col-#{$breakpoint} {
 				@include make-col-ready();
@@ -50,12 +63,18 @@
 				flex-grow: 1;
 				max-width: 100%;
 			}
-	
-			@for $i from 1 through $grid-columns {
+
+			@for $i from 1 through $flex-columns {
 				.o-col-#{$breakpoint}-#{$i} {
-					@include make-col($i, $columns: $grid-columns);
+					@include make-col($i, $columns: $flex-columns);
 				}
 			}
 		}
 	}
+}
+
+.o-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    gap: var(--grid-gap-row) var(--grid-gap-columns);
 }

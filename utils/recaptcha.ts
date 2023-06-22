@@ -1,4 +1,4 @@
-import { NextApiResponse } from "next";
+import { NextApiResponse } from 'next';
 
 /**
  * Validates recaptcha and interprets the score
@@ -7,9 +7,9 @@ import { NextApiResponse } from "next";
  *
  * @param {string} token recaptcha token
  * @param {Object} res server response object
- * @returns true or false
+ * @returns {boolean} true or false
  */
-export const validateRecaptcha = async (token: string, res: NextApiResponse): Promise<boolean | undefined> => {
+export const validateRecaptcha = async (token: string, res: NextApiResponse): Promise<boolean> => {
     try {
         const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
             method: 'POST',
@@ -34,5 +34,6 @@ export const validateRecaptcha = async (token: string, res: NextApiResponse): Pr
             res.status(422).json({ message: err.message });
             return false;
         }
+        return false;
     }
 };

@@ -5,7 +5,7 @@
 /* Block
 ========================================================================== */
 
-  @each $name, $value in $theme-colors {
+@each $name, $value in $theme-colors {
 	.u-blockColor--#{$name} {
 		background: var(--#{$name});
 	}

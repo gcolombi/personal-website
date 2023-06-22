@@ -13,20 +13,18 @@ export default function FormInput({
     className,
     wrapperClassName,
     register,
-    errors,
+    errors
 }: Input) {
     return(
         <div className={wrapperClassName}>
-            <div
-                className={classNames(
-                    styles['c-formElement'],
-                    styles[className],
-                    {
-                        [styles['c-floatingLabel']]: label,
-                        [styles['has-error']]: errors?.message
-                    }
-                )}
-            >
+            <div className={classNames(
+                styles['c-formElement'],
+                styles[className],
+                {
+                    [styles['c-floatingLabel']]: label,
+                    [styles['has-error']]: errors?.message
+                }
+            )}>
                 <input
                     type={type}
                     id={id}

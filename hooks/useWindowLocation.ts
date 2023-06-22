@@ -6,7 +6,10 @@ export default function useWindowLocation() {
     const router = useRouter();
 
     useEffect(() => {
-        setCurrentURL(window.location.href);
+        const urlObj = new URL(window.location.href);
+        urlObj.search = '';
+        urlObj.hash = '';
+        setCurrentURL(urlObj.toString());
     }, [router.asPath]);
 
     return { currentURL };

@@ -4,26 +4,23 @@
 
 .c-formElement {
     @include default-styles();
-	@include input-placeholder(inherit, inherit, var(--gray-500));
+	@include input-placeholder(inherit, inherit, var(--body-text-color));
     @include floating-label();
 
-    &--boxed, &--bordered, &--line {
-		textarea {
-			background: none;
-			border: none;
-			font-size: var(--font-base);
-            color: var(--body-text-color);
-			height: auto;
-			max-width: 100%;
-			outline: none;
-			width: 100%;
-		}
-	}
+	&--bordered {
+        @include bordered-styles();
 
-	&--boxed, &--bordered {
-		textarea {
+        textarea {
+            background: none;
+            border: none;
+            font-size: var(--font-base);
+            color: var(--body-text-color);
+            height: auto;
+            max-width: 100%;
+            outline: none;
+            width: 100%;
 			padding: var(--form-element-padding);
-			min-height: 180px;
+			min-height: 200px;
 		}
 
 		/* Colored line on focus */
@@ -35,64 +32,6 @@
         textarea:focus ~ label, :not(:placeholder-shown) ~ label {
             @include font-size(10px);
             top: calc((var(--form-element-padding) + 5px) * -1);
-            opacity: 0.8;
-        }
-	}
-
-    &--boxed {
-        background: var(--gray-200);
-    }
-
-    &--bordered {
-        @include bordered-styles();
-    }
-
-	&--line {
-		background: transparent;
-
-        hr {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            margin: 0;
-            height: 1px;
-            background: var(--gray-700);
-        }
-
-        .c-formElement--focusLine {
-			top: calc(100% - 1px);
-			right: auto;
-			bottom: auto;
-			left: 0;
-			border: none;
-			width: 0%;
-			height: 1px;
-			background: var(--form-element-color);
-			transition: all .35s $ease-in;
-		}
-
-        &.c-floatingLabel {
-			label {
-				left: 0
-			}
-		}
-
-		textarea {
-			padding: var(--form-element-padding) 0 0 0;
-			min-height: 51px;
-		}
-
-		/* Colored line on focus */
-		textarea:focus ~ .c-formElement--focusLine {
-			width: 100%;
-		}
-
-        /* Floating label */
-        textarea:focus ~ label, :not(:placeholder-shown) ~ label {
-            @include font-size(10px);
-            top: calc((var(--form-element-padding) + 5px) * -1);
-            opacity: 0.8;
         }
 	}
 }

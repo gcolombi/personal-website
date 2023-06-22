@@ -22,7 +22,7 @@ $breakpoints: (
 	LG: $scr-lg,
 	XLG: $scr-xlg,
 	XXLG: $scr-xxlg,
-	// MAX: $scr-max
+	MAX: $scr-max
 ) !default;
 
 /* Sizes
@@ -45,11 +45,17 @@ $list-text-align: (
 	right
 ) !default;
 
+/* Container
+========================================================================== */
+
+$container-padding-initial: 20px;
+$container-padding-increment: 25px;
+
 /* Grid
 ========================================================================== */
 
-$grid-columns: 12;
-$grid-gutter-width: 16px;
+$flex-columns: 12;
+$flex-gutter-width: 15px;
 $bp-class-generation: $scr-xs - 1;
 
 /* Spacing

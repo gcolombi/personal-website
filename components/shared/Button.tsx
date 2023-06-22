@@ -1,6 +1,7 @@
 import { ButtonProps } from '@/types/components/button';
 import styles from '@/styles/modules/Button.module.scss';
 import Link from 'next/link';
+import ArrowOutward from './svg/ArrowOutward';
 import Circle from './svg/Circle';
 
 export default function Button({
@@ -8,11 +9,12 @@ export default function Button({
     href,
     isExternal,
     externalHref,
+    icon,
     anchor,
-    type = 'button',
+    type,
     onClick,
     disabled,
-    className,
+    className = 'c-btn',
     wrapperClassName
 }: ButtonProps) {
     if (label && href) {
@@ -22,6 +24,7 @@ export default function Button({
                     className={styles[className]}
                     href={href}
                     onClick={onClick}
+                    scroll={false}
                 >
                     {label}
                 </Link>
@@ -39,6 +42,9 @@ export default function Button({
                     href={externalHref ? externalHref : `#${anchor}`}
                 >
                     {label}
+                    {icon &&
+                        <ArrowOutward />
+                    }
                 </a>
             </div>
         );

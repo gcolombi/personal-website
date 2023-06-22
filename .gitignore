@@ -13,11 +13,14 @@
 # Package manager
 package-lock.json
 yarn.lock
-.npmrc
 
 # Misc
 *.pem
 prepros.config
+
+# Sitemap & robots
+sitemap*.xml
+robots.txt
 
 # Mac OS X
 .DS_Store

@@ -3,10 +3,8 @@
 ========================================================================== */
 
 .c-form {
-
-    &__inner {
-        max-width: 1000px;
-        margin: 0 auto;
+    &__element {
+        grid-column: 1 / -1;
     }
 
     &__btn {
@@ -21,8 +19,28 @@
 
         &__row {
             display: grid;
-            gap: 0 35px;
             grid-template-columns: repeat(2, 1fr);
+            gap: 0 var(--grid-gap-columns);
+        }
+
+        &__item {
+            grid-column: auto;
+        }
+
+        &__itemFull {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @include mediaq('>MD') {
+        &__element {
+            grid-column: 3 / 11;
+        }
+    }
+
+    @include mediaq('>XXLG') {
+        &__element {
+            grid-column: 4 / 10;
         }
     }
 }

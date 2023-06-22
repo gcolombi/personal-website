@@ -3,5 +3,71 @@
 ========================================================================== */
 
 .c-footer {
-    padding: 0 0 var(--spacing-thin) 0;
+    --grid-gap-row: 0;
+    --footer-padding: 45px;
+    --socialLinks-margin-t: 20px;
+    --copyright-margin-t: 45px;
+
+    padding: var(--footer-padding) 0;
+
+    &__row {
+        line-height: 1.15;
+    }
+
+    &__title {
+        grid-column: 1 / 7;
+    }
+
+    &__socialLinks {
+        grid-column: 1 / 7;
+        margin: var(--socialLinks-margin-t) 0 0;
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+
+            li {
+                padding: 0;
+                margin: 0;
+
+                &:not(:last-child) {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+    &__copyright {
+        grid-column: 1 / 7;
+        margin: var(--copyright-margin-t) 0 0;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --footer-padding: 72px;
+
+        &__row {
+            align-items: end;
+        }
+
+        &__title {
+            grid-column-end: 4;
+        }
+
+        &__socialLinks {
+            grid-column: 5 / 9;
+            margin: 0;
+        }
+
+        &__copyright {
+            grid-column: 9 / 13;
+            text-align: right;
+            margin: 0;
+        }
+    }
 }

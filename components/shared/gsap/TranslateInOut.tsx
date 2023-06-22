@@ -1,20 +1,22 @@
 import { Translate } from '@/types/animations';
+import useTransitionContext from '@/context/transitionContext';
 import AnimateInOut from './AnimateInOut';
 
 export default function TranslateInOut({
     children,
     fade = true,
-    durationIn = 0.5,
-    durationOut = 0.25,
+    durationIn = 1.25,
+    durationOut = 0.35,
     delay = 0,
     delayOut = 0,
-    ease = 'power4.out',
-    easeOut = 'power4.out',
+    ease,
+    easeOut,
     x = '0px',
     y = '0px',
     xTo = 0,
     yTo = 0,
     transformOrigin,
+    outro,
     skipOutro,
     watch,
     start = 'top bottom',
@@ -22,24 +24,28 @@ export default function TranslateInOut({
     scrub = false,
     markers
 }: Translate) {
+    const { primaryEase } = useTransitionContext();
+
     return (
         <AnimateInOut
             durationIn={durationIn}
             durationOut={durationOut}
             delay={delay}
             delayOut={delayOut}
-            easeOut={easeOut}
+            easeOut={easeOut ?? primaryEase}
             from={{
                 opacity: fade ? 0 : 1,
                 transform: `translate(${x}, ${y})`
             }}
             to={{
-                ease,
+                ease: ease ?? primaryEase,
                 opacity: 1,
                 x: xTo,
                 y: yTo,
-                transformOrigin
+                transformOrigin,
+                willChange: 'transform'
             }}
+            outro={outro}
             skipOutro={skipOutro}
             watch={watch}
             start={start}

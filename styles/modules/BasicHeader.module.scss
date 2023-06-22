@@ -1,0 +1,44 @@
+/* ==========================================================================
+    Basic Header
+========================================================================== */
+
+.c-basicHeader {
+    padding: calc(var(--navigation-height) + var(--spacing-responsive)) 0 var(--spacing-responsive) 0;
+
+    &__title, &__content {
+        grid-column: 1 / -1;
+    }
+
+    &__btn {
+        margin-top: 1em;
+    }
+
+    /* modifiers */
+    &--fullHeight {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100svh;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>SM') {
+        &__title, &__content {
+            grid-column: 2 / 6;
+        }
+    }
+
+    @include mediaq('>MD') {
+        &__title, &__content {
+            grid-column: 3 / 11;
+        }
+    }
+
+    @include mediaq('>XXLG') {
+        &__title, &__content {
+            grid-column: 4 / 10;
+        }
+    }
+}

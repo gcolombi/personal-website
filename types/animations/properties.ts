@@ -6,6 +6,7 @@ export type AnimationProperties = {
     delayOut?: number;
     ease?: string;
     easeOut?: string;
+    outro?: GSAPTweenVars;
     skipOutro?: boolean;
     watch?: boolean;
     start?: string;

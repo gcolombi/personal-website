@@ -34,9 +34,9 @@ export default async function handler(
         if (validReCaptcha)
             /* Sends email */
             try {
-                const emailTemplate = await getEmailTemplateFile('/templates/email.html', res) as string;
+                const emailTemplate = await getEmailTemplateFile('/templates/email.html', res);
 
-                await new Email(emailTemplate, 'New form', labels, data, []).send();
+                await new Email(emailTemplate as string, 'New form', labels, data, []).send();
 
                 return res.status(201).json({
                     data,

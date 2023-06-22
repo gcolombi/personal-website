@@ -44,7 +44,7 @@
 
                 circle {
                     fill: none;
-                    stroke: var(--btn-color);
+                    stroke: var(--body-text-color);
                     stroke-width: 3px;
                     stroke-linecap: round;
                     animation: dash 2.5s ease-in-out infinite;
@@ -66,12 +66,15 @@ label, .c-label {
 ========================================================================== */
 
 .c-toastify {
+    @include font-size(16px);
+
     .Toastify__toast {
-        background: var(--white);
-        color: var(--black);
+        background: var(--background-color);
+        color: var(--form-alert-color);
 
         .Toastify__close-button {
-            color: var(--black);
+            color: var(--form-alert-color);
+            opacity: 1;
         }
     }
 }

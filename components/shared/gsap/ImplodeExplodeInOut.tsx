@@ -27,7 +27,7 @@ export default function ImplodeExplodeInOut({
     markers
 }: ImplodeExplode) {
     const { timeline } = useTransitionContext();
-    const element = useRef<HTMLDivElement>(null);
+    const element = useRef<HTMLDivElement | null>(null);
 
     useIsomorphicLayoutEffect(() => {
         const scrollTrigger = watch ? {

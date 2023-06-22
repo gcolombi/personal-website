@@ -1,17 +1,13 @@
+import { MetaDataProps } from '@/types/components/global';
 import Head from 'next/head';
 import useWindowLocation from '@/hooks/useWindowLocation';
 
 export default function MetaData({
-    title = 'Next.js',
-    description = 'The React Framework for the Web.',
+    title = 'Gerard Colombi',
+    description = 'Front-end Developer capable of full stack development, passionate about building appealing and interactive web experiences.',
     image = `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image.png`,
     type = 'website'
-}: {
-    title?: string;
-    description?: string;
-    image?: string;
-    type?: string;
-}) {
+}: MetaDataProps) {
     const { currentURL } = useWindowLocation();
 
     return (

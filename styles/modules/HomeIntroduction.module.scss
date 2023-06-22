@@ -1,0 +1,53 @@
+/* ==========================================================================
+    Home Introduction
+========================================================================== */
+
+.c-homeIntroduction {
+    --grid-gap-row: 0;
+    --title-margin-t: 45px;
+    --title-margin-b: 45px;
+    --content-margin-b: 45px;
+
+    &__index {
+        grid-column: 1 / 1;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__title {
+        grid-column: 1 / -1;
+        margin: var(--title-margin-t) 0 var(--title-margin-b);
+    }
+
+    &__content {
+        grid-column: 1 / -1;
+        margin-bottom: var(--content-margin-b);
+    }
+
+    &__btn {
+        grid-column: 1 / -1;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --title-margin-t: 0;
+        --title-margin-b: 135px;
+        --content-margin-b: 65px;
+
+        &__title {
+            grid-column: 4 / 12;
+        }
+
+        &__content {
+            grid-column: 4 / 11;
+        }
+
+        &__btn {
+            grid-column: 4 / -1;
+        }
+    }
+}

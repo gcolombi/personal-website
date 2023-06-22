@@ -3,30 +3,18 @@
 ========================================================================== */
 
 :root {
-	--grid-gutter-width: #{$grid-gutter-width};
-	--breakpoint: 100%;
-	--breakpoint-max: #{$scr-max};
+    --container-padding: #{$container-padding-initial};
+	--container-padding-initial: #{$container-padding-initial};
+	--container-padding-increment: #{$container-padding-increment};
 
+	$i: 1;
 	@each $breakpoint, $value in $breakpoints {
-		@if $value > $bp-class-generation {
-			@include mediaq('>#{$value}') {
-				--breakpoint: #{$value};
-				--container: calc(var(--breakpoint) - (var(--grid-gutter-width) / 2));
+		@if $value > 990 and $value < 1449 {
+			@include mediaq('>#{$breakpoint}') {
+                --container-padding: calc( var(--container-padding-initial) + (var(--container-padding-increment) * #{$i}) );
 			}
-
-            @if $value <= 1200 {
-                @include mediaq('>#{$value}') {
-                    --breakpoint-small: #{$value};
-                    --container-small: calc(var(--breakpoint-small) - (var(--grid-gutter-width) / 2));
-                }
-            }
+			$i: $i + 1;
 		}
-	}
-
-	--half-container: var(--grid-gutter-width);
-
-	@include mediaq('>XS') {
-		--half-container: calc(((100% - var(--container)) / 2) + (var(--grid-gutter-width)));
 	}
 }
 
@@ -35,10 +23,6 @@
 
 .o-container {
 	@include make-container();
-	max-width: var(--container);
-}
-
-.o-container--small {
-	@include make-container();
-	max-width: var(--container-small);
+    padding-right:  var(--container-padding);
+    padding-left:  var(--container-padding);
 }

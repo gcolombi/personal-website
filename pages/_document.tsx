@@ -10,11 +10,12 @@ export default function Document() {
                 <link rel="manifest" href="/static/favicons/site.webmanifest" />
                 <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#000000" />
                 <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
-                <meta name="msapplication-TileColor" content="#ffffff" />
+                <meta name="msapplication-TileColor" content="#e1dfdd" />
                 <meta name="msapplication-config" content="/static/favicons/browserconfig.xml" />
                 <meta name="theme-color" content="#ffffff" />
             </Head>
             <body>
+                <a href="#content" className="u-sr-only">Skip to content</a>
                 <Main />
                 <NextScript />
             </body>

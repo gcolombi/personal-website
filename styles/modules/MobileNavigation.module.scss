@@ -2,160 +2,134 @@
     Mobile Navigation
 ========================================================================== */
 
-.c-mobileNav {
-    --navigation-link-color: var(--white);
-    --navigation-link-current-color: var(--secondary);
-    --navigation-primary-padding: 100px;
-    --navigation-scroll-padding: 100px;
+@keyframes scale3d {
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
 
-    position: absolute;
-    top: 100%;
+.c-mobileNav {
+    --navigation-link-color: var(--navigation-mobile-item-color);
+    --navigation-primary-padding: 100px;
+
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - var(--navigation-height));
+    height: 100%;
+    background: var(--background-color);
+    transform: scaleY(0);
+    transform-origin: bottom;
     pointer-events: none;
+    z-index: 999;
+    overflow: hidden auto;
 
-    &__scroll {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden auto;
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        padding: var(--navigation-height) var(--container-padding) 38px;
+        min-height: 100%;
     }
 
-    &__primary {
-        position: relative;
+    &__nav {
         padding: var(--navigation-primary-padding) 0 0 0;
-        opacity: 0;
-        transition: opacity .2s $ease-in;
+        margin-top: auto;
+        width: 100%;
 
-        &--list {
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0;
+            margin: 0;
+            list-style: none;
 
-            ul {
-                margin: 0;
+            li {
+                display: inline-block;
                 padding: 0;
-                list-style: none;
-                font-family: var(--font-primary);
+                margin: 0;
+                line-height: 0.875;
 
-                li {
-                    position: relative;
-                    padding: 15px var(--half-container);
-                    margin: 0;
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
 
-                    span {
+                span {
+                    display: inline-block;
+                    overflow: hidden;
+
+                    a {
                         display: inline-block;
+                        font-size: 50px;
+                        color: var(--navigation-link-color);
+                        text-transform: uppercase;
+                    }
+                }
 
-                        a {
-                            display: inline-block;
-                            @include font-size(25px);
-                            font-weight: var(--font-regular);
-                            color: var(--navigation-link-color);
-                            text-transform: uppercase;
+                &:has(.is-current-page) {
+                    position: relative;
+                    margin-bottom: 7px;
 
-                            &.is-current-page {
-                                color: var(--navigation-link-current-color);
-                            }
-                        }
+                    &:not(:last-child) {
+                        margin-bottom: 22px;
                     }
 
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: calc(100% + 2px);
+                        left: 0;
+                        width: 100%;
+                        height: 5px;
+                        background: var(--navigation-link-color);
+                        transform-origin: left;
+                    }
                 }
             }
         }
     }
 
+    &__footer {
+        margin-top: 30px;
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            li {
+                padding: 0;
+                margin: 0;
+
+                &:not(:last-child) {
+                    margin-bottom: 5px;
+                }
+
+                a {
+                    display: inline-block;
+                    color: var(--navigation-link-color);
+                    transition: none;
+                }
+            }
+        }
+    }
+
+    /* States */
     &.is-open {
         pointer-events: all;
     }
 
-    &.is-open & {
-        &__scroll {
-            padding-bottom: var(--navigation-scroll-padding);
-        }
-
-        &__primary {
-            opacity: 1;
-            transition: opacity .35s $ease-in;
-        }
-    }
-
-    // **---------------------------------------------------**
-    // MEDIA QUERIES
-
-    @include mediaq('>LG') {
-        display: none;
-    }
-}
-
-/* Hamburger
-========================================================================== */
-
-.m-hamburger {
-    position: relative;
-    width: 43px;
-    height: 43px;
-    order: 3;
-
-    &__lines {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 33px;
-        height: 33px;
-        transform: translate(-50%, -50%);
-        transition: all .35s $ease-in;
-
-        span {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            width: 100%;
-            height: 2px;
-            background: var(--body-text-color);
-            transition-timing-function: $ease-in;
-            transition-duration: .3s;
-
-            &:before, &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: -10px;
-                left: 0;
-                width: 100%;
-                height: 2px;
-                background: var(--body-text-color);
-                transition: top .1s $ease-in .25s, opacity .1s $ease-in;
-            }
-
-            &:after {
-                top: auto;
-                bottom: -10px;
-                transition: bottom .1s $ease-in .25s, transform .3s $ease-in;
-            }
-        }
-    }
-
-    /* states */
-    &.is-nav-active & {
-
-        &__lines {
-
-            span {
-                transition-delay: .3s;
-                transition-timing-function: $ease-in;
-                transform: rotate(225deg);
-
-                &:before {
-                    top: 0;
-                    transition: top .1s $ease-in, opacity .1s $ease-in .12s;
-                    opacity: 0;
-                }
-
-                &:after {
-                    bottom: 0;
-                    transition: bottom .1s $ease-in, transform .22s $ease-in .15s;
-                    transform: rotate(-90deg);
+    &.is-open &{
+        &__nav {
+            ul {
+                li {
+                    &:has(.is-current-page) {
+                        &:after {
+                            transform: scaleX(0);
+                            animation: scale3d 0.7s $primary-ease forwards 1.25s;
+                        }
+                    }
                 }
             }
         }
@@ -164,7 +138,7 @@
     // **---------------------------------------------------**
     // MEDIA QUERIES
 
-    @include mediaq('>LG') {
+    @include mediaq('>MD') {
         display: none;
     }
 }

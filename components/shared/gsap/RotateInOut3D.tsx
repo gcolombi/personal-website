@@ -23,7 +23,7 @@ export default function RotateInOut3D({
     markers
 }: Rotate3D) {
     const { timeline } = useTransitionContext();
-    const element = useRef<HTMLDivElement>(null);
+    const element = useRef<HTMLDivElement | null>(null);
 
     useIsomorphicLayoutEffect(() => {
         const scrollTrigger = watch ? {

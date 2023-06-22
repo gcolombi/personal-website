@@ -1,0 +1,124 @@
+/* ==========================================================================
+    Hobbies Tabs
+========================================================================== */
+
+.c-hobbiesTabs {
+    --section-spacing-t: var(--spacing-responsive);
+    --section-spacing-b: var(--spacing-responsive);
+    --grid-gap-row: 0;
+    --header-margin-t: 70px;
+    --scene-margin-t: 0;
+
+    padding: var(--section-spacing-t) 0 var(--section-spacing-b);
+
+    &__index {
+        grid-column: 1 / 1;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__title {
+        grid-column: 3 / -1;
+    }
+
+    &__header {
+        grid-column: 1 / -1;
+        margin: var(--header-margin-t) 0 0;
+
+        &__control {
+            display: flex;
+            opacity: 0.17;
+            transition: opacity .7s $primary-ease;
+
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+
+            @media (hover: hover) and (pointer: fine) {
+                &:hover, &:active, &:focus {
+                    opacity: 0.24;
+                }
+            }
+
+            /* States */
+            &.is-active {
+                opacity: 1;
+            }
+        }
+
+        &__descriptions {
+            display: none;
+        }
+    }
+
+    &__scene {
+        grid-column: 1 / -1;
+        margin-top: var(--scene-margin-t);
+    }
+
+    &__header__descriptions, &__descriptions {
+        position: relative;
+
+        &--element {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity .7s $primary-ease;
+
+            /* States */
+            &.is-selected {
+                position: relative;
+                top: auto;
+                left: auto;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__descriptions {
+        grid-column: 1 / -1;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --header-margin-t: 120px;
+        --scene-margin-t: 45px;
+        --description-margin-t: 70px;
+
+        &__title {
+            grid-column: 4 / 7;
+        }
+
+        &__header {
+            grid-column: 1 / 7;
+
+            &__descriptions {
+                display: block;
+                max-width: 422px;
+                margin-top: var(--description-margin-t);
+            }
+        }
+
+        &__scene {
+            grid-column: 7/-1;
+        }
+
+        &__descriptions {
+            display: none;
+        }
+    }
+
+    @include mediaq('>LG') {
+        --scene-margin-t: 0;
+    }
+
+    @include mediaq('>XXLG') {
+        --section-spacing-b: calc(var(--spacing-responsive) / 2);
+    }
+}

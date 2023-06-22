@@ -51,7 +51,7 @@ body {
 
 /**
  * Content grouping
- * 
+ *
  * 1. Set correct height and prevent the `size` attribute to make the `hr` look like an input field
  *    See https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_hr_size
  */
@@ -67,7 +67,7 @@ hr:not([size]) {
 
 /**
  * Typography
- * 
+ *
  * 1. Remove top margins from headings
  *    By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
  *    margin for easier control within type scales as it avoids margin collapsing.
@@ -114,7 +114,7 @@ p {
 
 /**
  * Abbreviations
- * 
+ *
  * 1. Duplicate behavior to the data-* attribute for our tooltip plugin
  * 2. Add the correct text decoration in Chrome, Edge, Opera, and Safari.
  * 3. Add explicit cursor to indicate changed behavior.
@@ -162,7 +162,7 @@ ul ol {
 }
 
 dt {
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
 }
 
 dd {
@@ -183,7 +183,7 @@ blockquote {
  */
 b,
 strong {
-  font-weight: var(--font-bold);
+  font-weight: var(--font-medium);
 }
 
 /**
@@ -265,7 +265,7 @@ pre {
   margin-bottom: 1rem; // 2
   overflow: auto; // 3
   font-size: .8rem;
-  color: var(--primary-dark);
+  color: var(--black);
   -ms-overflow-style: scrollbar; // 4
 
   /* Account for some code outputs that place code tags in pre tags */
@@ -278,7 +278,7 @@ pre {
 
 code {
   font-size: .8rem;
-  color: var(--primary-dark);
+  color: var(--black);
   word-wrap: break-word;
 
   /* Streamline the style when inside anchors to avoid broken underline and more */
@@ -297,7 +297,7 @@ kbd {
   kbd {
     padding: 0;
     font-size: 1em;
-    font-weight: var(--font-light);
+    font-weight: var(--font-regular);
   }
 }
 
@@ -331,7 +331,7 @@ table {
 caption {
   padding-top: 15px;
   padding-bottom: 15px;
-  color: var(--primary-dark);
+  color: var(--black);
   text-align: left;
 }
 
@@ -361,7 +361,7 @@ label {
 
 /**
  * Remove the default `border-radius` that macOS Chrome adds.
- * See https://github.com/twbs/bootstrap/issues/24093 
+ * See https://github.com/twbs/bootstrap/issues/24093
  */
 button {
   border-radius: 0;
@@ -497,7 +497,7 @@ legend {
   padding: 0;
   margin-bottom: 25px;
   font-size: .65rem;
-  font-weight: var(--font-light);
+  font-weight: var(--font-regular);
   line-height: inherit;
   white-space: normal; // 2
 
@@ -567,7 +567,7 @@ iframe {
 
 /**
  * Summary
- * 
+ *
  * 1. Add the correct display in all browsers
  */
 summary {
@@ -577,7 +577,7 @@ summary {
 
 /**
  * Progress
- * 
+ *
  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
 progress {
@@ -586,7 +586,7 @@ progress {
 
 /**
  * Hidden attribute
- * 
+ *
  * Always hide an element with the `hidden` HTML attribute.
  */
 [hidden] {

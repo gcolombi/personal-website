@@ -1,0 +1,40 @@
+/* ==========================================================================
+    Home Featured Project
+========================================================================== */
+
+.c-homeFeaturedProject {
+    --project-margin-t: 70px;
+    --btn-margin-t: 45px;
+
+    &__index {
+        grid-column: 1 / 1;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__title {
+        grid-column: 3 / -1;
+    }
+
+    &__project {
+        margin-top: var(--project-margin-t);
+    }
+
+    &__btn {
+        margin-top: var(--btn-margin-t);
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --project-margin-t: 120px;
+        --btn-margin-t: 65px;
+
+        &__title {
+            grid-column: 4 / 7;
+        }
+    }
+}

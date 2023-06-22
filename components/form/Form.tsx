@@ -12,6 +12,8 @@ import FormTextarea from './FormTextarea';
 import FormRecaptchaNote from './FormRecaptchaNote';
 import Button from '../shared/Button';
 import { toast, ToastContainer, Zoom } from 'react-toastify';
+import TranslateInOut from '../shared/gsap/TranslateInOut';
+import FadeInOut from '../shared/gsap/FadeInOut';
 
 const labels: Labels = {
     firstname: 'Firstname',
@@ -115,68 +117,145 @@ export default function Form() {
 
     return(
         <>
-            <form className={classNames('u-spacing--responsive--bottom', styles['c-form'])} onSubmit={handleSubmit(handleSubmitForm)} noValidate>
-                <div className="o-container--small">
-                    <div className={styles['c-form__inner']}>
-                        <div className={styles['c-form__row']}>
-                            <FormInput
-                                htmlFor="firstname"
-                                label="Firstname"
-                                id="firstname"
-                                required={true}
-                                className="c-formElement--bordered"
-                                register={register('firstname')}
-                                errors={errors['firstname']}
-                            />
-                            <FormInput
-                                htmlFor="lastname"
-                                label="Lastname"
-                                id="lastname"
-                                required={true}
-                                className="c-formElement--bordered"
-                                register={register('lastname')}
-                                errors={errors['lastname']}
-                            />
-                            <FormInput
-                                htmlFor="email"
-                                label="Email"
-                                type="email"
-                                id="email"
-                                required={true}
-                                className="c-formElement--bordered"
-                                register={register('email')}
-                                errors={errors['email']}
-                            />
-                        </div>
-                        <FormTextarea
-                            htmlFor="message"
-                            label="Message"
-                            id="message"
-                            required={true}
-                            className="c-formElement--bordered"
-                            register={register('message')}
-                            errors={errors['message']}
-                        />
-                        <FormRecaptchaNote />
-                        <div className={styles['c-form__btn']}>
-                            <Button
-                                label="Send"
-                                className="c-btn"
-                                wrapperClassName={classNames({'c-formElement--submit': isSubmitting})}
-                                type="submit"
-                                disabled={isSubmitting}
-                            />
-                        </div>
+            <section className={classNames
+                (
+                    'u-spacing--responsive--bottom',
+                    styles['c-form']
+                )}
+            >
+                <div className="o-container">
+                    <div className="o-grid">
+                        <form className={styles['c-form__element']} onSubmit={handleSubmit(handleSubmitForm)} noValidate>
+                            <div className={styles['c-form__row']}>
+                                <div className={styles['c-form__item']}>
+                                    <TranslateInOut
+                                        delay={0.1}
+                                        durationIn={0.6}
+                                        outro={{
+                                            opacity: 0
+                                        }}
+                                        y="100%"
+                                        start="-100% bottom"
+                                        end="top top"
+                                        watch
+                                    >
+                                        <FormInput
+                                            htmlFor="firstname"
+                                            label="Firstname"
+                                            id="firstname"
+                                            required={true}
+                                            className="c-formElement--bordered"
+                                            register={register('firstname')}
+                                            errors={errors['firstname']}
+                                        />
+                                    </TranslateInOut>
+                                </div>
+                                <div className={styles['c-form__item']}>
+                                    <TranslateInOut
+                                        delay={0.15}
+                                        durationIn={0.6}
+                                        outro={{
+                                            opacity: 0
+                                        }}
+                                        y="100%"
+                                        start="-100% bottom"
+                                        end="top top"
+                                        watch
+                                    >
+                                        <FormInput
+                                            htmlFor="lastname"
+                                            label="Lastname"
+                                            id="lastname"
+                                            required={true}
+                                            className="c-formElement--bordered"
+                                            register={register('lastname')}
+                                            errors={errors['lastname']}
+                                        />
+                                    </TranslateInOut>
+                                </div>
+                                <div className={styles['c-form__itemFull']}>
+                                    <TranslateInOut
+                                        delay={0.20}
+                                        durationIn={0.6}
+                                        outro={{
+                                            opacity: 0
+                                        }}
+                                        y="100%"
+                                        start="-100% bottom"
+                                        end="top top"
+                                        watch
+                                    >
+                                        <FormInput
+                                            htmlFor="email"
+                                            label="Email"
+                                            type="email"
+                                            id="email"
+                                            required={true}
+                                            className="c-formElement--bordered"
+                                            register={register('email')}
+                                            errors={errors['email']}
+                                        />
+                                    </TranslateInOut>
+                                </div>
+                                <div className={styles['c-form__itemFull']}>
+                                    <TranslateInOut
+                                        delay={0.25}
+                                        durationIn={0.6}
+                                        outro={{
+                                            opacity: 0
+                                        }}
+                                        y="100%"
+                                        start="-100% bottom"
+                                        end="top top"
+                                        watch
+                                    >
+                                        <FormTextarea
+                                            htmlFor="message"
+                                            label="Message"
+                                            id="message"
+                                            required={true}
+                                            className="c-formElement--bordered"
+                                            register={register('message')}
+                                            errors={errors['message']}
+                                        />
+                                    </TranslateInOut>
+                                </div>
+                            </div>
+                            <div className="u-overflow--hidden">
+                                <TranslateInOut
+                                    fade={false}
+                                    y="100%"
+                                    start="-100% bottom"
+                                    end="top top"
+                                    watch
+                                >
+                                    <FormRecaptchaNote />
+                                </TranslateInOut>
+                            </div>
+                            <FadeInOut
+                                watch
+                            >
+                                <div className={styles['c-form__btn']}>
+                                    <Button
+                                        label="Send"
+                                        className="c-btn"
+                                        wrapperClassName={classNames({'c-formElement--submit': isSubmitting})}
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                    />
+                                </div>
+                            </FadeInOut>
+                        </form>
                     </div>
+                    {isMounted() &&
+                        <ToastContainer
+                            position={toast.POSITION.BOTTOM_CENTER}
+                            transition={Zoom}
+                            className="c-toastify"
+                        />
+                    }
                 </div>
-            </form>
-            {isMounted() &&
-                <ToastContainer
-                    position={toast.POSITION.BOTTOM_CENTER}
-                    transition={Zoom}
-                    className="c-toastify"
-                />
-            }
+            </section>
         </>
     );
 }

@@ -11,6 +11,7 @@ export type Animation = {
     easeOut: string;
     from: CSSProperties;
     to: GSAPTweenVars;
+    outro?: GSAPTweenVars;
     skipOutro: boolean | undefined;
     watch: boolean | undefined;
     start: string;
@@ -20,12 +21,34 @@ export type Animation = {
 }
 
 /* Animations */
+export type Chars = {
+    children: ReactNode;
+    increment?: number;
+    target: string;
+    isLink?: boolean;
+    textAlign?: string;
+} & AnimationProperties;
+
+export type ClipPath = {
+    children: ReactNode;
+    fade?: boolean;
+    clipPath: string;
+    clipPathTo?: string;
+    clipPathOut?: string;
+} & AnimationProperties;
+
 export type Fade = {
     children: ReactNode;
 } & AnimationProperties;
 
 export type ImplodeExplode = {
     children: ReactNode;
+    target: string;
+} & AnimationProperties;
+
+export type Lines = {
+    children: ReactNode;
+    increment?: number;
     target: string;
 } & AnimationProperties;
 

@@ -1,0 +1,36 @@
+/* ==========================================================================
+    Call to action
+========================================================================== */
+
+.c-callToAction {
+    --grid-gap-row: 0;
+    --link-margin-t: 70px;
+
+    &__index {
+        grid-column: 1 / 1;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__title {
+        grid-column: 3 / -1;
+    }
+
+    &__link {
+        margin-top: var(--link-margin-t);
+        grid-column: 1 / -1;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        --link-margin-t: 120px;
+
+        &__title {
+            grid-column: 4 / 7;
+        }
+    }
+}

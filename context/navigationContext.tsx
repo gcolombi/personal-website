@@ -1,33 +1,46 @@
+import { gsap } from 'gsap';
 import {
     Dispatch,
+    MutableRefObject,
     ReactNode,
+    RefObject,
     SetStateAction,
     createContext,
     useContext,
     useEffect,
+    useRef,
     useState
 } from 'react';
 import { useRouter } from 'next/router';
 import useScrollbar from '@/hooks/useScrollbar';
 import useWindowSize from '@/hooks/useWindowSize';
 import useLockedScroll from '@/hooks/useLockedScroll';
+import useTransitionContext from './transitionContext';
 
 interface NavigationContextType {
-    ref: HTMLElement | null;
-    setRef: Dispatch<SetStateAction<HTMLElement | null>>;
+    navigationRef: MutableRefObject<HTMLElement | null>;
+    mobileNavRef: RefObject<HTMLDivElement>;
     open: boolean;
     sticky: boolean;
     hidden: boolean;
     toggle: () => void;
+    currentRoute: string;
+    setCurrentRoute: Dispatch<SetStateAction<string>>;
 }
 
 const NavigationContext = createContext<NavigationContextType>({
-    ref: null,
-    setRef: () => null,
+    navigationRef: {
+        current: null
+    },
+    mobileNavRef: {
+        current: null
+    },
     open: false,
     sticky: false,
     hidden: false,
-    toggle: () => {}
+    toggle: () => {},
+    currentRoute: '',
+    setCurrentRoute: () => {}
 });
 
 export function NavigationContextProvider({
@@ -35,23 +48,51 @@ export function NavigationContextProvider({
 }: {
     children: ReactNode
 }) {
-    const [ref, setRef] = useState<HTMLElement | null>(null);
+    const router = useRouter();
+    const navigationRef = useRef<HTMLElement | null>(null);
+    const mobileNavRef = useRef<HTMLDivElement | null>(null);
     const [open, setOpen] = useState(false);
+    const [currentRoute, setCurrentRoute] = useState(router.asPath.split('?')[0]);
     const { scrollY, directionY } = useScrollbar();
     const { windowSize, isDesktop } = useWindowSize();
     const [locked, setLocked] = useLockedScroll(false);
-    const router = useRouter();
+    const { primaryEase } = useTransitionContext();
+
+    const animate = (state: boolean) => {
+        if (state) {
+            gsap.fromTo(mobileNavRef.current,
+            {
+                opacity: 1,
+                scaleY: 0
+            },
+            {
+                scaleY: 1,
+                transformOrigin: 'bottom',
+                willChange: 'transform',
+                ease: primaryEase,
+                duration: 0.7
+            });
+        } else {
+            gsap.to(mobileNavRef.current, {
+                opacity: 0,
+                ease: primaryEase,
+                duration: 0.7
+            });
+        }
+    }
 
     const toggle = () => {
         setOpen(!open);
         setLocked(!locked);
+        animate(!open);
     };
 
-    /* Closes navigation if viewport is larger than 1200px */
+    /* Closes navigation if viewport is larger than 991px */
     useEffect(() => {
         if (isDesktop) {
             setOpen(false);
             setLocked(false);
+            animate(false);
         }
     }, [isDesktop]);
 
@@ -60,16 +101,19 @@ export function NavigationContextProvider({
         if (open) {
             setOpen(false);
             setLocked(false);
+            animate(false);
         }
     }, [router.asPath]);
 
     const contextValue: NavigationContextType = {
-        ref,
-        setRef,
+        navigationRef,
+        mobileNavRef,
         open,
         sticky: scrollY > 0,
         hidden: directionY > 0 && typeof windowSize.height === 'number' && scrollY > windowSize.height,
-        toggle
+        toggle,
+        currentRoute,
+        setCurrentRoute
     };
 
     return (

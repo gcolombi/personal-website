@@ -1,0 +1,50 @@
+/* ==========================================================================
+    About Introduction
+========================================================================== */
+
+.c-aboutIntroduction {
+    --grid-gap-row: 0;
+    --content-margin-t: 45px;
+    --content-margin-b: 45px;
+
+    &__index {
+        grid-column: 1 / 1;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__content {
+        grid-column: 1 / -1;
+        margin: var(--content-margin-t) 0 var(--content-margin-b);
+    }
+
+    &__media {
+        display: flex;
+        grid-column: 1 / 7;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>XS') {
+
+        &__media {
+            grid-column: 1 / 4;
+        }
+    }
+
+    @include mediaq('>MD') {
+        --content-margin-t: 0;
+        --content-margin-b: 65px;
+
+        &__content {
+            grid-column: 4 / 10;
+        }
+
+        &__media {
+            grid-column: 7 / 10;
+        }
+    }
+}

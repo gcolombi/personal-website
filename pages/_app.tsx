@@ -9,11 +9,14 @@ import singletonRouter from 'next-translate-routes/router';
 import { useRouter } from 'next-translate-routes/router';
 
 // import { useRouter } from 'next/router';
-
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import useNextCssRemovalPrevention from '@/hooks/useNextCssRemovalPrevention';
+import { ThemeProvider } from 'next-themes';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { TransitionContextProvider } from '@/context/transitionContext';
 import { NavigationContextProvider } from '@/context/navigationContext';
+import MetaData from '@/components/MetaData';
+import Loader from '@/components/Loader';
 import Layout from '@/components/Layout';
 
 const neueMontreal = localFont({
@@ -49,6 +52,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC<AppProps> = ({ Component, pageProps, router: baseRouter }) => {
     const router = useRouter();
+    const [isLoading, setIsLoading] = useState(true);
+    const [isReady, setIsReady] = useState(false);
+    const metaData = pageProps.metaData;
 
     /* Removes focus from next/link element after page change */
     useEffect(() => {
@@ -62,34 +68,44 @@ const App: React.FC<AppProps> = ({ Component, pageProps, router: baseRouter }) =
 
     // useEffect(() => console.log('From _app. useRouter router:', router), [router]);
 
+    /* Temporary fix to avoid flash of unstyled content (FOUC) during route transitions */
+    useNextCssRemovalPrevention();
+
     return (
         <>
-            <GoogleReCaptchaProvider
-                reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                scriptProps={{
-                    async: true,
-                    defer: true,
-                    appendTo: 'body'
-                }}
-            >
-                <TransitionContextProvider>
-                    <NavigationContextProvider>
-                        <style jsx global>
-                            {
-                                `
-                                    :root {
-                                        --font-primary: ${neueMontreal.style.fontFamily};
-                                        --font-secondary: ${neueMontreal.style.fontFamily};
+            <ThemeProvider disableTransitionOnChange>
+                <MetaData {...metaData} />
+                {isLoading &&
+                    <Loader setIsLoading={setIsLoading} setIsReady={setIsReady} />
+                }
+                {isReady &&
+                    <GoogleReCaptchaProvider
+                        reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                        scriptProps={{
+                            async: true,
+                            defer: true,
+                            appendTo: 'body'
+                        }}
+                    >
+                        <TransitionContextProvider>
+                            <NavigationContextProvider>
+                                <style jsx global>
+                                    {
+                                        `
+                                            :root {
+                                                --font-primary: ${neueMontreal.style.fontFamily};
+                                            }
+                                        `
                                     }
-                                `
-                            }
-                        </style>
-                        <Layout>
-                            <Component {...pageProps} />
-                        </Layout>
-                    </NavigationContextProvider>
-                </TransitionContextProvider>
-            </GoogleReCaptchaProvider>
+                                </style>
+                                <Layout>
+                                    <Component {...pageProps} />
+                                </Layout>
+                            </NavigationContextProvider>
+                        </TransitionContextProvider>
+                    </GoogleReCaptchaProvider>
+                }
+            </ThemeProvider>
         </>
     );
 }

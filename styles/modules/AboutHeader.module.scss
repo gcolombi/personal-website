@@ -1,0 +1,30 @@
+/* ==========================================================================
+    About header
+========================================================================== */
+
+.c-aboutHeader {
+    padding: calc(var(--navigation-height) + var(--spacing-responsive)) 0 var(--spacing-responsive) 0;
+
+    &__title {
+        grid-column: 1 / -1;
+    }
+
+    &__media {
+        grid-column: 1 / -1;
+    }
+
+    // **---------------------------------------------------**
+    // MEDIA QUERIES
+
+    @include mediaq('>MD') {
+        &__media {
+            grid-column: 4 / 10;
+        }
+    }
+
+    @include mediaq('>LG') {
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+    }
+}

@@ -32,7 +32,7 @@ export default function ShuffleTextInOut({
     markers
 }: ShuffleText) {
     const { timeline } = useTransitionContext();
-    const element = useRef<HTMLDivElement>(null);
+    const element = useRef<HTMLDivElement | null>(null);
 
     useIsomorphicLayoutEffect(() => {
         const scrollTrigger = watch ? {
