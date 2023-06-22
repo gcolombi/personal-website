@@ -40,17 +40,19 @@ export default function Project({
                     </LinesInOut>
                 </div>
                 <div className={styles['c-project__details--btn']}>
-                    <FadeInOut
-                        watch
-                    >
-                        <Button
-                            label="Visit website"
-                            className="c-btn--external"
-                            externalHref={url}
-                            isExternal
-                            icon
-                        />
-                    </FadeInOut>
+                    {url &&
+                        <FadeInOut
+                            watch
+                        >
+                            <Button
+                                label="Visit website"
+                                className="c-btn--external"
+                                externalHref={url}
+                                isExternal
+                                icon
+                            />
+                        </FadeInOut>
+                    }
                     {githubUrl &&
                         <FadeInOut
                             watch
