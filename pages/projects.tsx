@@ -1,11 +1,12 @@
 import { META_PROJECTS, PERSONAL_PROJECTS, PROJECTS, PROJECTS_TABS } from '@/data/projects.data';
 import { CALL_TO_ACTION } from '@/data/global.data';
+import { MetaDataProps } from '@/types/components/global';
+import { GetStaticProps } from 'next';
 import { ProjectsType } from '@/types/projects';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
-import MetaData from '@/components/MetaData';
 import ProjectsTabs from '@/components/ProjectsTabs';
 import CallToAction from '@/components/CallToAction';
 
@@ -36,9 +37,6 @@ export default function Projects() {
 
     return (
         <>
-            <MetaData
-                {...META_PROJECTS}
-            />
             <ProjectsTabs
                 index="01"
                 tabs={PROJECTS_TABS}
@@ -54,3 +52,13 @@ export default function Projects() {
         </>
     );
 };
+
+export const getStaticProps: GetStaticProps<{metaData: MetaDataProps}> = async () => {
+    return {
+        props: {
+            metaData: {
+                ...META_PROJECTS
+            }
+        }
+    }
+}

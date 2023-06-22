@@ -10,8 +10,9 @@ import { ThemeProvider } from 'next-themes';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { TransitionContextProvider } from '@/context/transitionContext';
 import { NavigationContextProvider } from '@/context/navigationContext';
-import Layout from '@/components/Layout';
+import MetaData from '@/components/MetaData';
 import Loader from '@/components/Loader';
+import Layout from '@/components/Layout';
 
 const neueMontreal = localFont({
     fallback: ['-apple-systen', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'],
@@ -46,6 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
     const [isReady, setIsReady] = useState(false);
+    const metaData = pageProps.metaData;
 
     /* Removes focus from next/link element after page change */
     useEffect(() => {
@@ -58,6 +60,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <ThemeProvider disableTransitionOnChange>
+                <MetaData {...metaData} />
                 {isLoading &&
                     <Loader setIsLoading={setIsLoading} setIsReady={setIsReady} />
                 }

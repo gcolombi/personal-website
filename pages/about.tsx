@@ -1,7 +1,8 @@
 import { ABOUT_HEADER, ABOUT_INTRODUCTION, META_ABOUT } from '@/data/about.data';
 import { HOBBIES_TABS, HOBBIES_TITLE, MODELS } from '@/data/hobbies.data';
 import { CALL_TO_ACTION } from '@/data/global.data';
-import MetaData from '@/components/MetaData';
+import { MetaDataProps } from '@/types/components/global';
+import { GetStaticProps } from 'next';
 import AboutHeader from '@/components/AboutHeader';
 import AboutIntroduction from '@/components/AboutIntroduction';
 import HobbiesTabs from '@/components/HobbiesTabs';
@@ -10,9 +11,6 @@ import CallToAction from '@/components/CallToAction';
 export default function About() {
     return (
         <>
-            <MetaData
-                {...META_ABOUT}
-            />
             <AboutHeader
                 {...ABOUT_HEADER}
             />
@@ -34,3 +32,13 @@ export default function About() {
         </>
     );
 };
+
+export const getStaticProps: GetStaticProps<{metaData: MetaDataProps}> = async () => {
+    return {
+        props: {
+            metaData: {
+                ...META_ABOUT
+            }
+        }
+    }
+}

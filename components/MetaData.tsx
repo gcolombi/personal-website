@@ -1,27 +1,14 @@
-// import { MetaDataProps } from '@/types/components/global';
+import { MetaDataProps } from '@/types/components/global';
 import Head from 'next/head';
 import useWindowLocation from '@/hooks/useWindowLocation';
-import { useEffect } from 'react';
 
 export default function MetaData({
     title = 'Gerard Colombi',
     description = 'Front-end developer capable of full stack development, passionate about building appealing and interactive web experiences.',
     image = `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image.png`,
     type = 'website'
-}: {
-    title?: string;
-    description?: string;
-    image?: string;
-    type?: string;
-}) {
+}: MetaDataProps) {
     const { currentURL } = useWindowLocation();
-
-    useEffect(() => {
-        console.log(title);
-        console.log(description);
-        console.log(image);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     return (
         <Head>
