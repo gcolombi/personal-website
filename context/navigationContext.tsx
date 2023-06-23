@@ -101,6 +101,7 @@ export function NavigationContextProvider({
             setLocked(false);
             animate(false);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isDesktop]);
 
     /* Closes navigation on route change */
@@ -110,6 +111,7 @@ export function NavigationContextProvider({
             setLocked(false);
             animate(false);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [router.asPath]);
 
     const contextValue: NavigationContextType = {
