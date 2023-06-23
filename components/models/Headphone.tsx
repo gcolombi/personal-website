@@ -9,7 +9,7 @@ export default function Headphone({
     visible
 }: ModelProps) {
     const groupRef = useRef<THREE.Mesh & Group>(null);
-    const { scene } = useGLTF('static/models/headphone/sennheiser.glb') as unknown as GLTF;
+    const { scene } = useGLTF('/static/models/headphone/sennheiser.glb') as unknown as GLTF;
 
     useFrame(() => {
         const group = groupRef.current;

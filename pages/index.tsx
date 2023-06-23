@@ -17,7 +17,9 @@ export default function Home({
             <HomeHeader
                 {...HOME_HEADER}
             />
-            {title}
+            <div className="o-container">
+                {title}
+            </div>
             <HomeIntroduction
                 index="01"
                 {...HOME_INTRODUCTION}

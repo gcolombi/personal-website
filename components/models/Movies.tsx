@@ -9,7 +9,7 @@ export default function Movies({
     visible = true
 }: ModelProps) {
     const groupRef = useRef<THREE.Mesh & Group>(null);
-    const { scene } = useGLTF('static/models/movies/stormtrooper.glb') as unknown as GLTF;
+    const { scene } = useGLTF('/static/models/movies/stormtrooper.glb') as unknown as GLTF;
 
     useFrame(() => {
         const group = groupRef.current;
