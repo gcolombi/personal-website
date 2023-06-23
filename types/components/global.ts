@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import { SocialMedias } from '../socials';
+import { NextRouter } from 'next-translate-routes';
 
 /* Lang */
 export type Lang<Type> = {
@@ -21,6 +22,20 @@ export type MetaDataProps = {
 }
 
 /* Navigation */
+export type TogglerProps = {
+    open: boolean;
+    toggle: () => void;
+}
+
+export type ThemeTogglerProps = {
+    resolvedTheme: string | undefined;
+    setTheme: (theme: string) => void;
+}
+
+export type LanguageSwitcherProps = {
+    router: NextRouter;
+}
+
 export type NavItemProps = {
     href: string;
     title: string;

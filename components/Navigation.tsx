@@ -1,4 +1,4 @@
-import { NavigationProps } from '@/types/components/global';
+import { LanguageSwitcherProps, NavigationProps, ThemeTogglerProps, TogglerProps } from '@/types/components/global';
 import styles from '@/styles/modules/Navigation.module.scss';
 import { gsap } from 'gsap';
 import Link from 'next-translate-routes/link';
@@ -17,7 +17,7 @@ export default function Navigation({
     routes,
     socialMedias
 }: NavigationProps) {
-    const { locale } = useRouter();
+    const router = useRouter();
     const { timeline, primaryEase } = useTransitionContext();
     const { navigationRef, open, toggle } = useNavigationContext();
     const [headerRef, { height }] = useElementSize();
@@ -87,7 +87,7 @@ export default function Navigation({
                                         setTheme={setTheme}
                                     />
                                 }
-                                <LanguageSwitcher />
+                                <LanguageSwitcher router={router} />
                             </div>
                         </div>
                         <div className={styles['c-navigation__toggler']}>
@@ -103,7 +103,7 @@ export default function Navigation({
                                         {routes.map(({ href, title }, i) => (
                                             <li key={i}>
                                                 <NavItem
-                                                    href={translateUrl(href, locale ?? '')}
+                                                    href={translateUrl(href, router.locale ?? '')}
                                                     title={title}
                                                     className={styles['is-current-page']}
                                                 />
@@ -127,10 +127,7 @@ export default function Navigation({
 function Toggler({
     open,
     toggle
-}: {
-    open: boolean;
-    toggle: () => void;
-}) {
+}: TogglerProps) {
     return (
         <button
             className={styles['m-toggler']}
@@ -146,10 +143,7 @@ function Toggler({
 function ThemeToggler({
     resolvedTheme,
     setTheme
-}: {
-    resolvedTheme: string | undefined;
-    setTheme: (theme: string) => void;
-}) {
+}: ThemeTogglerProps) {
     return (
         <button
             className={styles['m-themeToggler']}
@@ -164,13 +158,14 @@ function ThemeToggler({
     )
 }
 
-function LanguageSwitcher() {
-    const router = useRouter();
-
+function LanguageSwitcher({
+    router
+}: LanguageSwitcherProps) {
     const getLocales = () => {
         const locales = router.locales ?? [];
         return locales.filter(l => l !== router.locale);
     }
+
     const locales = getLocales();
 
     const switchToLocale = () => {
