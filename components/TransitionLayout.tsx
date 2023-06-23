@@ -3,7 +3,11 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
 import { ReactNode, useState } from 'react';
-import { useRouter } from 'next/router';
+
+import { useRouter } from 'next-translate-routes/router';
+import { translateUrl } from 'next-translate-routes';
+// import { useRouter } from 'next/router';
+
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 
 export default function TransitionLayout({
@@ -74,13 +78,13 @@ export default function TransitionLayout({
     };
 
     useIsomorphicLayoutEffect(() => {
-        if (currentRoute !== router.asPath) {
+        if (currentRoute !== translateUrl(router.asPath, router.locale ?? '')) {
             if (timeline?.duration() === 0) {
                 /* There are no outro animations, so immediately transition */
                 setDisplayChildren(children);
                 animateNavigation();
                 animateFooter();
-                setCurrentRoute(router.asPath.split('?')[0]);
+                setCurrentRoute(translateUrl(router.asPath, router.locale ?? '').split('?')[0]);
                 window.scrollTo(0, 0);
                 ScrollTrigger.refresh(true);
                 return;
@@ -92,14 +96,14 @@ export default function TransitionLayout({
                 setDisplayChildren(children);
                 animateNavigation();
                 animateFooter();
-                setCurrentRoute(router.asPath.split('?')[0]);
+                setCurrentRoute(translateUrl(router.asPath, router.locale ?? '').split('?')[0]);
                 window.scrollTo(0, 0);
                 ScrollTrigger.refresh(true);
                 document.documentElement.classList.remove('is-transitioning');
             });
 
         } else {
-            setCurrentRoute(router.asPath.split('?')[0]);
+            setCurrentRoute(translateUrl(router.asPath, router.locale ?? '').split('?')[0]);
             ScrollTrigger.refresh(true);
         }
     }, [router.asPath]);
