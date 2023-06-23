@@ -4,6 +4,11 @@ export enum ProjectsType {
     PERSONAL_PROJECTS = 'personal'
 }
 
+/* Projects List */
+export type ProjectsList = {
+    [key in ProjectsType]: Projects;
+};
+
 /* Projects */
 export type Projects = ProjectProps[];
 

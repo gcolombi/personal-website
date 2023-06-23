@@ -1,27 +1,26 @@
-import { META_PROJECTS, PERSONAL_PROJECTS, PROJECTS, PROJECTS_TABS } from '@/data/projects.data';
+import { META_PROJECTS, PROJECTS_LIST, PROJECTS_TABS } from '@/data/projects.data';
 import { CALL_TO_ACTION } from '@/data/global.data';
 import { MetaDataProps } from '@/types/components/global';
-import { GetStaticProps } from 'next';
-import { ProjectsType } from '@/types/projects';
+import { ProjectsTabsType } from '@/types/projects/tabs';
+import { ProjectsList, ProjectsType } from '@/types/projects';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { useMemo, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next-translate-routes';
 import ProjectsTabs from '@/components/ProjectsTabs';
 import CallToAction from '@/components/CallToAction';
 
-export const PROJECTS_LIST = {
-    [ProjectsType.PROJECTS]: PROJECTS,
-    [ProjectsType.PERSONAL_PROJECTS]: PERSONAL_PROJECTS
-};
-
-export default function Projects() {
+export default function Projects({
+    projectsList,
+    tabs
+}: InferGetStaticPropsType<typeof getStaticProps>) {
     const { query } = useRouter();
     const [projectsType, setProjectsType] = useState<ProjectsType>(ProjectsType.PROJECTS);
 
     const projects = useMemo(() => {
-        return PROJECTS_LIST[projectsType];
-    }, [projectsType]);
+        return projectsList[projectsType] ?? [];
+    }, [projectsList, projectsType]);
 
     useIsomorphicLayoutEffect(() => {
         ScrollTrigger.refresh(true);
@@ -39,7 +38,7 @@ export default function Projects() {
         <>
             <ProjectsTabs
                 index="01"
-                tabs={PROJECTS_TABS}
+                tabs={tabs}
                 projects={projects}
                 projectsType={projectsType}
                 setProjectsType={setProjectsType}
@@ -53,12 +52,30 @@ export default function Projects() {
     );
 };
 
-export const getStaticProps: GetStaticProps<{metaData: MetaDataProps}> = async () => {
+export const getStaticProps: GetStaticProps<{
+    metaData: MetaDataProps,
+    projectsList: ProjectsList,
+    tabs: ProjectsTabsType
+}> = async ({ locale }) => {
+    const lang = locale ?? '';
+
+    const metaProjects = META_PROJECTS[lang];
+    const projectsList = PROJECTS_LIST[lang];
+    const projectsTabs = PROJECTS_TABS[lang] ?? [];
+
+    console.log(projectsList);
+
     return {
         props: {
             metaData: {
-                ...META_PROJECTS
-            }
+                ...metaProjects
+            },
+            projectsList: {
+                ...projectsList
+            },
+            tabs: [
+                ...projectsTabs
+            ]
         }
     }
 }

@@ -1,6 +1,11 @@
 import { Dispatch, SetStateAction } from 'react';
 import { SocialMedias } from '../socials';
 
+/* Lang */
+export type Lang<Type> = {
+    [key: string]: Type;
+}
+
 /* Loader */
 export type LoaderProps = {
     setIsLoading: Dispatch<SetStateAction<boolean>>;
