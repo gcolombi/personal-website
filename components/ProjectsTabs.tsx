@@ -1,4 +1,4 @@
-import { ProjectsTabs, ProjectsTabsProps } from '@/types/projects/tabs';
+import { ProjectsTabsProps } from '@/types/projects/tabs';
 import { ProjectsType } from '@/types/projects';
 import styles from '@/styles/modules/ProjectsTabs.module.scss';
 import { gsap } from 'gsap';
