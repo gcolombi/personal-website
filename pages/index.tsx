@@ -8,18 +8,12 @@ import HomeFeaturedProject from '@/components/HomeFeaturedProject';
 import CallToAction from '@/components/CallToAction';
 
 export default function Home({
-    title
-}: {
-    title: string;
 }) {
     return (
         <>
             <HomeHeader
                 {...HOME_HEADER}
             />
-            <div className="o-container">
-                {title}
-            </div>
             <HomeIntroduction
                 index="01"
                 {...HOME_INTRODUCTION}
@@ -66,11 +60,8 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-    const title = locale === 'en' ? 'English title' : 'Titre français';
-
     return {
         props: {
-            title
         }
     }
 };

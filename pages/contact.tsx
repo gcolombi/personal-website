@@ -15,11 +15,16 @@ export default function Contact() {
     );
 };
 
-export const getStaticProps: GetStaticProps<{metaData: MetaDataProps}> = async () => {
+export const getStaticProps: GetStaticProps<{
+    metaData: MetaDataProps;
+}> = async ({ locale }) => {
+    const lang = locale ?? '';
+    const metaContact = META_CONTACT[lang];
+
     return {
         props: {
             metaData: {
-                ...META_CONTACT
+                ...metaContact
             }
         }
     }

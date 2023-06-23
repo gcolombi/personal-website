@@ -1,8 +1,13 @@
-import { MetaDataProps } from '@/types/components/global';
+import { Lang, MetaDataProps } from '@/types/components/global';
 import { BasicHeaderProps } from '@/types/components/headers';
 
-export const META_CONTACT: MetaDataProps = {
-    title: `Contact | ${process.env.NEXT_PUBLIC_SITE_NAME}`
+export const META_CONTACT: Lang<MetaDataProps> = {
+    en: {
+        title: `Contact | ${process.env.NEXT_PUBLIC_SITE_NAME}`
+    },
+    fr: {
+        title: `Contact | ${process.env.NEXT_PUBLIC_SITE_NAME}`
+    }
 };
 
 export const CONTACT_HEADER: BasicHeaderProps = {

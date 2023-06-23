@@ -1,9 +1,14 @@
-import { MetaDataProps } from '@/types/components/global';
+import { Lang, MetaDataProps } from '@/types/components/global';
 import { AboutHeaderProps } from '@/types/components/headers';
 import { AboutIntroductionContent } from '@/types/components/introductions';
 
-export const META_ABOUT: MetaDataProps = {
-    title: `About | ${process.env.NEXT_PUBLIC_SITE_NAME}`
+export const META_ABOUT: Lang<MetaDataProps> = {
+    en: {
+        title: `About | ${process.env.NEXT_PUBLIC_SITE_NAME}`
+    },
+    fr: {
+        title: `À propos | ${process.env.NEXT_PUBLIC_SITE_NAME}`
+    }
 };
 
 export const ABOUT_HEADER: AboutHeaderProps = {

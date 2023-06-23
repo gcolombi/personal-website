@@ -33,11 +33,16 @@ export default function About() {
     );
 };
 
-export const getStaticProps: GetStaticProps<{metaData: MetaDataProps}> = async () => {
+export const getStaticProps: GetStaticProps<{
+    metaData: MetaDataProps;
+}> = async ({ locale }) => {
+    const lang = locale ?? '';
+    const metaAbout = META_ABOUT[lang];
+
     return {
         props: {
             metaData: {
-                ...META_ABOUT
+                ...metaAbout
             }
         }
     }

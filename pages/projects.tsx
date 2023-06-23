@@ -53,17 +53,14 @@ export default function Projects({
 };
 
 export const getStaticProps: GetStaticProps<{
-    metaData: MetaDataProps,
-    projectsList: ProjectsList,
-    tabs: ProjectsTabsType
+    metaData: MetaDataProps;
+    projectsList: ProjectsList;
+    tabs: ProjectsTabsType;
 }> = async ({ locale }) => {
     const lang = locale ?? '';
-
     const metaProjects = META_PROJECTS[lang];
     const projectsList = PROJECTS_LIST[lang];
     const projectsTabs = PROJECTS_TABS[lang] ?? [];
-
-    console.log(projectsList);
 
     return {
         props: {
