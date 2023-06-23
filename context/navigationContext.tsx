@@ -11,11 +11,8 @@ import {
     useRef,
     useState
 } from 'react';
-// import { useRouter } from 'next/router';
-
 import { useRouter } from 'next-translate-routes/router';
 import { translateUrl } from 'next-translate-routes';
-
 import useScrollbar from '@/hooks/useScrollbar';
 import useWindowSize from '@/hooks/useWindowSize';
 import useLockedScroll from '@/hooks/useLockedScroll';
@@ -56,10 +53,7 @@ export function NavigationContextProvider({
     const navigationRef = useRef<HTMLElement | null>(null);
     const mobileNavRef = useRef<HTMLDivElement | null>(null);
     const [open, setOpen] = useState(false);
-
-    // const [currentRoute, setCurrentRoute] = useState(router.asPath.split('?')[0]);
     const [currentRoute, setCurrentRoute] = useState(translateUrl(router.asPath, router.locale ?? '').split('?')[0]);
-
     const { scrollY, directionY } = useScrollbar();
     const { windowSize, isDesktop } = useWindowSize();
     const [locked, setLocked] = useLockedScroll(false);

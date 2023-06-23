@@ -3,12 +3,8 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import localFont from 'next/font/local';
 import type { AppProps } from 'next/app';
-
-import { withTranslateRoutes, translateUrl, urlToFileUrl, fileUrlToUrl } from 'next-translate-routes';
-import singletonRouter from 'next-translate-routes/router';
+import { withTranslateRoutes } from 'next-translate-routes';
 import { useRouter } from 'next-translate-routes/router';
-
-// import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import useNextCssRemovalPrevention from '@/hooks/useNextCssRemovalPrevention';
 import { ThemeProvider } from 'next-themes';
@@ -48,9 +44,7 @@ const neueMontreal = localFont({
 
 gsap.registerPlugin(ScrollTrigger);
 
-// export default function App({ Component, pageProps }: AppProps) {
-
-const App: React.FC<AppProps> = ({ Component, pageProps, router: baseRouter }) => {
+const App: React.FC<AppProps> = ({ Component, pageProps }) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
     const [isReady, setIsReady] = useState(false);
@@ -60,13 +54,6 @@ const App: React.FC<AppProps> = ({ Component, pageProps, router: baseRouter }) =
     useEffect(() => {
         document.activeElement instanceof HTMLElement && document.activeElement.blur();
     }, [router]);
-
-    // useEffect(
-    //     () => console.log('From _app.', { translateUrl, urlToFileUrl, fileUrlToUrl, baseRouter, singletonRouter }),
-    //     [baseRouter],
-    // )
-
-    // useEffect(() => console.log('From _app. useRouter router:', router), [router]);
 
     /* Temporary fix to avoid flash of unstyled content (FOUC) during route transitions */
     useNextCssRemovalPrevention();

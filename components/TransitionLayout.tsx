@@ -3,11 +3,8 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
 import { ReactNode, useState } from 'react';
-
 import { useRouter } from 'next-translate-routes/router';
 import { translateUrl } from 'next-translate-routes';
-// import { useRouter } from 'next/router';
-
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 
 export default function TransitionLayout({

@@ -1,12 +1,9 @@
 import { NavigationProps } from '@/types/components/global';
 import styles from '@/styles/modules/Navigation.module.scss';
-
-import { useRouter } from 'next-translate-routes/router';
-import Link from 'next-translate-routes/link';
-import { translateUrl } from 'next-translate-routes';
-
 import { gsap } from 'gsap';
-// import Link from 'next/link';
+import Link from 'next-translate-routes/link';
+import { useRouter } from 'next-translate-routes/router';
+import { translateUrl } from 'next-translate-routes';
 import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
@@ -20,15 +17,12 @@ export default function Navigation({
     routes,
     socialMedias
 }: NavigationProps) {
+    const { locale } = useRouter();
     const { timeline, primaryEase } = useTransitionContext();
     const { navigationRef, open, toggle } = useNavigationContext();
     const [headerRef, { height }] = useElementSize();
     const isMounted = useIsMounted();
     const { resolvedTheme, setTheme } = useTheme();
-
-
-    const router = useRouter();
-
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -109,8 +103,7 @@ export default function Navigation({
                                         {routes.map(({ href, title }, i) => (
                                             <li key={i}>
                                                 <NavItem
-                                                    // href={`/${href}`}
-                                                    href={translateUrl(href, router.locale ?? '')}
+                                                    href={translateUrl(href, locale ?? '')}
                                                     title={title}
                                                     className={styles['is-current-page']}
                                                 />
@@ -178,7 +171,6 @@ function LanguageSwitcher() {
         const locales = router.locales ?? [];
         return locales.filter(l => l !== router.locale);
     }
-
     const locales = getLocales();
 
     const switchToLocale = () => {
