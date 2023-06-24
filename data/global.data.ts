@@ -1,22 +1,28 @@
 import { CallToActionContent, FooterContent, Lang, MetaDataProps, NavigationRoutes } from '@/types/components/global';
 import { BasicHeaderProps } from '@/types/components/headers';
 
-export const FOOTER: FooterContent = {
-    title: 'Front-end developer',
-    copyright: 'All rights reserved'
+export const FOOTER: Lang<FooterContent> = {
+    en: {
+        title: 'Front-end Developer',
+        copyright: 'All rights reserved'
+    },
+    fr: {
+        title: 'Développeur Front-end',
+        copyright: 'Tous droits réservés'
+    }
 };
 
 export const NAVIGATION_ROUTES: NavigationRoutes = [
     {
-        href: 'projects',
+        href: '/projects',
         title: 'Projects'
     },
     {
-        href: 'about',
+        href: '/about',
         title: 'About'
     },
     {
-        href: 'contact',
+        href: '/contact',
         title: 'Contact'
     }
 ];
