@@ -1,6 +1,7 @@
 import { ButtonProps } from '@/types/components/button';
 import styles from '@/styles/modules/Button.module.scss';
-import Link from 'next/link';
+import Link from 'next-translate-routes/link';
+import { translateUrl, useRouter } from 'next-translate-routes';
 import ArrowOutward from './svg/ArrowOutward';
 import Circle from './svg/Circle';
 
@@ -17,12 +18,14 @@ export default function Button({
     className = 'c-btn',
     wrapperClassName
 }: ButtonProps) {
+    const { locale } = useRouter();
+
     if (label && href) {
         return (
             <div className={wrapperClassName}>
                 <Link
                     className={styles[className]}
-                    href={href}
+                    href={translateUrl(href, locale ?? '')}
                     onClick={onClick}
                     scroll={false}
                 >

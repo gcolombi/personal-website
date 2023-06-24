@@ -24,11 +24,14 @@ export const NAVIGATION_ROUTES: NavigationRoutes = [
 export const CALL_TO_ACTION: Lang<CallToActionContent> = {
     en: {
         title: 'Get in touch',
-        buttonLabel: 'Contact me'
+        buttonLabel: 'Contact me',
+        buttonHref: '/contact'
+
     },
     fr: {
         title: 'Prendre contact',
-        buttonLabel: 'Contactez-moi'
+        buttonLabel: 'Contactez-moi',
+        buttonHref: '/contact'
     }
 };
 

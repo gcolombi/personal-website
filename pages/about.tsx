@@ -3,7 +3,6 @@ import { HOBBIES_TABS, HOBBIES_TITLE, MODELS } from '@/data/hobbies.data';
 import { CALL_TO_ACTION } from '@/data/global.data';
 import { CallToActionContent, MetaDataProps } from '@/types/components/global';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { translateUrl, useRouter } from 'next-translate-routes';
 import AboutHeader from '@/components/AboutHeader';
 import AboutIntroduction from '@/components/AboutIntroduction';
 import HobbiesTabs from '@/components/HobbiesTabs';
@@ -12,8 +11,6 @@ import CallToAction from '@/components/CallToAction';
 export default function About({
     callToAction
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-    const { locale } = useRouter();
-
     return (
         <>
             <AboutHeader
@@ -32,7 +29,6 @@ export default function About({
             <CallToAction
                 index="03"
                 {...callToAction}
-                buttonHref={translateUrl('/contact', locale ?? '')}
             />
         </>
     );

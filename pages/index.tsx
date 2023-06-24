@@ -7,7 +7,6 @@ import { HomeIntroductionContent } from '@/types/components/introductions';
 import { HomeFeaturedProjectContent } from '@/types/components/sections';
 import { ProjectProps } from '@/types/projects';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { translateUrl, useRouter } from 'next-translate-routes';
 import HomeHeader from '@/components/HomeHeader';
 import HomeIntroduction from '@/components/HomeIntroduction';
 import HomeFeaturedProject from '@/components/HomeFeaturedProject';
@@ -22,8 +21,6 @@ export default function Home({
     latestPersonalProject,
     callToAction
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-    const { locale } = useRouter();
-
     return (
         <>
             <HomeHeader
@@ -46,7 +43,6 @@ export default function Home({
             <CallToAction
                 index="04"
                 {...callToAction}
-                buttonHref={translateUrl('/contact', locale ?? '')}
             />
         </>
     )

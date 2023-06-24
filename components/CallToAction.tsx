@@ -1,6 +1,7 @@
 import { CallToActionProps } from '@/types/components/global';
 import styles from '@/styles/modules/CallToAction.module.scss';
-import Link from 'next/link';
+import Link from 'next-translate-routes/link';
+import { translateUrl, useRouter } from 'next-translate-routes';
 import CharsInOut from './shared/gsap/CharsInOut';
 import FadeInOut from './shared/gsap/FadeInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
@@ -12,6 +13,8 @@ export default function CallToAction({
     buttonLabel,
     buttonHref
 }: CallToActionProps) {
+    const { locale } = useRouter();
+
     return(
         <section className={classNames(
             'u-spacing--responsive',
@@ -52,7 +55,7 @@ export default function CallToAction({
                         </TranslateInOut>
                     </div>
                     <div className={styles['c-callToAction__link']}>
-                        <Link href={buttonHref} className="h1 u-animatedLink" scroll={false}>
+                        <Link href={translateUrl(buttonHref, locale ?? '')} className="h1 u-animatedLink" scroll={false}>
                             <CharsInOut
                                 target="#call-to-action"
                                 watch

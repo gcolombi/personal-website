@@ -7,7 +7,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { useMemo, useState } from 'react';
-import { translateUrl, useRouter } from 'next-translate-routes';
+import { useRouter } from 'next-translate-routes';
 import ProjectsTabs from '@/components/ProjectsTabs';
 import CallToAction from '@/components/CallToAction';
 
@@ -16,7 +16,7 @@ export default function Projects({
     tabs,
     callToAction
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-    const { query, locale } = useRouter();
+    const { query } = useRouter();
     const [projectsType, setProjectsType] = useState<ProjectsType>(ProjectsType.PROJECTS);
 
     const projects = useMemo(() => {
@@ -47,7 +47,6 @@ export default function Projects({
             <CallToAction
                 index="02"
                 {...callToAction}
-                buttonHref={translateUrl('/contact', locale ?? '')}
             />
         </>
     );

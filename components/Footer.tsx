@@ -3,7 +3,7 @@ import styles from '@/styles/modules/Footer.module.scss';
 import { gsap } from 'gsap';
 import useTransitionContext from '@/context/transitionContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
-import Link from 'next/link';
+import Link from 'next-translate-routes/link';
 import Button from './shared/Button';
 import classNames from 'classnames';
 

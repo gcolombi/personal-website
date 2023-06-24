@@ -3,7 +3,6 @@ import { Lang } from '@/types/components/global';
 import { HomeHeaderProps } from '@/types/components/headers';
 import { HomeIntroductionContent } from '@/types/components/introductions';
 import { HomeFeaturedProjectContent } from '@/types/components/sections';
-import { translateUrl } from 'next-translate-routes';
 
 export const HOME_HEADER: Lang<HomeHeaderProps> = {
     en: {
@@ -34,7 +33,7 @@ export const HOME_INTRODUCTION: Lang<HomeIntroductionContent> = {
         ],
         button: {
             label: 'More about me',
-            href: translateUrl('/contact', 'en')
+            href: '/contact'
         }
     },
     fr: {
@@ -48,7 +47,7 @@ export const HOME_INTRODUCTION: Lang<HomeIntroductionContent> = {
         ],
         button: {
             label: 'En savoir plus sur moi',
-            href: translateUrl('/contact', 'fr')
+            href: '/contact'
         }
     }
 };
@@ -59,7 +58,7 @@ export const HOME_FEATURED_PROJECT_CONTENT: Lang<HomeFeaturedProjectContent> = {
         button: {
             label: 'See all projects',
             href: {
-                pathname: translateUrl('/projects', 'en'),
+                pathname: '/projects',
                 query: {
                     type: FEATURED_PROJECT['en'].type
                 }
@@ -71,7 +70,7 @@ export const HOME_FEATURED_PROJECT_CONTENT: Lang<HomeFeaturedProjectContent> = {
         button: {
             label: 'Voir tous les projets',
             href: {
-                pathname: translateUrl('/projects', 'fr'),
+                pathname: '/projects',
                 query: {
                     type: FEATURED_PROJECT['fr'].type
                 }
@@ -86,7 +85,7 @@ export const HOME_LATEST_PROJECT_CONTENT: Lang<HomeFeaturedProjectContent> = {
         button: {
             label: 'See all personal projects',
             href: {
-                pathname: translateUrl('/projects', 'en'),
+                pathname: '/projects',
                 query: {
                     type: LATEST_PERSONAL_PROJECT['en'].type
                 }
@@ -98,7 +97,7 @@ export const HOME_LATEST_PROJECT_CONTENT: Lang<HomeFeaturedProjectContent> = {
         button: {
             label: 'Voir tous les projets personnels',
             href: {
-                pathname: translateUrl('/projects', 'fr'),
+                pathname: '/projects',
                 query: {
                     type: LATEST_PERSONAL_PROJECT['fr'].type
                 }
