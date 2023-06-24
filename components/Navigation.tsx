@@ -1,4 +1,4 @@
-import { LanguageSwitcherProps, NavigationProps, ThemeTogglerProps, TogglerProps } from '@/types/components/global';
+import { NavigationProps, ThemeTogglerProps, TogglerProps } from '@/types/components/global';
 import styles from '@/styles/modules/Navigation.module.scss';
 import { gsap } from 'gsap';
 import Link from 'next-translate-routes/link';
@@ -11,6 +11,7 @@ import useElementSize from '@/hooks/useElementSize';
 import useIsMounted from '@/hooks/useIsMounted';
 import { useTheme } from 'next-themes';
 import MobileNavigation from './MobileNavigation';
+import LanguageSwitcher from './LanguageSwitcher';
 import NavItem from './NavItem';
 
 export default function Navigation({
@@ -87,6 +88,8 @@ export default function Navigation({
                                         setTheme={setTheme}
                                     />
                                 }
+                            </div>
+                            <div className={styles['c-navigation__switcher--language']}>
                                 <LanguageSwitcher router={router} />
                             </div>
                         </div>
@@ -156,42 +159,4 @@ function ThemeToggler({
             <span></span>
         </button>
     )
-}
-
-function LanguageSwitcher({
-    router
-}: LanguageSwitcherProps) {
-    const getLocales = () => {
-        const locales = router.locales ?? [];
-        return locales.filter(l => l !== router.locale);
-    }
-
-    const locales = getLocales();
-
-    const switchToLocale = () => {
-        router.events.on('routeChangeComplete', () => {
-            router.reload();
-        });
-    }
-
-    const href = router.route !== '/404' ? translateUrl(router.pathname, router.locale ?? '') : '/';
-
-    return (
-        <>
-            {locales.map((locale: string) => (
-                <li key={locale}>
-                    <span>
-                        <Link
-                            href={href}
-                            locale={locale}
-                            onClick={switchToLocale}
-                            scroll={false}
-                        >
-                            {locale}
-                        </Link>
-                    </span>
-                </li>
-            ))}
-        </>
-    );
 }

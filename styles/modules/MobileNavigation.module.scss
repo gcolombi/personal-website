@@ -113,6 +113,17 @@
                 }
             }
         }
+
+        &--language {
+            margin-top: 30px;
+
+            a {
+                display: inline-block;
+                color: var(--navigation-link-color);
+                text-transform: uppercase;
+                transition: none;
+            }
+        }
     }
 
     /* States */

@@ -7,6 +7,7 @@ import useNavigationContext from '@/context/navigationContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { useRef } from 'react';
 import { translateUrl, useRouter } from 'next-translate-routes';
+import LanguageSwitcher from './LanguageSwitcher';
 import NavItem from './NavItem';
 import classNames from 'classnames';
 
@@ -18,11 +19,12 @@ export default function MobileNavigation({
     routes,
     socialMedias
 }: MobileNavigationProps) {
-    const { locale } = useRouter();
+    const router = useRouter();
     const { primaryEase } = useTransitionContext();
     const { mobileNavRef, open } = useNavigationContext();
     const navItemsRef = useRef<HTMLAnchorElement[] | null[]>([]);
     const navSocialsRef = useRef<HTMLUListElement | null>(null);
+    const languageSwitcherRef = useRef<HTMLDivElement | null>(null);
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -52,9 +54,19 @@ export default function MobileNavigation({
                 });
             });
 
-            /* Animates navigation socials list */
+            /* Animates navigation socials list & language switcher */
             if (open) {
                 gsap.fromTo(navSocialsRef.current, {
+                    opacity: 0,
+                },
+                {
+                    opacity: 1,
+                    ease: primaryEase,
+                    delay: 0.35,
+                    duration: 1
+                });
+
+                gsap.fromTo(languageSwitcherRef.current, {
                     opacity: 0,
                 },
                 {
@@ -80,18 +92,18 @@ export default function MobileNavigation({
         >
             <div className={styles['c-mobileNav__inner']}>
                 <nav className={styles['c-mobileNav__nav']}>
-                        <ul>
-                            {routes.map(({ href, title }, i) => (
-                                <li key={i}>
-                                    <NavItem
-                                        href={translateUrl(href, locale ?? '')}
-                                        title={title}
-                                        className={styles['is-current-page']}
-                                        ref={(el) => navItemsRef.current[i] = el}
-                                    />
-                                </li>
-                            ))}
-                        </ul>
+                    <ul>
+                        {routes.map(({ href, title }, i) => (
+                            <li key={i}>
+                                <NavItem
+                                    href={translateUrl(href, router.locale ?? '')}
+                                    title={title}
+                                    className={styles['is-current-page']}
+                                    ref={(el) => navItemsRef.current[i] = el}
+                                />
+                            </li>
+                        ))}
+                    </ul>
                 </nav>
                 <div className={styles['c-mobileNav__footer']}>
                     <ul ref={navSocialsRef}>
@@ -107,6 +119,9 @@ export default function MobileNavigation({
                             </li>
                         ))}
                     </ul>
+                    <div className={styles['c-mobileNav__footer--language']} ref={languageSwitcherRef}>
+                        <LanguageSwitcher router={router} />
+                    </div>
                 </div>
             </div>
         </div>

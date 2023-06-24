@@ -26,3 +26,12 @@ export const slugify = (string: string): string => {
     .replace(/\-\-+/g, '-')
     .replace(/\-$/g, '');
 };
+
+/**
+ * Converts first letter to uppercase
+ * @param {string} string
+ * @returns {string} capitalized string
+ */
+export const capitalizeFirstLetter = (string: string): string => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
