@@ -18,6 +18,8 @@ export default function Home({
     homeIntroduction,
     homeFeaturedProjectContent,
     featuredProject,
+    homeLatestProjectContent,
+    latestPersonalProject,
     callToAction
 }: InferGetStaticPropsType<typeof getStaticProps>) {
     const { locale } = useRouter();
@@ -38,17 +40,8 @@ export default function Home({
             />
             <HomeFeaturedProject
                 index="03"
-                title={HOME_LATEST_PROJECT_CONTENT.title}
-                project={LATEST_PERSONAL_PROJECT}
-                button={{
-                    ...HOME_LATEST_PROJECT_CONTENT.button,
-                    href: {
-                        pathname: '/projects',
-                        query: {
-                            type: LATEST_PERSONAL_PROJECT.type
-                        }
-                    }
-                }}
+                {...homeLatestProjectContent}
+                project={latestPersonalProject}
             />
             <CallToAction
                 index="04"
@@ -64,6 +57,8 @@ export const getStaticProps: GetStaticProps<{
     homeIntroduction: HomeIntroductionContent;
     homeFeaturedProjectContent: HomeFeaturedProjectContent;
     featuredProject: ProjectProps;
+    homeLatestProjectContent: HomeFeaturedProjectContent;
+    latestPersonalProject: ProjectProps;
     callToAction: CallToActionContent;
 }> = async ({ locale }) => {
     const lang = locale ?? '';
@@ -71,6 +66,8 @@ export const getStaticProps: GetStaticProps<{
     const homeIntroduction = HOME_INTRODUCTION[lang];
     const homeFeaturedProjectContent = HOME_FEATURED_PROJECT_CONTENT[lang];
     const featuredProject = FEATURED_PROJECT[lang];
+    const homeLatestProjectContent = HOME_LATEST_PROJECT_CONTENT[lang];
+    const latestPersonalProject = LATEST_PERSONAL_PROJECT[lang];
     const callToAction = CALL_TO_ACTION[lang];
 
     return {
@@ -79,6 +76,8 @@ export const getStaticProps: GetStaticProps<{
             homeIntroduction,
             homeFeaturedProjectContent,
             featuredProject,
+            homeLatestProjectContent,
+            latestPersonalProject,
             callToAction
         }
     }

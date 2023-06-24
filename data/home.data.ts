@@ -1,4 +1,4 @@
-import { FEATURED_PROJECT } from './projects.data';
+import { FEATURED_PROJECT, LATEST_PERSONAL_PROJECT } from './projects.data';
 import { Lang } from '@/types/components/global';
 import { HomeHeaderProps } from '@/types/components/headers';
 import { HomeIntroductionContent } from '@/types/components/introductions';
@@ -80,9 +80,29 @@ export const HOME_FEATURED_PROJECT_CONTENT: Lang<HomeFeaturedProjectContent> = {
     }
 };
 
-export const HOME_LATEST_PROJECT_CONTENT: HomeFeaturedProjectContent = {
-    title: 'Latest personnal project',
-    button: {
-        label: 'See all personal projects'
+export const HOME_LATEST_PROJECT_CONTENT: Lang<HomeFeaturedProjectContent> = {
+    en: {
+        title: 'Latest personnal project',
+        button: {
+            label: 'See all personal projects',
+            href: {
+                pathname: translateUrl('/projects', 'en'),
+                query: {
+                    type: LATEST_PERSONAL_PROJECT['en'].type
+                }
+            }
+        }
+    },
+    fr: {
+        title: 'Dernier projet personnel',
+        button: {
+            label: 'Voir tous les projets personnels',
+            href: {
+                pathname: translateUrl('/projects', 'fr'),
+                query: {
+                    type: LATEST_PERSONAL_PROJECT['fr'].type
+                }
+            }
+        }
     }
 };

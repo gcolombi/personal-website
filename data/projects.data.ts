@@ -143,12 +143,21 @@ export const FEATURED_PROJECT: Lang<ProjectProps> = {
     }
 };
 
-export const LATEST_PERSONAL_PROJECT: ProjectProps = {
-    title: 'Linklist',
-    description: 'Linktree clone built with Next.js, typescript and Tailwind',
-    image: '/static/images/projects/linklist.jpg',
-    url: 'https://linklist-domain.vercel.app/',
-    type: ProjectsType.PERSONAL_PROJECTS
+export const LATEST_PERSONAL_PROJECT: Lang<ProjectProps> = {
+    en: {
+        title: 'Linklist',
+        description: 'Linktree clone built with Next.js, typescript and Tailwind',
+        image: '/static/images/projects/linklist.jpg',
+        url: 'https://linklist-domain.vercel.app/',
+        type: ProjectsType.PERSONAL_PROJECTS
+    },
+    fr: {
+        title: 'Linklist',
+        description: 'Clone de Linktree implémenté avec Next.js, typescript et Tailwind',
+        image: '/static/images/projects/linklist.jpg',
+        url: 'https://linklist-domain.vercel.app/',
+        type: ProjectsType.PERSONAL_PROJECTS
+    }
 };
 
 export const TOTAL_PROJECTS = {
