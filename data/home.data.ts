@@ -1,13 +1,23 @@
+import { Lang } from '@/types/components/global';
 import { HomeHeaderProps } from '@/types/components/headers';
 import { HomeIntroductionContent } from '@/types/components/introductions';
 import { HomeFeaturedProjectContent } from '@/types/components/sections';
 
-export const HOME_HEADER: HomeHeaderProps = {
-    titles: ['Front-end', 'Developer'],
-    subfield: 'Full stack capable',
-    image: '/static/images/home-portrait.jpg',
-    content: 'Maker of things with passion and excellence',
-    name: ['Gerard', 'Colombi']
+export const HOME_HEADER: Lang<HomeHeaderProps> = {
+    en: {
+        titles: ['Front-end', 'Developer'],
+        subfield: 'Full stack capable',
+        image: '/static/images/home-portrait.jpg',
+        content: 'Maker of things with passion and excellence',
+        name: ['Gerard', 'Colombi']
+    },
+    fr: {
+        titles: ['Developpeur', 'Front-end'],
+        subfield: 'Compétences Full stack',
+        image: '/static/images/home-portrait.jpg',
+        content: 'Créer des choses avec passion et excellence',
+        name: ['Gerard', 'Colombi']
+    }
 };
 
 export const HOME_INTRODUCTION: HomeIntroductionContent = {
