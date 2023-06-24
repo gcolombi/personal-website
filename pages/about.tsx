@@ -1,14 +1,19 @@
 import { ABOUT_HEADER, ABOUT_INTRODUCTION, META_ABOUT } from '@/data/about.data';
 import { HOBBIES_TABS, HOBBIES_TITLE, MODELS } from '@/data/hobbies.data';
 import { CALL_TO_ACTION } from '@/data/global.data';
-import { MetaDataProps } from '@/types/components/global';
-import { GetStaticProps } from 'next';
+import { CallToActionContent, MetaDataProps } from '@/types/components/global';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { translateUrl, useRouter } from 'next-translate-routes';
 import AboutHeader from '@/components/AboutHeader';
 import AboutIntroduction from '@/components/AboutIntroduction';
 import HobbiesTabs from '@/components/HobbiesTabs';
 import CallToAction from '@/components/CallToAction';
 
-export default function About() {
+export default function About({
+    callToAction
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+    const { locale } = useRouter();
+
     return (
         <>
             <AboutHeader
@@ -26,8 +31,8 @@ export default function About() {
             />
             <CallToAction
                 index="03"
-                {...CALL_TO_ACTION}
-                buttonHref="/contact"
+                {...callToAction}
+                buttonHref={translateUrl('/contact', locale ?? '')}
             />
         </>
     );
@@ -35,14 +40,19 @@ export default function About() {
 
 export const getStaticProps: GetStaticProps<{
     metaData: MetaDataProps;
+    callToAction: CallToActionContent;
 }> = async ({ locale }) => {
     const lang = locale ?? '';
     const metaAbout = META_ABOUT[lang];
+    const callToAction = CALL_TO_ACTION[lang];
 
     return {
         props: {
             metaData: {
                 ...metaAbout
+            },
+            callToAction: {
+                ...callToAction
             }
         }
     }

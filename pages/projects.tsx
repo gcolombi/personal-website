@@ -1,21 +1,22 @@
 import { META_PROJECTS, PROJECTS_LIST, PROJECTS_TABS } from '@/data/projects.data';
 import { CALL_TO_ACTION } from '@/data/global.data';
-import { MetaDataProps } from '@/types/components/global';
+import { CallToActionContent, MetaDataProps } from '@/types/components/global';
 import { ProjectsTabsType } from '@/types/projects/tabs';
 import { ProjectsList, ProjectsType } from '@/types/projects';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { useMemo, useState } from 'react';
-import { useRouter } from 'next-translate-routes';
+import { translateUrl, useRouter } from 'next-translate-routes';
 import ProjectsTabs from '@/components/ProjectsTabs';
 import CallToAction from '@/components/CallToAction';
 
 export default function Projects({
     projectsList,
-    tabs
+    tabs,
+    callToAction
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-    const { query } = useRouter();
+    const { query, locale } = useRouter();
     const [projectsType, setProjectsType] = useState<ProjectsType>(ProjectsType.PROJECTS);
 
     const projects = useMemo(() => {
@@ -45,8 +46,8 @@ export default function Projects({
             />
             <CallToAction
                 index="02"
-                {...CALL_TO_ACTION}
-                buttonHref="/contact"
+                {...callToAction}
+                buttonHref={translateUrl('/contact', locale ?? '')}
             />
         </>
     );
@@ -56,11 +57,13 @@ export const getStaticProps: GetStaticProps<{
     metaData: MetaDataProps;
     projectsList: ProjectsList;
     tabs: ProjectsTabsType;
+    callToAction: CallToActionContent;
 }> = async ({ locale }) => {
     const lang = locale ?? '';
     const metaProjects = META_PROJECTS[lang];
     const projectsList = PROJECTS_LIST[lang];
     const projectsTabs = PROJECTS_TABS[lang] ?? [];
+    const callToAction = CALL_TO_ACTION[lang];
 
     return {
         props: {
@@ -72,7 +75,10 @@ export const getStaticProps: GetStaticProps<{
             },
             tabs: [
                 ...projectsTabs
-            ]
+            ],
+            callToAction: {
+                ...callToAction
+            }
         }
     }
 }

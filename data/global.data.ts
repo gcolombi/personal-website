@@ -21,9 +21,15 @@ export const NAVIGATION_ROUTES: NavigationRoutes = [
     }
 ];
 
-export const CALL_TO_ACTION: CallToActionContent = {
-    title: 'Get in touch',
-    buttonLabel: 'Contact me'
+export const CALL_TO_ACTION: Lang<CallToActionContent> = {
+    en: {
+        title: 'Get in touch',
+        buttonLabel: 'Contact me'
+    },
+    fr: {
+        title: 'Prendre contact',
+        buttonLabel: 'Contactez-moi'
+    }
 };
 
 export const META_404: Lang<MetaDataProps> = {
