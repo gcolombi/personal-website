@@ -3,9 +3,12 @@ import { Models } from './models';
 /* Hobbies tabs */
 export type HobbiesTabsProps = {
     index: string;
+    models: Models;
+} & HobbiesTabsContent;
+
+export type HobbiesTabsContent = {
     title: string;
     tabs: HobbiesTabs;
-    models: Models;
 }
 
 export type HobbiesTabs = HobbyTab[];
