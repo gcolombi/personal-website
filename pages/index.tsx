@@ -4,6 +4,7 @@ import { CALL_TO_ACTION } from '@/data/global.data';
 import { CallToActionContent } from '@/types/components/global';
 import { HomeHeaderProps } from '@/types/components/headers';
 import { HomeIntroductionContent } from '@/types/components/introductions';
+import { HomeFeaturedProjectContent } from '@/types/components/sections';
 import { ProjectProps } from '@/types/projects';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { translateUrl, useRouter } from 'next-translate-routes';
@@ -15,6 +16,7 @@ import CallToAction from '@/components/CallToAction';
 export default function Home({
     homeHeader,
     homeIntroduction,
+    homeFeaturedProjectContent,
     featuredProject,
     callToAction
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -31,17 +33,8 @@ export default function Home({
             />
             <HomeFeaturedProject
                 index="02"
-                title={HOME_FEATURED_PROJECT_CONTENT.title}
+                {...homeFeaturedProjectContent}
                 project={featuredProject}
-                button={{
-                    ...HOME_FEATURED_PROJECT_CONTENT.button,
-                    href: {
-                        pathname: '/projects',
-                        query: {
-                            type: FEATURED_PROJECT.type
-                        }
-                    }
-                }}
             />
             <HomeFeaturedProject
                 index="03"
@@ -69,12 +62,14 @@ export default function Home({
 export const getStaticProps: GetStaticProps<{
     homeHeader: HomeHeaderProps;
     homeIntroduction: HomeIntroductionContent;
+    homeFeaturedProjectContent: HomeFeaturedProjectContent;
     featuredProject: ProjectProps;
     callToAction: CallToActionContent;
 }> = async ({ locale }) => {
     const lang = locale ?? '';
     const homeHeader = HOME_HEADER[lang];
     const homeIntroduction = HOME_INTRODUCTION[lang];
+    const homeFeaturedProjectContent = HOME_FEATURED_PROJECT_CONTENT[lang];
     const featuredProject = FEATURED_PROJECT[lang];
     const callToAction = CALL_TO_ACTION[lang];
 
@@ -82,6 +77,7 @@ export const getStaticProps: GetStaticProps<{
         props: {
             homeHeader,
             homeIntroduction,
+            homeFeaturedProjectContent,
             featuredProject,
             callToAction
         }
