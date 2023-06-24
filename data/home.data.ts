@@ -27,13 +27,13 @@ export const HOME_INTRODUCTION: HomeIntroductionContent = {
 export const HOME_FEATURED_PROJECT_CONTENT: HomeFeaturedProjectContent = {
     title: 'Featured work',
     button: {
-        label: 'Sell all projects'
+        label: 'See all projects'
     }
 };
 
 export const HOME_LATEST_PROJECT_CONTENT: HomeFeaturedProjectContent = {
     title: 'Latest personnal project',
     button: {
-        label: 'Sell all personal projects'
+        label: 'See all personal projects'
     }
 };
