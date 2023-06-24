@@ -3,6 +3,7 @@ import { FEATURED_PROJECT, LATEST_PERSONAL_PROJECT } from '@/data/projects.data'
 import { CALL_TO_ACTION } from '@/data/global.data';
 import { CallToActionContent } from '@/types/components/global';
 import { HomeHeaderProps } from '@/types/components/headers';
+import { HomeIntroductionContent } from '@/types/components/introductions';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { translateUrl, useRouter } from 'next-translate-routes';
 import HomeHeader from '@/components/HomeHeader';
@@ -12,6 +13,7 @@ import CallToAction from '@/components/CallToAction';
 
 export default function Home({
     homeHeader,
+    homeIntroduction,
     callToAction
 }: InferGetStaticPropsType<typeof getStaticProps>) {
     const { locale } = useRouter();
@@ -23,11 +25,7 @@ export default function Home({
             />
             <HomeIntroduction
                 index="01"
-                {...HOME_INTRODUCTION}
-                button={{
-                    ...HOME_INTRODUCTION.button,
-                    href: '/about'
-                }}
+                {...homeIntroduction}
             />
             <HomeFeaturedProject
                 index="02"
@@ -68,16 +66,21 @@ export default function Home({
 
 export const getStaticProps: GetStaticProps<{
     homeHeader: HomeHeaderProps;
+    homeIntroduction: HomeIntroductionContent;
     callToAction: CallToActionContent;
 }> = async ({ locale }) => {
     const lang = locale ?? '';
     const homeHeader = HOME_HEADER[lang];
+    const homeIntroduction = HOME_INTRODUCTION[lang];
     const callToAction = CALL_TO_ACTION[lang];
 
     return {
         props: {
             homeHeader: {
                 ...homeHeader
+            },
+            homeIntroduction: {
+                ...homeIntroduction
             },
             callToAction: {
                 ...callToAction
