@@ -58,7 +58,7 @@ export default function Project({
                             watch
                         >
                             <Button
-                                label="GitHub repository"
+                                label="GitHub"
                                 className="c-btn--external"
                                 externalHref={githubUrl}
                                 isExternal

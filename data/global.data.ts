@@ -1,17 +1,6 @@
 import { CallToActionContent, FooterContent, Lang, MetaDataProps, NavigationRoutes } from '@/types/components/global';
 import { BasicHeaderProps } from '@/types/components/headers';
 
-export const FOOTER: Lang<FooterContent> = {
-    en: {
-        title: 'Front-end Developer',
-        copyright: 'All rights reserved'
-    },
-    fr: {
-        title: 'Développeur Front-end',
-        copyright: 'Tous droits réservés'
-    }
-};
-
 export const NAVIGATION_ROUTES: Lang<NavigationRoutes> = {
     en: [
         {
@@ -43,6 +32,16 @@ export const NAVIGATION_ROUTES: Lang<NavigationRoutes> = {
     ]
 }
 
+export const FOOTER: Lang<FooterContent> = {
+    en: {
+        title: 'Front-end Developer',
+        copyright: 'All rights reserved'
+    },
+    fr: {
+        title: 'Développeur Front-end',
+        copyright: 'Tous droits réservés'
+    }
+};
 
 export const CALL_TO_ACTION: Lang<CallToActionContent> = {
     en: {
@@ -83,3 +82,32 @@ export const PAGE_NOT_FOUND_HEADER: Lang<BasicHeaderProps> = {
         }
     }
 };
+
+export const TRANSLATIONS: Lang<{key: string; value: string;}[]> = {
+    en: [
+        {
+            key: 'Visit website',
+            value: 'Visit website'
+        }
+    ],
+    fr: [
+        {
+            key: 'Visit website',
+            value: 'Visiter le site'
+        }
+    ]
+}
+
+export const GET_TRANSLATION = (lang: string, string: string): string => {
+    const match = TRANSLATIONS[lang];
+
+    if (match) {
+        const target = match.find(el => el.key === string);
+
+        if (target) {
+            return target.value;
+        }
+        return string;
+    }
+    return '';
+}

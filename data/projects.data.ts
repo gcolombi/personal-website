@@ -149,6 +149,7 @@ export const LATEST_PERSONAL_PROJECT: Lang<ProjectProps> = {
         description: 'Linktree clone built with Next.js, typescript and Tailwind',
         image: '/static/images/projects/linklist.jpg',
         url: 'https://linklist-domain.vercel.app/',
+        githubUrl: 'https://github.com/gcolombi/linklist',
         type: ProjectsType.PERSONAL_PROJECTS
     },
     fr: {
@@ -156,6 +157,7 @@ export const LATEST_PERSONAL_PROJECT: Lang<ProjectProps> = {
         description: 'Clone de Linktree implémenté avec Next.js, typescript et Tailwind',
         image: '/static/images/projects/linklist.jpg',
         url: 'https://linklist-domain.vercel.app/',
+        githubUrl: 'https://github.com/gcolombi/linklist',
         type: ProjectsType.PERSONAL_PROJECTS
     }
 };
