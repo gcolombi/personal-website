@@ -42,7 +42,7 @@ export const HOME_INTRODUCTION: Lang<HomeIntroductionContent> = {
             'Lorsque je ne suis pas en train de coder ou d\'explorer de nouvelles technologies web, je suis probablement en train de jouer à des jeux vidéo ou de regarder les derniers films et séries télévisées sortis.'
         ],
         content: [
-            'Au fil des ans, j\'ai passé du temps à convertir des conceptions en applications/sites web au pixel près, performants, accessibles et réactifs. Chaque projet est l\'occasion d\'apprendre de nouveaux concepts dans de multiples domaines.',
+            'Au fil des années, j\'ai passé du temps à convertir des conceptions en applications/sites web au pixel près, performants, accessibles et réactifs. Chaque projet est l\'occasion d\'apprendre de nouveaux concepts dans de multiples domaines.',
             'J\'aime sincèrement et simplement travailler sur des projets ambitieux, seul ou avec des personnes positives.'
         ],
         button: {

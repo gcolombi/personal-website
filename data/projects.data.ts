@@ -2,7 +2,6 @@ import { Lang, MetaDataProps } from '@/types/components/global';
 import { ProjectsTabsType } from '@/types/projects/tabs';
 import { ProjectProps, Projects, ProjectsList, ProjectsType } from '@/types/projects';
 import { toTwoDigits } from '@/utils/number';
-import { randomItem } from '@/utils/array';
 
 export const META_PROJECTS: Lang<MetaDataProps> = {
     en: {
@@ -127,13 +126,21 @@ export const PERSONAL_PROJECTS: Lang<Projects> = {
     ]
 };
 
-export const FEATURED_PROJECT: ProjectProps = {
-    // ...randomItem(PROJECTS),
-    title: 'Cartv',
-    description: 'Organization guarding and defending the authenticity of food products recognized by the Quebec Government',
-    image: '/static/images/projects/cartv.jpg',
-    url: 'https://cartv.gouv.qc.ca/en/',
-    type: ProjectsType.PROJECTS
+export const FEATURED_PROJECT: Lang<ProjectProps> = {
+    en: {
+        title: 'Dici',
+        description: 'Magazine and showcase on culture in Mauricie, Quebec (Canada)',
+        image: '/static/images/projects/dici.jpg',
+        url: 'https://dici.ca/',
+        type: ProjectsType.PROJECTS
+    },
+    fr: {
+        title: 'Dici',
+        description: 'Magazine et vitrine sur la culture en Mauricie, Québec (Canada)',
+        image: '/static/images/projects/dici.jpg',
+        url: 'https://dici.ca/',
+        type: ProjectsType.PROJECTS
+    }
 };
 
 export const LATEST_PERSONAL_PROJECT: ProjectProps = {

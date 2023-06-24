@@ -23,17 +23,13 @@ export const getStaticProps: GetStaticProps<{
     contactHeader: BasicHeaderProps;
 }> = async ({ locale }) => {
     const lang = locale ?? '';
-    const metaContact = META_CONTACT[lang];
+    const metaData = META_CONTACT[lang];
     const contactHeader = CONTACT_HEADER[lang];
 
     return {
         props: {
-            metaData: {
-                ...metaContact
-            },
-            contactHeader: {
-                ...contactHeader
-            }
+            metaData,
+            contactHeader
         }
     }
 }

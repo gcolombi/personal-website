@@ -43,17 +43,13 @@ export const getStaticProps: GetStaticProps<{
     callToAction: CallToActionContent;
 }> = async ({ locale }) => {
     const lang = locale ?? '';
-    const metaAbout = META_ABOUT[lang];
+    const metaData = META_ABOUT[lang];
     const callToAction = CALL_TO_ACTION[lang];
 
     return {
         props: {
-            metaData: {
-                ...metaAbout
-            },
-            callToAction: {
-                ...callToAction
-            }
+            metaData,
+            callToAction
         }
     }
 }

@@ -60,25 +60,17 @@ export const getStaticProps: GetStaticProps<{
     callToAction: CallToActionContent;
 }> = async ({ locale }) => {
     const lang = locale ?? '';
-    const metaProjects = META_PROJECTS[lang];
+    const metaData = META_PROJECTS[lang];
     const projectsList = PROJECTS_LIST[lang];
-    const projectsTabs = PROJECTS_TABS[lang] ?? [];
+    const tabs = PROJECTS_TABS[lang] ?? [];
     const callToAction = CALL_TO_ACTION[lang];
 
     return {
         props: {
-            metaData: {
-                ...metaProjects
-            },
-            projectsList: {
-                ...projectsList
-            },
-            tabs: [
-                ...projectsTabs
-            ],
-            callToAction: {
-                ...callToAction
-            }
+            metaData,
+            projectsList,
+            tabs,
+            callToAction
         }
     }
 }

@@ -4,6 +4,7 @@ import { CALL_TO_ACTION } from '@/data/global.data';
 import { CallToActionContent } from '@/types/components/global';
 import { HomeHeaderProps } from '@/types/components/headers';
 import { HomeIntroductionContent } from '@/types/components/introductions';
+import { ProjectProps } from '@/types/projects';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { translateUrl, useRouter } from 'next-translate-routes';
 import HomeHeader from '@/components/HomeHeader';
@@ -14,6 +15,7 @@ import CallToAction from '@/components/CallToAction';
 export default function Home({
     homeHeader,
     homeIntroduction,
+    featuredProject,
     callToAction
 }: InferGetStaticPropsType<typeof getStaticProps>) {
     const { locale } = useRouter();
@@ -30,7 +32,7 @@ export default function Home({
             <HomeFeaturedProject
                 index="02"
                 title={HOME_FEATURED_PROJECT_CONTENT.title}
-                project={FEATURED_PROJECT}
+                project={featuredProject}
                 button={{
                     ...HOME_FEATURED_PROJECT_CONTENT.button,
                     href: {
@@ -67,24 +69,21 @@ export default function Home({
 export const getStaticProps: GetStaticProps<{
     homeHeader: HomeHeaderProps;
     homeIntroduction: HomeIntroductionContent;
+    featuredProject: ProjectProps;
     callToAction: CallToActionContent;
 }> = async ({ locale }) => {
     const lang = locale ?? '';
     const homeHeader = HOME_HEADER[lang];
     const homeIntroduction = HOME_INTRODUCTION[lang];
+    const featuredProject = FEATURED_PROJECT[lang];
     const callToAction = CALL_TO_ACTION[lang];
 
     return {
         props: {
-            homeHeader: {
-                ...homeHeader
-            },
-            homeIntroduction: {
-                ...homeIntroduction
-            },
-            callToAction: {
-                ...callToAction
-            }
+            homeHeader,
+            homeIntroduction,
+            featuredProject,
+            callToAction
         }
     }
 }
