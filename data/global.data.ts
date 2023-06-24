@@ -1,4 +1,4 @@
-import { CallToActionContent, FooterContent, MetaDataProps, NavigationRoutes } from '@/types/components/global';
+import { CallToActionContent, FooterContent, Lang, MetaDataProps, NavigationRoutes } from '@/types/components/global';
 import { BasicHeaderProps } from '@/types/components/headers';
 
 export const FOOTER: FooterContent = {
@@ -26,14 +26,28 @@ export const CALL_TO_ACTION: CallToActionContent = {
     buttonLabel: 'Contact me'
 };
 
-export const META_404: MetaDataProps = {
-    title: `Error 404 | ${process.env.NEXT_PUBLIC_SITE_NAME}`
+export const META_404: Lang<MetaDataProps> = {
+    en: {
+        title: `Error 404 | ${process.env.NEXT_PUBLIC_SITE_NAME}`
+    },
+    fr: {
+        title: `Erreur 404 | ${process.env.NEXT_PUBLIC_SITE_NAME}`
+    }
 };
 
-export const PAGE_NOT_FOUND_HEADER: BasicHeaderProps = {
-    title: 'Page not found',
-    content: 'Cannot read properties of undefined. The page you are looking for could not be found.',
-    button: {
-        label: 'Please get me out of here'
+export const PAGE_NOT_FOUND_HEADER: Lang<BasicHeaderProps> = {
+    en: {
+        title: 'Page not found',
+        content: 'Cannot read properties of undefined. The page you are looking for could not be found.',
+        button: {
+            label: 'Please get me out of here'
+        }
+    },
+    fr: {
+        title: 'Page non trouvee',
+        content: 'La page que vous recherchez n\'a pas pu être trouvée.',
+        button: {
+            label: 'S\'il vous plaît, faites-moi sortir d\'ici'
+        }
     }
 };
