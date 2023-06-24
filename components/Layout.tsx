@@ -16,7 +16,7 @@ export default function Layout({
     return (
         <TransitionLayout>
             <Navigation
-                routes={NAVIGATION_ROUTES}
+                routes={NAVIGATION_ROUTES[locale ?? '']}
                 socialMedias={SOCIAL_MEDIAS}
             />
             <main id="content">

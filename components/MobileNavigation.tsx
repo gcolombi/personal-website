@@ -6,6 +6,7 @@ import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { useRef } from 'react';
+import { translateUrl, useRouter } from 'next-translate-routes';
 import NavItem from './NavItem';
 import classNames from 'classnames';
 
@@ -17,6 +18,7 @@ export default function MobileNavigation({
     routes,
     socialMedias
 }: MobileNavigationProps) {
+    const { locale } = useRouter();
     const { primaryEase } = useTransitionContext();
     const { mobileNavRef, open } = useNavigationContext();
     const navItemsRef = useRef<HTMLAnchorElement[] | null[]>([]);
@@ -82,7 +84,7 @@ export default function MobileNavigation({
                             {routes.map(({ href, title }, i) => (
                                 <li key={i}>
                                     <NavItem
-                                        href={`/${href}`}
+                                        href={translateUrl(href, locale ?? '')}
                                         title={title}
                                         className={styles['is-current-page']}
                                         ref={(el) => navItemsRef.current[i] = el}

@@ -12,20 +12,37 @@ export const FOOTER: Lang<FooterContent> = {
     }
 };
 
-export const NAVIGATION_ROUTES: NavigationRoutes = [
-    {
-        href: '/projects',
-        title: 'Projects'
-    },
-    {
-        href: '/about',
-        title: 'About'
-    },
-    {
-        href: '/contact',
-        title: 'Contact'
-    }
-];
+export const NAVIGATION_ROUTES: Lang<NavigationRoutes> = {
+    en: [
+        {
+            href: '/projects',
+            title: 'Projects'
+        },
+        {
+            href: '/about',
+            title: 'About'
+        },
+        {
+            href: '/contact',
+            title: 'Contact'
+        }
+    ],
+    fr: [
+        {
+            href: '/projects',
+            title: 'Projets'
+        },
+        {
+            href: '/about',
+            title: 'A propos'
+        },
+        {
+            href: '/contact',
+            title: 'Contact'
+        }
+    ]
+}
+
 
 export const CALL_TO_ACTION: Lang<CallToActionContent> = {
     en: {
