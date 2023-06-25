@@ -30,7 +30,7 @@ export const NAVIGATION_ROUTES: Lang<NavigationRoutes> = {
             title: 'Contact'
         }
     ]
-}
+};
 
 export const FOOTER: Lang<FooterContent> = {
     en: {
@@ -116,8 +116,8 @@ export const TRANSLATIONS: Lang<Translations> = {
             value: 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" title="Privacy Policy">Privacy Policy</a> and <a href="https://policies.google.com/terms" title="Terms of Service">Terms of Service</a> apply.'
         },
         {
-            key: 'Your message is on its way !',
-            value: 'Your message is on its way !'
+            key: 'Your message is on its way!',
+            value: 'Your message is on its way!'
         },
         {
             key: 'Thank you, your message has been sent successfully.',
@@ -186,8 +186,8 @@ export const TRANSLATIONS: Lang<Translations> = {
             value: 'Ce site est protégé par reCAPTCHA et la <a href="https://policies.google.com/privacy">Politique de Confidentialité</a> ainsi que les <a href="https://policies.google.com/terms">Termes de Service de Google</a> s\'appliquent.'
         },
         {
-            key: 'Your message is on its way !',
-            value: 'Votre message est en route !'
+            key: 'Your message is on its way!',
+            value: 'Votre message est en route!'
         },
         {
             key: 'Thank you, your message has been sent successfully.',

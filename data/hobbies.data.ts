@@ -48,4 +48,4 @@ export const HOBBIES_TABS: Lang<HobbiesTabsContent> = {
             }
         ]
     }
-}
+};

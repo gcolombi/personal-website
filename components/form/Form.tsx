@@ -62,7 +62,7 @@ export default function Form() {
     const firstnameLabel = useRef(getTranslation('First name', locale ?? ''));
     const lastnameLabel = useRef(getTranslation('Last name', locale ?? ''));
     const emailLabel = useRef(getTranslation('Email', locale ?? ''));
-    const toastLoadingMessage = useRef(getTranslation('Your message is on its way !', locale ?? ''));
+    const toastLoadingMessage = useRef(getTranslation('Your message is on its way!', locale ?? ''));
     const formErrorsMessage  = useRef(getTranslation('Form has errors.', locale ?? ''));
     const buttonLabel  = useRef(getTranslation('Send', locale ?? ''));
 
