@@ -98,7 +98,7 @@ export const TRANSLATIONS: Lang<{key: string; value: string;}[]> = {
     ]
 }
 
-export const GET_TRANSLATION = (lang: string, string: string): string => {
+export const GET_TRANSLATION = (string: string, lang: string): string => {
     const match = TRANSLATIONS[lang];
 
     if (match) {

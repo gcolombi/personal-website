@@ -1,11 +1,15 @@
+import { GET_TRANSLATION } from '@/data/global.data';
 import { ProjectProps } from '@/types/projects';
 import styles from '@/styles/modules/Project.module.scss';
+import { useRef } from 'react';
+import { useRouter } from 'next-translate-routes';
 import Button from './shared/Button';
 import CharsInOut from './shared/gsap/CharsInOut';
 import LinesInOut from './shared/gsap/LinesInOut';
 import FadeInOut from './shared/gsap/FadeInOut';
 import Image from 'next/image';
 import { slugify } from '@/utils/string';
+
 
 export default function Project({
     title,
@@ -14,6 +18,9 @@ export default function Project({
     url,
     githubUrl
 }: ProjectProps) {
+    const { locale } = useRouter();
+    const buttonLabel = useRef(GET_TRANSLATION('Visit website', locale ?? ''));
+
     return(
         <div className={styles['c-project']}>
             <div className={styles['c-project__details']}>
@@ -45,7 +52,7 @@ export default function Project({
                             watch
                         >
                             <Button
-                                label="Visit website"
+                                label={buttonLabel.current}
                                 className="c-btn--external"
                                 externalHref={url}
                                 isExternal
