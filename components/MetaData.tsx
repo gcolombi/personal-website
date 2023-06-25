@@ -9,10 +9,10 @@ export default function MetaData({
 }: MetaDataProps) {
     const { locale } = useRouter();
     const { currentURL } = useWindowLocation();
-    const meta = {
+    const meta: MetaDataProps = {
         title: process.env.NEXT_PUBLIC_SITE_NAME,
         description: getTranslation('Front-end Developer Full stack capable, passionate about building appealing and interactive web experiences.', locale ?? ''),
-        image: `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image.png`,
+        image: `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image${locale ? `-${locale}`: ''}.png`,
         type: 'website',
         ...customMeta
     }

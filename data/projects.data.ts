@@ -29,7 +29,7 @@ export const PROJECTS: Lang<Projects> = {
         {
             title: 'Mondoux',
             description: 'Leading Canadian packager and distributor of top quality candies and chocolates',
-            image: '/static/images/projects/mondoux.jpg',
+            image: '/static/images/projects/mondoux-en.jpg',
             url: 'https://mondoux.ca/en/'
         },
         {
@@ -61,7 +61,7 @@ export const PROJECTS: Lang<Projects> = {
         {
             title: 'Mondoux',
             description: 'Leading Canadian packager and distributor of top quality candies and chocolates',
-            image: '/static/images/projects/mondoux.jpg',
+            image: '/static/images/projects/mondoux-fr.jpg',
             url: 'https://mondoux.ca/'
         },
         {
@@ -84,7 +84,7 @@ export const PERSONAL_PROJECTS: Lang<Projects> = {
         {
             title: 'Portfolio',
             description: 'Portfolio built with Next.js, Typescript and GSAP',
-            image: '/static/images/projects/portfolio.jpg',
+            image: '/static/images/projects/portfolio-en.jpg',
             githubUrl: 'https://github.com/gcolombi/personal-website'
         },
         {
@@ -106,7 +106,7 @@ export const PERSONAL_PROJECTS: Lang<Projects> = {
         {
             title: 'Portfolio',
             description: 'Portfolio built with Next.js, Typescript and GSAP',
-            image: '/static/images/projects/portfolio.jpg',
+            image: '/static/images/projects/portfolio-fr.jpg',
             githubUrl: 'https://github.com/gcolombi/personal-website'
         },
         {
