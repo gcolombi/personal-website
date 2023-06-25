@@ -1,12 +1,14 @@
 import { FormData, Labels } from '@/types/form';
 import styles from '../../styles/modules/Form.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next-translate-routes';
 import { useForm } from 'react-hook-form';
+import { useRef } from 'react';
 import useIsMounted from '@/hooks/useIsMounted';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import { formSchema } from '@/schemas/form';
+import { getFormSchema } from '@/schemas/form';
+import { getTranslation } from '@/utils/translation';
 import { yupResolver } from '@hookform/resolvers/yup';
-import classNames from 'classnames';
 import FormInput from './FormInput';
 import FormTextarea from './FormTextarea';
 import FormRecaptchaNote from './FormRecaptchaNote';
@@ -14,6 +16,7 @@ import Button from '../shared/Button';
 import { toast, ToastContainer, Zoom } from 'react-toastify';
 import TranslateInOut from '../shared/gsap/TranslateInOut';
 import FadeInOut from '../shared/gsap/FadeInOut';
+import classNames from 'classnames';
 
 const labels: Labels = {
     firstname: 'First name',
@@ -22,10 +25,13 @@ const labels: Labels = {
     message: 'Message'
 }
 
-async function sendFormData(data: FormData, recaptchaToken: string): Promise<Response> {
+async function sendFormData(data: FormData, recaptchaToken: string, locale: string): Promise<Response> {
     return await fetch('/api/form', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept-Language': locale
+        },
         body: JSON.stringify({
             data,
             labels,
@@ -35,6 +41,7 @@ async function sendFormData(data: FormData, recaptchaToken: string): Promise<Res
 }
 
 export default function Form() {
+    const { locale } = useRouter();
     const {
         register,
         handleSubmit,
@@ -48,10 +55,15 @@ export default function Form() {
             email: '',
             message: ''
         },
-        resolver: yupResolver(formSchema)
+        resolver: yupResolver(getFormSchema(locale ?? ''))
     });
     const isMounted = useIsMounted();
     const { executeRecaptcha } = useGoogleReCaptcha();
+    const firstnameLabel = useRef(getTranslation('First name', locale ?? ''));
+    const lastnameLabel = useRef(getTranslation('Last name', locale ?? ''));
+    const emailLabel = useRef(getTranslation('Email', locale ?? ''));
+    const toastLoadingMessage = useRef(getTranslation('Your message is on its way !', locale ?? ''));
+    const formErrorsMessage  = useRef(getTranslation('Form has errors.', locale ?? ''));
 
     const submitForm = async (data: FormData, recaptchaToken: string) => {
         const toastConfig = {
@@ -61,10 +73,10 @@ export default function Form() {
             draggable: true
         }
 
-        const toastId = toast.loading('Your message is on its way !');
+        const toastId = toast.loading(toastLoadingMessage.current);
 
         try {
-            const response = await sendFormData(data, recaptchaToken);
+            const response = await sendFormData(data, recaptchaToken, locale ?? '');
 
             const _data = await response.json();
 
@@ -79,7 +91,7 @@ export default function Form() {
                         setError(fieldName, {type: 'custom', message: errorMessage});
                     }
                 }
-                throw new Error(_data.message || 'Form has errors');
+                throw new Error(_data.message || formErrorsMessage.current);
             }
 
             toast.update(toastId, {
@@ -141,7 +153,7 @@ export default function Form() {
                                     >
                                         <FormInput
                                             htmlFor="firstname"
-                                            label="First name"
+                                            label={firstnameLabel.current}
                                             id="firstname"
                                             required={true}
                                             className="c-formElement--bordered"
@@ -164,7 +176,7 @@ export default function Form() {
                                     >
                                         <FormInput
                                             htmlFor="lastname"
-                                            label="Last name"
+                                            label={lastnameLabel.current}
                                             id="lastname"
                                             required={true}
                                             className="c-formElement--bordered"
@@ -187,7 +199,7 @@ export default function Form() {
                                     >
                                         <FormInput
                                             htmlFor="email"
-                                            label="Email"
+                                            label={emailLabel.current}
                                             type="email"
                                             id="email"
                                             required={true}

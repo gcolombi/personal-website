@@ -1,4 +1,3 @@
-import { GET_TRANSLATION } from '@/data/global.data';
 import { ProjectProps } from '@/types/projects';
 import styles from '@/styles/modules/Project.module.scss';
 import { useRef } from 'react';
@@ -9,7 +8,7 @@ import LinesInOut from './shared/gsap/LinesInOut';
 import FadeInOut from './shared/gsap/FadeInOut';
 import Image from 'next/image';
 import { slugify } from '@/utils/string';
-
+import { getTranslation } from '@/utils/translation';
 
 export default function Project({
     title,
@@ -19,7 +18,7 @@ export default function Project({
     githubUrl
 }: ProjectProps) {
     const { locale } = useRouter();
-    const buttonLabel = useRef(GET_TRANSLATION('Visit website', locale ?? ''));
+    const buttonLabel = useRef(getTranslation('Visit website', locale ?? ''));
 
     return(
         <div className={styles['c-project']}>

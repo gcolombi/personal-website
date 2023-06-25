@@ -1,4 +1,4 @@
-import { CallToActionContent, FooterContent, Lang, MetaDataProps, NavigationRoutes } from '@/types/components/global';
+import { CallToActionContent, FooterContent, Lang, MetaDataProps, NavigationRoutes, Translations } from '@/types/components/global';
 import { BasicHeaderProps } from '@/types/components/headers';
 
 export const NAVIGATION_ROUTES: Lang<NavigationRoutes> = {
@@ -81,7 +81,7 @@ export const PAGE_NOT_FOUND_HEADER: Lang<BasicHeaderProps> = {
     }
 };
 
-export const TRANSLATIONS: Lang<{key: string; value: string;}[]> = {
+export const TRANSLATIONS: Lang<Translations> = {
     en: [
         {
             key: 'Visit website',
@@ -106,6 +106,42 @@ export const TRANSLATIONS: Lang<{key: string; value: string;}[]> = {
         {
             key: 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" title="Privacy Policy">Privacy Policy</a> and <a href="https://policies.google.com/terms" title="Terms of Service">Terms of Service</a> apply.',
             value: 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" title="Privacy Policy">Privacy Policy</a> and <a href="https://policies.google.com/terms" title="Terms of Service">Terms of Service</a> apply.'
+        },
+        {
+            key: 'Your message is on its way !',
+            value: 'Your message is on its way !'
+        },
+        {
+            key: 'Thank you, your message has been sent successfully.',
+            value: 'Thank you, your message has been sent successfully.'
+        },
+        {
+            key: 'Form has errors.',
+            value: 'Form has errors.'
+        },
+        {
+            key: 'This field is required.',
+            value: 'This field is required.'
+        },
+        {
+            key: 'The specified email address is invalid.',
+            value: 'The specified email address is invalid.'
+        },
+        {
+            key: 'An error occurred while sending the email.',
+            value: 'An error occurred while sending the email.'
+        },
+        {
+            key: 'Internal Server Error.',
+            value: 'Internal Server Error.'
+        },
+        {
+            key: 'ReCaptcha validation failed.',
+            value: 'ReCaptcha validation failed.'
+        },
+        {
+            key: 'Error validating captcha',
+            value: 'Error validating captcha'
         }
     ],
     fr: [
@@ -118,34 +154,56 @@ export const TRANSLATIONS: Lang<{key: string; value: string;}[]> = {
             value: 'Tous droits réservés'
         },
         {
-            key: 'Prénom',
+            key: 'First name',
             value: 'Prénom'
         },
         {
-            key: 'Nom',
+            key: 'Last name',
             value: 'Nom'
         },
         {
-            key: 'Courriel',
+            key: 'Email',
             value: 'Courriel'
         },
         {
             key: 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" title="Privacy Policy">Privacy Policy</a> and <a href="https://policies.google.com/terms" title="Terms of Service">Terms of Service</a> apply.',
             value: 'Ce site est protégé par reCAPTCHA et la <a href="https://policies.google.com/privacy">Politique de Confidentialité</a> ainsi que les <a href="https://policies.google.com/terms">Termes de Service de Google</a> s\'appliquent.'
+        },
+        {
+            key: 'Your message is on its way !',
+            value: 'Votre message est en route !'
+        },
+        {
+            key: 'Thank you, your message has been sent successfully.',
+            value: 'Merci, votre message a été envoyé avec succès.'
+        },
+        {
+            key: 'Form has errors.',
+            value: 'Le formulaire comporte des erreurs.'
+        },
+        {
+            key: 'This field is required.',
+            value: 'Ce champ est obligatoire.'
+        },
+        {
+            key: 'The specified email address is invalid.',
+            value: 'L\'adresse courriel spécifiée n\'est pas valide.'
+        },
+        {
+            key: 'An error occurred while sending the email.',
+            value: 'Une erreur s\'est produite lors de l\'envoi du courriel.'
+        },
+        {
+            key: 'Internal Server Error.',
+            value: 'Erreur de serveur interne.'
+        },
+        {
+            key: 'ReCaptcha validation failed.',
+            value: 'La validation ReCaptcha a échoué.'
+        },
+        {
+            key: 'Error validating captcha',
+            value: 'Erreur lors de la validation du captcha'
         }
     ]
-}
-
-export const GET_TRANSLATION = (string: string, lang: string): string => {
-    const match = TRANSLATIONS[lang];
-
-    if (match) {
-        const target = match.find(el => el.key === string);
-
-        if (target) {
-            return target.value;
-        }
-        return string;
-    }
-    return '';
-}
+};

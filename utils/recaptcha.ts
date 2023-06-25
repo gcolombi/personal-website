@@ -1,4 +1,5 @@
 import { NextApiResponse } from 'next';
+import { getTranslation } from '@/utils/translation';
 
 /**
  * Validates recaptcha and interprets the score
@@ -7,9 +8,10 @@ import { NextApiResponse } from 'next';
  *
  * @param {string} token recaptcha token
  * @param {Object} res server response object
+ * @param {string} locale current locale
  * @returns {boolean} true or false
  */
-export const validateRecaptcha = async (token: string, res: NextApiResponse): Promise<boolean> => {
+export const validateRecaptcha = async (token: string, res: NextApiResponse, locale: string): Promise<boolean> => {
     try {
         const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
             method: 'POST',
@@ -25,9 +27,9 @@ export const validateRecaptcha = async (token: string, res: NextApiResponse): Pr
             if (result?.score >= 0.5) {
                 return true;
             }
-            throw new Error(`ReCaptcha validation failed`);
+            throw new Error(getTranslation('ReCaptcha validation failed.', locale));
         }
-        throw new Error(`Error validating captcha: ${result['error-codes'][0]}`);
+        throw new Error(`${getTranslation('Error validating captcha', locale)}: ${result['error-codes'][0]}`);
 
     } catch (err) {
         if (err instanceof Error) {

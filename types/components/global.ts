@@ -7,6 +7,13 @@ export type Lang<Type> = {
     [key: string]: Type;
 }
 
+export type Translations = Translation[];
+
+export type Translation = {
+    key: string;
+    value: string;
+}
+
 /* Loader */
 export type LoaderProps = {
     setIsLoading: Dispatch<SetStateAction<boolean>>;
