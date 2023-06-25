@@ -34,12 +34,10 @@ export const NAVIGATION_ROUTES: Lang<NavigationRoutes> = {
 
 export const FOOTER: Lang<FooterContent> = {
     en: {
-        title: 'Front-end Developer',
-        copyright: 'All rights reserved'
+        title: 'Front-end Developer'
     },
     fr: {
-        title: 'Développeur Front-end',
-        copyright: 'Tous droits réservés'
+        title: 'Développeur Front-end'
     }
 };
 
@@ -88,12 +86,20 @@ export const TRANSLATIONS: Lang<{key: string; value: string;}[]> = {
         {
             key: 'Visit website',
             value: 'Visit website'
+        },
+        {
+            key: 'All rights reserved',
+            value: 'All rights reserved'
         }
     ],
     fr: [
         {
             key: 'Visit website',
             value: 'Visiter le site'
+        },
+        {
+            key: 'All rights reserved',
+            value: 'Tous droits réservés'
         }
     ]
 }

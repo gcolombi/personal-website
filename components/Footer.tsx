@@ -1,18 +1,22 @@
+import { GET_TRANSLATION } from '@/data/global.data';
 import { FooterProps } from '@/types/components/global';
 import styles from '@/styles/modules/Footer.module.scss';
 import { gsap } from 'gsap';
 import useTransitionContext from '@/context/transitionContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import { useRef } from 'react';
+import { useRouter } from 'next-translate-routes';
 import Link from 'next-translate-routes/link';
 import Button from './shared/Button';
 import classNames from 'classnames';
 
 export default function Footer({
     title,
-    socialMedias,
-    copyright
+    socialMedias
 }: FooterProps) {
+    const { locale } = useRouter();
     const { timeline, primaryEase, footerRef } = useTransitionContext();
+    const copyright = useRef(GET_TRANSLATION('All rights reserved', locale ?? ''));
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -98,7 +102,7 @@ export default function Footer({
                             'o-wysiwyg',
                             styles['c-footer__copyright--text']
                         )}>
-                            <p>{copyright}</p>
+                            <p>{copyright.current}</p>
                         </div>
                     </div>
                 </div>

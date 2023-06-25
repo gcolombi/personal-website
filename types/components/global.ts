@@ -67,7 +67,6 @@ export type FooterProps = {
 
 export type FooterContent = {
     title: string;
-    copyright: string;
 }
 
 /* Call to action */
