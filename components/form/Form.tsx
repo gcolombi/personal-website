@@ -16,8 +16,8 @@ import TranslateInOut from '../shared/gsap/TranslateInOut';
 import FadeInOut from '../shared/gsap/FadeInOut';
 
 const labels: Labels = {
-    firstname: 'Firstname',
-    lastname: 'Lastname',
+    firstname: 'First name',
+    lastname: 'Last name',
     email: 'Email',
     message: 'Message'
 }
@@ -141,7 +141,7 @@ export default function Form() {
                                     >
                                         <FormInput
                                             htmlFor="firstname"
-                                            label="Firstname"
+                                            label="First name"
                                             id="firstname"
                                             required={true}
                                             className="c-formElement--bordered"
@@ -164,7 +164,7 @@ export default function Form() {
                                     >
                                         <FormInput
                                             htmlFor="lastname"
-                                            label="Lastname"
+                                            label="Last name"
                                             id="lastname"
                                             required={true}
                                             className="c-formElement--bordered"

@@ -90,6 +90,22 @@ export const TRANSLATIONS: Lang<{key: string; value: string;}[]> = {
         {
             key: 'All rights reserved',
             value: 'All rights reserved'
+        },
+        {
+            key: 'First name',
+            value: 'First name'
+        },
+        {
+            key: 'Last name',
+            value: 'Last name'
+        },
+        {
+            key: 'Email',
+            value: 'Email'
+        },
+        {
+            key: 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" title="Privacy Policy">Privacy Policy</a> and <a href="https://policies.google.com/terms" title="Terms of Service">Terms of Service</a> apply.',
+            value: 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" title="Privacy Policy">Privacy Policy</a> and <a href="https://policies.google.com/terms" title="Terms of Service">Terms of Service</a> apply.'
         }
     ],
     fr: [
@@ -100,6 +116,22 @@ export const TRANSLATIONS: Lang<{key: string; value: string;}[]> = {
         {
             key: 'All rights reserved',
             value: 'Tous droits réservés'
+        },
+        {
+            key: 'Prénom',
+            value: 'Prénom'
+        },
+        {
+            key: 'Nom',
+            value: 'Nom'
+        },
+        {
+            key: 'Courriel',
+            value: 'Courriel'
+        },
+        {
+            key: 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" title="Privacy Policy">Privacy Policy</a> and <a href="https://policies.google.com/terms" title="Terms of Service">Terms of Service</a> apply.',
+            value: 'Ce site est protégé par reCAPTCHA et la <a href="https://policies.google.com/privacy">Politique de Confidentialité</a> ainsi que les <a href="https://policies.google.com/terms">Termes de Service de Google</a> s\'appliquent.'
         }
     ]
 }
