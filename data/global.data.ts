@@ -84,6 +84,10 @@ export const PAGE_NOT_FOUND_HEADER: Lang<BasicHeaderProps> = {
 export const TRANSLATIONS: Lang<Translations> = {
     en: [
         {
+            key: 'Front-end Developer capable of full stack development, passionate about building appealing and interactive web experiences.',
+            value: 'Front-end Developer capable of full stack development, passionate about building appealing and interactive web experiences.'
+        },
+        {
             key: 'Visit website',
             value: 'Visit website'
         },
@@ -153,6 +157,10 @@ export const TRANSLATIONS: Lang<Translations> = {
         }
     ],
     fr: [
+        {
+            key: 'Front-end Developer capable of full stack development, passionate about building appealing and interactive web experiences.',
+            value: 'Développeur Front-end avec compétences Full stack, passionné par la création d\'expériences web attrayantes et interactives.'
+        },
         {
             key: 'Visit website',
             value: 'Visiter le site'
