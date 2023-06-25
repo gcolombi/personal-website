@@ -2,8 +2,10 @@ import { ButtonProps } from '@/types/components/button';
 import styles from '@/styles/modules/Button.module.scss';
 import Link from 'next-translate-routes/link';
 import { translateUrl, useRouter } from 'next-translate-routes';
+import { useRef } from 'react';
 import ArrowOutward from './svg/ArrowOutward';
 import Circle from './svg/Circle';
+import { getTranslation } from '@/utils/translation';
 
 export default function Button({
     label,
@@ -19,6 +21,7 @@ export default function Button({
     wrapperClassName
 }: ButtonProps) {
     const { locale } = useRouter();
+    const loadingButtonLabel = useRef(getTranslation('Sending', locale ?? ''));
 
     if (label && href) {
         return (
@@ -62,7 +65,7 @@ export default function Button({
                 disabled={disabled}
             >
                 {disabled && <Circle />}
-                {disabled ? 'Sending...' : label}
+                {disabled ? `${loadingButtonLabel.current}...` : label}
             </button>
         </div>
     );

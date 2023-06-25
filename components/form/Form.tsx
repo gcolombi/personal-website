@@ -64,6 +64,7 @@ export default function Form() {
     const emailLabel = useRef(getTranslation('Email', locale ?? ''));
     const toastLoadingMessage = useRef(getTranslation('Your message is on its way !', locale ?? ''));
     const formErrorsMessage  = useRef(getTranslation('Form has errors.', locale ?? ''));
+    const buttonLabel  = useRef(getTranslation('Send', locale ?? ''));
 
     const submitForm = async (data: FormData, recaptchaToken: string) => {
         const toastConfig = {
@@ -249,7 +250,7 @@ export default function Form() {
                             >
                                 <div className={styles['c-form__btn']}>
                                     <Button
-                                        label="Send"
+                                        label={buttonLabel.current}
                                         className="c-btn"
                                         wrapperClassName={classNames({'c-formElement--submit': isSubmitting})}
                                         type="submit"

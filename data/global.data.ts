@@ -104,6 +104,14 @@ export const TRANSLATIONS: Lang<Translations> = {
             value: 'Email'
         },
         {
+            key: 'Send',
+            value: 'Send'
+        },
+        {
+            key: 'Sending',
+            value: 'Sending'
+        },
+        {
             key: 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" title="Privacy Policy">Privacy Policy</a> and <a href="https://policies.google.com/terms" title="Terms of Service">Terms of Service</a> apply.',
             value: 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" title="Privacy Policy">Privacy Policy</a> and <a href="https://policies.google.com/terms" title="Terms of Service">Terms of Service</a> apply.'
         },
@@ -164,6 +172,14 @@ export const TRANSLATIONS: Lang<Translations> = {
         {
             key: 'Email',
             value: 'Courriel'
+        },
+        {
+            key: 'Send',
+            value: 'Envoyer'
+        },
+        {
+            key: 'Sending',
+            value: 'Envoi en cours'
         },
         {
             key: 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" title="Privacy Policy">Privacy Policy</a> and <a href="https://policies.google.com/terms" title="Terms of Service">Terms of Service</a> apply.',
