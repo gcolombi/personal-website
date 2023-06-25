@@ -11,7 +11,7 @@ export default function MetaData({
     const { currentURL } = useWindowLocation();
     const meta = {
         title: process.env.NEXT_PUBLIC_SITE_NAME,
-        description: getTranslation('Front-end Developer capable of full stack development, passionate about building appealing and interactive web experiences.', locale ?? ''),
+        description: getTranslation('Front-end Developer Full stack capable, passionate about building appealing and interactive web experiences.', locale ?? ''),
         image: `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image.png`,
         type: 'website',
         ...customMeta
