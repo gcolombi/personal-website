@@ -30,7 +30,6 @@ module.exports = {
         ]
     },
     transform: async (config, path) => {
-        console.log(nextConfig.i18n.locales.find((locale) => path.indexOf(`/${locale}`) > -1));
         const locale = nextConfig.i18n.locales.find((locale) => path.indexOf(`/${locale}`) > -1) || nextConfig.i18n.defaultLocale;
 
         return {

@@ -8,6 +8,7 @@ export default function LanguageSwitcher({
     router
 }: LanguageSwitcherProps) {
     const { resetTimeline } = useTransitionContext();
+
     const getLocales = () => {
         const locales = router.locales ?? [];
         return locales.filter(l => l !== router.locale);

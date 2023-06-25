@@ -9,7 +9,7 @@ const nextConfig = withTranslateRoutes({
         defaultLocale: 'en'
     },
     translateRoutes: {
-        debug: true,
+        debug: false,
         fallbackLng: {
             default: ['en']
         }
