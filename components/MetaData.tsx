@@ -30,6 +30,11 @@ export default function MetaData({
             <meta property="og:site_name" content={process.env.NEXT_PUBLIC_SITE_NAME} />
             <meta property="og:type" content={meta.type} />
             <meta property="og:image" content={meta.image} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={meta.title} />
+            <meta name="twitter:description" content={meta.description} />
+            <meta property="twitter:url" content={currentURL} />
+            <meta name="twitter:image" content={meta.image} />
             <meta name="robots" content="follow, index" />
             <link rel="canonical" href={currentURL} />
         </Head>
