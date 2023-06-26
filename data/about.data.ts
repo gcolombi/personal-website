@@ -25,15 +25,15 @@ export const ABOUT_HEADER: Lang<AboutHeaderProps> = {
 export const ABOUT_INTRODUCTION: Lang<AboutIntroductionContent> = {
     en: {
         content: [
-            'I\'m a Front-end Developer with years of experiences in building performant, accessible and responsive applications/websites. I like to code things from scratch, and enjoy bringing ideas to life in the browser. The life of a developer requires one to learn new things everyday, because technology keeps changing at a very fast pace. I have therefore, embraced the concept of being a life long learner and continue to learn new concepts and technologies in my free time.',
-            'The things we make and the quality of the work we do reveal something about who we are, so I always strive to put my best into it.'
+            'I\'m a front-end developer with years of experience in building performant, accessible, and responsive applications/websites. I enjoy coding things from scratch and bringing ideas to life in the browser. The life of a developer requires one to learn new things every day because technology changes at a rapid pace. Therefore, I have embraced the concept of being a lifelong learner and continue to explore new concepts and technologies in my free time.',
+            'The things we create and the quality of our work reflect our true selves, so I always strive to give my best effort.'
         ],
         image: '/static/images/about-portrait.jpg'
     },
     fr: {
         content: [
-            'Je suis un Développeur Front-end avec des années d\'expérience dans la création d\'applications/sites web performants, accessibles et réactifs. J\'aime coder les choses à partir de zéro et donner vie à mes idées dans le navigateur. La vie d\'un développeur exige que l\'on apprenne de nouvelles choses tous les jours, car la technologie évolue à un rythme très rapide. J\'ai donc adopté le concept d\'apprentissage tout au long de ma vie et je continue à apprendre de nouveaux concepts et nouvelles technologies pendant mon temps libre.',
-            'Les choses que nous créons et la qualité du travail que nous effectuons révèlent quelque chose sur notre personnalité, c\'est pourquoi je m\'efforce toujours de donner le meilleur de moi-même.'
+            'Je suis un développeur front-end avec des années d\'expérience dans la création d\'applications/sites web performants, accessibles et réactifs. J\'aime coder les choses à partir de zéro et donner vie à mes idées dans le navigateur. La vie d\'un développeur exige que l\'on apprenne de nouvelles choses tous les jours, car la technologie évolue à un rythme rapide. C\'est pourquoi j\'ai adopté le concept d\'apprentissage tout au long de ma vie et je continue à explorer de nouveaux concepts et de nouvelles technologies pendant mon temps libre.',
+            'Les choses que nous créons et la qualité de notre travail reflètent notre véritable personnalité, c\'est pourquoi je m\'efforce toujours de donner le meilleur de moi-même.'
         ],
         image: '/static/images/about-portrait.jpg'
     }

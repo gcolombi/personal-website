@@ -14,17 +14,17 @@ export const HOBBIES_TABS: Lang<HobbiesTabsContent> = {
             {
                 id: 0,
                 title: 'Gaming',
-                description: 'I play a lot of video games but I mostly enjoy first person shooter, survival and action role-playing game. Call of duty, DayZ, Souls games and Elden ring are the most recent games I played.'
+                description: 'I play a lot of video games, but I mostly enjoy first-person shooters, survival games, and action role-playing games. Recently, I have played games like Call of Duty, DayZ, Dark Souls series, and Elden Ring.'
             },
             {
                 id: 1,
                 title: 'Music',
-                description: 'I listen to a broad range of genres, my favorites would be lofi, alternative/indie and pop music. I enjoy music when I\'m coding or in road trip.'
+                description: 'I listen to a broad range of genres, but my favorites would be lo-fi, alternative/indie, and pop music. I particularly enjoy listening to music while coding or during road trips.'
             },
             {
                 id: 2,
                 title: 'Cinema',
-                description: 'I like watching movies and TV shows because it can have a positive emotional impact, it\'s a wonderful shared experience, and sometimes learn something. I consider myself as cinephile.'
+                description: 'I have a fondness for watching movies and TV shows. They have a positive emotional impact on me, provide a wonderful shared experience, and sometimes offer opportunities to learn something new. I consider myself a cinephile.'
             }
         ]
     },
@@ -34,17 +34,17 @@ export const HOBBIES_TABS: Lang<HobbiesTabsContent> = {
             {
                 id: 0,
                 title: 'Jeux',
-                description: 'Je joue à beaucoup de jeux vidéo, mais j\'aime surtout les jeux de tir à la première personne, les jeux de survie et les jeux de rôle. Call of duty, DayZ, les jeux Souls et Elden ring sont les jeux les plus récents auxquels j\'ai joué.'
+                description: 'Je joue à beaucoup de jeux vidéo, mais j\'aime surtout les jeux de tir à la première personne, les jeux de survie et les jeux de rôle. Récemment, j\'ai joué à des jeux comme Call of Duty, DayZ, la série des Dark Souls et Elden Ring.'
             },
             {
                 id: 1,
                 title: 'Musique',
-                description: 'J\'écoute un large éventail de genres, mes préférés étant la musique lofi, alternative/indie et pop. J\'apprécie la musique lorsque je suis en train de coder ou pendant un voyage en voiture.'
+                description: 'J\'écoute un large éventail de genres, mais mes préférés sont la musique lo-fi, alternative/indie et la musique pop. J\'aime particulièrement écouter de la musique en codant ou pendant les trajets en voiture.'
             },
             {
                 id: 2,
                 title: 'Cinema',
-                description: 'J\'aime regarder des films et des séries télévisées parce que cela peut avoir un impact émotionnel positif, c\'est une merveilleuse expérience partagée, et parfois j\'apprends quelque chose. Je me considère comme un cinéphile.'
+                description: 'J\'aime beaucoup regarder des films et des émissions de télévision. Ils ont un impact émotionnel positif sur moi, constituent une merveilleuse expérience partagée et offrent parfois l\'occasion d\'apprendre quelque chose de nouveau. Je me considère comme un cinéphile.'
             }
         ]
     }

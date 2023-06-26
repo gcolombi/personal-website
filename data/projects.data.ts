@@ -48,31 +48,31 @@ export const PROJECTS: Lang<Projects> = {
     fr: [
         {
             title: 'Cartv',
-            description: 'Organisme de surveillance et de défense de l\'authenticité des produits alimentaires reconnu par le gouvernement du Québec',
+            description: 'Organisme de surveillance et de défense de l\'authenticité des produits alimentaires reconnu par le Gouvernement du Québec',
             image: '/static/images/projects/cartv.jpg',
             url: 'https://cartv.gouv.qc.ca/'
         },
         {
             title: 'Dici',
-            description: 'Magazine and showcase on culture in Mauricie, Quebec (Canada)',
+            description: 'Magazine et vitrine sur la culture en Mauricie, Québec (Canada)',
             image: '/static/images/projects/dici.jpg',
             url: 'https://dici.ca/'
         },
         {
             title: 'Mondoux',
-            description: 'Leading Canadian packager and distributor of top quality candies and chocolates',
+            description: 'Leader canadien dans l\'emballage et la distribution de bonbons et chocolats de première qualité',
             image: '/static/images/projects/mondoux-fr.jpg',
             url: 'https://mondoux.ca/'
         },
         {
             title: 'Sogetel',
-            description: 'Canadian telecommunications company that serves multiple areas in Quebec',
+            description: 'Entreprise canadienne de télécommunications qui dessert plusieurs régions du Québec',
             image: '/static/images/projects/sogetel.jpg',
             url: 'https://sogetel.com/'
         },
         {
             title: 'Sweet sixteen',
-            description: 'Online candy store built with shopify',
+            description: 'Magasin de bonbons en ligne créé avec shopify',
             image: '/static/images/projects/sweet-sixteen.jpg',
             url: 'https://sweetsixteen.ca/'
         }
@@ -105,20 +105,20 @@ export const PERSONAL_PROJECTS: Lang<Projects> = {
     fr: [
         {
             title: 'Portfolio',
-            description: 'Portfolio built with Next.js, Typescript and GSAP',
+            description: 'Portfolio créé avec Next.js, Typescript et GSAP',
             image: '/static/images/projects/portfolio-fr.jpg',
             githubUrl: 'https://github.com/gcolombi/personal-website'
         },
         {
             title: 'Linklist',
-            description: 'Linktree clone built with Next.js, typescript and Tailwind',
+            description: 'Clone de Linktree créé avec Next.js, typescript et Tailwind',
             image: '/static/images/projects/linklist.jpg',
             url: 'https://linklist-domain.vercel.app/',
             githubUrl: 'https://github.com/gcolombi/linklist'
         },
         {
             title: 'Next.js starter',
-            description: 'Starter that includes a collection of reusable components, hooks, and utilities to build amazing projects with complex animations and page transitions using GSAP',
+            description: 'Base de départ qui inclut une collection de composants réutilisables, de hooks et d\'utilitaires pour créer des projets étonnants avec des animations complexes et des transitions de page en utilisant GSAP',
             image: '/static/images/projects/nextjs-starter.jpg',
             url: 'https://nextjs-gsap-starter.vercel.app/',
             githubUrl: 'https://github.com/gcolombi/nextjs-starter'
@@ -154,7 +154,7 @@ export const LATEST_PERSONAL_PROJECT: Lang<ProjectProps> = {
     },
     fr: {
         title: 'Linklist',
-        description: 'Clone de Linktree implémenté avec Next.js, typescript et Tailwind',
+        description: 'Clone de Linktree créé avec Next.js, typescript et Tailwind',
         image: '/static/images/projects/linklist.jpg',
         url: 'https://linklist-domain.vercel.app/',
         githubUrl: 'https://github.com/gcolombi/linklist',
@@ -196,7 +196,7 @@ export const PROJECTS_TABS: Lang<ProjectsTabsType> = {
         },
         {
             title: 'Personnel',
-            description: 'Une sélection de projets personnels que j\'implémente des que j\'ai une idée ou que je découvre une technologie afin de la tester et l\'apprendre.',
+            description: 'Une sélection de projets personnels que je crée dès que j\'ai une idée ou découvre une technologie afin de la tester et l\'apprendre.',
             type: ProjectsType.PERSONAL_PROJECTS,
             total: toTwoDigits(TOTAL_PERSONAL_PROJECTS['fr'])
         }

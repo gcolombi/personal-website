@@ -39,7 +39,7 @@ export const HOME_INTRODUCTION: Lang<HomeIntroductionContent> = {
     fr: {
         titles: [
             'Passionné par les technologies web, j\'ai toujours été enthousiasmé par l\'ensemble du spectre de développement. Accro au front-end et fréquemment entrain de faire de la programmation back-end.',
-            'Lorsque je ne suis pas en train de coder ou d\'explorer de nouvelles technologies web, je suis probablement en train de jouer à des jeux vidéo ou de regarder les derniers films et séries télévisées sortis.'
+            'Lorsque je ne suis pas en train de coder ou d\'explorer de nouvelles technologies web, je joue probablement à des jeux vidéo ou regarde les derniers films et séries télévisées sortis.'
         ],
         content: [
             'Au fil des années, j\'ai consacré du temps à convertir des conceptions en applications/sites web au pixel près, performants, accessibles et réactifs. Chaque projet est l\'occasion d\'apprendre de nouveaux concepts dans de multiples domaines.',
