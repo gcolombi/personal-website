@@ -24,12 +24,12 @@ export const HOME_HEADER: Lang<HomeHeaderProps> = {
 export const HOME_INTRODUCTION: Lang<HomeIntroductionContent> = {
     en: {
         titles: [
-            'Passionate about web technologies, I always been excited about the entire development spectrum. Front-end addicted and frequently engage in backend.',
-            'When I\'m not coding or exploring new web technologies, I\'m probably playing video games or watching the latest movie and tv show released.'
+            'Passionate about web technologies, I have always been excited about the entire development spectrum. Front-end addicted and frequently engage in backend.',
+            'When I\'m not coding or exploring new web technologies, I am playing video games or watching the latest movies and tv shows released.'
         ],
         content: [
             'Over the years I have spent time converting designs into pixel-perfect, performant, accessible and responsive applications/websites. Each project is an opportunity to learn new concepts across multiple domains.',
-            'I sincerely simply love working on ambitious projects on my own or with positive people.'
+            'I simply love working on ambitious projects on my own or with positive people.'
         ],
         button: {
             label: 'More about me',
@@ -42,8 +42,8 @@ export const HOME_INTRODUCTION: Lang<HomeIntroductionContent> = {
             'Lorsque je ne suis pas en train de coder ou d\'explorer de nouvelles technologies web, je suis probablement en train de jouer à des jeux vidéo ou de regarder les derniers films et séries télévisées sortis.'
         ],
         content: [
-            'Au fil des années, j\'ai passé du temps à convertir des conceptions en applications/sites web au pixel près, performants, accessibles et réactifs. Chaque projet est l\'occasion d\'apprendre de nouveaux concepts dans de multiples domaines.',
-            'J\'aime sincèrement et simplement travailler sur des projets ambitieux, seul ou avec des personnes positives.'
+            'Au fil des années, j\'ai consacré du temps à convertir des conceptions en applications/sites web au pixel près, performants, accessibles et réactifs. Chaque projet est l\'occasion d\'apprendre de nouveaux concepts dans de multiples domaines.',
+            'J\'aime tout simplement travailler sur des projets ambitieux, seul ou avec des personnes positives.'
         ],
         button: {
             label: 'En savoir plus sur moi',
