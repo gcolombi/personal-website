@@ -37,8 +37,8 @@
     --paragraph-size: var(--font-base);
 
     /* Heading */
-	--h1: 38px;
-	--h2: 35px;
+	--h1: 32px;
+	--h2: 28px;
 	--h3: 25px;
 	--h4: 20px;
 	--h5: 18px;
@@ -57,7 +57,7 @@
     // MEDIA QUERIES
 
     @include mediaq('>360px') {
-	    --h1: 42px;
+	    --h1: 40px;
     }
 
     @include mediaq('>SM') {

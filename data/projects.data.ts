@@ -189,7 +189,7 @@ export const PROJECTS_TABS: Lang<ProjectsTabsType> = {
     ],
     fr: [
         {
-            title: 'Professionnel',
+            title: 'Travail',
             description: 'Une sélection de projets que j\'ai réalisés seul ou en équipe au cours des dernières années.',
             type: ProjectsType.PROJECTS,
             total: toTwoDigits(TOTAL_PROJECTS['fr'])
