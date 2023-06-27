@@ -154,6 +154,10 @@ export const TRANSLATIONS: Lang<Translations> = {
         {
             key: 'Error validating captcha',
             value: 'Error validating captcha'
+        },
+        {
+            key: 'Close',
+            value: 'Close'
         }
     ],
     fr: [
@@ -228,6 +232,10 @@ export const TRANSLATIONS: Lang<Translations> = {
         {
             key: 'Error validating captcha',
             value: 'Erreur lors de la validation du captcha'
+        },
+        {
+            key: 'Close',
+            value: 'Fermer'
         }
     ]
 };

@@ -32,6 +32,7 @@ export type MetaDataProps = {
 export type TogglerProps = {
     open: boolean;
     toggle: () => void;
+    closeLabel: string;
 }
 
 export type ThemeTogglerProps = {
