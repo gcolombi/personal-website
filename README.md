@@ -1,5 +1,5 @@
 <a href="https://www.gerardcolombi.io">
-    <img alt="Gerard Colombi" src="https://github.com/gcolombi/personal-website/blob/master/public/static/og-image.png?raw=true">
+    <img alt="Gerard Colombi" src="https://github.com/gcolombi/personal-website/blob/master/public/static/og-image-en.png?raw=true">
 </a>
 
 <h1 align="center">Personal website</h1>
@@ -72,6 +72,9 @@ This project use a [Club GreenSock license](https://greensock.com/club/) which g
 ### Sitemap
 
 - [`next-sitemap`](https://github.com/iamvishnusankar/next-sitemap) - Sitemap generator for next.js. Generate sitemap(s) and robots.txt for all static/pre-rendered/dynamic/server-side pages.
+
+### Internationalization
+- [`next-translate-routes`](https://github.com/hozana/next-translate-routes) - Translated routing and more for Next using Next regular file-base routing system.
 
 ### Hooks
 
