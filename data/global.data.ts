@@ -23,7 +23,7 @@ export const NAVIGATION_ROUTES: Lang<NavigationRoutes> = {
         },
         {
             href: '/about',
-            title: 'A propos'
+            title: 'À propos'
         },
         {
             href: '/contact',
