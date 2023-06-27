@@ -5,11 +5,11 @@ import { useFrame } from '@react-three/fiber';
 import { Group } from 'three';
 import { GLTF } from 'three-stdlib';
 
-export default function Movies({
+export default function Helmet({
     visible = true
 }: ModelProps) {
     const groupRef = useRef<THREE.Mesh & Group>(null);
-    const { scene } = useGLTF('/static/models/movies/stormtrooper.glb') as unknown as GLTF;
+    const { scene } = useGLTF('/static/models/helmet/stormtrooper.glb') as unknown as GLTF;
 
     useFrame(() => {
         const group = groupRef.current;

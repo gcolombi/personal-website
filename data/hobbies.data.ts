@@ -3,9 +3,9 @@ import { Models } from '@/types/hobbies/models';
 import { HobbiesTabsContent } from '@/types/hobbies/tabs';
 import Controller from '@/components/models/Controller';
 import Headphone from '@/components/models/Headphone';
-import Movies from '@/components/models/Movies';
+import Helmet from '@/components/models/Helmet';
 
-export const MODELS: Models = [Controller, Headphone, Movies];
+export const MODELS: Models = [Controller, Headphone, Helmet];
 
 export const HOBBIES_TABS: Lang<HobbiesTabsContent> = {
     en: {
