@@ -33,7 +33,7 @@ export const HOME_INTRODUCTION: Lang<HomeIntroductionContent> = {
         ],
         button: {
             label: 'More about me',
-            href: '/contact'
+            href: '/about'
         }
     },
     fr: {
@@ -47,7 +47,7 @@ export const HOME_INTRODUCTION: Lang<HomeIntroductionContent> = {
         ],
         button: {
             label: 'En savoir plus sur moi',
-            href: '/contact'
+            href: '/about'
         }
     }
 };
