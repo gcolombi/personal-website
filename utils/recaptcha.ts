@@ -19,7 +19,7 @@ export const validateRecaptcha = async (token: string, res: NextApiResponse, loc
             'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
-        })
+        });
 
         const result = await response.json();
 
@@ -31,11 +31,8 @@ export const validateRecaptcha = async (token: string, res: NextApiResponse, loc
         }
         throw new Error(`${getTranslation('Error validating captcha', locale)}: ${result['error-codes'][0]}`);
 
-    } catch (err) {
-        if (err instanceof Error) {
-            res.status(422).json({ message: err.message });
-            return false;
-        }
+    } catch (err: any) {
+        res.status(422).json({ message: err.message });
         return false;
     }
 };

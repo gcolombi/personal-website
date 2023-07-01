@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "@hookform/resolvers": "^3.1.0",
-        "@react-three/drei": "9.77.6",
+        "@react-three/drei": "^9.77.9",
         "@react-three/fiber": "^8.13.3",
         "@sendgrid/mail": "^7.7.0",
         "@types/node": "18.16.2",
