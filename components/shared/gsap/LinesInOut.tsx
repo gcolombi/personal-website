@@ -47,15 +47,14 @@ export default function LinesInOut({
             let initialDelay = delay;
             let initialDelayOut = delayOut + increment * (lines.length - 1);
 
-            /* Animates each line */
-            lines.forEach(line => {
-                const splitLineChild = new SplitText(line, {type: 'lines'});
-                const linesChildren = splitLineChild.lines;
+            /* Intro animation */
+            lines.forEach((line, index) => {
+                const splitLineChildren = new SplitText(line, {type: 'lines'});
+                const linesChildren = splitLineChildren.lines;
 
-                linesChildren.forEach(line => {
-                    /* Intro animation */
+                linesChildren.forEach(lineChild => {
                     gsap.fromTo(
-                        line,
+                        lineChild,
                         {
                             y: '100%'
                         },
@@ -65,31 +64,48 @@ export default function LinesInOut({
                             ease: ease ?? primaryEase,
                             delay: initialDelay,
                             duration: durationIn,
-                            ...scrollTrigger
+                            ...scrollTrigger,
+                            onComplete: () => {
+                                if (index === lines.length - 1) {
+                                    splitLineParent.revert();
+                                }
+                            }
                         }
                     );
 
                     initialDelay += increment;
-
-                    /* Outro animation */
-                    if (!skipOutro) {
-                        timeline?.add(
-                            gsap.to(
-                                line,
-                                {
-                                    y: '100%',
-                                    ease: easeOut ?? primaryEase,
-                                    delay: initialDelayOut,
-                                    duration: durationOut
-                                }
-                            ),
-                            0
-                        );
-
-                        initialDelayOut -= increment;
-                    }
                 });
             });
+
+            /* Outro animation */
+            if (!skipOutro) {
+                timeline?.add(
+                    () => {
+                        const splitLineOutro = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
+                        const lines = splitLineOutro.lines;
+
+                        lines.forEach(line => {
+                            const splitLineChildrenOutro = new SplitText(line, {type: 'lines'});
+                            const linesChildrenOutro = splitLineChildrenOutro.lines;
+
+                            linesChildrenOutro.forEach(lineChild => {
+                                gsap.to(
+                                    lineChild,
+                                    {
+                                        y: '100%',
+                                        ease: easeOut ?? primaryEase,
+                                        delay: initialDelayOut,
+                                        duration: durationOut
+                                    }
+                                );
+
+                                initialDelayOut -= increment;
+                            });
+                        });
+                    },
+                    0
+                );
+            }
 
             gsap.to(element.current, {
                 opacity: 1
