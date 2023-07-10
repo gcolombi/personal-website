@@ -36,7 +36,7 @@ export default function CharsInOut({
     const { timeline, primaryEase } = useTransitionContext();
     const element = useRef<HTMLDivElement | null>(null);
     const [splitText, setSplitText] = useState<SplitText | null>(null);
-    const [animations, setAnimations] = useState<GSAPAnimation[]>([]);
+    const [animations, setAnimations] = useState<GSAPTween[]>([]);
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -55,7 +55,7 @@ export default function CharsInOut({
             const lines = splitTextParent.lines;
             const alignProperty = textAlign ? {textAlign: textAlign} : {};
 
-            const tree: GSAPAnimation[] = [];
+            const tree: GSAPTween[] = [];
             lines.forEach(line => {
                 /* Overwrite the default display block */
                 if (isLink) {
@@ -163,73 +163,6 @@ export default function CharsInOut({
                 }
             });
 
-            // /* Outro animation */
-            // if (!skipOutro) {
-            //     timeline?.add(
-            //         () => {
-            //             const splitTextParent = new SplitText(target, {type: 'lines', linesClass: 'split-parent'});
-            //             const lines = splitTextParent.lines;
-            //             const alignProperty = textAlign ? {textAlign: textAlign} : {};
-
-            //             lines.forEach(line => {
-            //                 /* Overwrite the default display block */
-            //                 if (isLink) {
-            //                     gsap.set(line, {display: 'flex'});
-            //                 } else {
-            //                     gsap.set(line, {display: 'inline-block', ...alignProperty});
-            //                 }
-
-            //                 const splitLineChild = new SplitText(line, {type: 'lines, chars', linesClass: 'split-child'});
-            //                 const linesChildren = splitLineChild.lines;
-            //                 const chars = splitLineChild.chars;
-
-            //                 linesChildren.forEach(lineChild => {
-            //                     /* Overwrites the default display block */
-            //                     if (isLink) {
-            //                         gsap.set(lineChild, {display: 'inline-block'});
-            //                     }
-
-            //                     new SplitText(lineChild, {type: 'lines', linesClass: 'u-overflow--hidden'});
-            //                 });
-
-            //                 let initialDelay = delay;
-            //                 let initialDelayOut = delayOut + increment * (chars.length - 1);
-
-            //                 chars.forEach(char => {
-            //                     gsap.to(
-            //                         char,
-            //                         {
-            //                             y: '100%',
-            //                             ease: easeOut ?? primaryEase,
-            //                             delay: initialDelayOut,
-            //                             duration: durationOut
-            //                         }
-            //                     );
-
-            //                     initialDelayOut -= increment;
-            //                 });
-
-            //                 /* Animates underline */
-            //                 if (isLink) {
-            //                     const linkOutroAnimation = gsap.timeline()
-            //                     .to(element.current?.parentElement!, {
-            //                         pointerEvents: 'none'
-            //                     })
-            //                     .to(line, {
-            //                         '--line-width': 0,
-            //                         ease: easeOut ?? primaryEase,
-            //                         delay: initialDelayOut,
-            //                         duration: durationOut
-            //                     });
-
-            //                     linkOutroAnimation.play();
-            //                 }
-            //             });
-            //         },
-            //         0
-            //     );
-            // }
-
             setAnimations(tree);
 
             gsap.to(element.current, {
@@ -248,7 +181,6 @@ export default function CharsInOut({
             splitText?.revert();
 
             /* Kills all old animations */
-            // console.log(animations);
             animations.forEach(animation => {
                 animation.kill();
             });
@@ -256,7 +188,7 @@ export default function CharsInOut({
             setTimeout(() => {
                 const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
                 const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
-                const tree: GSAPAnimation[] = [];
+                const tree: GSAPTween[] = [];
 
                 const scrollTrigger = watch ? {
                     scrollTrigger: {
@@ -390,7 +322,6 @@ export default function CharsInOut({
                 });
 
                 setAnimations(tree);
-
             }, 0);
         }
     }, [locale]);

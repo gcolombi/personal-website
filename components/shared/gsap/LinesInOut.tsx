@@ -33,7 +33,7 @@ export default function LinesInOut({
     const { currentLocale } = useNavigationContext();
     const { timeline, primaryEase } = useTransitionContext();
     const element = useRef<HTMLDivElement | null>(null);
-    const [animations, setAnimations] = useState<GSAPAnimation[]>([]);
+    const [animations, setAnimations] = useState<GSAPTween[]>([]);
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -53,7 +53,7 @@ export default function LinesInOut({
             let initialDelay = delay;
             let initialDelayOut = delayOut + increment * (lines.length - 1);
 
-            const tree: GSAPAnimation[] = [];
+            const tree: GSAPTween[] = [];
             /* Intro animation */
             lines.forEach((line, index) => {
                 const splitLineChildren = new SplitText(line, {type: 'lines'});
@@ -135,7 +135,7 @@ export default function LinesInOut({
             setTimeout(() => {
                 const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
                 const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
-                const tree: GSAPAnimation[] = [];
+                const tree: GSAPTween[] = [];
 
                 /* Intro animation */
                 if (!isInViewport && !isAboveViewport) {
