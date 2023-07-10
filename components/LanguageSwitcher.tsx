@@ -14,20 +14,22 @@ export default function LanguageSwitcher({
         return locales.filter(l => l !== router.locale);
     }
 
-    const locales = useRef(getLocales());
-
-    const switchToLocale = () => {
-        router.events.on('routeChangeComplete', () => {
-            resetTimeline();
-            router.reload();
-        });
-    }
+    // const locales = useRef(getLocales());
+    const locales = getLocales();
 
     const href = router.route !== '/404' ? translateUrl(router.pathname, router.locale ?? '') : '/';
 
+    const switchToLocale = () => {
+        // router.events.on('routeChangeComplete', () => {
+        //     resetTimeline();
+        //     router.reload();
+        // });
+    }
+
     return (
         <>
-            {locales.current.map((locale: string) => (
+            {/* {locales.current.map((locale: string) => ( */}
+            {locales.map((locale: string) => (
                 <Link
                     key={locale}
                     href={href}
