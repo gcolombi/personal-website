@@ -3,7 +3,6 @@ import styles from '@/styles/modules/Footer.module.scss';
 import { gsap } from 'gsap';
 import useTransitionContext from '@/context/transitionContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
-import { useRef } from 'react';
 import { useRouter } from 'next-translate-routes';
 import { getTranslation } from '@/utils/translation';
 import Link from 'next-translate-routes/link';
@@ -16,7 +15,7 @@ export default function Footer({
 }: FooterProps) {
     const { locale } = useRouter();
     const { timeline, primaryEase, footerRef } = useTransitionContext();
-    const copyright = useRef(getTranslation('All rights reserved', locale ?? ''));
+    const copyright = getTranslation('All rights reserved', locale ?? '');
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -102,7 +101,7 @@ export default function Footer({
                             'o-wysiwyg',
                             styles['c-footer__copyright--text']
                         )}>
-                            <p>{copyright.current}</p>
+                            <p>{copyright}</p>
                         </div>
                     </div>
                 </div>

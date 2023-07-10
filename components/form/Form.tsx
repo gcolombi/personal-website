@@ -3,9 +3,10 @@ import styles from '../../styles/modules/Form.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next-translate-routes';
 import { useForm } from 'react-hook-form';
-import { useRef } from 'react';
+import { useEffect } from 'react';
 import useIsMounted from '@/hooks/useIsMounted';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import useNavigationContext from '@/context/navigationContext';
 import { getFormSchema } from '@/schemas/form';
 import { getTranslation } from '@/utils/translation';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -41,13 +42,15 @@ async function sendFormData(data: FormData, recaptchaToken: string, locale: stri
 }
 
 export default function Form() {
+    const { currentLocale } = useNavigationContext();
     const { locale } = useRouter();
     const {
         register,
         handleSubmit,
         reset,
         setError,
-        formState: { isSubmitting, errors }
+        formState: { isSubmitting, errors },
+        trigger
     } = useForm<FormData>({
         defaultValues: {
             firstname: '',
@@ -59,12 +62,12 @@ export default function Form() {
     });
     const isMounted = useIsMounted();
     const { executeRecaptcha } = useGoogleReCaptcha();
-    const firstnameLabel = useRef(getTranslation('First name', locale ?? ''));
-    const lastnameLabel = useRef(getTranslation('Last name', locale ?? ''));
-    const emailLabel = useRef(getTranslation('Email', locale ?? ''));
-    const toastLoadingMessage = useRef(getTranslation('Your message is on its way!', locale ?? ''));
-    const formErrorsMessage  = useRef(getTranslation('Form has errors.', locale ?? ''));
-    const buttonLabel  = useRef(getTranslation('Send', locale ?? ''));
+    const firstnameLabel = getTranslation('First name', locale ?? '');
+    const lastnameLabel = getTranslation('Last name', locale ?? '');
+    const emailLabel = getTranslation('Email', locale ?? '');
+    const toastLoadingMessage = getTranslation('Your message is on its way!', locale ?? '');
+    const formErrorsMessage  = getTranslation('Form has errors.', locale ?? '');
+    const buttonLabel  = getTranslation('Send', locale ?? '');
 
     const submitForm = async (data: FormData, recaptchaToken: string) => {
         const toastConfig = {
@@ -74,7 +77,7 @@ export default function Form() {
             draggable: true
         }
 
-        const toastId = toast.loading(toastLoadingMessage.current);
+        const toastId = toast.loading(toastLoadingMessage);
 
         try {
             const response = await sendFormData(data, recaptchaToken, locale ?? '');
@@ -92,7 +95,7 @@ export default function Form() {
                         setError(fieldName, {type: 'custom', message: errorMessage});
                     }
                 }
-                throw new Error(_data.message || formErrorsMessage.current);
+                throw new Error(_data.message || formErrorsMessage);
             }
 
             toast.update(toastId, {
@@ -128,6 +131,13 @@ export default function Form() {
         .catch(error => console.error(`Form - Recaptcha Error : ${error}`));
     }
 
+    useEffect(() => {
+        if (currentLocale !== locale && Object.keys(errors).length) {
+            trigger();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [locale]);
+
     return(
         <>
             <section className={classNames
@@ -154,7 +164,7 @@ export default function Form() {
                                     >
                                         <FormInput
                                             htmlFor="firstname"
-                                            label={firstnameLabel.current}
+                                            label={firstnameLabel}
                                             id="firstname"
                                             required={true}
                                             className="c-formElement--bordered"
@@ -177,7 +187,7 @@ export default function Form() {
                                     >
                                         <FormInput
                                             htmlFor="lastname"
-                                            label={lastnameLabel.current}
+                                            label={lastnameLabel}
                                             id="lastname"
                                             required={true}
                                             className="c-formElement--bordered"
@@ -200,7 +210,7 @@ export default function Form() {
                                     >
                                         <FormInput
                                             htmlFor="email"
-                                            label={emailLabel.current}
+                                            label={emailLabel}
                                             type="email"
                                             id="email"
                                             required={true}
@@ -250,7 +260,7 @@ export default function Form() {
                             >
                                 <div className={styles['c-form__btn']}>
                                     <Button
-                                        label={buttonLabel.current}
+                                        label={buttonLabel}
                                         className="c-btn"
                                         wrapperClassName={classNames({'c-formElement--submit': isSubmitting})}
                                         type="submit"
