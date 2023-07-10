@@ -7,6 +7,7 @@ import LinesInOut from './shared/gsap/LinesInOut';
 import Image from 'next/image';
 import { slugify } from '@/utils/string';
 import classNames from 'classnames';
+import { useRouter } from 'next-translate-routes';
 
 export default function HomeHeader({
     titles,
@@ -15,6 +16,7 @@ export default function HomeHeader({
     content,
     name
 }: HomeHeaderProps) {
+    const { locale } = useRouter();
     return (
         <section className={styles['c-homeHeader']}>
             <div className={classNames(
@@ -31,9 +33,11 @@ export default function HomeHeader({
                                 <CharsInOut
                                     key={i}
                                     delay={0.46}
-                                    target={`#${slugify(title)}`}
+                                    // target={`#${slugify(title)}`}
+                                    target={`#header-title-${i}`}
                                 >
-                                    <span id={slugify(title)}>
+                                    {/* <span id={slugify(title)}> */}
+                                    <span id={`header-title-${i}`}>
                                         {title}
                                     </span>
                                 </CharsInOut>
@@ -86,9 +90,11 @@ export default function HomeHeader({
                                 <CharsInOut
                                     key={i}
                                     delay={0.46}
-                                    target={`#${slugify(element)}`}
+                                    target={`#header-name-${i}`}
+                                    // target={`#${slugify(element)}`}
                                 >
-                                    <span id={slugify(element)}>
+                                    {/* <span id={slugify(element)}> */}
+                                    <span id={`header-name-${i}`}>
                                         {element}
                                     </span>
                                 </CharsInOut>

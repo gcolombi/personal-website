@@ -19,9 +19,11 @@ export default function AboutHeader({
                                 <CharsInOut
                                     key={i}
                                     delay={0.46}
-                                    target={`#${slugify(title)}`}
+                                    // target={`#${slugify(title)}`}
+                                    target={`#header-title-${i}`}
                                 >
-                                    <span id={slugify(title)}>
+                                    {/* <span id={slugify(title)}> */}
+                                    <span id={`header-title-${i}`}>
                                         {title}
                                     </span>
                                 </CharsInOut>
