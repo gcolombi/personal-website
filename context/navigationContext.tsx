@@ -27,6 +27,8 @@ interface NavigationContextType {
     toggle: () => void;
     currentRoute: string;
     setCurrentRoute: Dispatch<SetStateAction<string>>;
+    currentLocale: string;
+    setCurrentLocale: Dispatch<SetStateAction<string>>;
 }
 
 const NavigationContext = createContext<NavigationContextType>({
@@ -41,7 +43,9 @@ const NavigationContext = createContext<NavigationContextType>({
     hidden: false,
     toggle: () => {},
     currentRoute: '',
-    setCurrentRoute: () => {}
+    setCurrentRoute: () => {},
+    currentLocale: '',
+    setCurrentLocale: () => {}
 });
 
 export function NavigationContextProvider({
@@ -54,6 +58,7 @@ export function NavigationContextProvider({
     const mobileNavRef = useRef<HTMLDivElement | null>(null);
     const [open, setOpen] = useState(false);
     const [currentRoute, setCurrentRoute] = useState(translateUrl(router.asPath, router.locale ?? '').split('?')[0]);
+    const [currentLocale, setCurrentLocale] = useState(router.locale ?? '');
     const { scrollY, directionY } = useScrollbar();
     const { windowSize, isDesktop } = useWindowSize();
     const [locked, setLocked] = useLockedScroll(false);
@@ -116,7 +121,9 @@ export function NavigationContextProvider({
         hidden: directionY > 0 && typeof windowSize.height === 'number' && scrollY > windowSize.height,
         toggle,
         currentRoute,
-        setCurrentRoute
+        setCurrentRoute,
+        currentLocale,
+        setCurrentLocale
     };
 
     return (
