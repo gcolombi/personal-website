@@ -3,7 +3,6 @@ import styles from '@/styles/modules/AboutHeader.module.scss';
 import CharsInOut from './shared/gsap/CharsInOut';
 import ClipPathInOut from './shared/gsap/ClipPathInOut';
 import Image from 'next/image';
-import { slugify } from '@/utils/string';
 
 export default function AboutHeader({
     titles,
@@ -19,10 +18,8 @@ export default function AboutHeader({
                                 <CharsInOut
                                     key={i}
                                     delay={0.46}
-                                    // target={`#${slugify(title)}`}
                                     target={`#header-title-${i}`}
                                 >
-                                    {/* <span id={slugify(title)}> */}
                                     <span id={`header-title-${i}`}>
                                         {title}
                                     </span>

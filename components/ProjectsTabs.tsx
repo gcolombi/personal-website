@@ -9,7 +9,6 @@ import ProjectsList from './ProjectsList';
 import FadeInOut from './shared/gsap/FadeInOut';
 import CharsInOut from './shared/gsap/CharsInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
-import { slugify } from '@/utils/string';
 import classNames from 'classnames';
 
 export default function ProjectsTabs({
@@ -73,9 +72,9 @@ export default function ProjectsTabs({
                                     )}>
                                         <CharsInOut
                                             delay={0.46}
-                                            target={`#${slugify(title)}`}
+                                            target={`#project-type-${i}`}
                                         >
-                                            <span id={slugify(title)}>
+                                            <span id={`project-type-${i}`}>
                                                 {title}
                                             </span>
                                         </CharsInOut>

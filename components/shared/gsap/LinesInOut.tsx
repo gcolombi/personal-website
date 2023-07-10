@@ -125,8 +125,6 @@ export default function LinesInOut({
 
     useIsomorphicLayoutEffect(() => {
         if (currentLocale !== locale) {
-            // console.log(document.getElementById(target.replace('#', '')));
-
             /* Kills all old animations */
             animations.forEach(animation => {
                 animation.kill();
@@ -191,7 +189,6 @@ export default function LinesInOut({
                     });
                     setAnimations(tree);
                 }
-
 
                 /* Outro animation */
                 if (!skipOutro) {

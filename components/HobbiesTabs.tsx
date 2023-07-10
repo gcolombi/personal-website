@@ -8,7 +8,6 @@ import FadeInOut from './shared/gsap/FadeInOut';
 import CharsInOut from './shared/gsap/CharsInOut';
 import TranslateInOut from './shared/gsap/TranslateInOut';
 import HobbiesScene from './HobbiesScene';
-import { slugify } from '@/utils/string';
 import classNames from 'classnames';
 
 export default function HobbiesTabs({
@@ -91,11 +90,11 @@ export default function HobbiesTabs({
                                         styles['c-hobbiesTabs__header__control--title']
                                     )}>
                                         <CharsInOut
-                                            target={`#${slugify(title)}`}
+                                            target={`#hobby-${id}`}
                                             watch
                                             textAlign="left"
                                         >
-                                            <span id={slugify(title)}>
+                                            <span id={`hobby-${id}`}>
                                                 {title}
                                             </span>
                                         </CharsInOut>

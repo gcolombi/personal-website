@@ -52,6 +52,7 @@ export default function CharsInOut({
 
             const splitTextParent = new SplitText(target, {type: 'lines', linesClass: 'split-parent'});
             setSplitText(splitTextParent);
+
             const lines = splitTextParent.lines;
             const alignProperty = textAlign ? {textAlign: textAlign} : {};
 
@@ -174,9 +175,6 @@ export default function CharsInOut({
 
     useIsomorphicLayoutEffect(() => {
         if (currentLocale !== locale) {
-
-            // console.log(document.getElementById(target.replace('#', '')));
-
             /* Reverts original SplitText */
             splitText?.revert();
 
