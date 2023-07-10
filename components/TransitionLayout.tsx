@@ -15,7 +15,7 @@ export default function TransitionLayout({
     const router = useRouter();
     const [displayChildren, setDisplayChildren] = useState(children);
     const { timeline, resetTimeline, primaryEase, footerRef } = useTransitionContext();
-    const { navigationRef, setCurrentRoute, currentRoute } = useNavigationContext();
+    const { navigationRef, setCurrentRoute, currentRoute, currentLocale, setCurrentLocale } = useNavigationContext();
 
     const animateNavigation = () => {
         /* Intro animation */
@@ -75,7 +75,11 @@ export default function TransitionLayout({
     };
 
     useIsomorphicLayoutEffect(() => {
-        if (currentRoute !== translateUrl(router.asPath, router.locale ?? '')) {
+        
+        // if (currentRoute !== translateUrl(router.asPath, router.locale ?? '')) {
+
+        if (currentRoute !== translateUrl(router.asPath, router.locale ?? '') && currentLocale === router.locale) {
+            console.log('animation');
             if (timeline?.duration() === 0) {
                 /* There are no outro animations, so immediately transition */
                 setDisplayChildren(children);
@@ -99,11 +103,22 @@ export default function TransitionLayout({
                 document.documentElement.classList.remove('is-transitioning');
             });
 
+        } else if (currentLocale !== router.locale) {
+            console.log('browser button');
+            setDisplayChildren(children);
+            // animateNavigation();
+            // animateFooter();
+            setCurrentRoute(translateUrl(router.asPath, router.locale ?? '').split('?')[0]);
+            setCurrentLocale(router.locale ?? '');
+            // window.scrollTo(0, 0);
+            ScrollTrigger.refresh(true);
         } else {
+            console.log('first load');
             setCurrentRoute(translateUrl(router.asPath, router.locale ?? '').split('?')[0]);
             ScrollTrigger.refresh(true);
         }
-    }, [router.asPath]);
+    // }, [router]);
+    }, [router.asPath, router.locale]);
 
     return (
         <div className="u-overflow--hidden">
