@@ -11,6 +11,7 @@
 .c-mobileNav {
     --navigation-link-color: var(--navigation-mobile-item-color);
     --navigation-primary-padding: 100px;
+    --li-line-width: 0;
 
     position: fixed;
     top: 0;
@@ -80,7 +81,8 @@
                         position: absolute;
                         top: calc(100% + 2px);
                         left: 0;
-                        width: 100%;
+                        // width: 100%;
+                        width: var(--li-line-width);
                         height: 5px;
                         background: var(--navigation-link-color);
                         transform-origin: left;
@@ -135,12 +137,12 @@
         &__nav {
             ul {
                 li {
-                    &:has(.is-current-page) {
-                        &:after {
-                            transform: scaleX(0);
-                            animation: scale3d 0.7s $primary-ease forwards 1.25s;
-                        }
-                    }
+                    // &:has(.is-current-page) {
+                    //     &:after {
+                    //         transform: scaleX(0);
+                    //         animation: scale3d 0.7s $primary-ease forwards 1.25s;
+                    //     }
+                    // }
                 }
             }
         }
