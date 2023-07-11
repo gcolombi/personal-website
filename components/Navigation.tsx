@@ -9,7 +9,6 @@ import useNavigationContext from '@/context/navigationContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useElementSize from '@/hooks/useElementSize';
 import useIsMounted from '@/hooks/useIsMounted';
-import { useRef } from 'react';
 import { useTheme } from 'next-themes';
 import MobileNavigation from './MobileNavigation';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -26,7 +25,7 @@ export default function Navigation({
     const [headerRef, { height }] = useElementSize();
     const isMounted = useIsMounted();
     const { resolvedTheme, setTheme } = useTheme();
-    const togglerCloseLabel  = useRef(getTranslation('Close', router.locale ?? ''));
+    const togglerCloseLabel  = getTranslation('Close', router.locale ?? '');
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -100,7 +99,7 @@ export default function Navigation({
                             <Toggler
                                 open={open}
                                 toggle={toggle}
-                                closeLabel={togglerCloseLabel.current}
+                                closeLabel={togglerCloseLabel}
                             />
                         </div>
                         <nav className={styles['c-navigation__nav']}>

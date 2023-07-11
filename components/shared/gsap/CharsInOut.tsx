@@ -175,7 +175,7 @@ export default function CharsInOut({
 
     useIsomorphicLayoutEffect(() => {
         if (currentLocale !== locale) {
-            /* Reverts original SplitText */
+            /* Reverts old SplitText */
             splitText?.revert();
 
             /* Kills all old animations */

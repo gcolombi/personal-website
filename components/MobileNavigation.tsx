@@ -5,7 +5,7 @@ import SplitText from 'gsap/dist/SplitText';
 import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { translateUrl, useRouter } from 'next-translate-routes';
 import LanguageSwitcher from './LanguageSwitcher';
 import NavItem from './NavItem';
@@ -21,41 +21,71 @@ export default function MobileNavigation({
 }: MobileNavigationProps) {
     const router = useRouter();
     const { primaryEase } = useTransitionContext();
-    const { mobileNavRef, open } = useNavigationContext();
+    const { mobileNavRef, open, currentLocale } = useNavigationContext();
     const navItemsRef = useRef<HTMLAnchorElement[] | null[]>([]);
     const navSocialsRef = useRef<HTMLUListElement | null>(null);
     const languageSwitcherRef = useRef<HTMLDivElement | null>(null);
+    const [splitTexts, setSplitTexts] = useState<SplitText[]>([]);
 
     useIsomorphicLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            /* Animates navigation items */
-            navItemsRef.current.forEach(item => {
-                const splitText = new SplitText(item);
-                const chars = splitText.chars;
-
-                const increment = 0.07;
-                let initialDelay = 0.35;
-
-                chars.forEach(char => {
-                    if (open) {
-                        gsap.fromTo(char, {
-                            y: '100%'
-                        },
-                        {
-                            y: 0,
-                            willChange: 'transform',
-                            ease: primaryEase,
-                            delay: initialDelay,
-                            duration: 1.25
-                        });
-
-                        initialDelay += increment;
-                    }
-                });
+        if (currentLocale !== router.locale) {
+            /* Reverts old SplitTexts */
+            splitTexts.forEach(splitText => {
+                splitText.revert();
             });
 
-            /* Animates navigation socials list & language switcher */
-            if (open) {
+            /* Split each navigation item */
+            setTimeout(() => {
+                const splitTextTree: SplitText[] = [];
+                navItemsRef.current.forEach(item => {
+                    const splitTextItem = new SplitText(item);
+                    splitTextTree.push(splitTextItem);
+                });
+                setSplitTexts(splitTextTree);
+            }, 0);
+        } else {
+            const ctx = gsap.context(() => {
+                /* Split each navigation item */
+                const splitTextTree: SplitText[] = [];
+                navItemsRef.current.forEach(item => {
+                    const splitTextItem = new SplitText(item);
+                    splitTextTree.push(splitTextItem);
+                });
+                setSplitTexts(splitTextTree);
+            });
+            return () => ctx.revert();
+        }
+    }, [router.locale])
+
+    useIsomorphicLayoutEffect(() => {
+        if (open) {
+            const ctx = gsap.context(() => {
+                /* Animates navigation items */
+                navItemsRef.current.forEach((item, index) => {
+                    const chars = splitTexts[index].chars;
+    
+                    const increment = 0.07;
+                    let initialDelay = 0.35;
+    
+                    chars.forEach(char => {
+                        if (open) {
+                            gsap.fromTo(char, {
+                                y: '100%'
+                            },
+                            {
+                                y: 0,
+                                willChange: 'transform',
+                                ease: primaryEase,
+                                delay: initialDelay,
+                                duration: 1.25,
+                            });
+    
+                            initialDelay += increment;
+                        }
+                    });
+                });
+    
+                /* Animates navigation socials list & language switcher */
                 gsap.fromTo(navSocialsRef.current, {
                     opacity: 0,
                 },
@@ -75,9 +105,9 @@ export default function MobileNavigation({
                     delay: 0.35,
                     duration: 1
                 });
-            }
-        });
-        return () => ctx.revert();
+            });
+            return () => ctx.revert();
+        }
     }, [open]);
 
     return (
