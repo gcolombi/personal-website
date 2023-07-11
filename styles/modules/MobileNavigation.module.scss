@@ -11,7 +11,7 @@
 .c-mobileNav {
     --navigation-link-color: var(--navigation-mobile-item-color);
     --navigation-primary-padding: 100px;
-    --li-line-width: 0;
+    --li-line-width: 100%;
 
     position: fixed;
     top: 0;
@@ -81,7 +81,6 @@
                         position: absolute;
                         top: calc(100% + 2px);
                         left: 0;
-                        // width: 100%;
                         width: var(--li-line-width);
                         height: 5px;
                         background: var(--navigation-link-color);

@@ -68,22 +68,33 @@ export default function MobileNavigation({
                     let initialDelay = 0.35;
     
                     chars.forEach(char => {
-                        if (open) {
-                            gsap.fromTo(char, {
-                                y: '100%'
-                            },
-                            {
-                                y: 0,
-                                willChange: 'transform',
-                                ease: primaryEase,
-                                delay: initialDelay,
-                                duration: 1.25,
-                            });
-    
-                            initialDelay += increment;
-                        }
+                        gsap.fromTo(char, {
+                            y: '100%'
+                        },
+                        {
+                            y: 0,
+                            willChange: 'transform',
+                            ease: primaryEase,
+                            delay: initialDelay,
+                            duration: 1.25,
+                        });
+
+                        initialDelay += increment;
                     });
                 });
+
+                // /* Animates navigation item underline */
+                gsap.fromTo(mobileNavRef.current,
+                    {
+                        '--li-line-width': '0',
+                    },
+                    {
+                        '--li-line-width': '100%',
+                        ease: primaryEase,
+                        delay: 1.25,
+                        duration: 0.7
+                    }
+                );
     
                 /* Animates navigation socials list & language switcher */
                 gsap.fromTo(navSocialsRef.current, {
