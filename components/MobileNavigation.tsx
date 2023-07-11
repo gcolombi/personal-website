@@ -83,7 +83,7 @@ export default function MobileNavigation({
                     });
                 });
 
-                // /* Animates navigation item underline */
+                /* Animates navigation item underline */
                 gsap.fromTo(mobileNavRef.current,
                     {
                         '--li-line-width': '0',

@@ -132,21 +132,6 @@
         pointer-events: all;
     }
 
-    &.is-open &{
-        &__nav {
-            ul {
-                li {
-                    // &:has(.is-current-page) {
-                    //     &:after {
-                    //         transform: scaleX(0);
-                    //         animation: scale3d 0.7s $primary-ease forwards 1.25s;
-                    //     }
-                    // }
-                }
-            }
-        }
-    }
-
     // **---------------------------------------------------**
     // MEDIA QUERIES
 

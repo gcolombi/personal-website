@@ -111,7 +111,7 @@ export function NavigationContextProvider({
             animate(false);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [router.asPath]);
+    }, [router.asPath, router.locale]);
 
     const contextValue: NavigationContextType = {
         navigationRef,
