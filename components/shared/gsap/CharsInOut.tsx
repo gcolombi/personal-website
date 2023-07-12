@@ -1,12 +1,12 @@
 import { Chars } from '@/types/animations';
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitText from 'gsap/dist/SplitText';
 import { useRef, useState } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import useNavigationContext from '@/context/navigationContext';
 import useTransitionContext from '@/context/transitionContext';
 import { useRouter } from 'next-translate-routes';
-import useNavigationContext from '@/context/navigationContext';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(SplitText);
@@ -275,6 +275,8 @@ export default function CharsInOut({
                     /* Animates underline */
                     if (isLink) {
                         if (!isInViewport && !isAboveViewport) {
+                            gsap.set(element.current?.parentElement as HTMLElement, {pointerEvents: 'none'});
+
                             /* Intro animation */
                             const linkAnim = gsap.to(line,
                                 {
@@ -284,7 +286,7 @@ export default function CharsInOut({
                                     duration: durationIn,
                                     ...scrollTrigger,
                                     onComplete: () => {
-                                        gsap.to(element.current?.parentElement!,
+                                        gsap.to(element.current?.parentElement as HTMLElement,
                                             {
                                                 pointerEvents: 'all'
                                             }

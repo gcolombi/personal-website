@@ -1,12 +1,12 @@
 import { Lines } from '@/types/animations';
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitText from 'gsap/dist/SplitText';
 import { useRef, useState } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import useNavigationContext from '@/context/navigationContext';
 import useTransitionContext from '@/context/transitionContext';
 import { useRouter } from 'next-translate-routes';
-import useNavigationContext from '@/context/navigationContext';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(SplitText);
@@ -223,7 +223,7 @@ export default function LinesInOut({
                 }
             }, 0);
         }
-    }, [locale])
+    }, [locale]);
 
     return (
         <div ref={element} style={{ opacity: 0 }}>
