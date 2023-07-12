@@ -30,7 +30,7 @@ function AnimateInOut({
     const element = useRef<HTMLDivElement | null>(null);
     const [animation, setAnimation] = useState<GSAPTween | null>(null);
 
-    useIsomorphicLayoutEffect(() => {
+    const animate = () => {
         const scrollTrigger = watch ? {
             scrollTrigger: {
                 trigger: element.current,
@@ -41,31 +41,38 @@ function AnimateInOut({
             }
         } : {};
 
+        const anim = gsap.to(element.current, {
+            ...to,
+            delay,
+            duration: durationIn,
+            ...scrollTrigger
+        });
+
+        setAnimation(anim);
+    }
+
+    const animateOutro = () => {
+        if (!skipOutro) {
+            const outroProperties = outro ?? from;
+            timeline?.add(
+                gsap.to(element.current, {
+                    ease: easeOut,
+                    ...outroProperties,
+                    delay: delayOut,
+                    duration: durationOut
+                }),
+                0
+            );
+        }
+    }
+
+    useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
-
             /* Intro animation */
-            const anim = gsap.to(element.current, {
-                ...to,
-                delay,
-                duration: durationIn,
-                ...scrollTrigger
-            });
-
-            setAnimation(anim);
+            animate();
 
             /* Outro animation */
-            if (!skipOutro) {
-                const outroProperties = outro ?? from;
-                timeline?.add(
-                    gsap.to(element.current, {
-                        ease: easeOut,
-                        ...outroProperties,
-                        delay: delayOut,
-                        duration: durationOut
-                    }),
-                    0
-                );
-            }
+            animateOutro();
         }, element);
         return () => ctx.revert();
     }, []);
@@ -77,49 +84,19 @@ function AnimateInOut({
 
             const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
             const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
-            let anim: GSAPTween | null = null;
 
             /* Intro animation */
             if (!isInViewport && !isAboveViewport) {
                 gsap.set(element.current, {
                     ...from
                 });
-                
-                const scrollTrigger = watch ? {
-                    scrollTrigger: {
-                        trigger: element.current,
-                        start,
-                        end,
-                        scrub,
-                        markers: markers
-                    }
-                } : {};
-
-                anim = gsap.to(element.current, {
-                    ...to,
-                    delay,
-                    duration: durationIn,
-                    ...scrollTrigger
-                });
-
-                setAnimation(anim);
+                animate();
             } else {
-                setAnimation(anim);
+                setAnimation(null);
             }
 
             /* Outro animation */
-            if (!skipOutro) {
-                const outroProperties = outro ?? from;
-                timeline?.add(
-                    gsap.to(element.current, {
-                        ease: easeOut,
-                        ...outroProperties,
-                        delay: delayOut,
-                        duration: durationOut
-                    }),
-                    0
-                );
-            }
+            animateOutro();
         }
     }, [locale]);
 
