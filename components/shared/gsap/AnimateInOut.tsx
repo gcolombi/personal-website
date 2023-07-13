@@ -49,7 +49,7 @@ function AnimateInOut({
         });
 
         setAnimation(anim);
-    }
+    };
 
     const animateOutro = () => {
         if (!skipOutro) {
@@ -64,7 +64,7 @@ function AnimateInOut({
                 0
             );
         }
-    }
+    };
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {

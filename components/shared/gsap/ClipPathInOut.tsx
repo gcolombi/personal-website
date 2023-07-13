@@ -32,7 +32,7 @@ export default function ClipPathInOut({
     const element = useRef<HTMLDivElement | null>(null);
     const [animation, setAnimation] = useState<GSAPTween | null>(null);
 
-    useIsomorphicLayoutEffect(() => {
+    const animate = () => {
         const scrollTrigger = watch ? {
             scrollTrigger: {
                 trigger: element.current,
@@ -43,39 +43,49 @@ export default function ClipPathInOut({
             }
         } : {};
 
+        const anim = gsap.fromTo(element.current,
+            {
+                opacity: fade ? 0 : 1,
+                clipPath,
+                ease: ease ?? primaryEase
+            },
+            {
+                opacity: 1,
+                clipPath: clipPathTo,
+                ease: ease ?? primaryEase,
+                delay,
+                duration: durationIn,
+                ...scrollTrigger
+            }
+        );
+
+        setAnimation(anim);
+    };
+
+    const animateOutro = () => {
+        if (!skipOutro) {
+            timeline?.add(
+                gsap.to(
+                    element.current,
+                    {
+                        clipPath: clipPathOut ?? clipPath,
+                        ease: easeOut ?? primaryEase,
+                        delay: delayOut,
+                        duration: durationOut
+                    }
+                ),
+                0
+            );
+        }
+    }
+
+    useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
             /* Intro animation */
-            gsap.fromTo(element.current,
-                {
-                    opacity: fade ? 0 : 1,
-                    clipPath,
-                    ease: ease ?? primaryEase
-                },
-                {
-                    opacity: 1,
-                    clipPath: clipPathTo,
-                    ease: ease ?? primaryEase,
-                    delay,
-                    duration: durationIn,
-                    ...scrollTrigger
-                }
-            );
+            animate();
 
             /* Outro animation */
-            if (!skipOutro) {
-                timeline?.add(
-                    gsap.to(
-                        element.current,
-                        {
-                            clipPath: clipPathOut ?? clipPath,
-                            ease: easeOut ?? primaryEase,
-                            delay: delayOut,
-                            duration: durationOut
-                        }
-                    ),
-                    0
-                );
-            }
+            animateOutro();
 
             gsap.to(element.current, {
                 opacity: 1
@@ -96,52 +106,13 @@ export default function ClipPathInOut({
 
             /* Intro animation */
             if (!isInViewport && !isAboveViewport) {
-                const scrollTrigger = watch ? {
-                    scrollTrigger: {
-                        trigger: element.current,
-                        start,
-                        end,
-                        scrub,
-                        markers: markers
-                    }
-                } : {};
-                
-                anim = gsap.fromTo(element.current,
-                    {
-                        opacity: fade ? 0 : 1,
-                        clipPath,
-                        ease: ease ?? primaryEase
-                    },
-                    {
-                        opacity: 1,
-                        clipPath: clipPathTo,
-                        ease: ease ?? primaryEase,
-                        delay,
-                        duration: durationIn,
-                        ...scrollTrigger
-                    }
-                );
-
-                setAnimation(anim);
+                animate();
             } else {
                 setAnimation(anim);
             }
 
             /* Outro animation */
-            if (!skipOutro) {
-                timeline?.add(
-                    gsap.to(
-                        element.current,
-                        {
-                            clipPath: clipPathOut ?? clipPath,
-                            ease: easeOut ?? primaryEase,
-                            delay: delayOut,
-                            duration: durationOut
-                        }
-                    ),
-                    0
-                );
-            }
+            animateOutro();
         }
     }, [locale]);
 
