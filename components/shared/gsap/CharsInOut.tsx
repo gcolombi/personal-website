@@ -86,21 +86,6 @@ export default function CharsInOut({
             /* Animates each char */
             chars.forEach(char => {
                 /* Intro animation */
-                // const anim = gsap.fromTo(
-                //     char,
-                //     {
-                //         y: '100%'
-                //     },
-                //     {
-                //         y: 0,
-                //         willChange: 'transform',
-                //         ease: ease ?? primaryEase,
-                //         delay: initialDelay,
-                //         duration: durationIn,
-                //         ...scrollTrigger
-                //     }
-                // );
-
                 if (!localChange) {
                     const anim = gsap.fromTo(
                         char,
@@ -165,23 +150,6 @@ export default function CharsInOut({
             /* Animates underline */
             if (isLink) {
                 /* Intro animation */
-                // const linkAnim = gsap.to(line,
-                //     {
-                //         '--line-width': '100%',
-                //         ease: ease ?? primaryEase,
-                //         delay: initialDelay,
-                //         duration: durationIn,
-                //         ...scrollTrigger,
-                //         onComplete: () => {
-                //             gsap.to(element.current?.parentElement as HTMLElement,
-                //                 {
-                //                     pointerEvents: 'all'
-                //                 }
-                //             )
-                //         }
-                //     }
-                // );
-
                 if (!localChange) {
                     const linkAnim = gsap.to(line,
                         {
