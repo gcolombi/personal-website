@@ -38,52 +38,70 @@ export default function CharsInOut({
     const [splitText, setSplitText] = useState<SplitText | null>(null);
     const [animations, setAnimations] = useState<GSAPTween[]>([]);
 
-    useIsomorphicLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            const scrollTrigger = watch ? {
-                scrollTrigger: {
-                    trigger: element.current,
-                    start,
-                    end,
-                    scrub,
-                    markers: markers
-                }
-            } : {};
+    const animate = (localChange: boolean) => {
+        const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
+        const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
 
-            const splitTextParent = new SplitText(target, {type: 'lines', linesClass: 'split-parent'});
-            setSplitText(splitTextParent);
+        const scrollTrigger = watch ? {
+            scrollTrigger: {
+                trigger: element.current,
+                start,
+                end,
+                scrub,
+                markers: markers
+            }
+        } : {};
 
-            const lines = splitTextParent.lines;
-            const alignProperty = textAlign ? {textAlign: textAlign} : {};
+        const splitTextParent = new SplitText(target, {type: 'lines', linesClass: 'split-parent'});
+        setSplitText(splitTextParent);
 
-            const tree: GSAPTween[] = [];
-            lines.forEach(line => {
-                /* Overwrite the default display block */
+        const lines = splitTextParent.lines;
+        const alignProperty = textAlign ? {textAlign: textAlign} : {};
+        const tree: GSAPTween[] = [];
+
+        lines.forEach(line => {
+            /* Overwrite the default display block */
+            if (isLink) {
+                gsap.set(line, {display: 'flex'});
+            } else {
+                gsap.set(line, {display: 'inline-block', ...alignProperty});
+            }
+
+            const splitLineChild = new SplitText(line, {type: 'lines, chars', linesClass: 'split-child'});
+            const linesChildren = splitLineChild.lines;
+            const chars = splitLineChild.chars;
+
+            linesChildren.forEach(lineChild => {
+                /* Overwrites the default display block */
                 if (isLink) {
-                    gsap.set(line, {display: 'flex'});
-                } else {
-                    gsap.set(line, {display: 'inline-block', ...alignProperty});
+                    gsap.set(lineChild, {display: 'inline-block'});
                 }
 
-                const splitLineChild = new SplitText(line, {type: 'lines, chars', linesClass: 'split-child'});
-                const linesChildren = splitLineChild.lines;
-                const chars = splitLineChild.chars;
+                new SplitText(lineChild, {type: 'lines', linesClass: 'u-overflow--hidden'});
+            });
 
-                linesChildren.forEach(lineChild => {
-                    /* Overwrites the default display block */
-                    if (isLink) {
-                        gsap.set(lineChild, {display: 'inline-block'});
-                    }
+            let initialDelay = delay;
+            let initialDelayOut = delayOut + increment * (chars.length - 1);
 
-                    new SplitText(lineChild, {type: 'lines', linesClass: 'u-overflow--hidden'});
-                });
+            /* Animates each char */
+            chars.forEach(char => {
+                /* Intro animation */
+                // const anim = gsap.fromTo(
+                //     char,
+                //     {
+                //         y: '100%'
+                //     },
+                //     {
+                //         y: 0,
+                //         willChange: 'transform',
+                //         ease: ease ?? primaryEase,
+                //         delay: initialDelay,
+                //         duration: durationIn,
+                //         ...scrollTrigger
+                //     }
+                // );
 
-                let initialDelay = delay;
-                let initialDelayOut = delayOut + increment * (chars.length - 1);
-
-                /* Animates each char */
-                chars.forEach(char => {
-                    /* Intro animation */
+                if (!localChange) {
                     const anim = gsap.fromTo(
                         char,
                         {
@@ -98,32 +116,73 @@ export default function CharsInOut({
                             ...scrollTrigger
                         }
                     );
-
                     tree.push(anim);
                     initialDelay += increment;
-
-                    /* Outro animation */
-                    if (!skipOutro) {
-                        timeline?.add(
-                            gsap.to(
-                                char,
-                                {
-                                    y: '100%',
-                                    ease: easeOut ?? primaryEase,
-                                    delay: initialDelayOut,
-                                    duration: durationOut
-                                }
-                            ),
-                            0
+                } else if (localChange) {
+                    if (!isInViewport && !isAboveViewport) {
+                        const anim = gsap.fromTo(
+                            char,
+                            {
+                                y: '100%'
+                            },
+                            {
+                                y: 0,
+                                willChange: 'transform',
+                                ease: ease ?? primaryEase,
+                                delay: initialDelay,
+                                duration: durationIn,
+                                ...scrollTrigger
+                            }
                         );
-
-                        initialDelayOut -= increment;
+                        tree.push(anim);
+                        initialDelay += increment;
+                    } else {
+                        gsap.set(element.current, {
+                            opacity: 1
+                        });
                     }
-                });
+                }
 
-                /* Animates underline */
-                if (isLink) {
-                    /* Intro animation */
+                /* Outro animation */
+                if (!skipOutro) {
+                    timeline?.add(
+                        gsap.to(
+                            char,
+                            {
+                                y: '100%',
+                                ease: easeOut ?? primaryEase,
+                                delay: initialDelayOut,
+                                duration: durationOut
+                            }
+                        ),
+                        0
+                    );
+
+                    initialDelayOut -= increment;
+                }
+            });
+
+            /* Animates underline */
+            if (isLink) {
+                /* Intro animation */
+                // const linkAnim = gsap.to(line,
+                //     {
+                //         '--line-width': '100%',
+                //         ease: ease ?? primaryEase,
+                //         delay: initialDelay,
+                //         duration: durationIn,
+                //         ...scrollTrigger,
+                //         onComplete: () => {
+                //             gsap.to(element.current?.parentElement as HTMLElement,
+                //                 {
+                //                     pointerEvents: 'all'
+                //                 }
+                //             )
+                //         }
+                //     }
+                // );
+
+                if (!localChange) {
                     const linkAnim = gsap.to(line,
                         {
                             '--line-width': '100%',
@@ -132,7 +191,7 @@ export default function CharsInOut({
                             duration: durationIn,
                             ...scrollTrigger,
                             onComplete: () => {
-                                gsap.to(element.current?.parentElement!,
+                                gsap.to(element.current?.parentElement as HTMLElement,
                                     {
                                         pointerEvents: 'all'
                                     }
@@ -140,32 +199,59 @@ export default function CharsInOut({
                             }
                         }
                     );
-
                     tree.push(linkAnim);
-
-                    /* Outro animation */
-                    if (!skipOutro) {
-                        const linkOutroAnimation = gsap.timeline()
-                        .to(element.current?.parentElement!, {
-                            pointerEvents: 'none'
-                        })
-                        .to(line, {
-                            '--line-width': 0,
-                            ease: easeOut ?? primaryEase,
-                            delay: initialDelayOut,
-                            duration: durationOut
-                        });
-
-                        timeline?.add(
-                            linkOutroAnimation,
-                            0
+                } else if (localChange) {
+                    if (!isInViewport && !isAboveViewport) {
+                        gsap.set(element.current?.parentElement as HTMLElement, {pointerEvents: 'none'});
+                        const linkAnim = gsap.to(line,
+                            {
+                                '--line-width': '100%',
+                                ease: ease ?? primaryEase,
+                                delay: initialDelay,
+                                duration: durationIn,
+                                ...scrollTrigger,
+                                onComplete: () => {
+                                    gsap.to(element.current?.parentElement as HTMLElement,
+                                        {
+                                            pointerEvents: 'all'
+                                        }
+                                    )
+                                }
+                            }
                         );
+                        tree.push(linkAnim);
+                    } else {
+                        gsap.set(line, {'--line-width': '100%'});
                     }
                 }
-            });
 
-            setAnimations(tree);
+                /* Outro animation */
+                if (!skipOutro) {
+                    const linkOutroAnimation = gsap.timeline()
+                    .to(element.current?.parentElement!, {
+                        pointerEvents: 'none'
+                    })
+                    .to(line, {
+                        '--line-width': 0,
+                        ease: easeOut ?? primaryEase,
+                        delay: initialDelayOut,
+                        duration: durationOut
+                    });
 
+                    timeline?.add(
+                        linkOutroAnimation,
+                        0
+                    );
+                }
+            }
+        });
+
+        setAnimations(tree);
+    };
+
+    useIsomorphicLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            animate(false);
             gsap.to(element.current, {
                 opacity: 1
             });
@@ -184,144 +270,7 @@ export default function CharsInOut({
             });
 
             setTimeout(() => {
-                const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
-                const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
-                const tree: GSAPTween[] = [];
-
-                const scrollTrigger = watch ? {
-                    scrollTrigger: {
-                        trigger: element.current,
-                        start,
-                        end,
-                        scrub,
-                        markers: markers
-                    }
-                } : {};
-
-                const splitTextParent = new SplitText(target, {type: 'lines', linesClass: 'split-parent'});
-                const lines = splitTextParent.lines;
-                const alignProperty = textAlign ? {textAlign: textAlign} : {};
-
-                lines.forEach(line => {
-                    /* Overwrite the default display block */
-                    if (isLink) {
-                        gsap.set(line, {display: 'flex'});
-                    } else {
-                        gsap.set(line, {display: 'inline-block', ...alignProperty});
-                    }
-
-                    const splitLineChild = new SplitText(line, {type: 'lines, chars', linesClass: 'split-child'});
-                    const linesChildren = splitLineChild.lines;
-                    const chars = splitLineChild.chars;
-
-                    linesChildren.forEach(lineChild => {
-                        /* Overwrites the default display block */
-                        if (isLink) {
-                            gsap.set(lineChild, {display: 'inline-block'});
-                        }
-
-                        new SplitText(lineChild, {type: 'lines', linesClass: 'u-overflow--hidden'});
-                    });
-
-                    let initialDelay = delay;
-                    let initialDelayOut = delayOut + increment * (chars.length - 1);
-
-                    /* Animates each char */
-                    chars.forEach(char => {
-                        if (!isInViewport && !isAboveViewport) {
-                            /* Intro animation */
-                            const anim = gsap.fromTo(
-                                char,
-                                {
-                                    y: '100%'
-                                },
-                                {
-                                    y: 0,
-                                    willChange: 'transform',
-                                    ease: ease ?? primaryEase,
-                                    delay: initialDelay,
-                                    duration: durationIn,
-                                    ...scrollTrigger
-                                }
-                            );
-
-                            tree.push(anim);
-                            initialDelay += increment;
-                        } else {
-                            gsap.set(element.current, {
-                                opacity: 1
-                            });
-                        }
-
-                        /* Outro animation */
-                        if (!skipOutro) {
-                            timeline?.add(
-                                gsap.to(
-                                    char,
-                                    {
-                                        y: '100%',
-                                        ease: easeOut ?? primaryEase,
-                                        delay: initialDelayOut,
-                                        duration: durationOut
-                                    }
-                                ),
-                                0
-                            );
-
-                            initialDelayOut -= increment;
-                        }
-                    });
-
-                    /* Animates underline */
-                    if (isLink) {
-                        if (!isInViewport && !isAboveViewport) {
-                            gsap.set(element.current?.parentElement as HTMLElement, {pointerEvents: 'none'});
-
-                            /* Intro animation */
-                            const linkAnim = gsap.to(line,
-                                {
-                                    '--line-width': '100%',
-                                    ease: ease ?? primaryEase,
-                                    delay: initialDelay,
-                                    duration: durationIn,
-                                    ...scrollTrigger,
-                                    onComplete: () => {
-                                        gsap.to(element.current?.parentElement as HTMLElement,
-                                            {
-                                                pointerEvents: 'all'
-                                            }
-                                        )
-                                    }
-                                }
-                            );
-
-                            tree.push(linkAnim);
-                        } else {
-                            gsap.set(line, {'--line-width': '100%'});
-                        }
-
-                        /* Outro animation */
-                        if (!skipOutro) {
-                            const linkOutroAnimation = gsap.timeline()
-                            .to(element.current?.parentElement!, {
-                                pointerEvents: 'none'
-                            })
-                            .to(line, {
-                                '--line-width': 0,
-                                ease: easeOut ?? primaryEase,
-                                delay: initialDelayOut,
-                                duration: durationOut
-                            });
-
-                            timeline?.add(
-                                linkOutroAnimation,
-                                0
-                            );
-                        }
-                    }
-                });
-
-                setAnimations(tree);
+                animate(true);
             }, 0);
         }
     }, [locale]);

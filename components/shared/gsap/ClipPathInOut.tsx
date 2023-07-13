@@ -77,7 +77,7 @@ export default function ClipPathInOut({
                 0
             );
         }
-    }
+    };
 
     useIsomorphicLayoutEffect(() => {
         const ctx = gsap.context(() => {
