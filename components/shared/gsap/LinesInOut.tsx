@@ -35,31 +35,32 @@ export default function LinesInOut({
     const element = useRef<HTMLDivElement | null>(null);
     const [animations, setAnimations] = useState<GSAPTween[]>([]);
 
-    useIsomorphicLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            const scrollTrigger = watch ? {
-                scrollTrigger: {
-                    trigger: element.current,
-                    start,
-                    end,
-                    scrub,
-                    markers: markers
-                }
-            } : {};
+    const animate = (localChange: boolean) => {
+        const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
+        const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
 
-            const splitLineParent = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
-            const lines = splitLineParent.lines;
+        const scrollTrigger = watch ? {
+            scrollTrigger: {
+                trigger: element.current,
+                start,
+                end,
+                scrub,
+                markers: markers
+            }
+        } : {};
 
-            let initialDelay = delay;
-            let initialDelayOut = delayOut + increment * (lines.length - 1);
+        const splitLineParent = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
 
-            const tree: GSAPTween[] = [];
-            /* Intro animation */
-            lines.forEach((line, index) => {
-                const splitLineChildren = new SplitText(line, {type: 'lines'});
-                const linesChildren = splitLineChildren.lines;
+        const lines = splitLineParent.lines;
+        let initialDelay = delay;
+        const tree: GSAPTween[] = [];
 
-                linesChildren.forEach(lineChild => {
+        lines.forEach((line, index) => {
+            const splitLineChildren = new SplitText(line, {type: 'lines'});
+            const linesChildren = splitLineChildren.lines;
+
+            linesChildren.forEach(lineChild => {
+                if (!localChange) {
                     const anim = gsap.fromTo(
                         lineChild,
                         {
@@ -81,41 +82,85 @@ export default function LinesInOut({
                     );
                     tree.push(anim);
                     initialDelay += increment;
-                });
-            });
+                } else if (localChange) {
+                    if (!isInViewport && !isAboveViewport) {
+                        const anim = gsap.fromTo(
+                            lineChild,
+                            {
+                                y: '100%',
+                                opacity: 0
+                            },
+                            {
+                                y: 0,
+                                opacity: 1,
+                                willChange: 'transform',
+                                ease: ease ?? primaryEase,
+                                delay: initialDelay,
+                                duration: durationIn,
+                                ...scrollTrigger,
+                                onComplete: () => {
+                                    if (index === lines.length - 1) {
+                                        splitLineParent.revert();
+                                    }
+                                }
+                            }
+                        );
 
-            setAnimations(tree);
+                        tree.push(anim);
+                        initialDelay += increment;
+                    } else {
+                        gsap.set(element.current, {
+                            opacity: 1
+                        });
+                    }
+                }
+            });
+        });
+
+        setAnimations(tree);
+    };
+
+    const animateOutro = () => {
+        if (!skipOutro) {
+            timeline?.add(
+                () => {
+                    const splitLineOutro = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
+                    const lines = splitLineOutro.lines;
+
+                    let initialDelayOut = delayOut + increment * (lines.length - 1);
+
+                    lines.forEach(line => {
+                        const splitLineChildrenOutro = new SplitText(line, {type: 'lines'});
+                        const linesChildrenOutro = splitLineChildrenOutro.lines;
+
+                        linesChildrenOutro.forEach(lineChild => {
+                            gsap.to(
+                                lineChild,
+                                {
+                                    y: '100%',
+                                    ease: easeOut ?? primaryEase,
+                                    delay: initialDelayOut,
+                                    duration: durationOut
+                                }
+                            );
+
+                            initialDelayOut -= increment;
+                        });
+                    });
+                },
+                0
+            );
+        }
+    }
+
+    useIsomorphicLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            /* Intro animation */
+            animate(false);
 
             /* Outro animation */
-            if (!skipOutro) {
-                timeline?.add(
-                    () => {
-                        const splitLineOutro = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
-                        const lines = splitLineOutro.lines;
-
-                        lines.forEach(line => {
-                            const splitLineChildrenOutro = new SplitText(line, {type: 'lines'});
-                            const linesChildrenOutro = splitLineChildrenOutro.lines;
-
-                            linesChildrenOutro.forEach(lineChild => {
-                                gsap.to(
-                                    lineChild,
-                                    {
-                                        y: '100%',
-                                        ease: easeOut ?? primaryEase,
-                                        delay: initialDelayOut,
-                                        duration: durationOut
-                                    }
-                                );
-
-                                initialDelayOut -= increment;
-                            });
-                        });
-                    },
-                    0
-                );
-            }
-
+            animateOutro();
+            
             gsap.to(element.current, {
                 opacity: 1
             });
@@ -125,102 +170,17 @@ export default function LinesInOut({
 
     useIsomorphicLayoutEffect(() => {
         if (currentLocale !== locale) {
-            /* Kills all old animations */
+            /* Kills all animations */
             animations.forEach(animation => {
                 animation.kill();
             });
 
             setTimeout(() => {
-                const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
-                const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
-                const tree: GSAPTween[] = [];
-
                 /* Intro animation */
-                if (!isInViewport && !isAboveViewport) {
-                    const scrollTrigger = watch ? {
-                        scrollTrigger: {
-                            trigger: element.current,
-                            start,
-                            end,
-                            scrub,
-                            markers: markers
-                        }
-                    } : {};
-
-                    const splitLineParent = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
-                    const lines = splitLineParent.lines;
-                    let initialDelay = delay;
-
-                    lines.forEach((line, index) => {
-                        const splitLineChildren = new SplitText(line, {type: 'lines'});
-                        const linesChildren = splitLineChildren.lines;
-
-                        linesChildren.forEach(lineChild => {
-                            const anim = gsap.fromTo(
-                                lineChild,
-                                {
-                                    y: '100%',
-                                    opacity: 0
-                                },
-                                {
-                                    y: 0,
-                                    opacity: 1,
-                                    willChange: 'transform',
-                                    ease: ease ?? primaryEase,
-                                    delay: initialDelay,
-                                    duration: durationIn,
-                                    ...scrollTrigger,
-                                    onComplete: () => {
-                                        if (index === lines.length - 1) {
-                                            splitLineParent.revert();
-                                        }
-                                    }
-                                }
-                            );
-
-                            tree.push(anim);
-                            initialDelay += increment;
-                        });
-                    });
-                    setAnimations(tree);
-                } else {
-                    gsap.set(element.current, {
-                        opacity: 1
-                    });
-                    setAnimations(tree);
-                }
+                animate(true);
 
                 /* Outro animation */
-                if (!skipOutro) {
-                    timeline?.add(
-                        () => {
-                            const splitLineOutro = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
-                            const lines = splitLineOutro.lines;
-
-                            let initialDelayOut = delayOut + increment * (lines.length - 1);
-
-                            lines.forEach(line => {
-                                const splitLineChildrenOutro = new SplitText(line, {type: 'lines'});
-                                const linesChildrenOutro = splitLineChildrenOutro.lines;
-
-                                linesChildrenOutro.forEach(lineChild => {
-                                    gsap.to(
-                                        lineChild,
-                                        {
-                                            y: '100%',
-                                            ease: easeOut ?? primaryEase,
-                                            delay: initialDelayOut,
-                                            duration: durationOut
-                                        }
-                                    );
-
-                                    initialDelayOut -= increment;
-                                });
-                            });
-                        },
-                        0
-                    );
-                }
+                animateOutro();
             }, 0);
         }
     }, [locale]);

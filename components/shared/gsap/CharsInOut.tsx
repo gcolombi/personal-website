@@ -229,10 +229,10 @@ export default function CharsInOut({
 
     useIsomorphicLayoutEffect(() => {
         if (currentLocale !== locale) {
-            /* Reverts old SplitText */
+            /* Reverts SplitText */
             splitText?.revert();
 
-            /* Kills all old animations */
+            /* Kills all animations */
             animations.forEach(animation => {
                 animation.kill();
             });

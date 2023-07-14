@@ -97,7 +97,7 @@ export default function ClipPathInOut({
 
     useIsomorphicLayoutEffect(() => {
         if (currentLocale !== locale) {
-            /* Kill old animation */
+            /* Kills animation */
             animation?.kill();
 
             const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
