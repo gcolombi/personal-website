@@ -90,8 +90,7 @@ export default function ClipPathInOut({
             gsap.to(element.current, {
                 opacity: 1
             });
-
-        }, element);
+        });
         return () => ctx.revert();
     }, []);
 

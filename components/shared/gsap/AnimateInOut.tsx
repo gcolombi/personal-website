@@ -73,30 +73,33 @@ function AnimateInOut({
 
             /* Outro animation */
             animateOutro();
-        }, element);
+        });
         return () => ctx.revert();
     }, []);
 
     useIsomorphicLayoutEffect(() => {
         if (currentLocale !== locale) {
-            /* Kills animation */
-            animation?.kill();
+            const ctx = gsap.context(() => {
+                /* Kills animation */
+                animation?.kill();
 
-            const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
-            const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
+                const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
+                const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
 
-            /* Intro animation */
-            if (!isInViewport && !isAboveViewport) {
-                gsap.set(element.current, {
-                    ...from
-                });
-                animate();
-            } else {
-                setAnimation(null);
-            }
+                /* Intro animation */
+                if (!isInViewport && !isAboveViewport) {
+                    gsap.set(element.current, {
+                        ...from
+                    });
+                    animate();
+                } else {
+                    setAnimation(null);
+                }
 
-            /* Outro animation */
-            animateOutro();
+                /* Outro animation */
+                animateOutro();
+            });
+            return () => ctx.revert();
         }
     }, [locale]);
 
