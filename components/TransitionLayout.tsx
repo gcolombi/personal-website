@@ -75,11 +75,7 @@ export default function TransitionLayout({
     };
 
     useIsomorphicLayoutEffect(() => {
-        
-        // if (currentRoute !== translateUrl(router.asPath, router.locale ?? '')) {
-
         if (currentRoute !== translateUrl(router.asPath, router.locale ?? '') && currentLocale === router.locale) {
-            console.log('animation');
             if (timeline?.duration() === 0) {
                 /* There are no outro animations, so immediately transition */
                 setDisplayChildren(children);
@@ -104,20 +100,14 @@ export default function TransitionLayout({
             });
 
         } else if (currentLocale !== router.locale) {
-            console.log('browser button');
             setDisplayChildren(children);
-            // animateNavigation();
-            // animateFooter();
             setCurrentRoute(translateUrl(router.asPath, router.locale ?? '').split('?')[0]);
             setCurrentLocale(router.locale ?? '');
-            // window.scrollTo(0, 0);
             ScrollTrigger.refresh(true);
         } else {
-            console.log('first load');
             setCurrentRoute(translateUrl(router.asPath, router.locale ?? '').split('?')[0]);
             ScrollTrigger.refresh(true);
         }
-    // }, [router]);
     }, [router.asPath, router.locale]);
 
     return (
