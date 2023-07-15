@@ -1,7 +1,7 @@
 import { ClipPath } from '@/types/animations';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useNavigationContext from '@/context/navigationContext';
 import useTransitionContext from '@/context/transitionContext';
@@ -30,7 +30,7 @@ export default function ClipPathInOut({
     const { currentLocale } = useNavigationContext();
     const { timeline, primaryEase } = useTransitionContext();
     const element = useRef<HTMLDivElement | null>(null);
-    const [animation, setAnimation] = useState<GSAPTween | null>(null);
+    const animation = useRef<GSAPTween | null>(null);
 
     const animate = () => {
         const scrollTrigger = watch ? {
@@ -59,7 +59,7 @@ export default function ClipPathInOut({
             }
         );
 
-        setAnimation(anim);
+        animation.current = anim;
     };
 
     const animateOutro = () => {
@@ -96,22 +96,24 @@ export default function ClipPathInOut({
 
     useIsomorphicLayoutEffect(() => {
         if (currentLocale !== locale) {
-            /* Kills animation */
-            animation?.kill();
+            const ctx = gsap.context(() => {
+                /* Kills animation */
+                animation.current?.kill();
 
-            const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
-            const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
-            let anim: GSAPTween | null = null;
+                const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
+                const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
 
-            /* Intro animation */
-            if (!isInViewport && !isAboveViewport) {
-                animate();
-            } else {
-                setAnimation(anim);
-            }
+                /* Intro animation */
+                if (!isInViewport && !isAboveViewport) {
+                    animate();
+                } else {
+                    animation.current = null;
+                }
 
-            /* Outro animation */
-            animateOutro();
+                /* Outro animation */
+                animateOutro();
+            });
+            return () => ctx.revert();
         }
     }, [locale]);
 
