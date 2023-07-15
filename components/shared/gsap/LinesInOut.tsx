@@ -176,7 +176,6 @@ export default function LinesInOut({
 
     useIsomorphicLayoutEffect(() => {
         if (currentLocale !== locale) {
-            console.log('change locale');
             /* Reverts SplitText */
             splitText.current?.revert();
             
@@ -196,7 +195,6 @@ export default function LinesInOut({
             });
             return () => ctx.revert();
         } else if (currentRoute !== translateUrl(asPath, locale ?? '') && currentLocale === locale) {
-            console.log('change path');
             /* Kills all animations */
             animations.current.forEach(animation => {
                 animation.kill();

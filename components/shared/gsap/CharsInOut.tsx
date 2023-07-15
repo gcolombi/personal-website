@@ -6,7 +6,7 @@ import { useRef, useState } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useNavigationContext from '@/context/navigationContext';
 import useTransitionContext from '@/context/transitionContext';
-import { useRouter } from 'next-translate-routes';
+import { translateUrl, useRouter } from 'next-translate-routes';
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(SplitText);
@@ -31,12 +31,12 @@ export default function CharsInOut({
     isLink = false,
     textAlign
 }: Chars) {
-    const { locale } = useRouter();
-    const { currentLocale } = useNavigationContext();
+    const { asPath, locale } = useRouter();
+    const { currentRoute, currentLocale } = useNavigationContext();
     const { timeline, primaryEase } = useTransitionContext();
     const element = useRef<HTMLDivElement | null>(null);
-    const [splitText, setSplitText] = useState<SplitText | null>(null);
-    const [animations, setAnimations] = useState<GSAPTween[]>([]);
+    const splitText = useRef<SplitText | null>(null);
+    const animations = useRef<GSAPTween[]>([]);
 
     const animate = (localChange: boolean) => {
         const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
@@ -53,7 +53,7 @@ export default function CharsInOut({
         } : {};
 
         const splitTextParent = new SplitText(target, {type: 'lines', linesClass: 'split-parent'});
-        setSplitText(splitTextParent);
+        splitText.current = splitTextParent;
 
         const lines = splitTextParent.lines;
         const alignProperty = textAlign ? {textAlign: textAlign} : {};
@@ -116,7 +116,10 @@ export default function CharsInOut({
                                 ease: ease ?? primaryEase,
                                 delay: initialDelay,
                                 duration: durationIn,
-                                ...scrollTrigger
+                                ...scrollTrigger,
+                                onComplete: () => {
+                                    console.log('chars In out anim locale change');
+                                }
                             }
                         );
                         tree.push(anim);
@@ -179,11 +182,12 @@ export default function CharsInOut({
                                 duration: durationIn,
                                 ...scrollTrigger,
                                 onComplete: () => {
-                                    // gsap.to(element.current?.parentElement as HTMLElement,
-                                    //     {
-                                    //         pointerEvents: 'all'
-                                    //     }
-                                    // )
+                                    console.log('chars In out link locale change');
+                                    gsap.to(element.current?.parentElement as HTMLElement,
+                                        {
+                                            pointerEvents: 'all'
+                                        }
+                                    )
                                 }
                             }
                         );
@@ -214,7 +218,7 @@ export default function CharsInOut({
             }
         });
 
-        setAnimations(tree);
+        animations.current = tree;
     };
 
     useIsomorphicLayoutEffect(() => {
@@ -230,18 +234,23 @@ export default function CharsInOut({
     useIsomorphicLayoutEffect(() => {
         if (currentLocale !== locale) {
             /* Reverts SplitText */
-            splitText?.revert();
+            splitText.current?.revert();
 
             /* Kills all animations */
-            animations.forEach(animation => {
+            animations.current.forEach(animation => {
                 animation.kill();
             });
 
             setTimeout(() => {
                 animate(true);
             }, 0);
+        } else if (currentRoute !== translateUrl(asPath, locale ?? '') && currentLocale === locale) {
+            /* Kills all animations */
+            animations.current.forEach(animation => {
+                animation.kill();
+            });
         }
-    }, [locale]);
+    }, [asPath, locale]);
 
     return (
         <div ref={element} style={{ opacity: 0 }}>
