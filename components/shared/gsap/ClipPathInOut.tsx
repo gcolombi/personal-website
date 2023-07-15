@@ -107,6 +107,9 @@ export default function ClipPathInOut({
                 if (!isInViewport && !isAboveViewport) {
                     animate();
                 } else {
+                    gsap.set(element.current, {
+                        clipPath: clipPathTo
+                    });
                     animation.current = null;
                 }
 

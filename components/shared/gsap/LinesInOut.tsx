@@ -101,7 +101,6 @@ export default function LinesInOut({
                                 duration: durationIn,
                                 ...scrollTrigger,
                                 onComplete: () => {
-                                    console.log('line out locale change');
                                     if (index === lines.length - 1) {
                                         splitLineParent.revert();
                                     }

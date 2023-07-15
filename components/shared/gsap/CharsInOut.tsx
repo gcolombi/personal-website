@@ -116,10 +116,7 @@ export default function CharsInOut({
                                 ease: ease ?? primaryEase,
                                 delay: initialDelay,
                                 duration: durationIn,
-                                ...scrollTrigger,
-                                onComplete: () => {
-                                    console.log('chars In out anim locale change');
-                                }
+                                ...scrollTrigger
                             }
                         );
                         tree.push(anim);
@@ -182,7 +179,6 @@ export default function CharsInOut({
                                 duration: durationIn,
                                 ...scrollTrigger,
                                 onComplete: () => {
-                                    console.log('chars In out link locale change');
                                     gsap.to(element.current?.parentElement as HTMLElement,
                                         {
                                             pointerEvents: 'all'
