@@ -179,11 +179,11 @@ export default function CharsInOut({
                                 duration: durationIn,
                                 ...scrollTrigger,
                                 onComplete: () => {
-                                    gsap.to(element.current?.parentElement as HTMLElement,
-                                        {
-                                            pointerEvents: 'all'
-                                        }
-                                    )
+                                    // gsap.to(element.current?.parentElement as HTMLElement,
+                                    //     {
+                                    //         pointerEvents: 'all'
+                                    //     }
+                                    // )
                                 }
                             }
                         );

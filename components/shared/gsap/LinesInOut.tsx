@@ -6,7 +6,7 @@ import { useRef, useState } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useNavigationContext from '@/context/navigationContext';
 import useTransitionContext from '@/context/transitionContext';
-import { useRouter } from 'next-translate-routes';
+import { translateUrl, useRouter } from 'next-translate-routes';
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(SplitText);
@@ -29,11 +29,12 @@ export default function LinesInOut({
     scrub = false,
     markers
 }: Lines) {
-    const { locale } = useRouter();
-    const { currentLocale } = useNavigationContext();
+    const { asPath, locale } = useRouter();
+    const { currentRoute, currentLocale } = useNavigationContext();
     const { timeline, primaryEase } = useTransitionContext();
     const element = useRef<HTMLDivElement | null>(null);
-    const [animations, setAnimations] = useState<GSAPTween[]>([]);
+    const splitText = useRef<SplitText | null>(null);
+    const animations = useRef<GSAPTween[]>([]);
 
     const animate = (localChange: boolean) => {
         const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
@@ -50,6 +51,7 @@ export default function LinesInOut({
         } : {};
 
         const splitLineParent = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
+        splitText.current = splitLineParent;
 
         const lines = splitLineParent.lines;
         let initialDelay = delay;
@@ -80,25 +82,26 @@ export default function LinesInOut({
                             }
                         }
                     );
+
                     tree.push(anim);
                     initialDelay += increment;
+
                 } else if (localChange) {
                     if (!isInViewport && !isAboveViewport) {
                         const anim = gsap.fromTo(
                             lineChild,
                             {
-                                y: '100%',
-                                opacity: 0
+                                y: '100%'
                             },
                             {
                                 y: 0,
-                                opacity: 1,
                                 willChange: 'transform',
                                 ease: ease ?? primaryEase,
                                 delay: initialDelay,
                                 duration: durationIn,
                                 ...scrollTrigger,
                                 onComplete: () => {
+                                    console.log('line out locale change');
                                     if (index === lines.length - 1) {
                                         splitLineParent.revert();
                                     }
@@ -108,22 +111,25 @@ export default function LinesInOut({
 
                         tree.push(anim);
                         initialDelay += increment;
+
                     } else {
-                        gsap.set(element.current, {
-                            opacity: 1
-                        });
+                        /* Reverts SplitText */
+                        splitText.current?.revert();
                     }
                 }
             });
         });
 
-        setAnimations(tree);
+        animations.current = tree;
     };
 
     const animateOutro = () => {
         if (!skipOutro) {
             timeline?.add(
                 () => {
+                    /* Reverts SplitText */
+                    splitText.current?.revert();
+
                     const splitLineOutro = new SplitText(target, {type: 'lines', linesClass: 'u-overflow--hidden'});
                     const lines = splitLineOutro.lines;
 
@@ -170,20 +176,33 @@ export default function LinesInOut({
 
     useIsomorphicLayoutEffect(() => {
         if (currentLocale !== locale) {
+            console.log('change locale');
+            /* Reverts SplitText */
+            splitText.current?.revert();
+            
             /* Kills all animations */
-            animations.forEach(animation => {
+            animations.current.forEach(animation => {
                 animation.kill();
             });
 
-            setTimeout(() => {
+            const ctx = gsap.context(() => {
                 /* Intro animation */
-                animate(true);
+                setTimeout(() => {
+                    animate(true);
+                }, 0);
 
                 /* Outro animation */
                 animateOutro();
-            }, 0);
+            });
+            return () => ctx.revert();
+        } else if (currentRoute !== translateUrl(asPath, locale ?? '') && currentLocale === locale) {
+            console.log('change path');
+            /* Kills all animations */
+            animations.current.forEach(animation => {
+                animation.kill();
+            });
         }
-    }, [locale]);
+    }, [asPath, locale]);
 
     return (
         <div ref={element} style={{ opacity: 0 }}>

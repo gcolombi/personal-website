@@ -28,7 +28,7 @@ function AnimateInOut({
     const { currentLocale } = useNavigationContext();
     const { timeline } = useTransitionContext();
     const element = useRef<HTMLDivElement | null>(null);
-    const [animation, setAnimation] = useState<GSAPTween | null>(null);
+    const animation = useRef<GSAPTween | null>(null);
 
     const animate = () => {
         const scrollTrigger = watch ? {
@@ -48,7 +48,7 @@ function AnimateInOut({
             ...scrollTrigger
         });
 
-        setAnimation(anim);
+        animation.current = anim;
     };
 
     const animateOutro = () => {
@@ -81,7 +81,7 @@ function AnimateInOut({
         if (currentLocale !== locale) {
             const ctx = gsap.context(() => {
                 /* Kills animation */
-                animation?.kill();
+                animation.current?.kill();
 
                 const isInViewport = ScrollTrigger.isInViewport(element.current as Element);
                 const isAboveViewport = ScrollTrigger.positionInViewport(element.current as Element, 'bottom') <= 0;
@@ -93,7 +93,10 @@ function AnimateInOut({
                     });
                     animate();
                 } else {
-                    setAnimation(null);
+                    gsap.set(element.current, {
+                        ...to
+                    });
+                    animation.current = null;
                 }
 
                 /* Outro animation */
