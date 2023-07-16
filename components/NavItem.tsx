@@ -23,6 +23,7 @@ function NavItem({
                 onClick={onClick}
                 ref={ref}
                 scroll={false}
+                prefetch={false}
             >
                 {title}
             </Link>
