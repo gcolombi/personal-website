@@ -193,7 +193,7 @@ export default function LinesInOut({
                 animateOutro();
             });
             return () => ctx.revert();
-        } else if (currentRoute !== translateUrl(asPath, locale ?? '') && currentLocale === locale) {
+        } else if (currentRoute !== translateUrl(asPath, locale ?? '').split('?')[0] && currentLocale === locale) {
             /* Kills all animations */
             animations.current.forEach(animation => {
                 animation.kill();

@@ -240,7 +240,7 @@ export default function CharsInOut({
             setTimeout(() => {
                 animate(true);
             }, 0);
-        } else if (currentRoute !== translateUrl(asPath, locale ?? '') && currentLocale === locale) {
+        } else if (currentRoute !== translateUrl(asPath, locale ?? '').split('?')[0] && currentLocale === locale) {
             /* Kills all animations */
             animations.current.forEach(animation => {
                 animation.kill();

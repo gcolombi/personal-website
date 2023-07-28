@@ -75,7 +75,7 @@ export default function TransitionLayout({
     };
 
     useIsomorphicLayoutEffect(() => {
-        if (currentRoute !== translateUrl(router.asPath, router.locale ?? '') && currentLocale === router.locale) {
+        if (currentRoute !== translateUrl(router.asPath, router.locale ?? '').split('?')[0] && currentLocale === router.locale) {
             if (timeline?.duration() === 0) {
                 /* There are no outro animations, so immediately transition */
                 setDisplayChildren(children);
