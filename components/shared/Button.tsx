@@ -21,7 +21,7 @@ export default function Button({
     wrapperClassName
 }: ButtonProps) {
     const { locale } = useRouter();
-    const loadingButtonLabel = useRef(getTranslation('Sending', locale ?? ''));
+    const loadingButtonLabel = getTranslation('Sending', locale ?? '');
 
     if (label && href) {
         return (
@@ -65,7 +65,7 @@ export default function Button({
                 disabled={disabled}
             >
                 {disabled && <Circle />}
-                {disabled ? `${loadingButtonLabel.current}...` : label}
+                {disabled ? `${loadingButtonLabel}...` : label}
             </button>
         </div>
     );

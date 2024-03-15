@@ -15,6 +15,18 @@ export const META_PROJECTS: Lang<MetaDataProps> = {
 export const PROJECTS: Lang<Projects> = {
     en: [
         {
+            title: 'Acolyte',
+            description: 'Marketing agency in Trois-Rivières that supports your brand, your content and your actions on the web and in the media',
+            image: '/static/images/projects/acolyte.jpg',
+            url: 'https://acolyte.ws/'
+        },
+        {
+            title: 'Bijouterie LSM',
+            description: 'Online jewelry store built with shopify',
+            image: '/static/images/projects/lsm.jpg',
+            url: 'https://bijouterielsm.com/'
+        },
+        {
             title: 'Cartv',
             description: 'Organization guarding and defending the authenticity of food products recognized by the Quebec Government',
             image: '/static/images/projects/cartv.jpg',
@@ -37,15 +49,21 @@ export const PROJECTS: Lang<Projects> = {
             description: 'Canadian telecommunications company that serves multiple areas in Quebec',
             image: '/static/images/projects/sogetel.jpg',
             url: 'https://sogetel.com/'
-        },
-        {
-            title: 'Sweet sixteen',
-            description: 'Online candy store built with shopify',
-            image: '/static/images/projects/sweet-sixteen.jpg',
-            url: 'https://sweetsixteen.ca/en/'
         }
     ],
     fr: [
+        {
+            title: 'Acolyte',
+            description: 'Agence marketing à Trois‑Rivières qui vous accompagne pour votre marque, votre contenu et vos actions sur le web et dans les médias',
+            image: '/static/images/projects/acolyte.jpg',
+            url: 'https://acolyte.ws/'
+        },
+        {
+            title: 'Bijouterie LSM',
+            description: 'Bijouterie en ligne créé avec shopify',
+            image: '/static/images/projects/lsm.jpg',
+            url: 'https://bijouterielsm.com/'
+        },
         {
             title: 'Cartv',
             description: 'Organisme de surveillance et de défense de l\'authenticité des produits alimentaires reconnu par le Gouvernement du Québec',
@@ -69,12 +87,6 @@ export const PROJECTS: Lang<Projects> = {
             description: 'Entreprise canadienne de télécommunications qui dessert plusieurs régions du Québec',
             image: '/static/images/projects/sogetel.jpg',
             url: 'https://sogetel.com/'
-        },
-        {
-            title: 'Sweet sixteen',
-            description: 'Magasin de bonbons en ligne créé avec shopify',
-            image: '/static/images/projects/sweet-sixteen.jpg',
-            url: 'https://sweetsixteen.ca/'
         }
     ]
 };
@@ -128,17 +140,17 @@ export const PERSONAL_PROJECTS: Lang<Projects> = {
 
 export const FEATURED_PROJECT: Lang<ProjectProps> = {
     en: {
-        title: 'Dici',
-        description: 'Magazine and showcase on culture in Mauricie, Quebec (Canada)',
-        image: '/static/images/projects/dici.jpg',
-        url: 'https://dici.ca/',
+        title: 'Acolyte',
+        description: 'Marketing agency in Trois-Rivières that supports your brand, your content and your actions on the web and in the media',
+        image: '/static/images/projects/acolyte.jpg',
+        url: 'https://acolyte.ws/',
         type: ProjectsType.PROJECTS
     },
     fr: {
-        title: 'Dici',
-        description: 'Magazine et vitrine sur la culture en Mauricie, Québec (Canada)',
-        image: '/static/images/projects/dici.jpg',
-        url: 'https://dici.ca/',
+        title: 'Acolyte',
+        description: 'Agence marketing à Trois‑Rivières qui vous accompagne pour votre marque, votre contenu et vos actions sur le web et dans les médias',
+        image: '/static/images/projects/acolyte.jpg',
+        url: 'https://acolyte.ws/',
         type: ProjectsType.PROJECTS
     }
 };

@@ -18,7 +18,7 @@ export default function Project({
     githubUrl
 }: ProjectProps) {
     const { locale } = useRouter();
-    const buttonLabel = useRef(getTranslation('Visit website', locale ?? ''));
+    const buttonLabel = getTranslation('Visit website', locale ?? '');
 
     return(
         <div className={styles['c-project']}>
@@ -51,7 +51,7 @@ export default function Project({
                             watch
                         >
                             <Button
-                                label={buttonLabel.current}
+                                label={buttonLabel}
                                 className="c-btn--external"
                                 externalHref={url}
                                 isExternal
