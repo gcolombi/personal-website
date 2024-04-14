@@ -107,8 +107,15 @@ export const PERSONAL_PROJECTS: Lang<Projects> = {
             githubUrl: 'https://github.com/gcolombi/linklist'
         },
         {
+            title: 'Next.js TS starter',
+            description: 'Next.js TypeScript starter that includes a collection of reusable components, hooks, and utilities to build amazing projects with complex animations and page transitions using GSAP',
+            image: '/static/images/projects/nextjs-typescript-starter.jpg',
+            url: 'https://nextjs-typescript-gsap-starter.vercel.app/',
+            githubUrl: 'https://github.com/gcolombi/nextjs-typescript-starter'
+        },
+        {
             title: 'Next.js starter',
-            description: 'Starter that includes a collection of reusable components, hooks, and utilities to build amazing projects with complex animations and page transitions using GSAP',
+            description: 'Next.js starter that includes a collection of reusable components, hooks, and utilities to build amazing projects with complex animations and page transitions using GSAP',
             image: '/static/images/projects/nextjs-starter.jpg',
             url: 'https://nextjs-gsap-starter.vercel.app/',
             githubUrl: 'https://github.com/gcolombi/nextjs-starter'
@@ -129,8 +136,15 @@ export const PERSONAL_PROJECTS: Lang<Projects> = {
             githubUrl: 'https://github.com/gcolombi/linklist'
         },
         {
+            title: 'Next.js TS starter',
+            description: 'Base de départ Next.js et TypeScript qui inclut une collection de composants réutilisables, de hooks et d\'utilitaires pour créer des projets étonnants avec des animations complexes et des transitions de page en utilisant GSAP',
+            image: '/static/images/projects/nextjs-typescript-starter.jpg',
+            url: 'https://nextjs-typescript-gsap-starter.vercel.app/',
+            githubUrl: 'https://github.com/gcolombi/nextjs-typescript-starter'
+        },
+        {
             title: 'Next.js starter',
-            description: 'Base de départ qui inclut une collection de composants réutilisables, de hooks et d\'utilitaires pour créer des projets étonnants avec des animations complexes et des transitions de page en utilisant GSAP',
+            description: 'Base de départ Next.js qui inclut une collection de composants réutilisables, de hooks et d\'utilitaires pour créer des projets étonnants avec des animations complexes et des transitions de page en utilisant GSAP',
             image: '/static/images/projects/nextjs-starter.jpg',
             url: 'https://nextjs-gsap-starter.vercel.app/',
             githubUrl: 'https://github.com/gcolombi/nextjs-starter'
