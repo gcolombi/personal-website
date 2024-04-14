@@ -23,14 +23,12 @@ export const getStaticProps: GetStaticProps<{
     header: BasicHeaderProps;
 }> = async ({ locale }) => {
     const lang = locale ?? '';
-    const metaContact = META_404[lang];
+    const metaData = META_404[lang];
     const header = PAGE_NOT_FOUND_HEADER[lang];
 
     return {
         props: {
-            metaData: {
-                ...metaContact
-            },
+            metaData,
             header: {
                 ...header
             }

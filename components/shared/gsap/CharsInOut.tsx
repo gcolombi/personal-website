@@ -2,7 +2,7 @@ import { Chars } from '@/types/animations';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitText from 'gsap/dist/SplitText';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useNavigationContext from '@/context/navigationContext';
 import useTransitionContext from '@/context/transitionContext';

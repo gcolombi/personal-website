@@ -2,7 +2,6 @@ import { ButtonProps } from '@/types/components/button';
 import styles from '@/styles/modules/Button.module.scss';
 import Link from 'next-translate-routes/link';
 import { translateUrl, useRouter } from 'next-translate-routes';
-import { useRef } from 'react';
 import ArrowOutward from './svg/ArrowOutward';
 import Circle from './svg/Circle';
 import { getTranslation } from '@/utils/translation';

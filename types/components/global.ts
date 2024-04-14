@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, ReactNode, SetStateAction } from 'react';
 import { SocialMedias } from '../socials';
 import { NextRouter } from 'next-translate-routes';
 
@@ -67,6 +67,15 @@ export type NavigationRoute = {
     href: string;
     title: string;
 }
+
+/* Layout */
+export type Layout = {
+    children: ReactNode;
+};
+
+export type TransitionLayout = {
+    children: ReactNode;
+};
 
 /* Footer */
 export type FooterProps = {

@@ -8,7 +8,7 @@ export type Animation = {
     durationOut: number;
     delay: number;
     delayOut: number;
-    easeOut: string;
+    easeOut?: string;
     from: CSSProperties;
     to: GSAPTweenVars;
     outro?: GSAPTweenVars;

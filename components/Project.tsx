@@ -1,6 +1,5 @@
 import { ProjectProps } from '@/types/projects';
 import styles from '@/styles/modules/Project.module.scss';
-import { useRef } from 'react';
 import { useRouter } from 'next-translate-routes';
 import Button from './shared/Button';
 import CharsInOut from './shared/gsap/CharsInOut';

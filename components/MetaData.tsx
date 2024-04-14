@@ -15,7 +15,7 @@ export default function MetaData({
         image: `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image${locale ? `-${locale}`: ''}.png`,
         type: 'website',
         ...customMeta
-    }
+    };
 
     return (
         <Head>

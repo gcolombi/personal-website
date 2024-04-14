@@ -1,7 +1,7 @@
 import { Animation } from '@/types/animations';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useNavigationContext from '@/context/navigationContext';
 import useTransitionContext from '@/context/transitionContext';

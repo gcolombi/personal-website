@@ -1,17 +1,16 @@
+import { TransitionLayout } from '@/types/components/global';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import useTransitionContext from '@/context/transitionContext';
 import useNavigationContext from '@/context/navigationContext';
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next-translate-routes/router';
 import { translateUrl } from 'next-translate-routes';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 
 export default function TransitionLayout({
     children
-}: {
-    children: ReactNode;
-}) {
+}: TransitionLayout) {
     const router = useRouter();
     const [displayChildren, setDisplayChildren] = useState(children);
     const { timeline, resetTimeline, primaryEase, footerRef } = useTransitionContext();
@@ -88,7 +87,7 @@ export default function TransitionLayout({
             }
 
             timeline?.play().then(() => {
-                /* outro complete so reset to an empty paused timeline */
+                /* Outro complete so reset to an empty paused timeline */
                 resetTimeline();
                 setDisplayChildren(children);
                 animateNavigation();

@@ -39,7 +39,7 @@ export default function FormInput({
                 <span className={styles['c-formElement--focusLine']} />
             </div>
             {errors?.message &&
-                <label htmlFor={htmlFor}>{errors?.message}</label>
+                <label htmlFor={htmlFor}>{errors.message}</label>
             }
         </div>
     );
