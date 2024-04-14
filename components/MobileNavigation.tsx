@@ -140,7 +140,10 @@ export default function MobileNavigation({
                                     href={translateUrl(href, router.locale ?? '')}
                                     title={title}
                                     className={styles['is-current-page']}
-                                    ref={(el) => navItemsRef.current[i] = el}
+                                    ref={(el) => {
+                                        navItemsRef.current[i] =
+                                            el;
+                                    }}
                                 />
                             </li>
                         ))}

@@ -4,12 +4,10 @@ import useNavigationContext from '@/context/navigationContext';
 import { ForwardedRef, forwardRef } from 'react';
 import classNames from 'classnames';
 
-function NavItem({
-    href,
-    title,
-    onClick,
-    className
-}: NavItemProps, ref: ForwardedRef<HTMLAnchorElement>) {
+function NavItem(
+    { href, title, onClick, className }: NavItemProps,
+    ref: ForwardedRef<HTMLAnchorElement>,
+) {
     const { currentRoute } = useNavigationContext();
     const isActive = currentRoute === href;
 
@@ -18,11 +16,10 @@ function NavItem({
             <Link
                 href={href}
                 className={classNames({
-                    [className]: isActive
+                    [className]: isActive,
                 })}
-                onClick={onClick}
                 ref={ref}
-                scroll={false}
+                onClick={onClick}
             >
                 {title}
             </Link>
